@@ -7,7 +7,7 @@ title: About Collaboration
 This localized edition of [Learn Prompting](https://learnprompting.org) is brought to you by a collaboration between **Learn Prompting** and **[HumblebeeAI](https://humblebee.ai)**.
 
 ## Mission
-Our mission is to democratize access to high-quality AI education for **Uzbek** and **Russian** speaking communities. By translating and adapting the world's most comprehensive prompt engineering course, we aim to empower developers, researchers, and enthusiasts in Central Asia and beyond.
+Our mission is to democratize access to high-quality AI education for **Uzbek** speaking communities. By translating and adapting the world's most comprehensive prompt engineering course, we aim to empower developers, researchers, and enthusiasts in Central Asia and beyond.
 
 ## Attribution
 - **Original Content**: Created by [Sander Schulhoff](https://github.com/trigaten) and the open-source Learn Prompting community.

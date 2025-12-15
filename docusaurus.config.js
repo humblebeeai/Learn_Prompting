@@ -129,7 +129,7 @@ async function createConfig() {
         themeConfig: {
             metadata: [
                 { name: "description", content: "Learn Prompting x HumblebeeAI: Free, Open Source Course on Communicating with AI." },
-                { name: "keywords", content: "prompting, prompt engineering, learn prompting, AI, chatGPT, humblebeeai, uzbek, russian" },
+                { name: "keywords", content: "prompting, prompt engineering, learn prompting, AI, chatGPT, humblebeeai, uzbek" },
             ],
             navbar: {
                 title: "Learn Prompting",
@@ -141,7 +141,7 @@ async function createConfig() {
                     {
                         type: 'html',
                         position: 'left',
-                        value: '<div style="display: flex; align-items: center; margin-left: -28px;"><span style="margin: 0 12px; color: var(--ifm-color-primary); font-weight: 800; font-size: 1.5rem;">×</span><a href="https://academy.humblebee.ai" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="/humblebee_logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 32px; margin-right: 8px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">HumblebeeAI</span></a></div>',
+                        value: '<div style="display: flex; align-items: center; margin-left: -27px;"><span style="margin: 0 14px; color: var(--ifm-color-primary); font-weight: 800; font-size: 1.5rem;">×</span><a href="/about-collaboration" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="https://academy.humblebee.ai/images/logo/logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 32px; margin-right: 12px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">HumblebeeAI</span></a></div>',
                     },
                     { type: "localeDropdown", position: "right", className: "icon-link-language" },
                     {
