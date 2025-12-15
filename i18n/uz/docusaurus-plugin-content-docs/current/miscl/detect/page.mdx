@@ -1,0 +1,42 @@
+---
+sidebar_position: 1
+title: "🟢 AI tomonidan yaratilgan matnni aniqlash"
+---
+
+
+# AI tomonidan yaratilgan matnni aniqlash
+
+AI tomonidan yaratilgan matnni aniqlash xavfsizlik tadqiqotchilari va o‘qituvchilar uchun katta muammo hisoblanadi,
+boshqalar qatori. [GPTZero](https://gptzero.me), [GPT2 detector](https://openai-openai-detector.hf.space) va [bilingual detectors](https://github.com/Hello-SimpleAI/chatgpt-comparison-detection) kabi vositalar sezilarli muvaffaqiyatga erishgan,
+Biroq, ularni [aldash](https://learnprompting.org/docs/miscl/trickery) mumkin.
+
+OpenAI va boshqa tadqiqotchilar(@bansal2022certified)(@gu2022watermarking) o‘zlarining yaratilgan matnlariga statistik watermarking joriy qilish ustida ishlamoqda, lekin bu ham matnning katta qismini o‘zgartirish orqali aldash mumkin.
+
+AI matnini aniqlash muammosi ehtimol yangi modellari va yangi aniqlash usullari paydo bo‘lishi bilan qurollanish poygasiga aylanadi. Ko‘plab kompaniyalar allaqachon juda samarali deb da’vo qilinayotgan yechimlarni yaratishni boshlagan, biroq buni isbotlash qiyin, ayniqsa modellarda vaqt o‘tishi bilan o‘zgarishlar bo‘lsa.
+
+Ushbu maqolada AI tomonidan yaratilgan matnni aniqlashning hozirgi usullaridan ba’zilari ko‘rib chiqiladi, keyingi maqolada esa odamlar ularni qanday aldash yo‘llarini topgani haqida so‘z boradi.
+
+## OpenAI Text Classifier
+
+[OpenAI Text Classifier](https://platform.openai.com/ai-text-classifier) umumiy maqsadli AI matn aniqlovchi sifatida ancha yaxshi urinishdir.
+Modelni katta miqdordagi AI tomonidan yaratilgan ma’lumotlar va shunga o‘xshash sifatdagi inson yozgan matnlarda o‘qitish orqali, aniqlovchi har qanday matnning LLM tomonidan yaratilgan bo‘lish ehtimolini hisoblay oladi.
+
+Uning bir qator cheklovlari bor — 1000 ta so‘zdan kam bo‘lgan matnlarni qabul qilmaydi, matnni osonlik bilan tahrirlash orqali ehtimollik hisob-kitoblarini chalg‘itish mumkin, va professional maqsadga yo‘naltirilgan o‘quv to‘plami tufayli bolalar yoki ingliz tilida so‘zlashmaydiganlar tomonidan yaratilgan matnlarni aniqlashda ko‘proq qiynaladi.
+
+Hozirda inson yozgan matnni AI tomonidan yaratilgan deb taxminan 9% holatda noto‘g‘ri belgilaydi, va AI tomonidan yaratilgan matnni to‘g‘ri aniqlash ko‘rsatkichi ~26% ni tashkil qiladi. Model kuchi va qamrovi oshgani sari bu raqamlar yaxshilanadi, lekin matn yaratilgan yoki yo‘qligini yetarlicha baholash uchun yanada aniqroq aniqlovchilar talab qilinishi mumkin.
+
+## Watermark usuli
+
+AI tomonidan yaratilgan matnni aniqlashning bir usuli matn yaratilayotganda statistik watermark kiritishni talab qiladi. Bu texnikalar LLM “whitelist” dan foydalanishi mumkin, bu esa matn ma’lum bir AI modeli tomonidan yaratilganini aniqlash usulidir. Watermark ishlashi uchun so‘z yaratilishidan oldin tasodifiy “yashil” tokenlar to‘plami tanlanadi va tanlangan tokenlardan foydalanishni sampling jarayonida yumshoq tarzda rag‘batlantiriladi. Ushbu og‘irlik qiymatlari generatsiya sifatiga minimal ta’sir ko‘rsatadi, lekin boshqa bir LLM tomonidan algoritmik tarzda aniqlanishi mumkin(@kirchenbauer2023watermarking).
+
+Bu qiziqarli g‘oya, lekin bu uchun model yaratuvchilari ushbu frameworkni o‘z LLMlariga joriy qilishi kerak bo‘ladi. Agar modelda watermark mavjud bo‘lmasa, bu usul ishlamaydi.
+
+## DetectGPT
+
+[DetectGPT](https://detectgpt.ericmitchell.ai/)(@mitchell2023detectgpt) usuli oldingi konsepsiyalarga qaraganda kamroq sozlash bilan AI tomonidan yaratilgan matnni aniqlay oladi. Tadqiqotchilar LLM matn generatsiyalari modelning log ehtimollik funksiyasining “manfiy egri” hududlarini egallashga moyil ekanini aniqlashgan. Shu sababli, matn bloki protsedurali yaratilganini aniqlash uchun egri asosidagi tizim yaratish mumkin.
+
+U matnni yaratgan deb taxmin qilingan modeldan log ehtimolliklarni hisoblash va ularni boshqa, oldindan o‘qitilgan umumiy til modelidan matnning tasodifiy o‘zgartirilgan variantlari bilan solishtirish orqali ishlaydi. Shu tarzda, DetectGPT faqat ehtimollik egri chiziqlari yordamida parchaning yaratilgan bo‘lish ehtimolini aniqlay oladi!
+
+## Eslatma
+
+Detektorlar va odamlar ularni qanday aldashayotgani haqida qo‘shimcha muhokama uchun [ushbu maqolani](https://learnprompting.org/docs/miscl/trickery) ko‘ring.

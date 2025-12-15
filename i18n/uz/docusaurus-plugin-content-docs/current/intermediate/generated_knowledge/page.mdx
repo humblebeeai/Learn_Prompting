@@ -1,0 +1,207 @@
+---
+sidebar_position: 7
+title: "🟡 Yaratilgan bilim"
+---
+
+
+# Yaratilgan bilim
+
+Yaratilgan bilim yondashuvi(@liu2021generated) g‘oyasi shundan iboratki, <Term term="LLM">LLM</Term>dan yakuniy javobni yaratishdan oldin berilgan savol/prompt bo‘yicha foydali bo‘lishi mumkin bo‘lgan ma’lumotlarni yaratishni so‘rash kerak.
+
+Masalan, siz biror hayvon, masalan, [Spirit bears](https://en.wikipedia.org/wiki/Kermode_bear) haqida kichik blog posti yozmoqchisiz. <Term term="LLM">LLM</Term>dan blog posti yozishni so‘rashdan oldin, undan Spirit bears haqida faktlar yaratishni so‘rashingiz mumkin. Bu LLMga yanada ma’lumotli blog posti yozishda yordam beradi. Buni amalga oshirishning ikki oddiy usuli mavjud.
+
+## Bitta prompt yondashuvi
+
+Birinchi yondashuvda LLMdan bilim yaratish va post yozishni bitta prompt orqali so‘raladi.
+
+```text {3-13}
+Kermode ayiqlari haqida 4 ta fakt yarating, so‘ngra ushbu faktlardan foydalanib qisqa blog posti yozing:
+
+Kermode ayiqlari, shuningdek spirit bear nomi bilan ham tanilgan, Amerikaning qora ayiqlari kamyob kenja turi bo‘lib, Kanada, Britaniya Kolumbiyasi sohil hududlarida uchraydi.
+
+1. Kermode ayiqlari Amerikaning qora ayiqlari noyob kenja turi bo‘lib, aholining taxminan 10% oq tukli.
+
+2. Kermode ayiqlari Britaniya Kolumbiyasi birinchi xalqlari uchun ramziy ahamiyatga ega va ruhiy hayvon sifatida ko‘riladi.
+
+3. Kermode ayiqlari ekotizimning muhim qismi bo‘lib, urug‘larni tarqatishda va o‘rmon muvozanatini saqlashda yordam beradi.
+
+4. Kermode ayiqlari himoyalangan tur hisoblanadi va uning populyatsiyasi viloyat hukumati tomonidan diqqat bilan kuzatib boriladi.
+
+Kermode ayiqlari Britaniya Kolumbiyasi sohil hududlarida uchraydigan noyob va o‘ziga xos hayvondir. Ushbu Amerikaning qora ayiqlari kenja turining aholisi orasida taxminan 10% oq tukli bo‘lib, ularni kamyob qiladi. Kermode ayiqlari Britaniya Kolumbiyasi birinchi xalqlari uchun ramziy ahamiyatga ega va ruhiy hayvon sifatida ko‘riladi. U ekotizimning muhim qismi bo‘lib, urug‘larni tarqatishda va o‘rmon muvozanatini saqlashda yordam beradi. Kermode ayiqlari himoyalangan tur hisoblanadi va uning populyatsiyasi viloyat hukumati tomonidan diqqat bilan kuzatib boriladi. Bu go‘zal va ulug‘vor hayvon bo‘lib, biz ushbu turini himoya qilish va asrash uchun o‘z hissamizni qo‘shishimiz muhimdir.
+```
+
+## Ikki promptli yondashuv
+
+Bu yondashuvda avval <Term term="LLM">LLM</Term>dan ayiqlar haqida faktlar yaratishni so‘raymiz:
+
+```text {3-9}
+Kermode ayiqlari haqida 10 ta fakt yarating:
+
+1. Kermode ayiqlari, shuningdek Spirit Bear nomi bilan tanilgan, Amerikaning qora ayiqlari kamyob kenja turi bo‘lib, Britaniya Kolumbiyasida, Kanadada uchraydi.
+
+2. Kermode ayiqlari o‘ziga xos oq yoki krem rangli tuklarga ega bo‘lib, bu resessiv gen tufayli yuzaga keladi.
+
+3. Kermode ayiqlari Britaniya Kolumbiyasi birinchi xalqlari uchun umid va yangilanish ramzi hisoblanadi.
+
+4. Kermode ayiqlari himoyalangan tur bo‘lib, Kanadadagi Endangered Wildlife Status qo‘mitasi tomonidan maxsus e’tibor talab qiluvchi tur sifatida ro‘yxatga olingan.
+```
+
+Keyin, ushbu ma’lumotlarni boshqa promptga kiritib, blog posti yozamiz:
+
+```text {12-14}
+1. Kermode ayiqlari, shuningdek Spirit Bear nomi bilan tanilgan, Amerikaning qora ayiqlari kamyob kenja turi bo‘lib, Britaniya Kolumbiyasida, Kanadada uchraydi.
+
+2. Kermode ayiqlari o‘ziga xos oq yoki krem rangli tuklarga ega bo‘lib, bu resessiv gen tufayli yuzaga keladi.
+
+3. Kermode ayiqlari Britaniya Kolumbiyasi birinchi xalqlari uchun umid va yangilanish ramzi hisoblanadi.
+
+4. Kermode ayiqlari himoyalangan tur bo‘lib, Kanadadagi Endangered Wildlife Status qo‘mitasi tomonidan maxsus e’tibor talab qiluvchi tur sifatida ro‘yxatga olingan.
+
+Yuqoridagi faktlardan foydalanib, Kermode ayiqlari haqida bir paragraflik blog posti yozing:
+
+
+
+Kermode ayiqlari, shuningdek Spirit Bear nomi bilan tanilgan, Amerikaning qora ayiqlari kamyob kenja turi bo‘lib, Britaniya Kolumbiyasida, Kanadada uchraydi. Ushbu noyob ayiq oq yoki krem rangli tuklarga ega bo‘lib, bu resessiv gen tufayli yuzaga keladi va Britaniya Kolumbiyasi birinchi xalqlari uchun umid va yangilanish ramzi hisoblanadi. Kermode ayiqlari himoyalangan tur bo‘lib, Kanadadagi Endangered Wildlife Status qo‘mitasi tomonidan maxsus e’tibor talab qiluvchi tur sifatida ro‘yxatga olingan, bu esa uni mintaqaning biologik xilma-xilligida muhim qismga aylantiradi.
+```
+
+Men ushbu ikkinchi yondashuvni tavsiya qilaman, chunki u uzoqroq kontentni yanada ishonchli tarzda yaratishi mumkin.
+
+## Yana bir foydalanish holati
+
+Yaratilgan bilim yondashuvi aslida butunlay boshqa vazifa, ya’ni qiyin savollarga javob berish uchun kiritilgan. Quyidagi savolni ko‘rib chiqing, unga GPT-3 noto‘g‘ri javob beradi:
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjo0MSwib3V0cHV0IjoiU291dGggQWZyaWNhIGlzIGxhcmdlciB0aGFuIENvbmdvLiIsInByb21wdCI6IldoaWNoIGNvdW50cnkgaXMgbGFyZ2VyLCBDb25nbyBvciBTb3V0aCBBZnJpY2E%2FIiwibW9kZWwiOiJ0ZXh0LWRhdmluY2ktMDAzIn0%3D"
+  style={{
+    width: "100%",
+    height: "200px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<Note>Ushbu misol to‘g‘ri bo‘lmasligi mumkin. Biz uni qayta ko‘rib chiqish ustida ishlayapmiz.</Note>
+
+<br />
+
+Agar avval <Term term="LLM">LLM</Term>dan Kongo va Janubiy Afrika haqida faktlar yaratishni so‘rasak, keyin ushbu ma’lumotlardan savolga to‘g‘ri javob berishda foydalanishimiz mumkin. Nazariy jihatdan, bu <Term term="CoT prompting">CoT prompting</Term>ga o‘xshaydi, chunki biz LLMdan oraliq mulohazalarni, ya’ni bog‘liq faktlar shaklida yaratishni so‘rayapmiz.
+
+Keling, birinchi bosqichdan, _bilim yaratish_ bosqichidan boshlaymiz. <Term term="LLM">LLM</Term>dan Kongo va Janubiy Afrika haqida faktlar yaratishni so‘rashimiz mumkin:
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjo0MSwib3V0cHV0IjoiU291dGggQWZyaWNhIGlzIHRoZSAyNXRoIGxhcmdlc3QgY291bnRyeSBpbiB0aGUgd29ybGQsIHdpdGggYW4gYXJlYSBvZiAxLDIyMSwwMzcgc3F1YXJlIGtpbG9tZXRlcnMgKDQ3MSw0NDUgc3F1YXJlIG1pbGVzKS4gQ29uZ28sIG9uIHRoZSBvdGhlciBoYW5kLCBpcyB0aGUgMTF0aCBsYXJnZXN0IGNvdW50cnkgaW4gdGhlIHdvcmxkLCB3aXRoIGFuIGFyZWEgb2YgMiwzNDQsODU4IHNxdWFyZSBraWxvbWV0ZXJzICg5MDUsNTY3IHNxdWFyZSBtaWxlcykuIFNvdXRoIEFmcmljYSBpcyBhbG1vc3QgaGFsZiB0aGUgc2l6ZSBvZiBDb25nbywgd2l0aCBhIHBvcHVsYXRpb24gb2YgNTcuNyBtaWxsaW9uIGNvbXBhcmVkIHRvIENvbmdvJ3MgcG9wdWxhdGlvbiBvZiA4NC4zIG1pbGxpb24uIFNvdXRoIEFmcmljYSBpcyB0aGUgbW9zdCBwb3B1bG91cyBjb3VudHJ5IGluIHRoZSByZWdpb24sIHdoaWxlIENvbmdvIGlzIHRoZSBzZWNvbmQgbW9zdCBwb3B1bG91cy4iLCJwcm9tcHQiOiJHZW5lcmF0ZSBzb21lIGtub3dsZWRnZSBhYm91dCB0aGUgc2l6ZXMgb2YgU291dGggQWZyaWNhIGFuZCBDb25nbzoiLCJtb2RlbCI6InRleHQtZGF2aW5jaS0wMDMifQ%3D%3D"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<br />
+
+Keyin, ushbu bilimdan foydalanib, savolga to‘g‘ri javob beramiz. Bu _bilimni integratsiya qilish_ bosqichidir!
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjo0MSwib3V0cHV0IjoiQ29uZ28gaXMgbGFyZ2VyIHRoYW4gU291dGggQWZyaWNhLlxuIiwicHJvbXB0IjoiU291dGggQWZyaWNhIGlzIHRoZSAyNXRoIGxhcmdlc3QgY291bnRyeSBpbiB0aGUgd29ybGQsIHdpdGggYW4gYXJlYSBvZiAxLDIyMSwwMzcgc3F1YXJlIGtpbG9tZXRlcnMgKDQ3MSw0NDUgc3F1YXJlIG1pbGVzKS4gQ29uZ28sIG9uIHRoZSBvdGhlciBoYW5kLCBpcyB0aGUgMTF0aCBsYXJnZXN0IGNvdW50cnkgaW4gdGhlIHdvcmxkLCB3aXRoIGFuIGFyZWEgb2YgMiwzNDQsODU4IHNxdWFyZSBraWxvbWV0ZXJzICg5MDUsNTY3IHNxdWFyZSBtaWxlcykuIFNvdXRoIEFmcmljYSBpcyBhbG1vc3QgaGFsZiB0aGUgc2l6ZSBvZiBDb25nbywgd2l0aCBhIHBvcHVsYXRpb24gb2YgNTcuNyBtaWxsaW9uIGNvbXBhcmVkIHRvIENvbmdvJ3MgcG9wdWxhdGlvbiBvZiA4NC4zIG1pbGxpb24uIFNvdXRoIEFmcmljYSBpcyB0aGUgbW9zdCBwb3B1bG91cyBjb3VudHJ5IGluIHRoZSByZWdpb24sIHdoaWxlIENvbmdvIGlzIHRoZSBzZWNvbmQgbW9zdCBwb3B1bG91cy5cblxuV2hpY2ggY291bnRyeSBpcyBsYXJnZXIsIENvbmdvIG9yIFNvdXRoIEFmcmljYT8iLCJtb2RlbCI6InRleHQtZGF2aW5jaS0wMDMifQ%3D%3D"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+## Texnik jihatdan batafsil muhokama
+
+Yuqoridagi foydalanish holati yaratilgan bilim dastlab qanday kiritilganiga o‘xshash bo‘lsa-da, u aynan bir xil emas. Quyidagi mazmun ushbu yondashuv kiritilgan yanada texnik kontekstni qamrab oladi. U yuqorida ko‘rganimiz ikki oraliq bosqich (bilim yaratish va bilimni integratsiya qilish) namunasi asosida ketadi.
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/intermediate/knowledge_generation.webp"
+    width={1018}
+    height={242}
+    style={{ width: "750px", margin: "auto" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>Generated Knowledge (Liu et al.)</div>
+
+### Bilim yaratish
+
+Bilim yaratish bosqichida <Term term="LLM">LLM</Term>dan faktlar to‘plamini yaratish so‘raladi
+**savol** haqida. LLM few-shot usulida quyida ko‘rsatilganidek prompt qilinadi.
+Xuddi shu promptdan foydalanib M ta turli yakunlar yaratiladi (self-consistency yondashuviga o‘xshash).
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/intermediate/gen_k_p1.webp"
+    width={1122}
+    height={428}
+    style={{ width: "500px", margin: "auto" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+Yaratilgan bilim namunasi (Liu va boshq.)
+</div>
+
+### Bilimni integratsiya qilish
+
+Keyin, biz "bilim bilan boyitilgan" savollarni yaratamiz va <Term term="LLM">LLM</Term>ga ularni prompt qilamiz
+yakuniy javoblarni olish uchun. Buni tushunishning eng oson yo‘li — misol orqali ko‘rish.
+
+Faraz qilaylik, biz **savol**ga javob berishga harakat qilyapmiz
+"Ko‘pchilik kangurularda \<mask\> oyoq bor". Faraz qilaylik, bilim yaratish bosqichida
+2 ta bilim yaratdik (M=2):
+
+- Bilim 1: `Kangurular Avstraliyada yashovchi marsupial hayvonlardir.`
+
+- Bilim 2: `Kangurular 5 ta oyoqqa ega bo‘lgan marsupial hayvonlardir.`
+
+Endi, har bir bilimni savol bilan birlashtirib, bilim bilan boyitilgan savollar yaratamiz:
+
+- Knowledge Augmented Question 1: `Ko‘pchilik Kangurularning <mask> oyoqlari bor. Kangurular Avstraliyada yashovchi marsupial hayvonlardir.`
+
+- Knowledge Augmented Question 2: `Ko‘pchilik Kangurularning <mask> oyoqlari bor. Kangurular 5 ta oyog‘i bor bo‘lgan marsupial hayvonlardir.`
+
+Keyin biz ushbu bilim bilan boyitilgan savollar bilan LLM ni prompt qilamiz va yakuniy javob takliflarini olamiz:
+
+- Answer 1: `4`
+
+- Answer 2: `5`
+
+Biz eng yuqori ehtimollikka ega javobni yakuniy javob sifatida tanlaymiz. The
+eng yuqori ehtimollik javob tokenining softmax ehtimolligi yoki
+javob token(lar)ining log ehtimolligi bo‘lishi mumkin.
+
+## Recitation-Augmented Language Models
+
+Recitation-augmented(@sun2022recitationaugmented) yondashuvi generated knowledge ga o‘xshash (asosan bir xil). Biroq, generated knowledge ning rasmiy implementatsiyasiga nisbatan ancha sodda.
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/intermediate/recitation.webp"
+    width={610}
+    height={686}
+    style={{ width: "250px", margin: "auto" }}
+  />
+</div>
+
+Bu yerda asosiy g‘oya shundaki, few shot prompt orqali LLM dan ma’lumot _va_ javobni _bir xil_ bosqichda generatsiya qilish so‘raladi. Bilimni takrorlash/generatsiya qilish va savolga javob berish bir bosqichda amalga oshirilishi generated knowledge yondashuvidan asosiy farqidir.
+
+Qayta ta’kidlash uchun, bu yondashuv modelga bir nechta (savol, recitation, javob) namunalarini prompt qiladi, so‘ngra savolni beradi. Mualliflar bu yondashuvni self consistency yoki bir nechta completion paths bilan birlashtirish mumkinligini ta’kidlaydi.
+
+## Eslatmalar
+
+- Generated knowledge turli commonsense datasetlarda yaxshilanishlarni ko‘rsatadi.
+
+- Tanlangan javobga mos keluvchi bilim _tanlangan bilim_ deb ataladi.
+
+- Amaliyotda, eng ko‘p uchraydigan javobni yakuniy javob sifatida olish mumkin.

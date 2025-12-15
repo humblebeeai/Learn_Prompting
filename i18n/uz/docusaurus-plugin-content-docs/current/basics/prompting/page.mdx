@@ -1,0 +1,109 @@
+---
+sidebar_position: 10
+title: "🟢 ChatGPT bilan Prompting"
+---
+
+
+# ChatGPT bilan Prompting
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/basics/chatgpt_interface.webp"
+    className="img-docs"
+    width={2854}
+    height={1466}
+    style={{ width: "80%", margin: "auto" }}
+  />
+</div>
+<br />
+
+<Takeaways>
+  - ChatGPT ni sozlash
+  - ChatGPT dan matnni qisqacha bayon qilish va matematik masalani yechish uchun foydalaning
+</Takeaways>
+
+Oldingi modulda biz sun’iy intellekt va insonlar sun’iy intellektlarga qanday qilib vazifalarni bajarishni ko‘rsatishi mumkinligi haqida gaplashdik.
+Sun’iy intellektga vazifa berish uchun promptdan foydalanish prompting(@shin2020autoprompt) deb ataladi. Biz [ChatGPT](http://chat.openai.com)[^a] bilan promptingni o‘rganamiz, bu juda mashhur Large Language Model bo‘lib, matnni tushunishi va yozishi mumkin. Uni OpenAI ishlab chiqqan va hozirda eng oson ishlatiladigan Gen AI hisoblanadi. Bundan foydalanish ham butunlay bepul.
+
+## ChatGPT ni sozlash
+
+ChatGPT bilan boshlash uchun quyidagi bosqichlarni bajaring:
+
+- [http://chat.openai.com](http://chat.openai.com) manziliga o‘ting
+- U sizdan akkaunt yaratishingizni so‘raydi. Buni bajaring.
+- Ushbu akkaunt bilan tizimga kiring
+
+Mana sizga ChatGPT ni qanday sozlashni ko‘rsatadigan video.
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/FMEzy2jo84c"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowFullScreen
+></iframe>
+
+## ChatGPT da ba’zi promptlarni sinab ko‘ring
+
+Endi ChatGPT ni sozlab oldik, keling, ba’zi promptlarni sinab ko‘ramiz.
+
+#### 1) Maysaning rangi
+
+Juda oddiy narsadan boshlaymiz: ChatGPT bizga maysaning rangini ayta oladimi?
+
+<AIInput>Maysa qanday rangda?</AIInput>
+
+<AIOutput>Maysa yashil rangda.</AIOutput>
+
+Haqiqatan ham ayta oladi, endi esa yanada foydaliroq misolni ko‘ramiz.
+
+#### 2) Maqolani qisqacha bayon qilish
+
+Aytaylik, siz Florida shtatida qor yog‘ishi haqida maqola o‘qiyapsiz. Siz maqolaning asosiy g‘oyalarini tezda bilmoqchisiz, shuning uchun o‘qiyotgan narsangizni sun’iy intellektga ko‘rsatasiz va qisqacha bayon so‘raysiz[^b]:
+
+<AIInput>
+AQSHning Florida shtatida, ayniqsa shtatning markaziy va janubiy hududlarida qor yog‘ishi juda kam uchraydi. Shtatning shimoliy chekka hududlaridan tashqari, Florida shtatidagi aksariyat yirik shaharlarda hech qachon sezilarli darajada qor yog‘ishi qayd etilmagan, lekin ba’zan juda oz miqdorda qor yoki havoda qor parchalari asrda bir necha marta kuzatilgan. Milliy ob-havo xizmati ma’lumotlariga ko‘ra, Florida Keys va Key Westda so‘nggi 300 yildan ortiq vaqt davomida, ya’ni Yevropaliklar bu hududni mustamlaka qilganidan beri, qor parchalari kuzatilmagan. Mayami, Fort-Loderdeyl va Palm-Bichda esa so‘nggi 200 yildan ortiq vaqt ichida faqat bir marta havoda qor parchalari kuzatilgani ma’lum; bu 1977 yil yanvar oyida sodir bo‘lgan. Har holda, Mayami, Fort-Loderdeyl va Palm-Bichda bu 1977 yilgi hodisadan oldin ham, keyin ham qor parchalari kuzatilmagan.
+
+Ushbu paragrafni bitta gapda qisqacha bayon qiling:
+
+</AIInput>
+
+Mana ChatGPT ning javobi. O‘qish ancha qisqaroq!
+
+<AIOutput>
+Floridada qor yog‘ishi juda kam uchraydi, bundan tashqari shimoliy chekka
+hududlar, va so‘nggi 200 yil ichida Mayami, Fort-Loderdeyl va Palm-Bich
+kabi yirik shaharlarda faqat bir marta havoda qor parchalari kuzatilgan
+  years.
+</AIOutput>
+
+<Caution>
+Siz ehtimol biroz boshqacha natija ko‘rasiz. Bu ushbu kursdagi
+ko‘pchilik promptlar uchun shunday bo‘ladi. Nima uchunligini keyingi modulda o‘rganamiz.
+</Caution>
+
+#### 3) Matematik masalani yechish
+
+ChatGPT matematik masalalarni ham yecha oladi! Keling, unga oddiy masala bilan prompt beramiz.
+
+<AIInput>
+Agar menda 20 ta olma bo‘lsa, ularning uchtasini yeb qo‘ysam va yana uchtasini sotsam, nechta olma qoladi?
+  have left?
+</AIInput>
+
+<AIOutput>
+Agar sizda 20 ta olma bo‘lsa va ularning uchtasini yeb qo‘ysangiz, 20 - 3 = 17 ta olma qoladi.
+
+Uchta olmani yeb bo‘lgach (17 ta qoldi), yana uchtasini sotsangiz, 17 - 3 = 14 ta olma qoladi.
+
+</AIOutput>
+
+## Xulosa
+
+Endi siz %%prompt|prompt%% nima ekanligini va ChatGPT bilan qanday qilib oddiy prompting qilishni bilishingiz kerak.
+E’tibor bering, _prompt_ so‘zi fe’l yoki ot bo‘lishi mumkin. Siz modelga _prompt_ bera olasiz yoki modelga _prompt_ bera olasiz. Bu ikki ibora bir xil ma’noni anglatadi. Modelga prompt berish harakati prompting deb ataladi. Keyingi darsda prompting haqida ko‘proq bilib olamiz.
+
+[^a]: GPT-4 — OpenAI tomonidan ishlab chiqilgan yana bir model bo‘lib, u yanada ilg‘or, lekin pullik.
+[^b]: Ushbu paragraf https://en.wikipedia.org/wiki/Snow_in_Florida manbasidan olingan

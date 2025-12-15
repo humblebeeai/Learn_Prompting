@@ -1,0 +1,67 @@
+---
+sidebar_position: 94
+title: "🟢 Chatbotlar"
+---
+
+
+# Chatbotlar
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src={"/docs/assets/basics/chatbot.svg"}
+    width={755}
+    height={964}
+    style={{
+      width: "100%",
+      height: "300px",
+      verticalAlign: "top",
+      margin: "auto",
+    }}
+  />
+</div>
+<br />
+
+<Takeaways>
+  - Chatbotlar qanday ishlaydi
+  - Nega chatbotlar oddiy chatbot bo'lmagan tizimlardan yaxshiroq
+</Takeaways>
+
+Sun'iy intellekt sohasida turli maqsadlarda xizmat qiladigan turli xil <Term term="LLM">LLM</Term>lar mavjud. Ushbu kursda eng ko'p ishlatiladigan modellardan biri bu ChatGPT bo'lib, u oldingi xabarlarni eslab qoladi, shuning uchun siz u bilan suhbatlashishingiz mumkin. Biroq, chatbotlar yagona LLM turi emas. Yana bir misol - OpenAI tomonidan ishlab chiqilgan avvalgi sun'iy intellekt GPT-3 bo'lib, u chatbotlardan farqli o'laroq, hech qanday xotiraga ega emas. Ham GPT-3, ham ChatGPT savollarga javob berish va qisqacha mazmun yaratish kabi asosiy vazifalarni bajara oladi.
+
+## Chatbotlar qanday ishlaydi
+
+ChatGPT kabi chatbotlar interaktiv suhbatlarni taqlid qilish uchun yaratilgan. Suhbatlashish uchun chatbotlar butun suhbat tarixini eslab qolishi kerak. Bu ChatGPT kabi sun'iy intellektlar uchun shuni anglatadiki, har safar ularga yangi xabar yuborganingizda, ular siz va ular tomonidan yuborilgan barcha oldingi xabarlarni bir vaqtning o'zida o'qiydi, chunki ular haqiqiy xotiraga ega emas. Suhbatning ushbu "xotirasi" ularni oddiy chatbot bo'lmagan tizimlardan ajratib turadigan yagona muhim omil hisoblanadi.
+
+## Oddiy chatbot bo'lmagan tizimlar
+
+GPT-3 bu `complete` turdagi model bo'lib, `chat` emas[^a]. Quyida u ChatGPTdan qanday farq qilishini ko'rsatadigan misol keltirilgan:
+
+<AIInput>What is 2+</AIInput>
+
+<AIOutput title="GPT-3 output">
+  2
+
+  2+2 = 4
+</AIOutput>
+
+<AIOutput title="ChatGPT output">
+Ko'rinishidan, siz savolingizni to'liq yozmadingiz. Agar siz "2 + 2 nechiga teng?" deb so'ramoqchi bo'lgan bo'lsangiz, javobi 4 bo'ladi. Agar boshqa savolingiz bo'lsa yoki qo'shimcha yordam kerak bo'lsa, bemalol so'rang!
+</AIOutput>
+
+Ko'rib turibmizki, GPT-3 bizning kiritgan matnimizni eng ehtimoliy keyingi belgilar bilan to'ldirdi. Boshqa tomondan, ChatGPT biz suhbatda to'satdan gapirishni to'xtatgandek javob berdi. Chatbotlarning suhbatdoshligi ularni ishlatishni yanada tabiiy his qiladi, shuning uchun ko'pchilik ularni boshqa sun'iy intellektlardan afzal ko'radi. Biroq, chatbotlar yaxshiroq bo'lishining eng muhim sababi shundaki, OpenAI va Anthropic kabi kompaniyalar juda aqlli chatbotlar yaratgan va ular sizning promptlaringizga yaxshiroq javob bera oladi[^b].
+
+## Tokenlar
+
+ChatGPT kabi Gen AI matnni biz kabi so'zma-so'z o'qimaydi. Biz "I don't like eggs" jumlasini so'zma-so'z o'qisak, ular uni o'zlarining so'zlariga bo'lib, quyidagicha o'qishi mumkin: `I`, `don`, `'t` `like` `egg` `s`. Ushbu "so'zlar" tokenlar deb ataladi va deyarli barcha zamonaviy Gen AIda ishlatiladi. Har bir token keyin raqamlar ro'yxatiga aylantiriladi, shunda sun'iy intellekt uni qayta ishlay oladi. Nega Gen AIlar tokenlardan foydalanishini bilishingiz shart emas, lekin ular narx belgilash va _kontekst uzunligi_ni hisobga olganda muhim ahamiyatga ega.
+
+## Kontekst uzunligi
+
+Kontekst uzunligi[^l] til modeli javob yaratishda ko'rib chiqishi mumkin bo'lgan matn miqdorini anglatadi. Ham chatbotlar, ham oddiy chatbot bo'lmagan tizimlar uchun ular qayta ishlay oladigan kontekst uzunligining maksimal chegarasi mavjud[^c]. Agar suhbat yoki matn ushbu chegaradan oshib ketsa, model javob yaratishda butun suhbatni eslab qola olmaydi. Shu sababli, ba'zan muhim ma'lumotlarni qayta aytish yoki chatbotni qayta yo'naltirish zarur bo'ladi.
+
+750 ta so'z taxminan 1 000 token[^d]ga teng. ChatGPT 4K tokenni eslab qola oladi, ChatGPTning yanada rivojlangan versiyalari esa 16K tokenni eslab qola oladi. GPT-4 32K tokenni qayta ishlay oladi, Anthropic kompaniyasining [Claude](https://www.anthropic.com/index/100k-context-windows) sun'iy intellekti esa 100K tokenni qayta ishlay oladi. Qaysi modelni tanlash ba'zan narx va uzunroq kontekstga ehtiyoj o'rtasidagi muvozanatga bog'liq bo'ladi. Ushbu kurs uchun ChatGPT yetarli bo'ladi.
+
+[^a]: Keyingi darsda boshqa oddiy chatbot bo'lmagan tizimlar turlari bilan tanishamiz.
+[^b]: Ba'zan, agar siz matningizni `complete` qiladigan qisqaroq natijalarni xohlasangiz, oddiy chatbot bo'lmagan tizimlar afzalroq bo'lishi mumkin. Keyingi darsda GPT-3dan qanday foydalanishni o'rganamiz.
+[^c]: So'nggi tadqiqotlar kelajakda buni o'zgartirishi mumkin.
+[^d]: https://openai.com/pricing manbasiga ko'ra
+[^l]: Kontekst uzunligi ba'zan kontekst o'lchami yoki kontekst oynasi uzunligi deb ataladi.

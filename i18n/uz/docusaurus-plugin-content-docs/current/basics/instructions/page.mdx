@@ -1,0 +1,137 @@
+---
+sidebar_position: 50
+title: "🟢 Ko'rsatmalar berish"
+---
+
+
+# Ko'rsatmalar berish
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src={"/docs/assets/basics/instruction_prompt.svg"}
+    width={1070}
+    height={404}
+    style={{
+      width: "100%",
+      height: "300px",
+      verticalAlign: "top",
+      margin: "auto",
+    }}
+  />
+</div>
+<br />
+
+<Takeaways>
+  - Ko'rsatma promptingini tushunish
+  - Ko'rsatma promptingining murakkab qo'llanilishini tushunish
+</Takeaways>
+
+Endi biz birinchi prompting texnikamizni, _ko'rsatma promptingini_(@efrat2020turking)(@mishra2022reframing) ko'rib chiqamiz. Biz allaqachon oldingi maqolalarda oddiy ko'rsatmalardan foydalanilganini ko'rdik (masalan, AIga matematik masalani yechishni topshirish). Biroq,
+biz Gen AI'ga ancha murakkab vazifalarni ham topshirishimiz mumkin.
+
+### Ismni ajratib olish misoli
+
+Ism ma'lumotlarini yig'ishda keng tarqalgan muammo shundaki, turli odamlar o'z ismlarini har xil formatda yozadilar. Ba'zilarida `Mrs.` yoki `Jr.` bo'lishi mumkin. Bundan tashqari, ism va familiya tartibi ham noto'g'ri bo'lishi mumkin. Ilgari bunday ma'lumotlarni tozalash zerikarli, qo'lda bajariladigan ish edi. Endi esa, buni oddiy prompt yordamida to'liq avtomatlashtirishimiz mumkin.
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6IlNtaXRoLCBKb2huIiwicHJvbXB0IjoiQSB1c2VyIGhhcyBpbnB1dCB0aGVpciBmaXJzdCBhbmQgbGFzdCBuYW1lIGludG8gYSBmb3JtLiBXZSBkb24ndCBrbm93IGluIHdoaWNoIG9yZGVyIHRoZWlyIGZpcnN0IG5hbWUgYW5kIGxhc3QgbmFtZSBhcmUsIGJ1dCB3ZSBuZWVkIGl0IHRvIGJlIGluIHRoaXMgZm9ybWF0ICc8TGFzdCBuYW1lPiwgPEZpcnN0IG5hbWU%2BJy4gXG5cblBsZWFzZSBjb252ZXJ0IHRoZSBmb2xsb3dpbmcgbmFtZSBpbiB0aGUgZXhwZWN0ZWQgZm9ybWF0OiBKb2huIFNtaXRoIiwibW9kZWwiOiJncHQtMy41LXR1cmJvIn0%3D"
+  style={{
+    width: "100%",
+    height: "400px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<br />
+Ismni o'zgartirib ko'ring va prompt uni to'g'ri qayta ishlay olmasligini aniqlang.
+Agar buni uddalay olsangiz, ehtimol promptni ham yaxshilashingiz mumkin bo'ladi!
+Bu prompt muhandisligi ko'nikmalaringizni oshirish uchun qiziqarli mashq!
+
+### Shaxsiy ma'lumotlarni olib tashlash misoli
+
+PII ni olib tashlash yana bir muhim vazifa hisoblanadi. Maxfiy hujjatlarni chiqarishdan oldin, kompaniyalar yoki hukumatlar hujjatlardan ma'lumotlarni qo'lda yashirishlari mumkin. Gen AI yordamida PII ni avtomatik tarzda olib tashlash mumkin, bu esa inson mehnatini sezilarli darajada kamaytiradi[^a][^b].
+
+<AIInput>
+Quyidagi savdo xatini o'qing. Har qanday shaxsiy ma'lumotlarni (PII) olib tashlang,
+va ularni mos o'rinbosar bilan almashtiring. Masalan, "John Doe" ismini
+with "[NAME]".
+
+Hi John,
+
+Men sizga yozayotganim sababi, yaqinda yangi mashina sotib olganingizni payqadim. Men savdo bo'yicha xodimman
+mahalliy dilerlikda (Cheap Dealz), va sizga yangi mashina uchun ajoyib taklifimiz borligini bildirmoqchi edim
+Agar qiziqsangiz, iltimos, menga xabar bering.
+
+Thanks,
+
+Jimmy Smith
+
+Phone: 410-805-2345
+Email: jimmysmith@cheapdealz.com
+
+</AIInput>
+
+Mana AI javobi[^c]:
+
+<AIOutput>
+Hi [NAME],
+
+Men sizga yozayotganim sababi, yaqinda yangi mashina sotib olganingizni payqadim. Men savdo bo'yicha xodimman
+mahalliy dilerlikda ([DEALERSHIP]), va sizga yangi mashina uchun ajoyib taklifimiz borligini bildirmoqchi edim
+Agar qiziqsangiz, iltimos, menga xabar bering.
+
+Thanks,
+
+[SALESPERSON]
+
+Telefon: [PHONE NUMBER]
+Email: [EMAIL ADDRESS]
+
+</AIOutput>
+
+Modelning ko'rsatmalardan qanday xulosa chiqarishini ko'rish juda hayajonli. Masalan, u
+`Cheap Dealz` ni `[DEALERSHIP]` ga va `Jimmy Smith` ni `[SALESPERSON]` ga almashtirish kerakligini biladi, garchi
+buni unga aniq aytmagan bo'lsak ham.
+
+### Insho baholash va fikr-mulohaza misoli
+
+Gen AI insho baholash va fikr-mulohaza berishda murakkab mezonlar asosida foydalanilishi mumkin. Bunga grammatika, aniqlik, izchillik va dalil sifati kabi elementlar kiradi.
+
+<AIInput>
+Quyidagi insho parchasini o'qing va quyidagi mezonlar asosida fikr-mulohaza bering: grammatika, aniqlik, izchillik, dalil sifati va dalillardan foydalanish. Har bir xususiyat uchun 1-10 oralig'ida baho bering va baho uchun asos keltiring.
+
+"Ko'pchilik ishonchiga qaramay, video o'yinlar zo'ravonlikka olib keladi degan g'oyani tasdiqlovchi aniq dalillar yo'q. Bu mavzudagi tadqiqotlar ko'pincha ziddiyatli va noaniq. Ba'zi tadqiqotlar korrelyatsiyani aniqlagan, lekin korrelyatsiya sababni anglatmaydi. Shuning uchun, jamiyatdagi zo'ravonlik uchun video o'yinlarni ayblashga hali erta."
+
+</AIInput>
+
+AI javobi:
+
+<AIOutput>
+Xususiyat: Grammatika
+Score: 9
+Asos: Insho asosan grammatik jihatdan to'g'ri, lekin kichik bir xato bor - 'correlation don't imply causation' o'rniga 'correlation doesn't imply causation' bo'lishi kerak.
+
+Xususiyat: Aniqlik
+Score: 8
+Asos: Insho umuman olganda aniq, lekin tadqiqotlarning ziddiyatli va noaniq ekanligi haqida ko'proq tafsilot yoki izoh berilishi mumkin edi.
+
+Xususiyat: Izchillik
+Score: 8
+Asos: Fikrlar izchil va o'zaro bog'liq, lekin ular orasidagi o'tish yanada silliq bo'lishi mumkin edi.
+
+Xususiyat: Dalil sifati
+Score: 7
+Asos: Keltirilgan dalil mantiqiy va asosli, lekin muallifning mavzuga bo'lgan pozitsiyasi aniqroq ifodalansa, dalil kuchaygan bo'lardi.
+
+</AIOutput>
+
+## Xulosa
+
+Ko'rsatma prompting Gen AI ga biror vazifa yoki yo'nalish berishdan iborat. Garchi bu tushuncha oddiy bo'lsa-da, Gen AI lar juda murakkab ko'rsatmalarga ham amal qila oladi. Ko'rsatma prompting ushbu kurs davomida tez-tez qo'llaniladi.
+
+[^a]: AI yordamida matndan PII ni olib tashlash istiqbolli yondashuv, lekin u juda ehtiyotkorlik bilan qo'llanilishi kerak, chunki xatoliklar bo'lishi mumkin.
+[^b]: Bu misolda, siz PII ni uchinchi tomon (masalan, ChatGPT dan foydalansangiz OpenAI) ga yuborayotganingizni ham inobatga olish kerak, va bu xizmatlar sizning promptlaringizni o'z ehtiyojlari uchun yozib olishi va ishlatishi mumkin.
+[^c]: Ushbu misolda biz boshqa Gen AI, GPT-3 dan foydalandik.

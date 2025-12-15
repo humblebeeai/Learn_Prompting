@@ -1,0 +1,85 @@
+---
+sidebar_position: 5
+title: "🟡 O'z-o'zini izchillik"
+---
+
+
+# O'z-o'zini izchillik
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/reliability/self_consistency.webp"
+    width={1854}
+    height={650}
+    style={{ width: "500px", margin: "auto" }}
+  />
+</div>
+
+O'z-o'zini izchillik(@wang2022selfconsistency) bu yondashuv bo'lib, modelga bir xil prompt bir necha marta beriladi va ko'pchilik natijasi yakuniy javob sifatida olinadi. Bu <Term term="CoT prompting">CoT prompting</Term> dan keyingi bosqich bo'lib, u bilan birga ishlatilganda yanada kuchliroq bo'ladi.
+
+## Misol
+
+Keling, elektron pochta xabarlarini tahlil qilishning oddiy misolini ko'rib chiqamiz. Faraz qilaylik, siz dasturiy ta'minot kompaniyasida ishlaysiz va kuniga yuzlab xatlar olasiz. Siz modeldan xatlarni muhim yoki muhim emas deb tasniflash uchun foydalanmoqchisiz, shunda biznesingizga katta ta'sir ko'rsatishi mumkin bo'lgan xatlarni ustuvorlik bilan ko'rib chiqasiz.
+
+Quyida siz olishingiz mumkin bo'lgan xat namunasi keltirilgan:
+
+```text
+Salom,
+
+Men tizimingizda katta xavfsizlik zaifligini aniqladim. Garchi bu
+foydalanish uchun oson bo'lmasa-da, barcha foydalanuvchilaringiz ma'lumotlariga kirish mumkin. Men
+konsept isbotini ilova qildim. Iltimos, bu muammoni imkon qadar tezroq bartaraf eting.
+
+Hurmat bilan,
+
+Donny
+```
+
+Keling, buni promptga joylaymiz:
+
+```text
+Salom,
+
+Men tizimingizda katta xavfsizlik zaifligini aniqladim. Garchi bu
+foydalanish uchun oson bo'lmasa-da, barcha foydalanuvchilaringiz ma'lumotlariga kirish mumkin. Men
+konsept isbotini ilova qildim. Iltimos, bu muammoni imkon qadar tezroq bartaraf eting.
+
+Hurmat bilan,
+
+Donny
+
+Yuqoridagi xatni dasturiy ta'minot kompaniyasiga tegishli ravishda MUHIM yoki MUHIM EMAS deb tasniflang. Keling, bosqichma-bosqich o'ylaymiz.
+```
+
+Endi, yuqoridagi promptdan foydalanib, bir nechta alohida yakunlar/tafakkur zanjirlarini hosil qilamiz. Mana bir nechta misollar:
+
+```text {1-3}
+Yuboruvchi tizimda katta xavfsizlik zaifligini aniqlagan.
+Bu muhim, chunki bu ma'lumotlar sizib chiqishiga olib kelishi mumkin.
+Men bu xatni MUHIM deb tasniflayman
+```
+
+```text {1-3}
+Yuboruvchi tizimda katta xavfsizlik zaifligini aniqlagan, lekin ular hech qanday konsept isbotini taqdim etmagan va undan foydalanish oson emas.
+Men bu xatni MUHIM EMAS deb tasniflayman
+```
+
+```text {1-3}
+Yuboruvchi ehtimol xaker va tizimga kirish imkoniga ega bo'lishi mumkin.
+Bu muhim, chunki bu ma'lumotlar sizib chiqishiga olib kelishi mumkin.
+Men bu xatni MUHIM deb tasniflayman
+```
+
+Ko'plab tafakkur zanjirlarini hosil qilib, eng ko'p uchraydigan javobni (`MUHIM`) tanlash orqali GPT-3 dan yanada izchil va to'g'ri javob olishimiz mumkin.
+
+## Natijalar
+
+O'z-o'zini izchillik arifmetik, umumiy mantiq va ramziy mulohaza vazifalarida natijalarni yaxshilashi ko'rsatilgan. Oddiy CoT samarasiz bo'lgan hollarda ham(@ye2022unreliability), o'z-o'zini izchillik
+baribir natijalarni yaxshilay olgan.
+
+## Eslatmalar
+
+- Wang va boshqalar yakuniy javobni tanlash uchun yanada murakkab usulni muhokama qiladilar,
+bu har bir tafakkur zanjiri uchun LLM tomonidan yaratilgan ehtimolliklarni hisobga oladi. Biroq, ular
+bu usuldan o'z tajribalarida foydalanmaydilar va ko'pchilik ovozi odatda
+xuddi shunday yoki undan yaxshi natija beradi.

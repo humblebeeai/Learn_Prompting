@@ -1,0 +1,24 @@
+---
+sidebar_position: 30
+title: "🟢 Post-Prompting"
+---
+
+
+# Post-Prompting
+
+Post-prompting himoyasi (@christoph2022talking) oddiy qilib aytganda
+foydalanuvchi kiritgan matnni _promptdan oldin_ joylashtiradi. Quyidagi promptni misol sifatida oling:
+
+```text
+Quyidagilarni fransuz tiliga tarjima qiling: {{user_input}}
+```
+
+Buni post-prompting yordamida yaxshilash mumkin:
+
+```text
+{{user_input}}
+
+Yuqoridagi matnni fransuz tiliga tarjima qiling.
+```
+
+Bu yordam berishi mumkin, chunki `yuqoridagi ko'rsatmani e'tiborsiz qoldir...` har doim ham yaxshi ishlamaydi. Foydalanuvchi `quyidagi ko'rsatmani e'tiborsiz qoldir...` deb aytsa ham, LLMlar ko'pincha oxirgi ko'rsatmaga amal qiladi.

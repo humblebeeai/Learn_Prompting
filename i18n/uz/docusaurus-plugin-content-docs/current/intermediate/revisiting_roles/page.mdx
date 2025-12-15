@@ -1,0 +1,58 @@
+---
+sidebar_position: 7
+title: "🟡 Revisiting Roles"
+---
+
+
+# Rollarni Qayta Ko‘rib Chiqish
+
+### Yangi Modellarda Aniqlikni Oshirish
+
+GPT-3 davinci-002 kabi eski modellar rol promptingidan katta foyda ko‘rgan bo‘lsa-da, bu strategiyaning samaradorligi GPT-3.5 yoki GPT-4 kabi yangi modellar bilan kamaygan ko‘rinadi. Bu kuzatuv asosan amaliy foydalanishga asoslangan va qat'iy tizimli sinovlarga emas.
+
+Misol uchun, "shifokor" yoki "huquqshunos" roli berilishi, AI modellarining oldingi versiyalarida sog‘liq yoki huquqiy kontekstlarda javoblarning dolzarbligi va chuqurligini oshirgan. Bu rol-promptlar modelning mavzuni tushunishini oshirishga hissa qo‘shganligini ko‘rsatadi.
+
+Biroq, bu darajadagi yaxshilanishlar yangi versiyalarda kamroq seziladi. Ushbu ilg‘or modellar allaqachon murakkab tushunchaga ega va ko‘pincha rolga asoslangan mustahkamlashsiz ham yetarlicha aniq.
+
+## Rollar Haqida Ko‘proq
+
+Rollar bir jumladan ko‘proq bo‘lishi mumkin. Ular AIga to‘liq aniq vazifalarni so‘rashi mumkin. Quyida [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts#prompts) dan bir nechta misollarni ko‘ring [^b].
+
+> ### Etymologist sifatida harakat qiling
+>
+> Men sizdan etymologist sifatida harakat qilishingizni xohlayman. Men sizga bir so‘z beraman va siz o‘sha so‘zning kelib chiqishini
+>
+> qadimiy ildizlariga qadar izlaysiz. Shuningdek, so‘zning ma'nosi vaqt o‘tishi bilan qanday o‘zgarganligi haqida ma'lumot berishingiz kerak,
+>
+> agar iloji bo‘lsa. Mening birinchi so‘rovim "pizza" so‘zining kelib chiqishini izlash.
+
+> ### Absurdist sifatida harakat qiling
+>
+> Men sizdan absurdist sifatida harakat qilishingizni xohlayman. Absurdistning gaplari ma'nosiz. Absurdist tomonidan ishlatiladigan so‘zlar butunlay
+>
+> bema'ni. Absurdist hech qanday tarzda oddiy gaplar tuzmaydi. Mening birinchi taklifim "Yangi seriyam Hot Skull uchun absurdist gaplar yaratishda yordam kerak,
+>
+> shuning uchun men uchun 10 ta gap yozing".
+
+### Avtomatik Ravishda Rol Yaratish
+
+Siz AIga siz uchun rol yaratishni so‘rashingiz mumkin! Keyin bu roldan boshqa promptning bir qismi sifatida foydalanishingiz mumkin. Bu yerda sinab ko‘ring:
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MSwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6IkxlYWggR3JlZW53b29kIGlzIGEgZmljdGlvbiB3cml0ZXIgZnJvbSBMb3MgQW5nZWxlcywgQ2FsaWZvcm5pYSB3aG8gaGFzIGEgcGFzc2lvbiBmb3IgZXhwbG9yaW5nIHRoZSBkZXB0aHMgb2YgdGhlIGh1bWFuIGNvbmRpdGlvbiB0aHJvdWdoIGhlciB3cml0aW5nLiBTaGUgd2FzIGJvcm4gaW50byBhIGZhbWlseSBvZiBjcmVhdGl2ZSBwZW9wbGU7IGhlciBmYXRoZXIgaXMgYSBzY3VscHRvciwgaGVyIG1vdGhlciBpcyBhIHBhaW50ZXIsIGFuZCBoZXIgYnJvdGhlciBpcyBhIGZpbG1tYWtlci4gQWZ0ZXIgZ2V0dGluZyBoZXIgQkEgaW4gRW5nbGlzaCwgTGVhaCBiZWdhbiB3cml0aW5nIHNob3J0IHN0b3JpZXMgdGhhdCB3ZXJlIGV2ZW50dWFsbHkgcHVibGlzaGVkIGluIHZhcmlvdXMgYW50aG9sb2dpZXMuIFNoZSB0aGVuIHdlbnQgb24gdG8gd3JpdGUgaGVyIGZpcnN0IG5vdmVsIHdoaWNoIGVhcm5lZCBoZXIgYSBub21pbmF0aW9uIGZvciBhIHByZXN0aWdpb3VzIGxpdGVyYXJ5IGF3YXJkLlxuXG5MZWFoIGhhcyBhIGRlZXAgbG92ZSBmb3IgbGl0ZXJhdHVyZSB0aGF0IGhhcyBiZWVuIGEgcGFydCBvZiBoZXIgbGlmZSBmb3IgYXMgbG9uZyBhcyBzaGUgY2FuIHJlbWVtYmVyLiBTaGUgY29tZXMgZnJvbSBhIGRpdmVyc2UgYmFja2dyb3VuZCBhbmQgbGl2ZXMgaW4gYSB2aWJyYW50IGNpdHksIHdoaWNoIHByb3ZpZGVzIGFuIGV2ZXItY2hhbmdpbmcgc291cmNlIG9mIGluc3BpcmF0aW9uIGZvciBoZXIgd3JpdGluZy4gTGVhaOKAmXMgc3RvcmllcyBvZnRlbiBmb2N1cyBvbiBjaGFyYWN0ZXJzIHdobyBhcmUgc2VhcmNoaW5nIGZvciBhY2NlcHRhbmNlLCB0cnV0aCwgYW5kIG1lYW5pbmcgaW4gYSB3b3JsZCB0aGF0IGlzIG9mdGVuIGNvbmZ1c2luZyBhbmQgdW5wcmVkaWN0YWJsZS4gU2hlIHN0cm9uZ2x5IGJlbGlldmVzIHRoYXQgc3RvcmllcyBjYW4gb3BlbiBvdXIgaGVhcnRzIGFuZCBtaW5kcyB0byBuZXcgcGVyc3BlY3RpdmVzLCBhbmQgdGhhdCB0aGV5IGNhbiBoYXZlIHRoZSBwb3dlciB0byB0cmFuc2Zvcm0gbGl2ZXMgaW4gcmVtYXJrYWJsZSB3YXlzLiIsInByb21wdCI6IldyaXRlIGEgYmFja2dyb3VuZCByb2xlL2JpbyBhYm91dCBhIGZpY3Rpb24gd3JpdGVyOiIsIm1vZGVsIjoidGV4dC1kYXZpbmNpLTAwMyJ9"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Bir Necha Personalar Birgalikda Ishlash
+
+Oxirgi anekdot shundaki, siz bir nechta rol prompting qilingan LLMlarni birgalikda ishlatishingiz mumkin(@wang2023unleashing). Bu ko‘pincha matn yaratishning aniqligi va sifatini yaxshilashga olib kelishi mumkin.
+
+[^a]: Rol prompting shuningdek _rol o‘ynash_(@shanahan2023roleplay), _rol o‘ynash_(@li2023camel), yoki hatto _persona pattern_(@white2023prompt) deb ham ataladi.
+[^b]: Bular _ChatGPT_ uchun yaratilgan, lekin ular boshqa AIlar bilan ham ishlashi mumkin va siz o‘z promptlaringizni yaratishda ilhom sifatida foydalanishingiz mumkin.
