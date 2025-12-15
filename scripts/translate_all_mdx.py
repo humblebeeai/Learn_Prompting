@@ -15,9 +15,9 @@ SOURCE_LANG = "eng_Latn"
 TARGET_LANG = "uzn_Latn"
 MODEL = "tilmoch"
 
-DOCS_DIR = Path("docs")
-OUTPUT_DIR = Path("data/docs_uz")
-CACHE_FILE = Path("data/translation_cache.json")
+DOCS_DIR = Path("samples")
+OUTPUT_DIR = Path("sample_translation/docs_uz")
+CACHE_FILE = Path("sample_translation/translation_cache.json")
 MIN_BATCH_SIZE = 800  # Minimum characters before sending translation request
 BATCH_SEPARATOR = "\n|||TRANSLATE_SPLIT|||\n"  # Unique separator for batching
 
@@ -188,10 +188,18 @@ def translate_mdx(mdx_content: str) -> str:
     
     in_code = False
     in_frontmatter = False
-    in_jsx_block = False
+    in_jsx_multiline = False  # For multi-line JSX like <iframe ... >
     code_block_lang = None
     
+    # JSX components to SKIP entirely (structural, no translatable content)
+    jsx_skip_components = ['Image', 'img', 'video', 'audio']
+    
+    # HTML tags whose content should be translated
+    html_content_tags = ['pre', 'span', 'div', 'p']
+    
     jsx_tag_regex = re.compile(r"<[A-Za-z]")  # Any HTML/JSX tag
+    jsx_component_regex = re.compile(r"</?([A-Z][a-zA-Z0-9]*)")  # Component tags
+    html_tag_regex = re.compile(r"</?([a-z][a-zA-Z0-9]*)")  # HTML tags
     
     # === PASS 1: Identify lines that need translation ===
     for i, line in enumerate(lines):
@@ -228,20 +236,57 @@ def translate_mdx(mdx_content: str) -> str:
             continue
         
         if in_code:
-            # Only translate 'text' code blocks
-            if code_block_lang == "text" and stripped:
+            # Translate code blocks that contain natural language
+            # (text, md/markdown blocks contain prose, not actual code)
+            if code_block_lang in ["text", "md", "markdown"] and stripped:
                 texts_to_translate.append((i, line, 'text_block'))
             continue
         
-        # JSX/HTML blocks (skip them)
+        # JSX/HTML blocks - distinguish between components with content vs structural JSX
         if jsx_tag_regex.match(stripped):
-            if stripped.startswith("<") and not stripped.endswith(">"):
-                in_jsx_block = True
-            continue
+            # Check if it's a component tag (capitalized)
+            comp_match = jsx_component_regex.match(stripped)
+            if comp_match:
+                component_name = comp_match.group(1)
+                
+                # Skip structural components
+                if component_name in jsx_skip_components:
+                    if not stripped.endswith(">"):
+                        in_jsx_multiline = True
+                    continue
+                
+                # Process all other JSX components (translate their content)
+                # Check if it's a single-line component like <Takeaways>text</Takeaways>
+                single_line_pattern = re.compile(rf'<{component_name}[^>]*>(.*?)</{component_name}>')
+                single_line_match = single_line_pattern.search(stripped)
+                if single_line_match:
+                    # Extract content between tags
+                    content = single_line_match.group(1).strip()
+                    if content and len(content) > 10:
+                        texts_to_translate.append((i, content, 'jsx_single_line', component_name))
+                # For multi-line components, skip the tag line but process content inside
+                continue
+            else:
+                # Check if it's an HTML tag
+                html_match = html_tag_regex.match(stripped)
+                if html_match:
+                    tag_name = html_match.group(1)
+                    # If it's a content tag, skip the tag line but process content inside
+                    if tag_name in html_content_tags:
+                        continue
+                    # Otherwise, it's structural (like iframe, br) - skip it
+                    if not stripped.endswith(">"):
+                        in_jsx_multiline = True
+                    continue
+                else:
+                    # Other HTML/JSX - skip
+                    if not stripped.endswith(">"):
+                        in_jsx_multiline = True
+                    continue
         
-        if in_jsx_block:
+        if in_jsx_multiline:
             if ">" in line and stripped.endswith(">"):
-                in_jsx_block = False
+                in_jsx_multiline = False
             continue
         
         # Skip empty lines
@@ -275,9 +320,11 @@ def translate_mdx(mdx_content: str) -> str:
             # Extract text after bullet
             for prefix in ["- ", "* ", "1. ", "2. ", "3. ", "4. ", "5. "]:
                 if stripped.startswith(prefix):
-                    text = stripped[len(prefix):]
-                    # Skip if it's just a link or code
-                    if text.strip() and not text.startswith(("[", "`", "http")):
+                    text = stripped[len(prefix):].strip()
+                    # Check if there's actual text content (not just links/code)
+                    # Count alphabetic characters to determine if worth translating
+                    alpha_count = sum(1 for c in text if c.isalpha())
+                    if alpha_count >= 10:  # Has meaningful text content
                         texts_to_translate.append((i, text, 'list'))
                     break
             continue
@@ -293,7 +340,12 @@ def translate_mdx(mdx_content: str) -> str:
         alpha_count = sum(1 for c in stripped if c.isalpha())
         
         if word_count >= 1 and alpha_count >= 10:
-            texts_to_translate.append((i, stripped, 'text'))
+            # Check if line has inline JSX tags (like <Term>...</Term>)
+            # If so, mark it as 'text_with_jsx' so we can handle it specially
+            if '<' in stripped and '>' in stripped:
+                texts_to_translate.append((i, stripped, 'text_with_jsx'))
+            else:
+                texts_to_translate.append((i, stripped, 'text'))
     
     # === PASS 2: Batch translate ===
     print(f"[BATCH] Collected {len(texts_to_translate)} lines for translation")
@@ -360,8 +412,14 @@ def translate_mdx(mdx_content: str) -> str:
             elif line_type == 'text_block':
                 # Text code block - replace entire line
                 result_lines.append(translated)
+            elif line_type == 'jsx_single_line':
+                # Single-line JSX component - replace content between tags
+                component_name = extra_data
+                pattern = re.compile(rf'(<{component_name}[^>]*>)(.*?)(</{component_name}>)')
+                result_lines.append(pattern.sub(rf'\1{translated}\3', line))
             else:
-                # Regular text line - replace entire line
+                # Regular text line or text with inline JSX - replace entire line
+                # Note: inline JSX tags are preserved in the translation
                 result_lines.append(translated)
         else:
             result_lines.append(line)
@@ -419,19 +477,38 @@ def translate_all_mdx_files(force_retranslate=False):
     
     # Count how many need translation
     files_to_translate = []
+    skipped_up_to_date = 0
+    
     for mdx_file in mdx_files:
         rel_path = mdx_file.relative_to(DOCS_DIR)
         output_path = OUTPUT_DIR / rel_path
-        if force_retranslate or not output_path.exists():
+        
+        if force_retranslate:
             files_to_translate.append((mdx_file, output_path))
+        elif not output_path.exists():
+            # File doesn't exist, needs translation
+            files_to_translate.append((mdx_file, output_path))
+        else:
+            # Check if source is newer than translated file
+            source_mtime = mdx_file.stat().st_mtime
+            output_mtime = output_path.stat().st_mtime
+            
+            if source_mtime > output_mtime:
+                # Source was modified after translation, retranslate
+                files_to_translate.append((mdx_file, output_path))
+            else:
+                # Translation is up to date
+                skipped_up_to_date += 1
     
     if not files_to_translate:
-        print("\n[INFO] All files are already translated!")
+        print("\n[INFO] All files are already translated and up to date!")
+        print(f"Skipped: {skipped_up_to_date} files (already translated)")
         print("Use --force to retranslate existing files")
         return
     
     print(f"\nFiles to translate: {len(files_to_translate)}")
-    print(f"Files to skip: {len(mdx_files) - len(files_to_translate)}")
+    print(f"Files skipped (up to date): {skipped_up_to_date}")
+    print(f"Total files: {len(mdx_files)}")
     
     # Translate each file
     start_time = time.time()
@@ -453,9 +530,11 @@ def translate_all_mdx_files(force_retranslate=False):
     print(f"\n{'='*80}")
     print(f"TRANSLATION SUMMARY")
     print(f"{'='*80}")
-    print(f"Total files:          {len(files_to_translate)}")
-    print(f"Successfully completed: {completed}")
-    print(f"Failed:                 {failed}")
+    print(f"Total files in docs:    {len(mdx_files)}")
+    print(f"Skipped (up to date):   {skipped_up_to_date}")
+    print(f"Translated:             {len(files_to_translate)}")
+    print(f"  - Successfully:       {completed}")
+    print(f"  - Failed:             {failed}")
     print(f"Time elapsed:           {elapsed:.1f} seconds ({elapsed/60:.1f} minutes)")
     if completed > 0:
         print(f"Average per file:       {elapsed/completed:.1f} seconds")
@@ -463,6 +542,11 @@ def translate_all_mdx_files(force_retranslate=False):
     print(f"Output directory:       {OUTPUT_DIR}")
     print(f"Cache file:             {CACHE_FILE}")
     print(f"{'='*80}")
+    
+    # Cost savings info
+    if skipped_up_to_date > 0:
+        print(f"\n💰 Saved translation cost by skipping {skipped_up_to_date} up-to-date files!")
+        print(f"   To retranslate all files, use: python scripts/translate_all_mdx.py --force")
 
 
 if __name__ == "__main__":
