@@ -1,7 +1,4 @@
-import React from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import "./index.css";
-import "./App.css";
+import React from 'react';
 import Navbar from "../subsections/landingpage/Navbar";
 import Footer from "../components/Footer";
 
