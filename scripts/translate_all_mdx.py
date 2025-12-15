@@ -4,9 +4,10 @@ import time
 import os
 import json
 import hashlib
+import asyncio
 from pathlib import Path
 from dotenv import load_dotenv
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 load_dotenv()
 
@@ -15,6 +16,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MODEL = "gpt-4.1"
 SOURCE_LANG = "English"
 TARGET_LANG = "Uzbek (Latin script)"
+
+# Concurrency settings
+MAX_CONCURRENT_REQUESTS = 10
+semaphore = None  # Will be initialized in async context
 
 # Token tracking
 total_input_tokens = 0
@@ -38,7 +43,7 @@ MIN_BATCH_SIZE = 800  # Minimum characters before sending translation request
 BATCH_SEPARATOR = "\n|||TRANSLATE_SPLIT|||\n"  # Unique separator for batching
 
 # Initialize OpenAI client
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
 # Translation system prompt
 TRANSLATION_SYSTEM_PROMPT = f"""You are a professional translator specializing in technical documentation translation from {SOURCE_LANG} to {TARGET_LANG}.
@@ -121,7 +126,7 @@ def get_text_hash(text):
 # Translation cache
 translation_cache = load_cache()
 
-def translate_with_openai(text: str) -> str:
+async def translate_with_openai(text: str) -> str:
     """Translate text using OpenAI GPT-4o with caching."""
     if not text or not text.strip():
         return text
@@ -132,40 +137,41 @@ def translate_with_openai(text: str) -> str:
         print(f"[CACHE HIT] Using cached translation")
         return translation_cache[text_hash]
     
-    try:
-        print(f"[API CALL] Translating {len(text)} chars: {text[:50]}...")
-        
-        response = client.chat.completions.create(
-            model=MODEL,
-            messages=[
-                {"role": "system", "content": TRANSLATION_SYSTEM_PROMPT},
-                {"role": "user", "content": f"Translate the following text from {SOURCE_LANG} to {TARGET_LANG}. Remember: DO NOT translate code, technical terms, or add any extra words. Translate ONLY the natural language content:\n\n{text}"}
-            ],
-            temperature=0.0,  # Lower temperature for more consistent translations
-            max_tokens=4096,
-        )
-        
-        translated = response.choices[0].message.content.strip()
-        
-        # Track tokens
-        input_tokens = response.usage.prompt_tokens
-        output_tokens = response.usage.completion_tokens
-        cost = update_token_stats(input_tokens, output_tokens)
-        
-        print(f"[TOKENS] Input: {input_tokens}, Output: {output_tokens}, Cost: ${cost:.4f}")
-        
-        # Cache the translation
-        translation_cache[text_hash] = translated
-        
-        time.sleep(0.5)  # Rate limiting for OpenAI
-        return translated
-        
-    except Exception as e:
-        print(f"[ERROR] Translation failed: {str(e)}")
-        return text
+    async with semaphore:
+        try:
+            print(f"[API CALL] Translating {len(text)} chars: {text[:50]}...")
+            
+            response = await client.chat.completions.create(
+                model=MODEL,
+                messages=[
+                    {"role": "system", "content": TRANSLATION_SYSTEM_PROMPT},
+                    {"role": "user", "content": f"Translate the following text from {SOURCE_LANG} to {TARGET_LANG}. Remember: DO NOT translate code, technical terms, or add any extra words. Translate ONLY the natural language content:\n\n{text}"}
+                ],
+                temperature=0.0,  # Lower temperature for more consistent translations
+                max_tokens=4096,
+            )
+            
+            translated = response.choices[0].message.content.strip()
+            
+            # Track tokens
+            input_tokens = response.usage.prompt_tokens
+            output_tokens = response.usage.completion_tokens
+            cost = update_token_stats(input_tokens, output_tokens)
+            
+            print(f"[TOKENS] Input: {input_tokens}, Output: {output_tokens}, Cost: ${cost:.4f}")
+            
+            # Cache the translation
+            translation_cache[text_hash] = translated
+            
+            await asyncio.sleep(0.1)  # Rate limiting for OpenAI (reduced since we have semaphore)
+            return translated
+            
+        except Exception as e:
+            print(f"[ERROR] Translation failed: {str(e)}")
+            return text
 
 
-def translate_batch(texts: list) -> list:
+async def translate_batch(texts: list) -> list:
     """Translate multiple texts in a single API call using OpenAI."""
     if not texts:
         return []
@@ -195,73 +201,84 @@ def translate_batch(texts: list) -> list:
     combined_text = BATCH_SEPARATOR.join(batch_texts)
     
     # Translate the batch
-    try:
-        print(f"[BATCH API] Translating {len(batch_texts)} texts ({len(combined_text)} chars)")
-        
-        response = client.chat.completions.create(
-            model=MODEL,
-            messages=[
-                {"role": "system", "content": TRANSLATION_SYSTEM_PROMPT},
-                {"role": "user", "content": f"""Translate the following texts from {SOURCE_LANG} to {TARGET_LANG}. 
-                
-                The texts are separated by: {BATCH_SEPARATOR}
-
-                IMPORTANT: 
-                - Keep the EXACT separator "{BATCH_SEPARATOR}" between translations
-                - Maintain the same number of segments as the input
-
-                Texts to translate:
-
-                {combined_text}"""}
-                            ],
-            temperature=0.0,
-            max_tokens=8192,
-        )
-        
-        translated_combined = response.choices[0].message.content.strip()
-        
-        # Track tokens
-        input_tokens = response.usage.prompt_tokens
-        output_tokens = response.usage.completion_tokens
-        cost = update_token_stats(input_tokens, output_tokens)
-        
-        print(f"[TOKENS] Input: {input_tokens}, Output: {output_tokens}, Cost: ${cost:.4f}")
-        
-        # Split back into individual translations
-        translated_parts = translated_combined.split(BATCH_SEPARATOR)
-        
-        # Handle case where split doesn't match (API changed the separator)
-        if len(translated_parts) != len(batch_texts):
-            print(f"[WARNING] Batch split mismatch (expected {len(batch_texts)}, got {len(translated_parts)})")
-            print(f"[FALLBACK] Translating {len(batch_texts)} texts individually...")
+    async with semaphore:
+        try:
+            print(f"[BATCH API] Translating {len(batch_texts)} texts ({len(combined_text)} chars)")
             
-            # Fallback: translate each text individually
+            response = await client.chat.completions.create(
+                model=MODEL,
+                messages=[
+                    {"role": "system", "content": TRANSLATION_SYSTEM_PROMPT},
+                    {"role": "user", "content": f"""Translate the following texts from {SOURCE_LANG} to {TARGET_LANG}. 
+                    
+                    The texts are separated by: {BATCH_SEPARATOR}
+
+                    IMPORTANT: 
+                    - Keep the EXACT separator "{BATCH_SEPARATOR}" between translations
+                    - Maintain the same number of segments as the input
+
+                    Texts to translate:
+
+                    {combined_text}"""}
+                                ],
+                temperature=0.0,
+                max_tokens=8192,
+            )
+            
+            translated_combined = response.choices[0].message.content.strip()
+            
+            # Track tokens
+            input_tokens = response.usage.prompt_tokens
+            output_tokens = response.usage.completion_tokens
+            cost = update_token_stats(input_tokens, output_tokens)
+            
+            print(f"[TOKENS] Input: {input_tokens}, Output: {output_tokens}, Cost: ${cost:.4f}")
+            
+            # Split back into individual translations
+            translated_parts = translated_combined.split(BATCH_SEPARATOR)
+            
+            # Handle case where split doesn't match (API changed the separator)
+            if len(translated_parts) != len(batch_texts):
+                print(f"[WARNING] Batch split mismatch (expected {len(batch_texts)}, got {len(translated_parts)})")
+                print(f"[FALLBACK] Translating {len(batch_texts)} texts individually...")
+                
+                # Fallback: translate each text individually (concurrently)
+                tasks = []
+                for idx, text in texts_to_translate:
+                    tasks.append(translate_with_openai(text))
+                
+                translated_results = await asyncio.gather(*tasks)
+                
+                for (idx, text), translated in zip(texts_to_translate, translated_results):
+                    text_hash = get_text_hash(text)
+                    translation_cache[text_hash] = translated
+                    results[idx] = translated
+            else:
+                # Cache and assign results
+                for (idx, original_text), translated_text in zip(texts_to_translate, translated_parts):
+                    text_hash = get_text_hash(original_text)
+                    translation_cache[text_hash] = translated_text
+                    results[idx] = translated_text
+            
+            await asyncio.sleep(0.1)  # Rate limiting for OpenAI
+            
+        except Exception as e:
+            print(f"[ERROR] Batch translation failed: {str(e)}")
+            print(f"[FALLBACK] Translating individually...")
+            # Fallback to individual translations (concurrently)
+            tasks = []
             for idx, text in texts_to_translate:
-                translated = translate_with_openai(text)
-                text_hash = get_text_hash(text)
-                translation_cache[text_hash] = translated
+                tasks.append(translate_with_openai(text))
+            
+            translated_results = await asyncio.gather(*tasks)
+            
+            for (idx, text), translated in zip(texts_to_translate, translated_results):
                 results[idx] = translated
-        else:
-            # Cache and assign results
-            for (idx, original_text), translated_text in zip(texts_to_translate, translated_parts):
-                text_hash = get_text_hash(original_text)
-                translation_cache[text_hash] = translated_text
-                results[idx] = translated_text
         
-        time.sleep(0.5)  # Rate limiting for OpenAI
-        
-    except Exception as e:
-        print(f"[ERROR] Batch translation failed: {str(e)}")
-        print(f"[FALLBACK] Translating individually...")
-        # Fallback to individual translations
-        for idx, text in texts_to_translate:
-            translated = translate_with_openai(text)
-            results[idx] = translated
-    
-    return results
+        return results
 
 
-def translate_mdx(mdx_content: str) -> str:
+async def translate_mdx(mdx_content: str) -> str:
     """Translate MDX content - simple line-by-line approach."""
     
     lines = mdx_content.split("\n")
@@ -379,10 +396,7 @@ def translate_mdx(mdx_content: str) -> str:
         if stripped.startswith("export"):
             continue
         
-        # Skip lines that are just URLs
-        if stripped.startswith(("http://", "https://", "www.")):
-            continue
-        
+
         # Skip lines with only markdown syntax
         if stripped in ["<br />", "<br/>", "---"]:
             continue
@@ -439,12 +453,16 @@ def translate_mdx(mdx_content: str) -> str:
             if len(item) >= 3:
                 texts.append(item[1])  # text is always second element
         
-        # Batch translate in chunks
+        # Batch translate in chunks (using asyncio.gather for concurrent batch processing)
         translated_texts = []
+        batch_tasks = []
         for i in range(0, len(texts), 50):
             batch = texts[i:i+50]
-            translated_batch = translate_batch(batch)
-            translated_texts.extend(translated_batch)
+            batch_tasks.append(translate_batch(batch))
+        
+        batch_results = await asyncio.gather(*batch_tasks)
+        for batch_result in batch_results:
+            translated_texts.extend(batch_result)
         
         # Map translations back to line indices
         for item, translated_text in zip(texts_to_translate, translated_texts):
@@ -509,7 +527,7 @@ def translate_mdx(mdx_content: str) -> str:
     return "\n".join(result_lines)
 
 
-def translate_file(input_path: Path, output_path: Path):
+async def translate_file(input_path: Path, output_path: Path):
     """Translate a single MDX file."""
     try:
         print(f"\n{'='*80}")
@@ -521,7 +539,7 @@ def translate_file(input_path: Path, output_path: Path):
             content = f.read()
         
         # Translate
-        translated_content = translate_mdx(content)
+        translated_content = await translate_mdx(content)
         
         # Create output directory if it doesn't exist
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -536,13 +554,16 @@ def translate_file(input_path: Path, output_path: Path):
         print(f"[ERROR] Failed to translate {input_path}: {str(e)}")
 
 
-def translate_all_mdx_files(force_retranslate=False):
+async def translate_all_mdx_files(force_retranslate=False):
     """Translate all MDX files from docs directory.
     
     Args:
         force_retranslate: If True, retranslate existing files. Default False.
     """
-    global total_input_tokens, total_output_tokens, total_cost
+    global total_input_tokens, total_output_tokens, total_cost, semaphore
+    
+    # Initialize semaphore for concurrent requests
+    semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
     
     if not OPENAI_API_KEY:
         print("[ERROR] OPENAI_API_KEY not found in environment variables!")
@@ -602,21 +623,33 @@ def translate_all_mdx_files(force_retranslate=False):
     print(f"\nFiles to translate: {len(files_to_translate)}")
     print(f"Files skipped (up to date): {skipped_up_to_date}")
     print(f"Total files: {len(mdx_files)}")
+    print(f"Concurrent requests: {MAX_CONCURRENT_REQUESTS}")
     
-    # Translate each file
+    # Translate files concurrently
     start_time = time.time()
     completed = 0
     failed = 0
     
+    # Create tasks for all files
+    tasks = []
     for i, (mdx_file, output_path) in enumerate(files_to_translate, 1):
-        print(f"\n[{i}/{len(files_to_translate)}] ({completed} completed, {failed} failed)")
-        
-        try:
-            translate_file(mdx_file, output_path)
-            completed += 1
-        except Exception as e:
-            print(f"[ERROR] Failed: {e}")
+        print(f"\n[{i}/{len(files_to_translate)}] Queuing: {mdx_file.name}")
+        tasks.append(translate_file(mdx_file, output_path))
+    
+    # Process all files concurrently with error handling
+    print(f"\n{'='*80}")
+    print(f"Starting concurrent translation of {len(tasks)} files...")
+    print(f"{'='*80}")
+    
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+    
+    # Count successes and failures
+    for result in results:
+        if isinstance(result, Exception):
+            print(f"[ERROR] Failed: {result}")
             failed += 1
+        else:
+            completed += 1
     
     # Save token stats
     token_stats = {
@@ -669,5 +702,6 @@ if __name__ == "__main__":
     # Check for --force flag
     force_retranslate = "--force" in sys.argv or "-f" in sys.argv
     
-    translate_all_mdx_files(force_retranslate=force_retranslate)
+    # Run the async function
+    asyncio.run(translate_all_mdx_files(force_retranslate=force_retranslate))
 
