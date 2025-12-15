@@ -32,10 +32,10 @@ total_cost = 0.0
 INPUT_TOKEN_COST = 2.00 / 1000000  # $2.00 per 1M input tokens
 OUTPUT_TOKEN_COST = 0.50 / 1000000  # $0.50 per 1M output tokens
 
-DOCS_DIR = Path("samples")
-OUTPUT_DIR = Path("sample_translation_openai_41/docs_uz")
-CACHE_FILE = Path("sample_translation_openai_41/translation_cache.json")
-TOKEN_STATS_FILE = Path("sample_translation_openai_41/token_stats.json")
+DOCS_DIR = Path("docs")
+OUTPUT_DIR = Path("i18n/uz/docusaurus-plugin-content-docs/current")
+CACHE_FILE = Path("i18n/uz/translation_cache.json")
+TOKEN_STATS_FILE = Path("i18n/uz/token_stats.json")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
