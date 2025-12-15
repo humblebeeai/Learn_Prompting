@@ -16,10 +16,10 @@ TARGET_LANG = "uzn_Latn"
 MODEL = "tilmoch"
 
 DOCS_DIR = Path("docs")
-OUTPUT_DIR = Path("docs_uz")
+OUTPUT_DIR = Path("data/docs_uz")
 CACHE_FILE = Path("data/translation_cache.json")
 MIN_BATCH_SIZE = 800  # Minimum characters before sending translation request
-BATCH_SEPARATOR = " §§§ "  # Separator for batching multiple texts
+BATCH_SEPARATOR = "\n|||TRANSLATE_SPLIT|||\n"  # Unique separator for batching
 
 def load_cache():
     """Load translation cache from file."""
@@ -152,9 +152,15 @@ def translate_batch(texts: list) -> list:
         
         # Handle case where split doesn't match (API changed the separator)
         if len(translated_parts) != len(batch_texts):
-            print(f"[WARNING] Batch split mismatch, using original texts")
+            print(f"[WARNING] Batch split mismatch (expected {len(batch_texts)}, got {len(translated_parts)})")
+            print(f"[FALLBACK] Translating {len(batch_texts)} texts individually...")
+            
+            # Fallback: translate each text individually
             for idx, text in texts_to_translate:
-                results[idx] = text
+                translated = translate_with_tilmoch(text)
+                text_hash = get_text_hash(text)
+                translation_cache[text_hash] = translated
+                results[idx] = translated
         else:
             # Cache and assign results
             for (idx, original_text), translated_text in zip(texts_to_translate, translated_parts):
@@ -174,376 +180,175 @@ def translate_batch(texts: list) -> list:
 
 
 def translate_mdx(mdx_content: str) -> str:
-    """Translate MDX content with batched API calls for efficiency."""
-    
-    # Use placeholder system: extract text, batch translate, replace back
-    PLACEHOLDER_PREFIX = "<<<TRANSLATE_"
-    placeholders = []
-    placeholder_count = 0
-    
-    def create_placeholder(text):
-        """Create a placeholder for text that needs translation."""
-        nonlocal placeholder_count
-        if not text or not text.strip():
-            return text
-        placeholders.append(text)
-        ph = f"{PLACEHOLDER_PREFIX}{placeholder_count}>>>"
-        placeholder_count += 1
-        return ph
+    """Translate MDX content - simple line-by-line approach."""
     
     lines = mdx_content.split("\n")
-    processed_lines = []
+    line_translations = {}  # Maps line index to translated line
+    texts_to_translate = []  # List of (line_idx, text) tuples
+    
     in_code = False
     in_frontmatter = False
-    in_export = False
     in_jsx_block = False
-    brace_count = 0
-    jsx_depth = 0
-
-    # Regex patterns
-    inline_code_regex = re.compile(r"(``.*?``|`.*?`)")
-    link_regex = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
-    jsx_tag_regex = re.compile(r"</?[A-Z][a-zA-Z0-9]*")
-    html_tag_regex = re.compile(r"</?[a-z][a-zA-Z0-9]*")
-
-    # === PASS 1: Replace translatable text with placeholders ===
-    for i, orig_line in enumerate(lines):
-        stripped = orig_line.strip()
-
-        # === YAML Frontmatter ===
+    code_block_lang = None
+    
+    jsx_tag_regex = re.compile(r"<[A-Za-z]")  # Any HTML/JSX tag
+    
+    # === PASS 1: Identify lines that need translation ===
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        
+        # Frontmatter
         if i == 0 and stripped == "---":
             in_frontmatter = True
-            processed_lines.append(orig_line)
             continue
-        
         if in_frontmatter:
             if stripped == "---":
                 in_frontmatter = False
-            elif "title:" in orig_line:
-                match = re.search(r'title:\s*"([^"]*)"', orig_line)
+            elif "title:" in line:
+                match = re.search(r'title:\s*"([^"]*)"', line)
                 if match:
                     title = match.group(1)
                     title_clean = re.sub(r'[🟡🟢🔴🟣🟠🔵🟤⚪⚫🛸]', '', title).strip()
                     if title_clean:
-                        ph = create_placeholder(title_clean)
-                        orig_line = orig_line.replace(f'"{title}"', f'"{ph}"')
-            processed_lines.append(orig_line)
+                        texts_to_translate.append((i, title_clean, 'title'))
             continue
-
-        # === Code blocks ===
+        
+        # Code blocks
         if stripped.startswith("```"):
-            in_code = not in_code
-            processed_lines.append(orig_line)
+            if not in_code:
+                code_lang_match = re.match(r'```(\w+)', stripped)
+                code_block_lang = code_lang_match.group(1) if code_lang_match else None
+                in_code = True
+            else:
+                in_code = False
+                code_block_lang = None
             continue
+        
         if in_code:
-            processed_lines.append(orig_line)
+            # Only translate 'text' code blocks
+            if code_block_lang == "text" and stripped:
+                texts_to_translate.append((i, line, 'text_block'))
             continue
-
-        # === Export blocks ===
-        if not in_export and stripped.startswith("export"):
-            in_export = True
-            brace_count = 0
-
-        if in_export:
-            brace_count += orig_line.count("{") - orig_line.count("}")
-            if "title:" in orig_line:
-                match = re.search(r'title:\s*"([^"]*)"', orig_line)
-                if match:
-                    title = match.group(1)
-                    ph = create_placeholder(title)
-                    orig_line = orig_line.replace(f'"{title}"', f'"{ph}"')
-            processed_lines.append(orig_line)
-            if brace_count == 0:
-                in_export = False
-            continue
-
-        # === JSX/HTML blocks ===
-        if not in_jsx_block and (jsx_tag_regex.match(stripped) or html_tag_regex.match(stripped)):
-            jsx_depth = stripped.count("<") - stripped.count("</")
-            if jsx_depth > 0 or not (">" in stripped and stripped.endswith(">")):
+        
+        # JSX/HTML blocks (skip them)
+        if jsx_tag_regex.match(stripped):
+            if stripped.startswith("<") and not stripped.endswith(">"):
                 in_jsx_block = True
-            processed_lines.append(orig_line)
             continue
         
         if in_jsx_block:
-            jsx_depth += stripped.count("<") - stripped.count("</")
-            processed_lines.append(orig_line)
-            if jsx_depth <= 0:
+            if ">" in line and stripped.endswith(">"):
                 in_jsx_block = False
             continue
-
-        # === Empty lines ===
+        
+        # Skip empty lines
         if not stripped:
-            processed_lines.append(orig_line)
             continue
-
-        # === Single-line JSX/HTML ===
-        if (jsx_tag_regex.match(stripped) or html_tag_regex.match(stripped)) and stripped.endswith(">"):
-            processed_lines.append(orig_line)
+        
+        # Skip export statements
+        if stripped.startswith("export"):
             continue
-
-        # === Headers ===
+        
+        # Skip lines that are just URLs
+        if stripped.startswith(("http://", "https://", "www.")):
+            continue
+        
+        # Skip lines with only markdown syntax
+        if stripped in ["<br />", "<br/>", "---"]:
+            continue
+        
+        # Translate headers
         if stripped.startswith("#"):
             match = re.match(r"^(#{1,6})\s+(.+)$", stripped)
             if match:
-                hashes = match.group(1)
                 text = match.group(2)
                 text_clean = re.sub(r'[🟡🟢🔴🟣🟠🔵🟤⚪⚫🛸]', '', text).strip()
-                if text_clean:
-                    ph = create_placeholder(text_clean)
-                    processed_lines.append(orig_line.replace(stripped, f"{hashes} {ph}"))
-                else:
-                    processed_lines.append(orig_line)
-                continue
-
-        # === List items ===
-        if stripped.startswith(("- ", "* ")):
-            bullet = "- " if stripped.startswith("- ") else "* "
-            content = stripped[len(bullet):]
-            
-            # Handle inline code and links
-            parts = inline_code_regex.split(content)
-            new_parts = []
-            for part in parts:
-                if inline_code_regex.fullmatch(part):
-                    new_parts.append(part)
-                elif part.strip():
-                    # Handle links
-                    def link_replacer(m):
-                        link_text = m.group(1)
-                        url = m.group(2)
-                        if link_text.startswith(("http://", "https://", "`")):
-                            return m.group(0)
-                        ph = create_placeholder(link_text)
-                        return f"[{ph}]({url})"
-                    
-                    part = link_regex.sub(link_replacer, part)
-                    if not part.startswith(("http://", "https://")):
-                        ph = create_placeholder(part)
-                        new_parts.append(ph)
-                    else:
-                        new_parts.append(part)
-                else:
-                    new_parts.append(part)
-            
-            new_content = "".join(new_parts)
-            leading_space = orig_line[:-len(stripped)]
-            processed_lines.append(f"{leading_space}{bullet}{new_content}")
+                if text_clean and len(text_clean) > 3:
+                    texts_to_translate.append((i, text_clean, 'header'))
             continue
-
-        # === Regular paragraphs ===
-        def link_replacer(m):
-            link_text = m.group(1)
-            url = m.group(2)
-            if link_text.startswith(("http://", "https://", "`")):
-                return m.group(0)
-            ph = create_placeholder(link_text)
-            return f"[{ph}]({url})"
         
-        line_content = link_regex.sub(link_replacer, stripped)
-        parts = inline_code_regex.split(line_content)
-        new_parts = []
-        for part in parts:
-            if inline_code_regex.fullmatch(part):
-                new_parts.append(part)
-            elif part.strip() and not part.startswith(("http://", "https://", "@")):
-                ph = create_placeholder(part)
-                new_parts.append(ph)
-            else:
-                new_parts.append(part)
+        # Translate list items (remove bullet, translate rest)
+        if stripped.startswith(("- ", "* ", "1. ", "2. ", "3. ", "4. ", "5. ")):
+            # Extract text after bullet
+            for prefix in ["- ", "* ", "1. ", "2. ", "3. ", "4. ", "5. "]:
+                if stripped.startswith(prefix):
+                    text = stripped[len(prefix):]
+                    # Skip if it's just a link or code
+                    if text.strip() and not text.startswith(("[", "`", "http")):
+                        texts_to_translate.append((i, text, 'list'))
+                    break
+            continue
         
-        new_line = "".join(new_parts)
-        leading_space = orig_line[:-len(stripped)] if stripped else orig_line
-        processed_lines.append(f"{leading_space}{new_line}")
-
-    # === PASS 2: Batch translate all placeholders ===
-    print(f"[BATCH] Collected {len(placeholders)} text segments for translation")
+        # Regular text lines (but not markdown syntax)
+        # Skip lines that are pure markdown or don't have letters
+        if not any(char.isalpha() for char in stripped):
+            continue
+        
+        # Check if line has actual translatable content
+        # Must have: letters, reasonable length, spaces (multiple words)
+        word_count = len(stripped.split())
+        alpha_count = sum(1 for c in stripped if c.isalpha())
+        
+        if word_count >= 1 and alpha_count >= 10:
+            texts_to_translate.append((i, stripped, 'text'))
     
-    if placeholders:
-        # Batch translate in chunks of MIN_BATCH_SIZE
+    # === PASS 2: Batch translate ===
+    print(f"[BATCH] Collected {len(texts_to_translate)} lines for translation")
+    
+    if texts_to_translate:
+        # Extract just the texts
+        texts = [text for _, text, _ in texts_to_translate]
+        
+        # Batch translate in chunks
         translated_texts = []
-        for i in range(0, len(placeholders), 50):  # Process 50 at a time max
-            batch = placeholders[i:i+50]
+        for i in range(0, len(texts), 50):
+            batch = texts[i:i+50]
             translated_batch = translate_batch(batch)
             translated_texts.extend(translated_batch)
         
-        # Save cache after batch translation
+        # Map translations back to line indices
+        for (line_idx, original_text, line_type), translated_text in zip(texts_to_translate, translated_texts):
+            line_translations[line_idx] = (translated_text, line_type, original_text)
+        
+        # Save cache
         save_cache(translation_cache)
-    else:
-        translated_texts = []
-
-    # === PASS 3: Replace placeholders with translations ===
-    result = "\n".join(processed_lines)
-    for i, translated_text in enumerate(translated_texts):
-        placeholder = f"{PLACEHOLDER_PREFIX}{i}>>>"
-        result = result.replace(placeholder, translated_text)
     
-    return result
-
-
-def translate_mdx_old(mdx_content: str) -> str:
-    """OLD VERSION - Translate MDX content while preserving code blocks, inline code, JSX, and frontmatter."""
-    lines = mdx_content.split("\n")
-    result = []
-    in_code = False
-    in_frontmatter = False
-    in_export = False
-    in_jsx_block = False
-    brace_count = 0
-    jsx_depth = 0
-
-    # Regex patterns
-    inline_code_regex = re.compile(r"(``.*?``|`.*?`)")
-    link_regex = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
-    jsx_tag_regex = re.compile(r"</?[A-Z][a-zA-Z0-9]*")  # JSX component tags
-    html_tag_regex = re.compile(r"</?[a-z][a-zA-Z0-9]*")  # HTML tags
-    
-    def link_replacer(m):
-        link_text = m.group(1)
-        url = m.group(2)
-        # Don't translate if link text is just a URL or code
-        if link_text.startswith(("http://", "https://", "`")):
-            return m.group(0)
-        return f"[{translate_with_tilmoch(link_text)}]({url})"
-
-    for i, orig_line in enumerate(lines):
-        stripped = orig_line.strip()
-
-        # === YAML Frontmatter (---...---) ===
-        if i == 0 and stripped == "---":
-            in_frontmatter = True
-            result.append(orig_line)
-            continue
-        
-        if in_frontmatter:
-            if stripped == "---":
-                in_frontmatter = False
-            # Only translate the title value in frontmatter
-            elif "title:" in orig_line:
-                match = re.search(r'title:\s*"([^"]*)"', orig_line)
+    # === PASS 3: Reconstruct document ===
+    result_lines = []
+    for i, line in enumerate(lines):
+        if i in line_translations:
+            translated, line_type, original = line_translations[i]
+            
+            if line_type == 'title':
+                # Replace title in frontmatter
+                result_lines.append(line.replace(f'"{original}"', f'"{translated}"'))
+            elif line_type == 'header':
+                # Replace header text (keep the # symbols)
+                match = re.match(r"^(#{1,6})\s+", line)
                 if match:
-                    title = match.group(1)
-                    # Remove emoji and translate
-                    title_clean = re.sub(r'[🟡🟢🔴🟣🟠🔵🟤⚪⚫🛸]', '', title).strip()
-                    if title_clean:
-                        translated = translate_with_tilmoch(title_clean)
-                        orig_line = orig_line.replace(f'"{title}"', f'"{translated}"')
-            result.append(orig_line)
-            continue
-
-        # === Fenced code blocks ===
-        if stripped.startswith("```"):
-            in_code = not in_code
-            result.append(orig_line)
-            continue
-        if in_code:
-            result.append(orig_line)
-            continue
-
-        # === Export blocks ===
-        if not in_export and stripped.startswith("export"):
-            in_export = True
-            brace_count = 0
-
-        if in_export:
-            brace_count += orig_line.count("{") - orig_line.count("}")
-            if "title:" in orig_line:
-                match = re.search(r'title:\s*"([^"]*)"', orig_line)
-                if match:
-                    title = match.group(1)
-                    translated = translate_with_tilmoch(title)
-                    orig_line = orig_line.replace(f'"{title}"', f'"{translated}"')
-            result.append(orig_line)
-            if brace_count == 0:
-                in_export = False
-            continue
-
-        # === JSX/HTML block detection ===
-        if not in_jsx_block and (jsx_tag_regex.match(stripped) or html_tag_regex.match(stripped)):
-            jsx_depth = stripped.count("<") - stripped.count("</")
-            if jsx_depth > 0 or not (">" in stripped and stripped.endswith(">")):
-                in_jsx_block = True
-            result.append(orig_line)
-            continue
-        
-        if in_jsx_block:
-            jsx_depth += stripped.count("<") - stripped.count("</")
-            result.append(orig_line)
-            if jsx_depth <= 0:
-                in_jsx_block = False
-            continue
-
-        # === Empty lines ===
-        if not stripped:
-            result.append(orig_line)
-            continue
-
-        # === Single-line JSX/HTML tags ===
-        if (jsx_tag_regex.match(stripped) or html_tag_regex.match(stripped)) and stripped.endswith(">"):
-            result.append(orig_line)
-            continue
-
-        # === Headers ===
-        if stripped.startswith("#"):
-            match = re.match(r"^(#{1,6})\s+(.+)$", stripped)
-            if match:
-                hashes = match.group(1)
-                text = match.group(2)
-                # Remove emoji before translating
-                text_clean = re.sub(r'[🟡🟢🔴🟣🟠🔵🟤⚪⚫🛸]', '', text).strip()
-                if text_clean:
-                    translated = translate_with_tilmoch(text_clean)
-                    result.append(orig_line.replace(stripped, f"{hashes} {translated}"))
+                    prefix = match.group(0)
+                    result_lines.append(f"{prefix}{translated}")
                 else:
-                    result.append(orig_line)
-                continue
-
-        # === List items ===
-        if stripped.startswith(("- ", "* ")):
-            bullet = "- " if stripped.startswith("- ") else "* "
-            content_stripped = stripped[len(bullet):]
-
-            # Translate link texts
-            content_stripped = link_regex.sub(link_replacer, content_stripped)
-
-            # Split by inline code
-            parts = inline_code_regex.split(content_stripped)
-            translated_parts = []
-            for part in parts:
-                if inline_code_regex.fullmatch(part):
-                    translated_parts.append(part)
-                elif part.strip() and not part.startswith(("http://", "https://")):
-                    translated_parts.append(translate_with_tilmoch(part))
+                    result_lines.append(line)
+            elif line_type == 'list':
+                # Replace list item text (keep the bullet)
+                for bullet in ["- ", "* ", "1. ", "2. ", "3. ", "4. ", "5. "]:
+                    if line.strip().startswith(bullet):
+                        leading = line[:len(line) - len(line.lstrip())]
+                        result_lines.append(f"{leading}{bullet}{translated}")
+                        break
                 else:
-                    translated_parts.append(part)
-
-            new_content = "".join(translated_parts)
-            leading_space = orig_line[:-len(stripped)]
-            result.append(f"{leading_space}{bullet}{new_content}")
-            continue
-
-        # === Regular paragraph lines ===
-        line_content = stripped
-        
-        # Translate link texts
-        line_content = link_regex.sub(link_replacer, line_content)
-
-        # Split by inline code
-        parts = inline_code_regex.split(line_content)
-        translated_parts = []
-        for part in parts:
-            if inline_code_regex.fullmatch(part):
-                translated_parts.append(part)
-            elif part.strip() and not part.startswith(("http://", "https://", "@")):
-                translated_parts.append(translate_with_tilmoch(part))
+                    result_lines.append(line)
+            elif line_type == 'text_block':
+                # Text code block - replace entire line
+                result_lines.append(translated)
             else:
-                translated_parts.append(part)
-
-        new_line = "".join(translated_parts)
-        leading_space = orig_line[:-len(stripped)] if stripped else orig_line
-        result.append(f"{leading_space}{new_line}")
-
-    return "\n".join(result)
+                # Regular text line - replace entire line
+                result_lines.append(translated)
+        else:
+            result_lines.append(line)
+    
+    return "\n".join(result_lines)
 
 
 def translate_file(input_path: Path, output_path: Path):
