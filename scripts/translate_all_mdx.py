@@ -208,9 +208,12 @@ def translate_mdx(mdx_content: str) -> str:
                 match = re.search(r'title:\s*"([^"]*)"', line)
                 if match:
                     title = match.group(1)
+                    # Extract emoji if present
+                    emoji_match = re.match(r'^([🟡🟢🔴🟣🟠🔵🟤⚪⚫🛸]\s*)', title)
+                    emoji_prefix = emoji_match.group(1) if emoji_match else ""
                     title_clean = re.sub(r'[🟡🟢🔴🟣🟠🔵🟤⚪⚫🛸]', '', title).strip()
                     if title_clean:
-                        texts_to_translate.append((i, title_clean, 'title'))
+                        texts_to_translate.append((i, title_clean, 'title', emoji_prefix))
             continue
         
         # Code blocks
@@ -296,8 +299,11 @@ def translate_mdx(mdx_content: str) -> str:
     print(f"[BATCH] Collected {len(texts_to_translate)} lines for translation")
     
     if texts_to_translate:
-        # Extract just the texts
-        texts = [text for _, text, _ in texts_to_translate]
+        # Extract just the texts (handle both 3 and 4 element tuples)
+        texts = []
+        for item in texts_to_translate:
+            if len(item) >= 3:
+                texts.append(item[1])  # text is always second element
         
         # Batch translate in chunks
         translated_texts = []
@@ -307,8 +313,12 @@ def translate_mdx(mdx_content: str) -> str:
             translated_texts.extend(translated_batch)
         
         # Map translations back to line indices
-        for (line_idx, original_text, line_type), translated_text in zip(texts_to_translate, translated_texts):
-            line_translations[line_idx] = (translated_text, line_type, original_text)
+        for item, translated_text in zip(texts_to_translate, translated_texts):
+            line_idx = item[0]
+            original_text = item[1]
+            line_type = item[2]
+            extra_data = item[3] if len(item) > 3 else None
+            line_translations[line_idx] = (translated_text, line_type, original_text, extra_data)
         
         # Save cache
         save_cache(translation_cache)
@@ -317,11 +327,19 @@ def translate_mdx(mdx_content: str) -> str:
     result_lines = []
     for i, line in enumerate(lines):
         if i in line_translations:
-            translated, line_type, original = line_translations[i]
+            translated, line_type, original, extra_data = line_translations[i]
             
             if line_type == 'title':
-                # Replace title in frontmatter
-                result_lines.append(line.replace(f'"{original}"', f'"{translated}"'))
+                # Replace title in frontmatter (preserve emoji if present)
+                emoji_prefix = extra_data if extra_data else ""
+                # Find the full original title with emoji
+                match = re.search(r'title:\s*"([^"]*)"', line)
+                if match:
+                    full_original = match.group(1)
+                    new_title = f"{emoji_prefix}{translated}" if emoji_prefix else translated
+                    result_lines.append(line.replace(f'"{full_original}"', f'"{new_title}"'))
+                else:
+                    result_lines.append(line)
             elif line_type == 'header':
                 # Replace header text (keep the # symbols)
                 match = re.match(r"^(#{1,6})\s+", line)
