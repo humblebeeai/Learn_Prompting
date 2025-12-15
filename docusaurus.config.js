@@ -138,7 +138,12 @@ async function createConfig() {
                     src: "img/simple_ai.webp",
                 },
                 items: [
-                    { type: "localeDropdown", position: "right" },
+                    {
+                        type: 'html',
+                        position: 'left',
+                        value: '<div style="display: flex; align-items: center; margin-left: -28px;"><span style="margin: 0 12px; color: var(--ifm-color-primary); font-weight: 800; font-size: 1.5rem;">×</span><a href="https://academy.humblebee.ai" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="/humblebee_logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 32px; margin-right: 8px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">HumblebeeAI</span></a></div>',
+                    },
+                    { type: "localeDropdown", position: "right", className: "icon-link-language" },
                     {
                         href: "https://github.com/humblebeeai/Learn_Prompting",
                         label: "GitHub",
@@ -148,22 +153,16 @@ async function createConfig() {
             },
             announcementBar: {
                 id: "collaboration",
-                content: '🇺🇿 🇺🇸 <b>Learn Prompting × HumblebeeAI</b> Collaboration Edition',
+                content: '<div style="font-weight: 600; font-size: 15px;">🇺🇿 <span style="margin: 0 8px;">Learn Prompting × HumblebeeAI Collaboration Edition</span> 🇺🇸</div>',
                 backgroundColor: "#53ffd4",
                 textColor: "#000",
                 isCloseable: true,
             },
             footer: {
                 style: "dark",
-                logo: {
-                    alt: 'HumblebeeAI Logo',
-                    src: '/humblebee_logo.svg',
-                    href: 'https://academy.humblebee.ai',
-                    width: 150,
-                },
                 copyright: `
           <div style="margin-top: 10px;">
-            Uzbek/Russian editions maintained by <strong>HumblebeeAI</strong>.<br/>
+            Uzbek editions maintained by <strong>HumblebeeAI</strong>.<br/>
             Content by <a href="https://learnprompting.org" target="_blank" rel="noopener noreferrer">Learn Prompting</a> contributors.
             Licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>.
           </div>

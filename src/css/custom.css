@@ -88,6 +88,11 @@
   --yellow-highlight: #bb8e0c7a;
   --text-color: white;
   --bluegreen-highlight: rgba(104, 156, 106, 0.67);
+
+  /* Navbar Overrides for Dark Mode */
+  --ifm-navbar-background-color: #1a1f2e;
+  --ifm-navbar-item-padding-horizontal: 1.2rem;
+  /* Increased spacing */
 }
 
 [data-theme='light'] {
@@ -124,6 +129,53 @@ h6 {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
+}
+
+/* ===========================
+   NAVBAR & BRANDING
+   =========================== */
+
+/* Globe icon for locale dropdown */
+.icon-link-language .navbar__link::before {
+  content: "🌐";
+  margin-right: 6px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Ensure flex alignment for the link inside the dropdown item */
+.icon-link-language .navbar__link {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Glow Effect */
+.logo-glow {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  transform: scale(1.05);
+}
+
+/* Announcement Bar Polish */
+div[class^="announcementBar_"] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme='dark'] div[class^="announcementBar_"] {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Learn Prompting Logo Glow (if we can target it by img tag inside navbar brand) */
+.navbar__brand img {
+  transition: filter 0.3s ease;
+}
+
+.navbar__brand:hover img {
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
 }
 
 /* ===========================

@@ -266,7 +266,7 @@ function CollaborationSection() {
       <div className={`collab-content ${isInView ? 'animate-slide-up' : 'init-slide-up'}`}>
         <div className="collab-badge">Hamkorlik</div>
         <p className="collab-text">
-          O'zbek va rus tillaridagi tarjima versiyalari <strong>HumblebeeAI</strong> tomonidan yuritiladi.
+          O'zbek tilidagi tarjima versiyalari <strong>HumblebeeAI</strong> tomonidan yuritiladi.
           Asl kontent <strong>Learn Prompting</strong> ochiq manbali hamjamiyati tomonidan yaratilgan.
         </p>
         <Link className="collab-link" to="/about-collaboration">
