@@ -1,6 +1,8 @@
 import React from 'react';
-import RobotImage from '@site/docs/assets/robot.webp';
-import AstronautImage from '@site/docs/assets/astronaut.webp';
+// import RobotImage from '@site/docs/assets/robot.webp';
+// import AstronautImage from '@site/docs/assets/astronaut.webp';
+const RobotImage = "";
+const AstronautImage = "";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -80,7 +82,7 @@ class AIInput extends React.Component {
           <h4 style={{ margin: '0' }}>{title}</h4>
         </div>
         <hr style={{ border: 'none', height: '1px', backgroundColor: 'darkgrey', margin: '0' }} />
-        <pre style={{borderRadius: '5px', padding: '10px', margin: '0' }}>
+        <pre style={{ borderRadius: '5px', padding: '10px', margin: '0' }}>
           {processedChildren}
         </pre>
       </div>
