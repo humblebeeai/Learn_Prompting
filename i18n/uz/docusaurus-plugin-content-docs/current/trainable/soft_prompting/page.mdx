@@ -1,0 +1,52 @@
+---
+sidebar_position: 1
+title: "🔴 Soft Prompts"
+---
+
+
+# Soft Prompts
+
+Prompt tuning(@lester2021power), model fine tuning(@khashabi2021prompt) ga alternativ sifatida, model og'irliklarini muzlatib qo'yadi va prompt parametrlarini yangilaydi. Natijada hosil bo'lgan prompt 'soft prompt' deb ataladi.
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/trainable/prompt_tuning.webp"
+    width={1074}
+    height={556}
+    style={{ width: "500px", margin: "auto" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>
+Model Tuning va Prompt Tuning (Lester va boshq.)
+</div>
+
+Yuqoridagi rasm model tuning va prompt tuning ni solishtiradi.
+Model tuning da, siz bir xil modelni turli vazifalarda fine-tune qilasiz. Bu sizga
+bir nechta turli modellarga ega bo'lishingizni ta'minlaydi, lekin siz ularning kirishlarini osonlik bilan batch qila olmaysiz.
+
+Boshqa tomondan, prompt tuning sizga barcha vazifalar uchun bir xil modeldan foydalanish imkonini beradi. Siz
+faqat inference vaqtida mos promptlarni qo'shishingiz kerak bo'ladi, bu esa
+turli vazifalar bo'yicha batching ni osonlashtiradi. Bu oddiy prompting ning
+afzalligi bilan deyarli bir xil. Bundan tashqari, bitta model uchun bir nechta
+vazifalarda o'qitilgan soft prompt lar ko'pincha bir xil token uzunligiga ega bo'ladi.
+
+## Qanday ishlaydi
+
+Soft prompting ning asosiy mantiqini tushunish uchun, **model inference** qanday ishlashini o'ylab ko'ramiz
+berilgan prompt da: `What's 2+2?`.
+
+1. Bu quyidagicha tokenlarga ajratilishi mumkin: `What, 's, 2, +, 2, ?`.
+
+2. So'ng, har bir token qiymatlar vektoriga aylantiriladi.
+
+3. Ushbu qiymatlar vektorlari model parametrlari sifatida qaralishi mumkin. Modelni
+qo'shimcha o'qitish mumkin, faqat ushbu prompt larning og'irliklarini sozlash orqali.
+
+E'tibor bering, ushbu og'irliklarni yangilashni boshlaganimiz zahoti, tokenlarning vektorlari endi
+lug'atdagi haqiqiy embedding larga mos kelmaydi.
+
+# Natijalar
+
+Prompt tuning katta modellarda yaxshiroq natija beradi. Katta modellarga kamroq
+soft prompt token lar kerak bo'ladi. Qanday bo'lmasin, 20 tadan ortiq token sezilarli natija oshishiga olib kelmaydi.

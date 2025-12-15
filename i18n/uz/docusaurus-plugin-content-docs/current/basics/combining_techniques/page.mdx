@@ -1,0 +1,80 @@
+---
+sidebar_position: 80
+title: "🟢 Texnikalarni birlashtirish"
+---
+
+
+# Texnikalarni birlashtirish
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src={"/docs/assets/basics/combined_prompt.svg"}
+    width={634}
+    height={878}
+    style={{
+      width: "100%",
+      height: "300px",
+      verticalAlign: "top",
+      margin: "auto",
+    }}
+  />
+</div>
+<br />
+
+<Takeaways>- Prompting texnikalarini qanday birlashtirishni tushuning</Takeaways>
+
+Oldingi darslarda ko‘rganimizdek, promptlar turli format va murakkablikda bo‘lishi mumkin. Ular kontekst, ko‘rsatmalar va bir nechta kirish-chiqish misollarini o‘z ichiga olishi mumkin. Biroq, hozirgacha biz faqat alohida prompt sinflarini ko‘rib chiqdik. Ushbu turli prompting texnikalarini birlashtirish yanada kuchli promptlar yaratishga olib kelishi mumkin.
+
+## Rol va ko‘rsatma promptingini birlashtirish
+
+Rol va ko‘rsatma promptingini ham birlashtirib, yanada murakkab promptlar yaratish mumkin. Masalan, siz AIga tarixchi rolini bajarishni buyurishingiz va so‘ngra ma’lum bir vazifa uchun ko‘rsatmalar berishingiz mumkin.
+
+<AIInput>
+Siz Amerika fuqarolar urushi bo‘yicha ixtisoslashgan tarixchisiz. Qisqa
+urushning asosiy voqealari va natijalari haqida xulosa yozing.
+</AIInput>
+
+AI javobi:
+
+<AIOutput>
+Amerika fuqarolar urushi, 1861 yildan 1865 yilgacha bo‘lib o‘tgan, Qo‘shma Shtatlar tarixidagi muhim voqea bo‘lgan. U asosan Ittifoqni saqlab qolish va qullikning qonuniyligi, ayniqsa yangi qabul qilingan g‘arbiy shtatlarda, ustidan kelib chiqqan mojaro sifatida boshlangan.
+
+Urushning asosiy voqealariga Fort Samter jangi, bu mojaroning boshlanishini belgilagan; Antietam jangi, Amerika tarixidagi eng qonli bir kunlik jang; va 1862 yilda Prezident Abraham Linkoln tomonidan e’lon qilingan Emansipatsiya Proklamatsiyasi kiradi, unda Konfederatsiya nazoratidagi hududlardagi barcha qullar ozod qilinishi e’lon qilingan.
+
+1863 yildagi Gettisberg jangi ko‘pincha urushning burilish nuqtasi deb hisoblanadi. Ittifoqning u yerdagi g‘alabasi va Viksburg qamalidagi muvaffaqiyati Shimolga hal qiluvchi ustunlik berdi. Urush amalda 1865 yilda general Robert E. Li Appomattox sud uyida taslim bo‘lishi bilan yakunlangan.
+
+Urush natijasida taxminan 620 000 askar halok bo‘lgan va noma’lum miqdorda tinch aholi qurbon bo‘lgan. Bu urush Qo‘shma Shtatlarda qullikni tugatdi, Ittifoqni tikladi va federal hukumat vakolatlarini sezilarli darajada kengaytirdi.
+
+</AIOutput>
+
+Ushbu misolda AI tarixchi rolini o‘z zimmasiga oladi va Amerika fuqarolar urushi haqida qisqa xulosa yozish bo‘yicha ko‘rsatmalarga amal qiladi. Rol va ko‘rsatma promptingini birlashtirish natijasida batafsil va aniq javob olinadi.
+
+## Kontekst, ko‘rsatma va Few Shot Promptingni birlashtirish
+
+Bu kontekst, ko‘rsatma va few-shot promptingni birlashtirgan prompt misolidir. Kontekst Twitter va tvitlarni tasniflash vazifasi haqidagi tushuntirish orqali berilgan. Ko‘rsatma esa "Make sure to classify the last tweet correctly." jumlasi orqali ifodalangan. Few-shot prompting esa ijobiy va salbiy tvitlarning ikki misoli orqali ko‘rsatilgan. AI ushbu kontekst, ko‘rsatma va misollar birikmasidan foydalanib, yakuniy tvitni to‘g‘ri tasniflash kutiladi.
+
+<AIInput>
+Twitter — foydalanuvchilar qisqa xabarlar joylashi mumkin bo‘lgan ijtimoiy tarmoq platformasi bo‘lib, bu xabarlar "tweet" deb ataladi.
+Tvitlar ijobiy yoki salbiy bo‘lishi mumkin va biz tvitlarni
+ijobiy yoki salbiy deb tasniflashni xohlaymiz. Quyida ijobiy va salbiy tvitlarga ba’zi misollar keltirilgan. 
+Yakuniy tvitni to‘g‘ri tasniflang.
+
+Q: Tweet: "Qanday ajoyib kun!"
+Bu tvit ijobiy yoki salbiymi?
+
+A: positive
+
+Q: Tweet: "Men bu darsni yomon ko‘raman"
+Bu tvit ijobiy yoki salbiymi?
+
+A: negative
+
+Q: Tweet: "Men jinsi shimlardagi cho‘ntaklarni yaxshi ko‘raman"
+
+A:
+
+</AIInput>
+
+## Xulosa
+
+Turli prompting strategiyalarini birlashtirish yanada kuchli va samarali promptlarga olib kelishi mumkin. Siz yozadigan deyarli barcha promptlar bir nechta strategiyalarni o‘z ichiga oladi. Promptlaringiz ustida tajriba o‘tkazishda va ularni takomillashtirishda, turli texnikalarni qanday birlashtirish mumkinligini ko‘rib chiqing va bu orqali istalgan natijaga erishishga harakat qiling.
