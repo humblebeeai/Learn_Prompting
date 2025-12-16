@@ -1,0 +1,57 @@
+---
+sidebar_position: 3
+title: "🟡 Mantiq yuritadigan va harakat qiladigan LLMlar"
+---
+
+
+# Mantiq yurituvchi va harakat qiluvchi LLMlar
+
+ReAct(@yao2022react)(reason, act) bu til modellari uchun murakkab muammolarni hal qilish imkonini beruvchi paradigma hisoblanadi
+tabiiy til asosida fikrlashni talab qiladigan vazifalar. ReAct LLM mo‘ljallangan vazifalar uchun yaratilgan bo‘lib, unda
+muayyan harakatlarni bajarishga ruxsat berilgan. Masalan, MRKL tizimidagi kabi, LLM bajarishi mumkin
+tashqi API lar bilan o‘zaro aloqada bo‘lib, ma’lumotlarni olish uchun foydalanadi. Savol berilganda, LLM
+ma'lumotni olish uchun biror harakatni bajarishni tanlashi va so‘ngra savolga javob berishi mumkin
+qaytarib olingan ma’lumotlarga asoslanib.
+
+ReAct tizimlarini MRKL tizimlari sifatida tasavvur qilish mumkin, ular qo‘shimcha ravishda **mantiqiy fikrlash** qobiliyatiga ega
+ular bajarishi mumkin bo‘lgan harakatlar haqida**
+
+Quyidagi rasmni ko‘rib chiqing. Yuqoridagi katakdagi savol HotPotQA(@yang2018hotpotqa) manbasidan olingan,
+murakkab mulohazani talab qiladigan savol-javoblar ma'lumotlar to‘plami. ReAct savolga javob bera oladi
+avvalo savol haqida mulohaza yuritish (O'y 1), so'ngra harakatni bajarish (Harakat 1) orqali so'rov yuborish
+Google’ga. So‘ngra u kuzatuv (Obs 1) ni oladi va bu fikr, harakat, kuzatuv bilan davom etadi
+xulosa (3-qism) ga yetguncha davom etadi.
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/advanced/react_qa.webp"
+    width={1028}
+    height={762}
+    style={{ width: "500px", margin: "auto" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>ReAct System (Yao et al.)</div>
+
+Kuchaytirib o‘rganish bo‘yicha bilimga ega o‘quvchilar bu jarayonni klassik ga o‘xshash deb tan olishlari mumkin
+Holat, harakat, mukofot, holat,... dan iborat bo‘lgan RL sikli. ReAct bu uchun ma’lum bir rasmiylashtirishni taqdim etadi
+buni o‘z maqolasida.
+
+## Natijalar
+
+Google ReAct bilan olib borilgan tajribalarda PaLM(@chowdhery2022palm) LLM dan foydalangan.
+Standart prompting (faqat savol), CoT va boshqa konfiguratsiyalar bilan taqqoslashlar
+ReAct ning natijalari murakkab mantiqiy vazifalar uchun istiqbolli ekanligini ko‘rsatadi. Google
+shuningdek, FEVER ma’lumotlar to‘plamida (@thorne2018fever) tadqiqotlar o‘tkazadi, bu esa
+faktlarni ajratib olish va tekshirish.
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    src="/docs/assets/advanced/react_performance.webp"
+    width={1286}
+    height={488}
+    style={{ width: "500px", margin: "auto" }}
+  />
+</div>
+
+<div style={{ textAlign: "center" }}>ReAct Results (Yao et al.)</div>
