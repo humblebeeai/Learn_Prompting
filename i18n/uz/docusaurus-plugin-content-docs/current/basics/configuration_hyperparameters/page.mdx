@@ -21,7 +21,9 @@ title: "🟢 LLM sozlamalari"
 </div>
 <br />
 
-<Takeaways>- Temperature, Top P va Maximum Length ni tushunib oling</Takeaways>
+<Takeaways>
+  - Temperature, Top P va Maximum Length ni tushunib oling
+</Takeaways>
 
 # Kirish
 
@@ -31,12 +33,12 @@ Biz modelning turli jihatlarini, masalan, uning qanchalik 'tasodifiy' ekanligini
 
 <div className="flex flex-col sm:flex-row justify-between">
   <div className="pr-5">
-Temperature til modeli natijasining kutilmaganligini boshqaradi.
-Yuqori temperatura sozlamalarida natijalar yanada ijodiy va kamroq
-kutiladigan, chunki u kamroq ehtimolli tokenlarning ehtimolini oshiradi, shu bilan
-ko'proq ehtimolli variantlar uchun uni kamaytiradi. Aksincha, past haroratlar
-ko'proq konservativ va bashorat qilinadigan natijalar. Quyidagi misol ko'rsatadi
-bu natijalardagi farqlar:
+    Temperature til modeli natijasining kutilmaganligini boshqaradi.
+    Yuqori temperatura sozlamalarida natijalar yanada ijodiy va kamroq
+    kutiladigan, chunki u kamroq ehtimolli tokenlarning ehtimolini oshiradi, shu bilan
+    ko'proq ehtimolli variantlar uchun uni kamaytiradi. Aksincha, past haroratlar
+    ko'proq konservativ va bashorat qilinadigan natijalar. Quyidagi misol ko'rsatadi
+    bu natijalardagi farqlar:
   </div>
 
   <div className="mt-4 sm:mt-0 sm:ml-auto">
@@ -51,11 +53,11 @@ bu natijalardagi farqlar:
 </div>
 
 <AIInput>
-Sohilda bajarish mumkin bo‘lgan 10 ta g‘aroyib, noodatiy va qiziqarli ishlar nima? Ro‘yxat tuzing
-ta'riflarisiz.
+  Sohilda bajarish mumkin bo‘lgan 10 ta g‘aroyib, noodatiy va qiziqarli ishlar nima? Ro‘yxat tuzing
+  ta'riflarisiz.
 </AIInput>
 <AIOutput title="ChatGPT Output (Temperature=0, Top P = 1)">
-1. Qumdan qal’a qurish
+  {`1. Qumdan qal’a qurish
 2. Qobiqchalarni to‘plang
 3. Sohil voleybolini o‘ynang
 4. Fly a kite
@@ -67,7 +69,7 @@ ta'riflarisiz.
 10. Quyosh botishini tomosha qiling`}
 </AIOutput>
 <AIOutput title="ChatGPT Output (Temperature=1.5, Top P = 1)">
-1. Sayoz suvlarda saqich pufaklarini puflab yurish
+  {`1. Sayoz suvlarda saqich pufaklarini puflab yurish
 2. Murakkab qum qal’a haykallarini yarating
 3. Improvizatsiya qilingan plyaj voleyboli o‘yiniga qo‘shiling
 4. Yaqin atrofdagi qoyalar bo‘ylab manzarali piyoda sayr qiling
@@ -76,14 +78,14 @@ ta'riflarisiz.
 7. Sörf qilishni o‘rganing yoki boshqa suv sport turlarini sinab ko‘ring
 8. To‘satdan qum urushini boshlang
 9. Mahalliylar kabi qirg‘oq bo‘yida baliq ovlashga harakat qiling
-10. Do‘stona raqobatda qatnashish uchun qum qal’a qurish tanlovini tashkil qiling
+10. Do‘stona raqobatda qatnashish uchun qum qal’a qurish tanlovini tashkil qiling`}
 </AIOutput>
 
 Yuqoriroq temperatura sozlamasi bilan yaratilgan natija plyajda bajariladigan faoliyatlarning yanada tasavvurli va xilma-xil ro‘yxatini taqdim etadi. Bu ijodiy yozuv uchun juda foydali bo‘lishi mumkin.
 
 <Note>
-Agar siz temperature ni juda yuqori sozlasangiz, mantiqsiz natijalar olishingiz mumkin, masalan
-Becksmith Stein Man yaqinida sponge-ball beysbol home run musobaqasini boshlang
+  Agar siz temperature ni juda yuqori sozlasangiz, mantiqsiz natijalar olishingiz mumkin, masalan
+  Becksmith Stein Man yaqinida sponge-ball beysbol home run musobaqasini boshlang
   Beach`.
 </Note>
 
@@ -93,9 +95,9 @@ Top P[^b] til modellari uchun sozlama bo‘lib, u ularning natijasidagi tasodifi
 
 <div className="flex flex-col sm:flex-row justify-between">
   <div className="pr-5">
-Masalan, model keyingisini bashorat qiladigan bir misolni ko‘rib chiqaylik
-so‘z <code>The cat climbed up the ___</code> ichida. U tanlashi mumkin bo‘lgan eng yuqori beshta so‘z
-ko‘rib chiqilayotgan narsa <code>tree</code> bo‘lishi mumkin (ehtimollik 0.5),
+    Masalan, model keyingisini bashorat qiladigan bir misolni ko‘rib chiqaylik
+    so‘z <code>The cat climbed up the ___</code> ichida. U tanlashi mumkin bo‘lgan eng yuqori beshta so‘z
+    ko‘rib chiqilayotgan narsa <code>tree</code> bo‘lishi mumkin (ehtimollik 0.5),
     <code>roof</code> (probability 0.25), <code>wall</code> (probability 0.15),
     <code>window</code> (probability .07) and <code>carpet</code>, with
     probability of .03.
@@ -124,10 +126,10 @@ Shunday qilib, natija yaratishda, AI ushbu uch variantdan (<code>tree</code>, <c
 
 <div className="flex flex-col sm:flex-row justify-between">
   <div className="pr-5">
-Maksimal uzunlik — bu sun’iy intellekt yaratishga ruxsat berilgan tokenlar umumiy soni.
-Bu sozlama foydalanuvchilarga uzunlikni boshqarish imkonini bergani uchun foydalidir
-modelning javobi, juda uzun yoki mavzuga aloqasiz javoblarning oldini oladi. Uzunligi
-Playground oynasidagi <code>USER</code> kirituvi va{" "} o‘rtasida umumiy ishlatiladi
+    Maksimal uzunlik — bu sun’iy intellekt yaratishga ruxsat berilgan tokenlar umumiy soni.
+    Bu sozlama foydalanuvchilarga uzunlikni boshqarish imkonini bergani uchun foydalidir
+    modelning javobi, juda uzun yoki mavzuga aloqasiz javoblarning oldini oladi. Uzunligi
+    Playground oynasidagi <code>USER</code> kirituvi va{" "} o‘rtasida umumiy ishlatiladi
     <code>ASSISTANT</code> generated response. Notice how with a limit of 256
     tokens, our PirateGPT from earlier is forced to cut its story short
     mid-sentence.
@@ -156,8 +158,8 @@ Playground oynasidagi <code>USER</code> kirituvi va{" "} o‘rtasida umumiy ishl
 </div>
 
 <Note>
-Bu, shuningdek, agar siz modeldan foydalanish uchun to‘lov qilayotgan bo‘lsangiz, xarajatni nazorat qilishga yordam beradi
-Playground o‘rniga API dan foydalansangiz.
+  Bu, shuningdek, agar siz modeldan foydalanish uchun to‘lov qilayotgan bo‘lsangiz, xarajatni nazorat qilishga yordam beradi
+      Playground o‘rniga API dan foydalansangiz.
 </Note>
 
 ## Boshqa LLM Sozlamalari
@@ -168,14 +170,14 @@ Til modeli natijasiga ta’sir qilishi mumkin bo‘lgan boshqa ko‘plab sozlama
 
 <div className="flex flex-col sm:flex-row justify-between">
   <div className="pr-5">
-To‘xtash ketma-ketliklari modelga natija yaratishni qachon to‘xtatishni bildiradi, bu esa
-kontent uzunligi va tuzilmasini boshqarishga imkon beradi. Agar siz AI dan
-elektron pochta yozishni so‘rayotgan bo‘lsangiz, "Best regards," yoki "Sincerely," ni to‘xtash ketma-ketligi sifatida belgilash
-modelning xat yakuniy salomidan oldin to‘xtashini ta’minlaydi, bu esa xatni
-qisqa va aniq qiladi. To‘xtash ketma-ketliklari siz natijani
-elektron pochta, raqamlangan ro‘yxat yoki
+    To‘xtash ketma-ketliklari modelga natija yaratishni qachon to‘xtatishni bildiradi, bu esa
+    kontent uzunligi va tuzilmasini boshqarishga imkon beradi. Agar siz AI dan
+    elektron pochta yozishni so‘rayotgan bo‘lsangiz, "Best regards," yoki "Sincerely," ni to‘xtash ketma-ketligi sifatida belgilash
+    modelning xat yakuniy salomidan oldin to‘xtashini ta’minlaydi, bu esa xatni
+    qisqa va aniq qiladi. To‘xtash ketma-ketliklari siz natijani
+    elektron pochta, raqamlangan ro‘yxat yoki
     dialogue.
-  </div>
+  </div>    
 
   <div className="mt-4 sm:mt-0 sm:ml-auto">
     <Image
@@ -203,10 +205,10 @@ elektron pochta, raqamlangan ro‘yxat yoki
 
 <div className="flex flex-col sm:flex-row justify-between">
   <div className="pr-5">
-Chastota jazosi — bu yaratilgan matnda takrorlanishni kamaytiradigan sozlama bo‘lib,
-tokenlar ularning matnda necha marta uchrashiga qarab jazolanadi. 
-Token matnda qanchalik ko‘p ishlatilsa, AI uni ishlatish ehtimoli shunchalik kamayadi
-    again.
+    Chastota jazosi — bu yaratilgan matnda takrorlanishni kamaytiradigan sozlama bo‘lib,
+    tokenlar ularning matnda necha marta uchrashiga qarab jazolanadi. 
+    Token matnda qanchalik ko‘p ishlatilsa, AI uni ishlatish ehtimoli shunchalik kamayadi
+    again.    
   </div>
 
   <div className="mt-4 sm:mt-0 sm:ml-auto">
@@ -224,9 +226,9 @@ Token matnda qanchalik ko‘p ishlatilsa, AI uni ishlatish ehtimoli shunchalik k
 
 <div className="flex flex-col sm:flex-row justify-between">
   <div className="pr-5">
-Mavjudlik jazosi chastota jazosiga o‘xshaydi, lekin
-tokenlarni ular paydo bo‘lgan yoki bo‘lmaganiga qarab jazolaydi, proporsional emas,
-balki bir xil tarzda.
+    Mavjudlik jazosi chastota jazosiga o‘xshaydi, lekin
+    tokenlarni ular paydo bo‘lgan yoki bo‘lmaganiga qarab jazolaydi, proporsional emas,
+    balki bir xil tarzda.
   </div>
 
   <div className="mt-4 sm:mt-0 sm:ml-auto">
