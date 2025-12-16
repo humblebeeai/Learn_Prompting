@@ -1,8 +1,8 @@
 {
-  "label": "😃 Basics",
+  "label": "😃 Asoslar",
   "position": 10,
   "link": {
     "type": "generated-index",
-    "description": "This chapter introduces the basics of Generative AI, Prompting, Prompt Engineering, Chatbots, and more."
+    "description": "Ushbu bob Generative AI, Prompting, Prompt Engineering, Chatbotlar va boshqalar haqida asoslarni tanishtiradi."
   }
 }
