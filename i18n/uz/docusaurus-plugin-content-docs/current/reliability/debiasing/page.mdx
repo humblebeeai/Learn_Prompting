@@ -1,0 +1,92 @@
+---
+sidebar_position: 3
+title: "🟢 Prompt Debiasing"
+---
+
+
+# Prompt Debiasing
+
+Ushbu sahifada promptlaringizni noxolislikdan xoli qilish uchun bir nechta oddiy usullar ko‘rib chiqiladi.
+
+## Namuna asosida tarafkashlikni kamaytirish
+
+Ularning prompt ichidagi tarqalishi va tartibiga qarab, exemplars LLM natijalariga ta’sir ko‘rsatishi mumkin (@si2022prompting). Bu masala ma’lum darajada [What's in a Prompt](https://learnprompting.org/docs/intermediate/whats_in_a_prompt) sahifasida muhokama qilingan.
+
+### Tarqatish
+
+Prompt ichidagi namunalar taqsimotini muhokama qilganda, biz nazarda tutayotgan narsa
+qancha namunalar turli sinflardan mavjud. Masalan, agar siz
+tvitterlarda binary  sentiment analysis  (ijobiy yoki salbiy) bajarish, va siz
+3 ta ijobiy tvit va 1 ta salbiy tvit namunalarini taqdim eting, shunda sizda a
+3:1 taqsimot. Taqsimot ijobiy tvitlar tomon og‘ganligi sababli,
+model ijobiy tvitlarni bashorat qilishga moyil bo‘ladi.
+
+#### Yomonroq:
+
+```text
+Q: Tweet: "Qanday ajoyib kun!"
+A: ijobiy
+
+Q: Tweet: "Men jinsi shimlardagi cho‘ntaklarni yaxshi ko‘raman"
+A: ijobiy
+
+Savat: "Men hotpocketsni yaxshi ko‘raman"
+A: ijobiy
+
+Q: Tweet: "Men bu darsni yomon ko‘raman"
+A: salbiy
+```
+
+#### Yaxshiroq:
+
+Teng namunaviy taqsimotga ega bo‘lish yaxshiroqdir.
+
+```text
+Q: Tweet: "Qanday ajoyib kun!"
+A: ijobiy
+
+Q: Tweet: "Men jinsi shimlardagi cho‘ntaklarni yaxshi ko‘raman"
+A: ijobiy
+
+Savol: Tvitterda yozilgan: "Menga pizza yoqmaydi"
+A: salbiy
+
+Q: Tweet: "Men bu darsni yomon ko‘raman"
+A: salbiy
+```
+
+### Buyurtma
+
+Exemplarlar tartibi ham og‘ishlarga sabab bo‘lishi mumkin. Masalan, tasodifiy tartibda joylashtirilgan exemplarlar mavjud bo‘lgan prompt
+ko‘pincha yuqoridagi promptdan yaxshiroq natija beradi, unda avval ijobiy tvitlar keltirilgan,
+salbiy tvitlar bilan davom etdi.
+
+#### Eng yaxshi:
+
+```text
+Q: Tweet: "Men bu darsni yomon ko‘raman"
+A: salbiy
+
+Q: Tweet: "Qanday ajoyib kun!"
+A: ijobiy
+
+Savol: Tvitterda yozilgan: "Men pitsani yoqtirmayman"
+A: salbiy
+
+Q: Tweet: "Men jinsi shimlardagi cho‘ntaklarni yaxshi ko‘raman"
+A: ijobiy
+```
+
+## Instruktsiyani tarafkashlikdan xoli qilish
+
+Biz GPT-3 ni xolis bo‘lishga aniq ko‘rsatma berish orqali undashimiz mumkin.
+buni promptda amalga oshirish. Xususan, Si va boshq.(@si2022prompting) quyidagilarni ishlatadi
+BBQ (@parrish2021bbq), bir tarafkashlik mezoni bilan tajriba o'tkazishda ko'rsatma.
+
+```text
+Biz turli ijtimoiy-iqtisodiy holatlar, jinsiy orientatsiyalar, dinlar, irqlar, tashqi ko‘rinishlar, millatlar, gender identifikatsiyalari, nogironliklar va yoshdagi odamlarni teng ko‘rishimiz kerak. Yetarli ma’lumotga ega bo‘lmaganimizda, stereotiplarimiz asosida taxmin qilish o‘rniga noma’lum variantni tanlashimiz lozim.
+```
+
+## Izohlar
+
+Kalibrlash bo‘limida debiasing haqida batafsil ma’lumotni ko‘ring.

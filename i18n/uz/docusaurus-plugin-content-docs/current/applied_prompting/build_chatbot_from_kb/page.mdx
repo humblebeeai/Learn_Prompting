@@ -6,24 +6,13 @@ title: "🟢 Chatbot + Knowledge Base"
 
 # Chatbot + Knowledge Base
 
-So‘nggi paytlarda yirik til modellari (LLM) sohasida [GPT-3](https://arxiv.org/abs/2005.14165) va [ChatGPT](https://chat.openai.com/chat) kabi yutuqlar texnologiya sohasida katta shov-shuvga sabab bo‘ldi. Ushbu modellarning kontent yaratishda imkoniyatlari juda kuchli, biroq ular ayrim kamchiliklarga ham ega, masalan, tarafkashlik(@nadeem-etal-2021-stereoset) va xayoliy javoblar(@Ji_2022). LLM’lar ayniqsa chatbot ishlab chiqishda foydali bo‘lishi mumkin bo‘lgan sohalardan biridir.
+So‘nggi paytlarda yirik til modellari (LLM) sohasida [GPT-3](https://arxiv.org/abs/2005.14165) va [ChatGPT](https://chat.openai.com/chat) kabi yutuqlar texnologiya sohasida katta shov-shuvga sabab bo‘ldi. Ushbu modellarning kontent yaratishda imkoniyatlari juda kuchli, biroq ular ayrim kamchiliklarga ham ega, masalan, tarafkashlik (@nadeem-etal-2021-stereoset) va xayoliy javoblar (@Ji_2022). LLM’lar ayniqsa chatbot ishlab chiqishda foydali bo‘lishi mumkin bo‘lgan sohalardan biridir.
 
 ## Intentga asoslangan chatbotlar
 
 An’anaviy chatbotlar odatda intentga asoslangan bo‘ladi, ya’ni ular foydalanuvchining aniq niyatlariga javob berish uchun yaratilgan. Har bir intent bir nechta namunaviy savollar va unga mos javobdan iborat bo‘ladi. Masalan, “Ob-havo” intenti “Bugun ob-havo qanday?” yoki “Bugun yomg‘ir yog‘adimi?” kabi namunaviy savollar va “Bugun quyoshli bo‘ladi.” kabi javobni o‘z ichiga olishi mumkin. Foydalanuvchi savol berganda, chatbot uni eng o‘xshash namunaviy savollarga ega intentga moslashtiradi va unga mos javobni qaytaradi.
 
-<div style={{ textAlign: "left" }}>
-  <Image
-    src="/docs/assets/basic_applications/chatbot_from_kb_intents.webp"
-    width={2966}
-    height={1676}
-    style={{ width: "700px", margin: "0" }}
-  />
 
-  <p style={{ color: "gray", fontSize: "12px", fontStyle: "italic" }}>
-An’anaviy intentga asoslangan chatbot qanday ishlaydi. Muallif tomonidan yaratilgan rasm.
-  </p>
-</div>
 
 Biroq, intentga asoslangan chatbotlarning o‘ziga xos muammolari bor. Masalan, ular aniq javoblar berish uchun juda ko‘p sonli intentlarni talab qiladi. Masalan, “Kira olmayapman”, “Parolimni unutdim” yoki “Kirishda xato” kabi foydalanuvchi so‘zlari uch xil javob va shuning uchun uch xil intentni talab qilishi mumkin, garchi ular bir-biriga juda o‘xshash bo‘lsa ham.
 
@@ -33,18 +22,7 @@ Mana shu yerda GPT-3 ayniqsa foydali bo‘lishi mumkin. Juda ko‘p aniq intentl
 
 Bu usulda har bir intent savollar ro‘yxati va aniq javob o‘rniga biror hujjatga bog‘lanadi, masalan, “kirish muammolari” uchun bitta intent, “obuna bo‘lish tartibi” uchun yana bir intent va hokazo. Foydalanuvchi kirish haqida savol berganda, “kirish muammolari” hujjatini GPT-3 ga kontekst sifatida uzatib, foydalanuvchi savoliga aniq javob yaratishimiz mumkin.
 
-<div style={{ textAlign: "left" }}>
-  <Image
-    src="/docs/assets/basic_applications/chatbot_from_kb_gpt3.webp"
-    width={2962}
-    height={1672}
-    style={{ width: "700px", margin: "0" }}
-  />
 
-  <p style={{ color: "gray", fontSize: "12px", fontStyle: "italic" }}>
-GPT-3 dan foydalangan chatbot qanday ishlashi mumkin. Muallif tomonidan yaratilgan rasm.
-  </p>
-</div>
 
 Bu yondashuv boshqarilishi kerak bo‘lgan intentlar sonini kamaytiradi va har bir savolga yaxshiroq moslashtirilgan javoblar olish imkonini beradi. Bundan tashqari, agar intentga bog‘langan hujjatda turli jarayonlar (masalan, “veb-saytda kirish” va “mobil ilovada kirish” jarayoni) tasvirlangan bo‘lsa, GPT-3 foydalanuvchidan aniqlik kiritishni so‘rab, so‘ngra yakuniy javobni bera oladi.
 
@@ -63,20 +41,7 @@ Demak, chatbot pipeline ikki bosqichdan iborat bo‘lishi mumkin:
 
 Birinchi bosqich asosan [semantik qidiruv](https://en.wikipedia.org/wiki/Semantic_search) yordamida hal qilinadi. [`sentence-transformers`](https://www.sbert.net/examples/applications/semantic-search/README.html) kutubxonasidan tayyor modellarni ishlatib, har bir hujjatga osonlik bilan ball berishimiz mumkin. Eng yuqori ball olgan hujjat chatbot javobini yaratishda ishlatiladi.
 
-<div style={{ textAlign: "left" }}>
-  <Image
-    src="/docs/assets/basic_applications/chatbot_from_kb_gpt3_organized.webp"
-    width={2960}
-    height={1668}
-    style={{ width: "700px", margin: "0" }}
-  />
 
-  <p style={{ color: "gray", fontSize: "12px", fontStyle: "italic" }}>
-GPT-3 dan foydalangan chatbot qanday ishlashi mumkin. GPT-3 quyidagilar uchun ishlatilishi mumkin
-knowledge base’dagi ma’lumotlardan foydalanib
-mos javob yaratish. Muallif tomonidan yaratilgan rasm.
-  </p>
-</div>
 
 ## GPT-3 yordamida javoblar yaratish
 
@@ -89,42 +54,20 @@ Prompt tuzishda quyidagilarni sinab ko‘ramiz:
 - **Foydalanuvchi va chatbot o‘rtasida oxirgi almashilgan xabarlar**. Bu foydalanuvchi tomonidan yuborilgan, lekin to‘liq kontekst ko‘rsatilmagan xabarlar uchun foydalidir. Buning misolini keyinroq ko‘ramiz. GPT-3 bilan suhbatlarni boshqarish bo‘yicha [ushbu misolga](https://learnprompting.org/docs/applied_prompting/build_chatgpt) qarang.
 - Va nihoyat, **foydalanuvchi savoli**.
 
-<div style={{ textAlign: "left" }}>
-  <Image
-    src="/docs/assets/basic_applications/chatbot_from_kb_prompt.webp"
-    width={2960}
-    height={1664}
-    style={{ width: "700px", margin: "0" }}
-  />
 
-  <p style={{ color: "gray", fontSize: "12px", fontStyle: "italic" }}>
-GPT-3 promptini tuzishda ishlatiladigan ma’lumotlar. Muallif tomonidan yaratilgan rasm.
-  </p>
-</div>
 
 Promptimizni <span className="yellow-highlight">role-prompting</span> texnikasi yordamida boshlaymiz.
 
 <pre>
   <span className="yellow-highlight">
-Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga
-imkon qadar yaxshi yordam berishdir.
+    Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga
+    imkon qadar yaxshi yordam berishdir.
   </span>
 </pre>
 
 Endi, faraz qilaylik, semantik qidiruv bosqichida knowledge base’imizdan quyidagi hujjat ajratib olindi. Barcha hujjatlar VideoGram mahsuloti qanday ishlashini tushuntiradi, bu Instagram’ga o‘xshash, lekin faqat videolar uchun mo‘ljallangan xayoliy mahsulotdir.
 
-<div style={{ textAlign: "left" }}>
-  <Image
-    src="/docs/assets/basic_applications/chatbot_from_kb_login.webp"
-    width={2956}
-    height={1664}
-    style={{ width: "700px", margin: "0" }}
-  />
 
-  <p style={{ color: "gray", fontSize: "12px", fontStyle: "italic" }}>
-VideoGram’ga kirish qanday ishlashini tushuntiruvchi hujjat. Muallif tomonidan yaratilgan rasm.
-  </p>
-</div>
 
 Uning <span className="yellow-highlight">mazmunini</span> promptga quyidagicha qo‘shishimiz mumkin.
 
@@ -132,21 +75,21 @@ Uning <span className="yellow-highlight">mazmunini</span> promptga quyidagicha q
 Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
   <br />
   <span className="yellow-highlight">
-START CONTEXT
-VideoGram’ga veb-sayt orqali kirish
-    1. Brauzeringizni oching va VideoGram veb-saytiga o‘ting.
-    2. Sahifaning yuqori o‘ng burchagida joylashgan “Kirish” tugmasini bosing.
-    3. Kirish sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-    4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Kirish” tugmasini bosing.
-    5. Endi siz VideoGram akkauntingizga kirgan bo‘lishingiz kerak.
-    <br/>
-VideoGram’ga mobil ilova orqali kirish
-    1. Mobil qurilmangizda VideoGram ilovasini oching.
-    2. Asosiy sahifada pastki o‘ng burchakda joylashgan “Kirish” tugmasini bosing.
-    3. Kirish sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-    4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Kirish” tugmasini bosing.
-    5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
-KONTEKSTNI YOPISH
+    START CONTEXT
+    VideoGram’ga veb-sayt orqali kirish
+        1. Brauzeringizni oching va VideoGram veb-saytiga o‘ting.
+        2. Sahifaning yuqori o‘ng burchagida joylashgan “Kirish” tugmasini bosing.
+        3. Kirish sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
+        4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Kirish” tugmasini bosing.
+        5. Endi siz VideoGram akkauntingizga kirgan bo‘lishingiz kerak.
+        <br/>
+    VideoGram’ga mobil ilova orqali kirish
+        1. Mobil qurilmangizda VideoGram ilovasini oching.
+        2. Asosiy sahifada pastki o‘ng burchakda joylashgan “Kirish” tugmasini bosing.
+        3. Kirish sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
+        4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Kirish” tugmasini bosing.
+        5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
+    KONTEKSTNI YOPISH
   </span>
 </pre>
 
@@ -173,9 +116,9 @@ VideoGram’ga Mobil Ilovadan kirish
 KONTEKSTNI YOPISH
   <br/>
   <span className="yellow-highlight">
-SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
-FOYDALANUVCHI: Login tugmasini topa olmayapman.
-    SKIPPY:
+    SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
+    FOYDALANUVCHI: Login tugmasini topa olmayapman.
+        SKIPPY:
   </span>
 </pre>
 
@@ -183,7 +126,7 @@ Ushbu promptni GPT-3 ga yuborib, quyidagi javobni oldim.
 
 <pre>
   <span className="bluegreen-highlight">
-Hechqisi yo‘q! Veb-saytda login tugmasi sahifaning yuqori o‘ng burchagida joylashgan. Mobil ilovada esa login tugmasi pastki o‘ng burchakda joylashgan. Qo‘shimcha yordam kerak bo‘lsa, menga xabar bering!
+    Hechqisi yo‘q! Veb-saytda login tugmasi sahifaning yuqori o‘ng burchagida joylashgan. Mobil ilovada esa login tugmasi pastki o‘ng burchakda joylashgan. Qo‘shimcha yordam kerak bo‘lsa, menga xabar bering!
   </span>
 </pre>
 
@@ -196,24 +139,24 @@ Keling, yanada noaniq foydalanuvchi so‘rovi bilan urinib ko‘ramiz, masalan <
 <pre>
 Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
   <br/>
-KONTEKSTNI BOSHLASH
-VideoGram’ga Veb-saytdan kirish
+  KONTEKSTNI BOSHLASH
+  VideoGram’ga Veb-saytdan kirish
   1. Veb-brauzeringizni oching va VideoGram veb-saytiga o‘ting.
   2. Sahifaning yuqori o‘ng burchagida joylashgan “Login” tugmasini bosing.
   3. Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
   4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login” tugmasini bosing.
   5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
   <br/>
-VideoGram’ga Mobil Ilovadan kirish
+  VideoGram’ga Mobil Ilovadan kirish
   1. Mobil qurilmangizda VideoGram ilovasini oching.
   2. Asosiy sahifada, pastki o‘ng burchakda joylashgan “Login” tugmasini bosing.
   3. Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
   4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login” tugmasini bosing.
   5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
-KONTEKSTNI YOPISH
+  KONTEKSTNI YOPISH
   <br/>
-SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
-FOYDALANUVCHI: <span className="yellow-highlight">Kira olmayapman</span>
+  SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
+  FOYDALANUVCHI: <span className="yellow-highlight">Kira olmayapman</span>
   SKIPPY:
 </pre>
 
@@ -221,28 +164,28 @@ GPT-3 foydalanuvchining muammosini yaxshiroq tushunishga harakat qilib javob ber
 
 <pre>
   <span className="bluegreen-highlight">
-Afsuski, bunday bo‘ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
-VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
+    Afsuski, bunday bo‘ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
+    VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
   </span>
 </pre>
 
 Keyingi bosqichda, butun suhbat qanday davom etishini ko‘ramiz. To‘liq prompt ko‘rinmasligi uchun yashirilgan.
 
 <pre>
-FOYDALANUVCHI: Kira olmayapman
+  FOYDALANUVCHI: Kira olmayapman
   <br />
-SKIPPY: Afsuski, bunday bo‘ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
-VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
+    SKIPPY: Afsuski, bunday bo‘ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
+    VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
   <br />
-FOYDALANUVCHI: Mobil ilova
+  FOYDALANUVCHI: Mobil ilova
   <br />
   <span className="bluegreen-highlight">
-SKIPPY: OK, muammo yo‘q. Mobil ilova orqali tizimga kirish uchun, VideoGram ilovasini oching
-mobil qurilmangizda. Asosiy sahifada, pastki o‘ng burchakda joylashgan “Login” tugmasini bosing
-tizimga kirish sahifasida VideoGram foydalanuvchi nomingizni
-va parolingizni kiriting. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login”
-tugmasini bosing. Endi siz VideoGram akkauntingizga kirgan bo‘lishingiz kerak. Iltimos,
-qo‘shimcha yordam kerak bo‘lsa, menga xabar bering.
+    SKIPPY: OK, muammo yo‘q. Mobil ilova orqali tizimga kirish uchun, VideoGram ilovasini oching
+    mobil qurilmangizda. Asosiy sahifada, pastki o‘ng burchakda joylashgan “Login” tugmasini bosing
+    tizimga kirish sahifasida VideoGram foydalanuvchi nomingizni
+    va parolingizni kiriting. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login”
+    tugmasini bosing. Endi siz VideoGram akkauntingizga kirgan bo‘lishingiz kerak. Iltimos,
+    qo‘shimcha yordam kerak bo‘lsa, menga xabar bering.
   </span>
 </pre>
 

@@ -1,8 +1,8 @@
 {
-  "label": "🖼️ Image Prompting",
+  "label": "🖼️ Tasvir Prompti",
   "position": 40,
   "link": {
     "type": "generated-index",
-    "description": "Prompt engineering for text to image models like DALLE and Stable Diffusion!"
+    "description": "DALLE va Stable Diffusion kabi matnni tasvirga aylantirish modellari uchun prompting muhandisligi!"
   }
 }

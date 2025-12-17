@@ -6,27 +6,15 @@ title: "🟢 Chatbotlar"
 
 # Chatbotlar
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src={"/docs/assets/basics/chatbot.svg"}
-    width={755}
-    height={964}
-    style={{
-      width: "100%",
-      height: "300px",
-      verticalAlign: "top",
-      margin: "auto",
-    }}
-  />
-</div>
+
 <br />
 
-<Takeaways>
-  - Chatbotlar qanday ishlaydi
-  - Nega chatbotlar oddiy chatbot bo'lmagan tizimlardan yaxshiroq
-</Takeaways>
 
-Sun'iy intellekt sohasida turli maqsadlarda xizmat qiladigan turli xil <Term term="LLM">LLM</Term>lar mavjud. Ushbu kursda eng ko'p ishlatiladigan modellardan biri bu ChatGPT bo'lib, u oldingi xabarlarni eslab qoladi, shuning uchun siz u bilan suhbatlashishingiz mumkin. Biroq, chatbotlar yagona LLM turi emas. Yana bir misol - OpenAI tomonidan ishlab chiqilgan avvalgi sun'iy intellekt GPT-3 bo'lib, u chatbotlardan farqli o'laroq, hech qanday xotiraga ega emas. Ham GPT-3, ham ChatGPT savollarga javob berish va qisqacha mazmun yaratish kabi asosiy vazifalarni bajara oladi.
+- Chatbotlar qanday ishlaydi
+- Nega chatbotlar oddiy chatbot bo'lmagan tizimlardan yaxshiroq
+
+
+Sun'iy intellekt sohasida turli maqsadlarda xizmat qiladigan turli xil LLMlar mavjud. Ushbu kursda eng ko'p ishlatiladigan modellardan biri bu ChatGPT bo'lib, u oldingi xabarlarni eslab qoladi, shuning uchun siz u bilan suhbatlashishingiz mumkin. Biroq, chatbotlar yagona LLM turi emas. Yana bir misol - OpenAI tomonidan ishlab chiqilgan avvalgi sun'iy intellekt GPT-3 bo'lib, u chatbotlardan farqli o'laroq, hech qanday xotiraga ega emas. Ham GPT-3, ham ChatGPT savollarga javob berish va qisqacha mazmun yaratish kabi asosiy vazifalarni bajara oladi.
 
 ## Chatbotlar qanday ishlaydi
 
@@ -36,17 +24,31 @@ ChatGPT kabi chatbotlar interaktiv suhbatlarni taqlid qilish uchun yaratilgan. S
 
 GPT-3 bu `complete` turdagi model bo'lib, `chat` emas[^a]. Quyida u ChatGPTdan qanday farq qilishini ko'rsatadigan misol keltirilgan:
 
-<AIInput>What is 2+</AIInput>
 
-<AIOutput title="GPT-3 output">
-  2
+**Prompt:**
+
+```text
+What is 2+
+```
+
+
+
+**AI javobi (GPT-3 output):**
+
+```text
+2
 
   2+2 = 4
-</AIOutput>
+```
 
-<AIOutput title="ChatGPT output">
+
+
+**AI javobi (ChatGPT output):**
+
+```text
 Ko'rinishidan, siz savolingizni to'liq yozmadingiz. Agar siz "2 + 2 nechiga teng?" deb so'ramoqchi bo'lgan bo'lsangiz, javobi 4 bo'ladi. Agar boshqa savolingiz bo'lsa yoki qo'shimcha yordam kerak bo'lsa, bemalol so'rang!
-</AIOutput>
+```
+
 
 Ko'rib turibmizki, GPT-3 bizning kiritgan matnimizni eng ehtimoliy keyingi belgilar bilan to'ldirdi. Boshqa tomondan, ChatGPT biz suhbatda to'satdan gapirishni to'xtatgandek javob berdi. Chatbotlarning suhbatdoshligi ularni ishlatishni yanada tabiiy his qiladi, shuning uchun ko'pchilik ularni boshqa sun'iy intellektlardan afzal ko'radi. Biroq, chatbotlar yaxshiroq bo'lishining eng muhim sababi shundaki, OpenAI va Anthropic kabi kompaniyalar juda aqlli chatbotlar yaratgan va ular sizning promptlaringizga yaxshiroq javob bera oladi[^b].
 

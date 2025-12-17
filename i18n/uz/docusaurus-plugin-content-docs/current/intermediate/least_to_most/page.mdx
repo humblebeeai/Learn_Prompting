@@ -8,22 +8,13 @@ title: "🟡 Eng kamdan ko‘p Prompting"
 
 # Eng kamdan ko‘p Prompting
 
-Eng kamdan ko‘p prompting (LtM)(@zhou2022leasttomost) <Term term="CoT prompting">CoT prompting</Term> usulini yanada rivojlantirib, muammoni avval kichik muammolarga ajratadi va keyin har birini yechadi. Bu usul bolalar uchun haqiqiy hayotdagi ta’lim strategiyalaridan ilhomlangan.
+Eng kamdan ko‘p prompting (LtM)(@zhou2022leasttomost) CoT prompting usulini yanada rivojlantirib, muammoni avval kichik muammolarga ajratadi va keyin har birini yechadi. Bu usul bolalar uchun haqiqiy hayotdagi ta’lim strategiyalaridan ilhomlangan.
 
 CoT promptingda bo‘lgani kabi, yechilishi kerak bo‘lgan muammo bir-biriga bog‘liq kichik muammolarga ajratiladi. Ikkinchi bosqichda esa, bu kichik muammolar birma-bir yechiladi. Chain of thoughtdan farqli o‘laroq, oldingi kichik muammolarning yechimi navbatdagi muammoni yechishga harakat qilinayotgan promptga kiritiladi.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/intermediate/least_to_most_formal.webp"
-    width={1080}
-    height={752}
-    style={{ width: "600px", margin: "auto" }}
-  />
-</div>
 
-<div style={{ textAlign: "center" }}>Diagram of a Least to Most prompting</div>
 
-## Misol: Mijoz so‘roviga javob
+## Misol: Mijoz so'roviga javob
 
 Keling, biroz murakkabroq mijozlarga xizmat ko‘rsatish savolini so‘raylik:
 
@@ -73,7 +64,7 @@ Faqat birinchi kichik muammoni yechish orqali butun muammoni hal qildik. Agar GP
 
 ## Misol: harflarni birlashtirish
 
-LtM dastlab muammoni bir necha bosqichga ajratish bo‘yicha aniq ko‘rsatma emas, balki few-shot prompting yordamida taqdim etilgan. Bundan tashqari, ba’zan uni zanjirli promptlar o‘rniga bitta prompt bilan ham amalga oshirish mumkin. Keling, so‘zlarning oxirgi harfini birlashtirish muammosini ko‘rib chiqamiz(@wei2022chain) (masalan, `cake, etymology` so‘zlari berilsa, natija `ey` bo‘lishi kerak).
+LtM dastlab muammoni bir necha bosqichga ajratish bo‘yicha aniq ko‘rsatma emas, balki few-shot prompting yordamida taqdim etilgan. Bundan tashqari, ba’zan uni zanjirli promptlar o‘rniga bitta prompt bilan ham amalga oshirish mumkin. Keling, so‘zlarning oxirgi harfini birlashtirish muammosini ko‘rib chiqamiz (@wei2022chain) (masalan, `cake, etymology` so‘zlari berilsa, natija `ey` bo‘lishi kerak).
 
 ### Birinchi urinish: Standart
 
@@ -198,6 +189,6 @@ LtM bir nechta yaxshilanishlarga olib keladi:
 
 - Chain of Thoughtga nisbatan aniqlik oshadi
 - Promptdagidan murakkabroq muammolarda umumlashtirish qobiliyati oshadi
-- Kompozitsion umumlashtirishda, ayniqsa SCAN benchmarkida(@lake2018scan) natijalar keskin yaxshilanadi
+- Kompozitsion umumlashtirishda, ayniqsa SCAN benchmarkida (@lake2018scan) natijalar keskin yaxshilanadi
 
 Maqolada ishlatilgan text-davinci-002 modeli bilan standart prompting SCAN muammolarining 6% ini yechishga olib keladi, Eng kamdan ko‘p prompting esa hayratlanarli 76% muvaffaqiyat ko‘rsatkichini beradi. code-davinci-002 bilan natijalar yanada yuqori bo‘lib, Eng kamdan ko‘p prompting 99.7% muvaffaqiyatga erishadi.

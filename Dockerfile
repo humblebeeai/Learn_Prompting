@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:lts as builder
+FROM node:18-alpine as builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve
-FROM nginx:alpine
+FROM nginx:1.24-alpine
 
 COPY --from=builder /app/build /usr/share/nginx/html
 

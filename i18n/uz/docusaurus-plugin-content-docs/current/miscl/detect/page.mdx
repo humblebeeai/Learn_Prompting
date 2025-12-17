@@ -10,7 +10,7 @@ AI tomonidan yaratilgan matnni aniqlash xavfsizlik tadqiqotchilari va o‘qituvc
 boshqalar qatori. [GPTZero](https://gptzero.me), [GPT2 detector](https://openai-openai-detector.hf.space) va [bilingual detectors](https://github.com/Hello-SimpleAI/chatgpt-comparison-detection) kabi vositalar sezilarli muvaffaqiyatga erishgan,
 Biroq, ularni [aldash](https://learnprompting.org/docs/miscl/trickery) mumkin.
 
-OpenAI va boshqa tadqiqotchilar(@bansal2022certified)(@gu2022watermarking) o‘zlarining yaratilgan matnlariga statistik watermarking joriy qilish ustida ishlamoqda, lekin bu ham matnning katta qismini o‘zgartirish orqali aldash mumkin.
+OpenAI va boshqa tadqiqotchilar (@bansal2022certified)(@gu2022watermarking) o‘zlarining yaratilgan matnlariga statistik watermarking joriy qilish ustida ishlamoqda, lekin bu ham matnning katta qismini o‘zgartirish orqali aldash mumkin.
 
 AI matnini aniqlash muammosi ehtimol yangi modellari va yangi aniqlash usullari paydo bo‘lishi bilan qurollanish poygasiga aylanadi. Ko‘plab kompaniyalar allaqachon juda samarali deb da’vo qilinayotgan yechimlarni yaratishni boshlagan, biroq buni isbotlash qiyin, ayniqsa modellarda vaqt o‘tishi bilan o‘zgarishlar bo‘lsa.
 
@@ -27,7 +27,7 @@ Hozirda inson yozgan matnni AI tomonidan yaratilgan deb taxminan 9% holatda noto
 
 ## Watermark usuli
 
-AI tomonidan yaratilgan matnni aniqlashning bir usuli matn yaratilayotganda statistik watermark kiritishni talab qiladi. Bu texnikalar LLM “whitelist” dan foydalanishi mumkin, bu esa matn ma’lum bir AI modeli tomonidan yaratilganini aniqlash usulidir. Watermark ishlashi uchun so‘z yaratilishidan oldin tasodifiy “yashil” tokenlar to‘plami tanlanadi va tanlangan tokenlardan foydalanishni sampling jarayonida yumshoq tarzda rag‘batlantiriladi. Ushbu og‘irlik qiymatlari generatsiya sifatiga minimal ta’sir ko‘rsatadi, lekin boshqa bir LLM tomonidan algoritmik tarzda aniqlanishi mumkin(@kirchenbauer2023watermarking).
+AI tomonidan yaratilgan matnni aniqlashning bir usuli matn yaratilayotganda statistik watermark kiritishni talab qiladi. Bu texnikalar LLM “whitelist” dan foydalanishi mumkin, bu esa matn ma’lum bir AI modeli tomonidan yaratilganini aniqlash usulidir. Watermark ishlashi uchun so‘z yaratilishidan oldin tasodifiy “yashil” tokenlar to‘plami tanlanadi va tanlangan tokenlardan foydalanishni sampling jarayonida yumshoq tarzda rag‘batlantiriladi. Ushbu og‘irlik qiymatlari generatsiya sifatiga minimal ta’sir ko‘rsatadi, lekin boshqa bir LLM tomonidan algoritmik tarzda aniqlanishi mumkin (@kirchenbauer2023watermarking).
 
 Bu qiziqarli g‘oya, lekin bu uchun model yaratuvchilari ushbu frameworkni o‘z LLMlariga joriy qilishi kerak bo‘ladi. Agar modelda watermark mavjud bo‘lmasa, bu usul ishlamaydi.
 

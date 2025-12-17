@@ -1,0 +1,69 @@
+---
+sidebar_position: 90
+title: "📙 Leksikaga oid ma’lumotnoma"
+---
+
+
+# 📙 Leksikaga oid ma’lumotnoma
+
+Iltimos, ushbu kurs davomida foydalaniladigan atama va tushunchalar ro‘yxati uchun ushbu sahifaga murojaat qiling.
+
+#### Katta Til Modellari (LLMlar), Oldindan O‘rgatilgan Til Modellari (PLMlar)(@branch2022evaluating), Til Modellari (LMlar) va asosiy modellari
+
+Bu atamalar hammasi deyarli bir narsani anglatadi: katta sun’iy intellektlar (neyron tarmoqlar), odatda ular o‘rgatilgan bo‘ladi
+katta miqdordagi matnda
+
+#### Masked Language Models (MLMs)
+
+MLMlar NLP modelining bir turi bo‘lib, ular maxsus token, odatda `[MASK]`, ga ega, bu
+lug‘atdan olingan so‘z bilan almashtiriladi. Model esa keyingi so‘zni bashorat qiladi
+yashirilgan edi. Masalan, agar gap "It it [MASK] mushuk" bo‘lsa, model
+"chasing" ni yuqori ehtimollik bilan bashorat qiladi.
+
+#### Yorliqlar
+
+Yorliqlar tushunchasi eng yaxshi misol bilan tushuntiriladi.
+
+Aytaylik, biz ba’zi Tweetlarni yomon yoki yomon emas deb tasniflamoqchimiz. Agar bizda Tweetlar ro‘yxati bo‘lsa va
+ularning mos _label_ (yomon yoki yomon emas) orqali, biz modelni tasniflash uchun o‘rgatishimiz mumkin
+tvitlar yomonmi yoki yo‘qmi. Yorliqlar odatda faqat imkoniyatlardir
+klassifikatsiya vazifasi.
+
+#### Yorliq maydoni
+
+Berilgan vazifa uchun barcha mumkin bo‘lgan yorliqlar (yuqoridagi misolda 'mean' va 'not mean').
+
+#### Kayfiyat tahlili
+
+Sentiment tahlili matnni ijobiy, salbiy yoki boshqa kayfiyatlarga ajratish vazifasidir.
+
+#### "Model" va "AI" va "LLM"
+
+Ushbu atamalar ushbu kurs davomida bir-birining o‘rnida deyarli bir xil ma’noda ishlatiladi, biroq ular
+har doim ham bir xil ma'noni anglatmaydi. LLMlar yuqorida ta'kidlanganidek, sun'iy intellektning bir turi hisoblanadi, lekin barcha sun'iy intellektlar LLM emas.
+Ushbu kursda modellarga murojaat qilganimizda, biz AI modellari nazarda tutilgan. Shunday qilib, ushbu kursda,
+Siz "model" va "AI" atamalarini bir-birining o‘rnida ishlatilishi mumkin deb hisoblashingiz mumkin.
+
+#### Mashinali o‘rganish (ML)
+
+ML — algoritmlarga yo‘naltirilgan o‘rganish sohasi bo‘lib, ular
+ma'lumotlardan o‘rganishi mumkin. ML sun’iy intellektning bir bo‘limidir.
+
+#### Verbalizator
+
+Klassifikatsiya sozlamasida, verbalizerlar yorliqlardan so‘zlarga mosliklarni ifodalaydi
+bir til modelining lug‘ati (@schick2020exploiting). Masalan, quyidagini ko‘rib chiqing
+quyidagi prompt yordamida sentiment tasniflashni amalga oshirish:
+
+```text
+Tvitter: "Men hotpocketsni yaxshi ko‘raman"
+Ushbu tvitning kayfiyati qanday? 'pos' yoki 'neg' deb ayting.
+```
+
+Bu yerda, verbalizer `positive` va `negative` konseptual yorliqlarini `pos` va `neg` tokenlariga moslashtirishdir.
+
+#### Inson fikr-mulohazasidan mustahkamlovchi o‘rganish (RLHF)
+
+RLHF bu LLMlarni inson afzalliklari ma’lumotlariga asoslanib fine tuning qilish usulidir.
+
+<Glossary />

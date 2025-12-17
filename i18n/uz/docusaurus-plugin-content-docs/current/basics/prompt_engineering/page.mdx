@@ -5,23 +5,28 @@ title: "🟢 Prompt Engineering"
 
 # 🟢 Prompt Engineering
 
-<Takeaways>- Prompt engineering nima?</Takeaways>
+- Prompt engineering nima?
 
 ## Prompt ishlamasa nima bo‘ladi?
 
 Ba’zan Gen AI’lar berilgan promptga noto‘g‘ri javob qaytaradi. Masalan, ular sonlarni ko‘paytirishda unchalik kuchli emas va ko‘pincha **ishonch bilan noto‘g‘ri javob** berishi mumkin. Quyidagi promptni ChatGPT’ga berib ko‘ring:
 
-<AIInput>What is 923 * 99?</AIInput>
 
-<AIOutput>923 * 99 equals 91,677.</AIOutput>
+```text
+What is 923 * 99?
+```
+
+```text
+923 * 99 equals 91,677.
+```
 
 ChatGPT bu yerda noto‘g‘ri javob berdi (to‘g‘ri javob — **91,377**). Endi esa promptni o‘zgartirib, ChatGPT’dan masalani **bosqichma-bosqich o‘ylab chiqishni** so‘raymiz.
 
-<AIInput>
-What is 923 * 99? Let's go step by step. Always write out the full number of 0s for each term.
-</AIInput>
+```text
+  What is 923 * 99? Let's go step by step. Always write out the full number of 0s for each term.
+```
 
-<AIOutput>
+```text
 923 ni 99 ga ko‘paytirish uchun uni kichikroq bosqichlarga ajratamiz:
 
 1-qadam: Har bir had uchun nol (0) larni to‘liq yozamiz:  
@@ -37,7 +42,7 @@ What is 923 * 99? Let's go step by step. Always write out the full number of 0s 
 8307 + 83070 = 91377
 
 Demak, 923 ni 99 ga ko‘paytirish natijasi 91,377 ga teng.
-</AIOutput>
+```
 
 Qiziq tomoni shundaki, ushbu qo‘shimcha ko‘rsatmalar yordamida ChatGPT masalani to‘g‘ri yecha oldi. Buning sababi — model barcha hisoblash jarayonini yozib chiqdi va xatoga yo‘l qo‘ymadi. Gen AI’larning matematik imkoniyatlarini **prompt engineering** orqali yaxshilash mumkin. Endi boshqa bir misolni ko‘rib chiqamiz.
 
@@ -52,43 +57,45 @@ Qiziq tomoni shundaki, ushbu qo‘shimcha ko‘rsatmalar yordamida ChatGPT masal
 
 Bu safar ChatGPT’dan biz o‘ylab topayotgan yangi, uydirma AI mahsulot — **ArchaeologistAI** haqida marketing tvit yozishni so‘raymiz. ArchaeologistAI mashhur arxeologlar haqida hikoyalar aytib beradi.
 
-<AIInput>Write a tweet about ArchaeologistAI</AIInput>
+```text
+Write a tweet about ArchaeologistAI
+```
 
-<AIOutput>
-"🔍 #ArchaeologistAI bilan hayajonli davr boshlanmoqda! Ushbu ilg‘or texnologiya
-arxeologiya sohasini tubdan o‘zgartirib, qadimiy sirlarni ochishga va o‘tmishimizni
-yana-da chuqurroq anglashga yordam bermoqda. Qanday yangi topilmalarni taqdim
-etishini intiqlik bilan kutyapman! #AI #Archaeology"
-</AIOutput>
+```text
+  "🔍 ArchaeologistAI bilan hayajonli davr boshlanmoqda! Ushbu ilg‘or texnologiya
+  arxeologiya sohasini tubdan o‘zgartirib, qadimiy sirlarni ochishga va o‘tmishimizni
+  yana-da chuqurroq anglashga yordam bermoqda. Qanday yangi topilmalarni taqdim
+  etishini intiqlik bilan kutyapman! #AI #Archaeology"
+```
 
 Bu tvit aniq emas, chunki ArchaeologistAI yangi narsalarni kashf qilmaydi, u faqat hikoyalar aytib beradi. Biroq bu ChatGPT’ning xatosi emas — u ArchaeologistAI haqida hech qanday ma’lumotga ega emas edi. Keling, promptga kerakli ma’lumotni qo‘shamiz.
 
-<AIInput>
-Write a tweet about ArchaeologistAI: ArchaeologistAI tells stories about
-famous archaeologists.
-</AIInput>
+```text
+  Write a tweet about ArchaeologistAI: ArchaeologistAI tells stories about
+  famous archaeologists.
+```
 
-<AIOutput>
-"🔍 Mashhur arxeologlarning hayratlanarli hikoyalarini #ArchaeologistAI bilan
-kashf eting! Indiana Jones’dan tortib Mary Leakey’gacha — ushbu AI hikoyachi
-ularning sarguzashtlarini jonlantirib, tarixni sevuvchilarni ilhomlantiradi. 🌍
-#Archaeology"
-</AIOutput>
+```text
+  "🔍 Mashhur arxeologlarning hayratlanarli hikoyalarini #ArchaeologistAI bilan
+  kashf eting! Indiana Jones’dan tortib Mary Leakey’gacha — ushbu AI hikoyachi
+  ularning sarguzashtlarini jonlantirib, tarixni sevuvchilarni ilhomlantiradi. 🌍
+  #Archaeology"
+```
 
 Bu ancha yaxshi natija! Endi ChatGPT’dan tvitni **Indiana Jones uslubida** yozishni so‘raymiz.
 
-<AIInput>
-Write a tweet about ArchaeologistAI, in the style of Indiana Jones:
-ArchaeologistAI tells stories about famous archaeologists.
-</AIInput>
-
-<AIOutput>
-"Shlyapangizni va qamchingizni tayyorlang! 🎩🔥 ArchaeologistAI — xuddi yoningizda
-Sallah turgandek, afsonaviy arxeologlarning qadimiy ibodatxonalar va yashirin
-xazinal bilan bog‘liq sarguzashtlarini hikoya qiladi! 🗺️💎 Tarix bo‘ylab raqamli
-sarguzashtga tayyor bo‘ling!
-#ArchaeologistAI #UnearthTheLegends"
-</AIOutput>
+```text
+  Write a tweet about ArchaeologistAI, in the style of Indiana Jones:
+  ArchaeologistAI tells stories about famous archaeologists.
+```
+  
+```text
+  "Shlyapangizni va qamchingizni tayyorlang! 🎩🔥 ArchaeologistAI — xuddi yoningizda
+  Sallah turgandek, afsonaviy arxeologlarning qadimiy ibodatxonalar va yashirin
+  xazinal bilan bog‘liq sarguzashtlarini hikoya qiladi! 🗺️💎 Tarix bo‘ylab raqamli
+  sarguzashtga tayyor bo‘ling!
+  #ArchaeologistAI #UnearthTheLegends"
+```
 
 Aynan mana shu xabar arxeologiya ishqibozlari uchun mos bo‘lishi mumkin! Bir nechta promptlarni sinab ko‘rish orqali qaysi biri eng yaxshi natija berishini aniqlashimiz mumkin.
 

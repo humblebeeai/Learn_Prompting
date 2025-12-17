@@ -1,0 +1,126 @@
+---
+sidebar_position: 98
+title: "🟢 LLM sozlamalari"
+---
+
+
+# LLM sozlamalari
+
+
+<br />
+
+
+- Temperature, Top P va Maximum Length ni tushunib oling
+
+
+# Kirish
+
+Biz modelning turli jihatlarini, masalan, uning qanchalik 'tasodifiy' ekanligini boshqarish uchun ba’zi LLM[^a] sozlamalaridan foydalanishimiz mumkin. Ushbu sozlamalarni yanada ijodiy, xilma-xil va qiziqarli natijalar olish uchun o‘zgartirish mumkin. Temperature, Top P va Max Length sozlamalari eng muhimlari hisoblanadi, biroq biz OpenAI Playground orqali o‘zgartirish mumkin bo‘lgan barcha sozlamalarni tasvirlab beramiz.
+
+## Temperatura
+
+
+
+
+**Prompt:**
+
+```text
+Sohilda bajarish mumkin bo‘lgan 10 ta g‘aroyib, noodatiy va qiziqarli ishlar nima? Ro‘yxat tuzing
+  ta'riflarisiz.
+```
+
+
+**AI javobi (ChatGPT Output (Temperature=0, Top P = 1)):**
+
+```text
+{`1. Qumdan qal’a qurish
+2. Qobiqchalarni to‘plang
+3. Sohil voleybolini o‘ynang
+4. Fly a kite
+5. Piknik qiling
+6. Paddleboardingni sinab ko‘ring
+7. Frizbi o‘ynang
+8. Snorkeling bilan shug‘ullaning
+9. Sohil bo‘ylab uzoq sayr qiling
+10. Quyosh botishini tomosha qiling`}
+```
+
+
+**AI javobi (ChatGPT Output (Temperature=1.5, Top P = 1)):**
+
+```text
+{`1. Sayoz suvlarda saqich pufaklarini puflab yurish
+2. Murakkab qum qal’a haykallarini yarating
+3. Improvizatsiya qilingan plyaj voleyboli o‘yiniga qo‘shiling
+4. Yaqin atrofdagi qoyalar bo‘ylab manzarali piyoda sayr qiling
+5. Odamlarni kuzating va har bir kishining plyaj bilan bog‘liq hikoyasini taxmin qiling
+6. O‘zining plyaj san’ati asarini yaratish uchun dengiz chig‘anoqlarini to‘plang
+7. Sörf qilishni o‘rganing yoki boshqa suv sport turlarini sinab ko‘ring
+8. To‘satdan qum urushini boshlang
+9. Mahalliylar kabi qirg‘oq bo‘yida baliq ovlashga harakat qiling
+10. Do‘stona raqobatda qatnashish uchun qum qal’a qurish tanlovini tashkil qiling`}
+```
+
+
+Yuqoriroq temperatura sozlamasi bilan yaratilgan natija plyajda bajariladigan faoliyatlarning yanada tasavvurli va xilma-xil ro‘yxatini taqdim etadi. Bu ijodiy yozuv uchun juda foydali bo‘lishi mumkin.
+
+
+*Agar siz temperature ni juda yuqori sozlasangiz, mantiqsiz natijalar olishingiz mumkin, masalan Becksmith Stein Man yaqinida sponge-ball beysbol home run musobaqasini boshlang Beach`.*
+
+
+## Top P
+
+Top P[^b] til modellari uchun sozlama bo‘lib, u ularning natijasidagi tasodifiylikni boshqarishga yordam beradi. Bu ehtimollik chegarasini belgilash orqali ishlaydi va keyin ushbu chegaradan oshib ketadigan umumiy ehtimollikka ega bo‘lgan tokenlarni tanlaydi.
+
+
+
+Agar biz Top P ni `.90` ga o‘rnatsak, AI faqat jami ~90% ni tashkil qiladigan tokenlarni hisobga oladi. Bizning holatimizda:
+
+- <code>tree</code> qo‘shildi -> hozirgacha jami `50%`.
+- So‘ngra <code>roof</code> qo‘shilganda -> jami `75%` bo‘ladi.
+- Keyingi navbatda <code>wall</code> keladi va endi yig‘indimiz `90%` ga yetadi.
+
+Shunday qilib, natija yaratishda, AI ushbu uch variantdan (<code>tree</code>, <code>roof</code>, va <code>wall</code>) birini tasodifiy tanlaydi, chunki ular barcha ehtimolliklarning taxminan ~90 foizini tashkil qiladi. Ushbu usul an’anaviy usullarga qaraganda ko‘proq xilma-xil natijalar bera oladi, chunki u butun lug‘atdan befarq tanlash o‘rniga, tanlovlarni yig‘indi ehtimolliklarga asoslanib toraytiradi.
+
+## Maksimal uzunlik
+
+
+
+<br />
+
+
+
+*Bu, shuningdek, agar siz modeldan foydalanish uchun to‘lov qilayotgan bo‘lsangiz, xarajatni nazorat qilishga yordam beradi Playground o‘rniga API dan foydalansangiz.*
+
+
+## Boshqa LLM Sozlamalari
+
+Til modeli natijasiga ta’sir qilishi mumkin bo‘lgan boshqa ko‘plab sozlamalar mavjud, masalan, to‘xtash ketma-ketliklari, chastota va mavjudlik jazolari.
+
+### To‘xtash Ketma-ketliklari
+
+
+
+<br />
+
+
+### Chastota Jazosi
+
+
+
+### Mavjudlik Jazosi
+
+
+
+## Deterministiklik Eslatmasi
+
+Hatto Temperature va Top-P butunlay nolga o‘rnatilganda ham, AI har safar bir xil natija bermasligi mumkin. Bu AI "miyasi"da bajarilayotgan GPU (grafik protsessor bloki) hisob-kitoblaridagi tasodifiylik sababli yuzaga keladi.
+
+## Xulosa
+
+Xulosa qilib aytganda, temperature, top p, maksimal uzunlik va boshqa sozlamalarni o‘zlashtirish til modellari bilan ishlashda muhimdir. Ushbu parametrlar model natijasini aniq boshqarish imkonini beradi va ma’lum vazifalar yoki ilovalarga moslashtirishga yordam beradi. Ular javoblarning tasodifiyligi, javob uzunligi va takrorlanish chastotasi kabi jihatlarni boshqaradi — bularning barchasi AI bilan muloqot tajribangizni yaxshilashga xizmat qiladi.
+
+Qisman jackdickens382 va evintunador tomonidan yozilgan
+
+[^a]: Texnik jihatdan to‘g‘riroq so‘z — "konfiguratsiya giparparametrlari"
+[^b]: Nucleus Sampling nomi bilan ham tanilgan

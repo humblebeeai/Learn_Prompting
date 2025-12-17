@@ -1,0 +1,78 @@
+---
+sidebar_position: 4
+title: "🟢 Zero Shot Chain of Thought"
+---
+
+
+# Zero Shot Chain of Thought
+
+Zero Shot Chain of Thought (Zero-shot-CoT) prompting (@kojima2022large) bu
+CoT prompting ga ergashuvchi (@wei2022chain), bu juda ajoyib
+oddiy zero shot prompt. Ular quyidagi so‘zlarni qo‘shish orqali aniqlashadiki: "**Keling, bosqichma-bosqich o‘ylab ko‘raylik
+bilan bosqichma-bosqich.**" savol oxiriga qo‘shilganda, LLMlar fikrlash zanjirini yaratishga qodir
+savolga javob beradigan fikr. Ushbu fikrlar zanjiridan ular
+aniqroq javoblarni ajratib olish
+
+
+
+
+
+## Misol
+
+Bu yerda bir nechta namoyishlar mavjud (faqat mulohaza chiqarishni bajaradi). Bu birinchi
+demo GPT-3 (davinci-003) oddiy matematik savolga javob bera olmaganini ko‘rsatadi, ikkinchi demo esa birorta
+Zero-shot-CoT prompt va muammoni muvaffaqiyatli hal qiladi. O‘zingizning ma’lumotlaringizni kiritishingiz mumkin
+OpenAI API kalitini (Yaratish tugmasini bosing) oling va misollar bilan ishlang. Qanchalik osonlashganiga e'tibor bering
+Zero-shot-CoT prompt CoT prompt bilan solishtiriladi.
+
+#### Noto‘g‘ri
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MC43LCJtYXhUb2tlbnMiOjI1Niwib3V0cHV0IjoiSm9obiBoYXMgOCBwZWFycy4iLCJwcm9tcHQiOiJJZiBKb2huIGhhcyA1IHBlYXJzLCB0aGVuIGVhdHMgMiwgYW5kIGJ1eXMgNSBtb3JlLCB0aGVuIGdpdmVzIDMgdG8gaGlzIGZyaWVuZCwgaG93IG1hbnkgcGVhcnMgZG9lcyBoZSBoYXZlPyIsIm1vZGVsIjoidGV4dC1kYXZpbmNpLTAwMyJ9"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+#### To‘g‘ri
+
+<iframe
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MC43LCJtYXhUb2tlbnMiOjI1Niwib3V0cHV0IjoiSm9obiBzdGFydHMgd2l0aCA1IHBlYXJzLiBIZSBlYXRzIDIgcGVhcnMsIGxlYXZpbmcgaGltIHdpdGggMyBwZWFycy4gSGUgYnV5cyA1IG1vcmUgcGVhcnMsIGdpdmluZyBoaW0gYSB0b3RhbCBvZiA4IHBlYXJzLiBIZSBnaXZlcyAzIHBlYXJzIHRvIGhpcyBmcmllbmQsIGxlYXZpbmcgaGltIHdpdGggb25seSA1IHBlYXJzLiIsInByb21wdCI6IklmIEpvaG4gaGFzIDUgcGVhcnMsIHRoZW4gZWF0cyAyLCBhbmQgYnV5cyA1IG1vcmUsIHRoZW4gZ2l2ZXMgMyB0byBoaXMgZnJpZW5kLCBob3cgbWFueSBwZWFycyBkb2VzIGhlIGhhdmU%2FXG5cbkxldCdzIHRoaW5rIHN0ZXAgYnkgc3RlcC4iLCJtb2RlbCI6InRleHQtZGF2aW5jaS0wMDMifQ%3D%3D"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+## Natijalar
+
+Zero-shot-CoT arifmetik va umumiy mantiqiy savollarda natijalarni yaxshilashda ham samarali bo‘ldi,
+va ramziy mulohaza vazifalari. Biroq, ajablanarli emaski, odatda u unchalik yaxshi emas edi
+CoT prompting kabi samarali. Zero-shot-CoT uchun muhim foydalanish holati bu olinganda
+CoT prompting uchun bir nechta misollar keltirish qiyin.
+
+## Qiziqarli ablyatsiyalar
+
+Kojima va boshqalar turli xil Zero-shot-CoT promptlari bilan tajriba o'tkazadilar
+(masalan, "Keling, bu muammoni bosqichlarga bo‘lib yechamiz." yoki "Keling, bu haqida mantiqan o‘ylaylik."), lekin ular uchun "Keling, bosqichma-bosqich o‘ylaylik" eng samarali ekanligini aniqlashadi
+tanlangan vazifalar.
+
+## Izohlar
+
+Ekstraksiya bosqichi ko‘pincha vazifaga xos bo‘lishi kerak, bu esa Zero-Shot-CoT ni kamroq
+dastlab ko‘ringanda ko‘ra umumlashtirishga yaroqliroq.
+
+Anekdot tarzida aytadigan bo‘lsam, Zero-shot-CoT uslubidagi promptlar ba’zan samarali bo‘ladi
+generativ vazifalar uchun yakunlarning uzunligini yaxshilashda. Masalan, quyidagini ko‘rib chiqing
+standart prompt `Qurbaqa va qo‘ziqorin do‘st bo‘lib qolgan haqidagi hikoya yozing.`
+Ushbu prompt oxiriga `Let's think step by step.` so‘zlarini qo‘shish natijasida
+ancha uzunroq yakun.

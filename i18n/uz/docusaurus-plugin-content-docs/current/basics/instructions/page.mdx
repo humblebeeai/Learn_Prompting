@@ -6,25 +6,11 @@ title: "🟢 Ko'rsatmalar berish"
 
 # Ko'rsatmalar berish
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src={"/docs/assets/basics/instruction_prompt.svg"}
-    width={1070}
-    height={404}
-    style={{
-      width: "100%",
-      height: "300px",
-      verticalAlign: "top",
-      margin: "auto",
-    }}
-  />
-</div>
-<br />
 
-<Takeaways>
-  - Ko'rsatma promptingini tushunish
-  - Ko'rsatma promptingining murakkab qo'llanilishini tushunish
-</Takeaways>
+
+- Ko'rsatma promptingini tushunish
+- Ko'rsatma promptingining murakkab qo'llanilishini tushunish
+
 
 Endi biz birinchi prompting texnikamizni, _ko'rsatma promptingini_(@efrat2020turking)(@mishra2022reframing) ko'rib chiqamiz. Biz allaqachon oldingi maqolalarda oddiy ko'rsatmalardan foydalanilganini ko'rdik (masalan, AIga matematik masalani yechishni topshirish). Biroq,
 biz Gen AI'ga ancha murakkab vazifalarni ham topshirishimiz mumkin.
@@ -54,7 +40,7 @@ Bu prompt muhandisligi ko'nikmalaringizni oshirish uchun qiziqarli mashq!
 
 PII ni olib tashlash yana bir muhim vazifa hisoblanadi. Maxfiy hujjatlarni chiqarishdan oldin, kompaniyalar yoki hukumatlar hujjatlardan ma'lumotlarni qo'lda yashirishlari mumkin. Gen AI yordamida PII ni avtomatik tarzda olib tashlash mumkin, bu esa inson mehnatini sezilarli darajada kamaytiradi[^a][^b].
 
-<AIInput>
+```text
 Quyidagi savdo xatini o'qing. Har qanday shaxsiy ma'lumotlarni (PII) olib tashlang,
 va ularni mos o'rinbosar bilan almashtiring. Masalan, "John Doe" ismini
 with "[NAME]".
@@ -72,11 +58,11 @@ Jimmy Smith
 Phone: 410-805-2345
 Email: jimmysmith@cheapdealz.com
 
-</AIInput>
+```
 
-Mana AI javobi[^c]:
+Mana AI javobi:
 
-<AIOutput>
+```text
 Hi [NAME],
 
 Men sizga yozayotganim sababi, yaqinda yangi mashina sotib olganingizni payqadim. Men savdo bo'yicha xodimman
@@ -90,7 +76,7 @@ Thanks,
 Telefon: [PHONE NUMBER]
 Email: [EMAIL ADDRESS]
 
-</AIOutput>
+```
 
 Modelning ko'rsatmalardan qanday xulosa chiqarishini ko'rish juda hayajonli. Masalan, u
 `Cheap Dealz` ni `[DEALERSHIP]` ga va `Jimmy Smith` ni `[SALESPERSON]` ga almashtirish kerakligini biladi, garchi
@@ -100,16 +86,16 @@ buni unga aniq aytmagan bo'lsak ham.
 
 Gen AI insho baholash va fikr-mulohaza berishda murakkab mezonlar asosida foydalanilishi mumkin. Bunga grammatika, aniqlik, izchillik va dalil sifati kabi elementlar kiradi.
 
-<AIInput>
+```text
 Quyidagi insho parchasini o'qing va quyidagi mezonlar asosida fikr-mulohaza bering: grammatika, aniqlik, izchillik, dalil sifati va dalillardan foydalanish. Har bir xususiyat uchun 1-10 oralig'ida baho bering va baho uchun asos keltiring.
 
 "Ko'pchilik ishonchiga qaramay, video o'yinlar zo'ravonlikka olib keladi degan g'oyani tasdiqlovchi aniq dalillar yo'q. Bu mavzudagi tadqiqotlar ko'pincha ziddiyatli va noaniq. Ba'zi tadqiqotlar korrelyatsiyani aniqlagan, lekin korrelyatsiya sababni anglatmaydi. Shuning uchun, jamiyatdagi zo'ravonlik uchun video o'yinlarni ayblashga hali erta."
 
-</AIInput>
+```
 
 AI javobi:
 
-<AIOutput>
+```text
 Xususiyat: Grammatika
 Score: 9
 Asos: Insho asosan grammatik jihatdan to'g'ri, lekin kichik bir xato bor - 'correlation don't imply causation' o'rniga 'correlation doesn't imply causation' bo'lishi kerak.
@@ -126,7 +112,7 @@ Xususiyat: Dalil sifati
 Score: 7
 Asos: Keltirilgan dalil mantiqiy va asosli, lekin muallifning mavzuga bo'lgan pozitsiyasi aniqroq ifodalansa, dalil kuchaygan bo'lardi.
 
-</AIOutput>
+```
 
 ## Xulosa
 

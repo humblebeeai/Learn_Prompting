@@ -12,38 +12,31 @@ Deformatsiyalangan avlodlar, ayniqsa inson tanasining qismlarida (masalan, qo‘
 
 Stable Diffusion v1.5 va quyidagi promptdan foydalanib, biz Brad Pittning chiroyli suratini yaratamiz, albatta, qo‘llaridan tashqari!
 
-<AIInput>
-studio medium portrait of Brad Pitt waving his hands, detailed, film, studio
-lighting, 90mm lens, by Martin Schoeller:6
-</AIInput>
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/images_chapter/bad_pitt.webp"
-    className="img-docs"
-    width={512}
-    height={512}
-    style={{ width: "250px", margin: "auto" }}
-  />
-</div>
+**Prompt:**
+
+```text
+studio medium portrait of Brad Pitt waving his hands, detailed, film, studio
+  lighting, 90mm lens, by Martin Schoeller:6
+```
+
+
+
 
 Kuchli negativ promptdan foydalansak, ancha ishonarli qo‘llarni yaratishimiz mumkin.
 
-<AIInput>
+
+**Prompt:**
+
+```text
 studio medium portrait of Brad Pitt waving his hands, detailed, film, studio
-lighting, 90mm lens, by Martin Schoeller:6 | disfigured, deformed hands,
-blurry, grainy, broken, cross-eyed, undead, photoshopped, overexposed,
-underexposed, lowres, bad anatomy, bad hands, extra digits, fewer digits, bad
-digit, bad ears, bad eyes, bad face, cropped: -5
-</AIInput>
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/images_chapter/good_pitt.webp"
-    width={1028}
-    height={1032}
-    style={{ width: "250px", margin: "auto" }}
-  />
-</div>
+  lighting, 90mm lens, by Martin Schoeller:6 | disfigured, deformed hands,
+  blurry, grainy, broken, cross-eyed, undead, photoshopped, overexposed,
+  underexposed, lowres, bad anatomy, bad hands, extra digits, fewer digits, bad
+  digit, bad ears, bad eyes, bad face, cropped: -5
+```
+
+
 
 Shunga o‘xshash negativ promptdan foydalanish boshqa tana qismlarida ham yordam berishi mumkin. Afsuski, bu usul doimiy natija bermaydi, shuning uchun yaxshi natijaga erishish uchun bir necha marta avlodlarni sinab ko‘rishingiz kerak bo‘ladi
 yaxshi natijaga erishishdan oldin.

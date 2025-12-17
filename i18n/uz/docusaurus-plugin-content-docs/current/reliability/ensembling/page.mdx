@@ -1,0 +1,123 @@
+---
+sidebar_position: 5
+title: "🟡 Prompt ansambl qilish"
+---
+
+
+# Promptlarni ansambl qilish
+
+Prompt ensembling — bu bir nechta turli promptlardan foydalanish orqali harakat qilish tushunchasidir
+Xuddi shu savolga javob bering. Buning uchun turli xil yondashuvlar mavjud.
+
+## DiVeRSe
+
+DiVeRSe (@li2022advance) ("**Di**verse **Ve**rifier on **R**easoning **S**t**e**ps") bu
+javoblarning ishonchliligini uch yo‘nalishda oshiradigan usul. Bu quyidagilar orqali amalga oshiriladi
+
+1) bir nechta promptlardan foydalanib, turli xil yakunlarni yaratish,
+2) yaxshi javoblarni yomon javoblardan ajratish uchun tekshiruvchi vositasidan foydalanish, va
+3) mulohaza yuritish bosqichlarining to‘g‘riligini tekshirish uchun tekshiruvchi foydalanish.
+
+
+
+
+
+Ask Me Anything (AMA) prompting (@arora2022ama) DiVeRSe ga o‘xshash yondashuv hisoblanadi. Biroq, uning bir nechta prompt yaratish bosqichi va javoblarni birlashtirish bosqichi sezilarli darajada farq qiladi. AMA ning asosiy g‘oyasi shundaki, bir nechta few-shot namunalaridan foydalanish o‘rniga, bir nechta promptlarni yaratish uchun LLM dan foydalaniladi.
+
+### Bir nechta Promptlar
+
+AMA shuni ko‘rsatadiki, siz savolni olib, uni bir nechta usullarda qayta formatlab, turli promptlar yaratishingiz mumkin. Masalan, siz hayvonlar haqidagi ma’lumotlarni bir qancha veb-saytlardan yig‘ayotgan bo‘lsangiz va faqat Shimoliy Amerikada yashaydiganlarini yozib olishni istasangiz. Keling, buni aniqlash uchun prompt tuzamiz.
+
+Quyidagi Wikipedia parchasiga asoslanib:
+
+```text
+Kermode ayiği, ba’zan ruh ayiği deb ham ataladi (Ursus americanus kermodei), Amerika qora ayiğinin kichik turi bo‘lib, Kanada, Britaniya Kolumbiyasining Markaziy va Shimoliy sohil hududlarida yashaydi.
+```
+
+Siz bu vazifani quyidagicha promptga formatlashingiz mumkin:
+
+```text
+Quyidagi da'vo kontekstga ko‘ra To‘g‘ri yoki Noto‘g‘ri ekanligini aniqlang.
+
+Kermode ayiği, ba’zan ruh ayiği deb ham ataladi (Ursus americanus kermodei), Amerika qora ayiği ning kichik turi bo‘lib, Kanada ning Britaniya Kolumbiyasi markaziy va shimoliy sohil hududlarida yashaydi.
+Da’vo: Bu hayvon Shimoliy Amerikada yashaydi
+Javob:
+```
+
+Bu biroz g‘alati ifoda. Nega shunchaki quyidagi oddiyroq promptdan foydalanmaslik kerak?
+
+```text
+Kermode ayiği, ba’zan spirit bear deb ham ataladi (Ursus americanus kermodei), Amerika qora ayiği ning kichik turi bo‘lib, Kanada ning Britaniya Kolumbiyasi markaziy va shimoliy sohil hududlarida yashaydi.
+Savol: Bu hayvon Shimoliy Amerikada yashaydimi?
+```
+
+Xo‘sh, savolni shu maxsus tarzda shakllantirish orqali biz turli promptlarni yaratishimiz mumkin.
+Bu yerda birinchi qadamingiz `This animal lives in North America` da'vosini olib, uni turli savollarga qayta formatlash bo'ladi, ular asosan bir xil narsani so'ramoqda. Buni amalga oshirish uchun, biz da'voni quyidagi rasmda ko'rsatilgan promptlar orqali o'tkazamiz.
+
+
+
+Bu quyidagicha natija berishi mumkin:
+
+1. Hayvon Shimoliy Amerikada yashaganmi?
+2. Hayvon Shimoliy Amerikada yashaydimi?
+3. Hayvon qayerda yashaydi?
+
+Buning orqasidagi g‘oya — vazifaning turli _ko‘rinishlari_ni yaratishdir. So‘ngra har birini quyidagicha berilgan kontekstga qo‘llaymiz:
+
+```text
+Kermode ayiği, ba’zan ruh ayiği deb ham ataladi (Ursus americanus kermodei), Amerika qora ayiğining kichik turi bo‘lib, Kanadaning Britaniya Kolumbiyasi markaziy va shimoliy sohil hududlarida yashaydi.
+Savol: Hayvon Shimoliy Amerikada yashaganmi?
+```
+
+Keyin, biz har biri uchun javoblar yaratishimiz mumkin:
+
+1. `Yes it was`
+2. `Yes it does`
+3. Shimoliy Amerika
+
+Bular _oraliq_ javoblardir. Biz ularni vazifa yorliqlariga (masalan, Ha yoki Yo‘q) moslashtirishimiz kerak.
+
+Buni biz oraliq javoblarni quyidagidek prompt orqali uzatish orqali amalga oshirishimiz mumkin:
+
+```text
+To‘g‘ri toifani tanlang.
+
+"Kategoriyalar":
+- Ha, Shimoliy Amerika
+- Yo‘q, Shimoliy Amerika emas
+
+"Ha, bu shunday" quyidagi toifaga mos keladi:
+```
+
+Endi biz natijaviy javoblarimizni olamiz.
+
+1. Ha, Shimoliy Amerika
+2. Ha, Shimoliy Amerika
+3. Ha, Shimoliy Amerika
+
+Bu yerda, ular barchasi rozi, shuning uchun biz shunchaki birinchi javobni olamiz. Biroq, agar ular rozi bo‘lmaganida, yakuniy javob olish uchun AMA agregatsiya bosqichidan foydalanishimiz mumkin edi.
+
+### Javoblarni yig‘ish
+
+AMA javoblarni yig‘ishda (DiVeRSe’dan ham murakkabroq) juda murakkab strategiyadan foydalanadi, faqat ko‘pchilik javobini olish o‘rniga. Nega ko‘pchilik javobi yomon tanlov bo‘lishi mumkinligini tushunish uchun, avval yaratgan ikki savolimizni ko‘rib chiqing:
+
+1. Hayvon Shimoliy Amerikada yashaganmi?
+2. Hayvon Shimoliy Amerikada yashaydimi?
+
+Ular juda o‘xshash, shuning uchun ehtimol bir xil natija hosil qiladi. Savollar juda o‘xshash bo‘lgani uchun, ular yakuniy natijaga ta’sir ko‘rsatadi. Buni hal qilish uchun, AMA zaif nazorat va murakkab matematikaga tayanadi, u yaratgan turli promptlar o‘rtasidagi bog‘liqliklarni baholaydi va keyin ularni mos ravishda og‘irlik bilan baholaydi.
+
+Shunday qilib, biz yaratgan uchta savol uchun u 25%, 25% va 50% og‘irliklarni belgilashi mumkin, chunki birinchi ikkisi juda o‘xshash.
+
+AMA ning agregatsiya strategiyasi kuchli bo‘lsa-da, u shunchalik murakkabki, bu yerda uni yoritmayman. Batafsil ma’lumot uchun maqolaning 3.4-bo‘limini o‘qing (@arora2022ama).
+
+### Natijalar
+
+- Ushbu prompting strategiyasi yordamida AMA GPT-J-6B (@wange2021gptj) dan foydalanib, GPT-3 dan yaxshiroq natijalarga erisha oladi.
+
+- AMA berilgan kontekstda javob mavjud bo‘lgan savollarda yaxshiroq ishlaydi.
+
+## Xulosalar
+
+Ansambl usullari juda kuchli. Ular har qanday modelning samaradorligini oshirish uchun ishlatilishi mumkin va modelning ma’lum bir vazifadagi samaradorligini oshirish uchun ham qo‘llanilishi mumkin.
+
+Amaliyotda, ko‘pchilik ovozi sizning asosiy strategiyangiz bo‘lishi kerak.
