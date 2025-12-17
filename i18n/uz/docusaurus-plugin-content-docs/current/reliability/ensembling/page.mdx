@@ -11,129 +11,18 @@ Xuddi shu savolga javob bering. Buning uchun turli xil yondashuvlar mavjud.
 
 ## DiVeRSe
 
-DiVeRSe(@li2022advance) ("**Di**verse **Ve**rifier on **R**easoning **S**t**e**ps") bu
+DiVeRSe (@li2022advance) ("**Di**verse **Ve**rifier on **R**easoning **S**t**e**ps") bu
 javoblarning ishonchliligini uch yo‘nalishda oshiradigan usul. Bu quyidagilar orqali amalga oshiriladi
 
 1) bir nechta promptlardan foydalanib, turli xil yakunlarni yaratish,
 2) yaxshi javoblarni yomon javoblardan ajratish uchun tekshiruvchi vositasidan foydalanish, va
 3) mulohaza yuritish bosqichlarining to‘g‘riligini tekshirish uchun tekshiruvchi foydalanish.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/reliability/diverse.webp"
-    width={824}
-    height={300}
-    style={{ width: "750px", margin: "auto" }}
-  />
-</div>
 
-<div style={{ textAlign: "center" }}>DiVeRSe (Li et al.)</div>
 
-### Turli xil Promptlar
 
-DiVeRSe berilgan kirish uchun 5 xil promptdan foydalanadi. Har bir promptni yaratish uchun ular tasodifiy
-o‘quv to‘plamidan bir nechta namunalarni tanlang. Quyida shunday few-shot namunalaridan biri keltirilgan
-prompt (k=2), namunalar [GSM8K benchmark](https://raw.githubusercontent.com/openai/grade-school-math/master/grade_school_math/data/train.jsonl)(@cobbe2021training) dan olingan. Amalda, DiVeRSe foydalanadi
-Ushbu benchmark uchun promptlarda 5 ta namunalar.
 
-```
-Q: Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. How many clips did Natalia sell altogether in April and May?
-A: Natalia sold 48/2 = 24 clips in May.
-Natalia sold 48+24 = 72 clips altogether in April and May.
-#### 72
-Q: Weng earns $12 an hour for babysitting. Yesterday, she just did 50 minutes of babysitting. How much did she earn?
-A: Weng earns 12/60 = $0.2 per minute.
-Working 50 minutes, she earned 0.2 x 50 = $10.
-#### 10
-Q: Betty is saving money for a new wallet which costs $100. Betty has only half of the money she needs. Her parents decided to give her $15 for that purpose, and her grandparents twice as much as her parents. How much more money does Betty need to buy the wallet?
-A:
-```
-
-Yuqoridagi kabi 5 ta turli promptlar yaratilgandan so‘ng, DiVeRSe 20 ta mulohaza yo‘llarini tanlab oladi
-har bir (temperature = 0.5) uchun. Quyida yuqoridagi prompt uchun bir nechta namunaviy yakunlar keltirilgan.
-E'tibor bering, javoblar har doim ham to'g'ri bo'lmasligi mumkin.
-
-```text {1-5}
-Bettyda 0.5*100 = $50 bor.
-Keyin u yana 15 ta oladi = $65.
-Keyin u 2*15 = $90 oladi.
-Unga yana 100-90 = $10 kerak.
-#### 10
-```
-
-```text {1-5}
-A: Bettyda 0.5*100 = $500 bor.
-Keyin u yana 15 ta oladi = $650.
-Keyin u 2*15 = $900 oladi.
-Unga yana 100-90 = $1000 kerak.
-#### 1000
-```
-
-Bu bosqichda, DiVeRSe 100 ta turli yakunlarni yaratdi.
-
-### Ovoz berishni tasdiqlovchi
-
-Endi biz shunchaki ko‘pchilik javobini olishimiz mumkin, xuddi Self-Consistency(@mitchell2022enhancing) qilgani kabi.
-
-Biroq, DiVeRSe ancha murakkabroq usulni taklif qiladi, uni ular _voting verifier_ deb atashadi.
-
-Sinov vaqtida, voting verifier dan foydalanish ikki bosqichli jarayondir. Avvalo, verifier (neyron tarmoq)
-har bir yakun uchun to‘g‘ri bo‘lish ehtimoliga qarab 0-1 ball beradi. Keyin, 'ovoz berish'
-komponent turli javoblar bo‘yicha barcha ballarni yig‘adi va yakuniy javobni beradi.
-
-#### Misol
-
-Mana kichik bir misol. Tasavvur qiling, bizda quyidagi javoblar mavjud: prompt `What is two plus two?` uchun:
-
-```text {1-1}
-4
-```
-
-```text {1-1}
-ikki + 2 = 5
-```
-
-```text {1-1}
-Menimcha, 2+2 = 6
-```
-
-```text {1-1}
-ikki qo‘shilgan ikki = 4
-```
-
-```text {1-1}
-Bu 5
-```
-
-Verifikator har bir yakuniy natijani o‘qib chiqadi va unga ball beradi. Masalan, u quyidagicha ball berishi mumkin
-ballar: 0.9, 0.1, 0.2, 0.8, 0.3 mos ravishda. Keyin, ovoz berish komponenti har birining ballarini qo‘shadi
-answer.
-
-```
-score(4) = 0.9 + 0.8 = 1.7
-score(5) = 0.1 + 0.3 = 0.4
-score(6) = 0.2
-```
-
-Yakuniy javob 4, chunki u eng yuqori ballga ega.
-
-**Lekin verifikator qanday o‘qitiladi?**
-
-Verifier biroz murakkabroq yo‘qotish funksiyasi bilan o‘qitiladi, bu
-Men bu yerda yoritmayman. Batafsil ma’lumot uchun maqolaning 3.3-bo‘limini o‘qing (@li2022advance).
-
-## Menga istalgan savolni bering (AMA) Prompting
-
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/reliability/AMA_Prompting.webp"
-    width={1313}
-    height={469}
-    style={{ width: "750px", margin: "auto" }}
-  />
-</div>
-
-Ask Me Anything (AMA) prompting(@arora2022ama) DiVeRSe ga o‘xshash yondashuv hisoblanadi. Biroq, uning bir nechta prompt yaratish bosqichi va javoblarni birlashtirish bosqichi sezilarli darajada farq qiladi. AMA ning asosiy g‘oyasi shundaki, bir nechta few-shot namunalaridan foydalanish o‘rniga, bir nechta promptlarni yaratish uchun LLM dan foydalaniladi.
+Ask Me Anything (AMA) prompting (@arora2022ama) DiVeRSe ga o‘xshash yondashuv hisoblanadi. Biroq, uning bir nechta prompt yaratish bosqichi va javoblarni birlashtirish bosqichi sezilarli darajada farq qiladi. AMA ning asosiy g‘oyasi shundaki, bir nechta few-shot namunalaridan foydalanish o‘rniga, bir nechta promptlarni yaratish uchun LLM dan foydalaniladi.
 
 ### Bir nechta Promptlar
 
@@ -165,14 +54,7 @@ Savol: Bu hayvon Shimoliy Amerikada yashaydimi?
 Xo‘sh, savolni shu maxsus tarzda shakllantirish orqali biz turli promptlarni yaratishimiz mumkin.
 Bu yerda birinchi qadamingiz `This animal lives in North America` da'vosini olib, uni turli savollarga qayta formatlash bo'ladi, ular asosan bir xil narsani so'ramoqda. Buni amalga oshirish uchun, biz da'voni quyidagi rasmda ko'rsatilgan promptlar orqali o'tkazamiz.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/reliability/AMA_multiprompting.webp"
-    width={1778}
-    height={416}
-    style={{ width: "800px", margin: "auto" }}
-  />
-</div>
+
 
 Bu quyidagicha natija berishi mumkin:
 
@@ -230,7 +112,7 @@ AMA ning agregatsiya strategiyasi kuchli bo‘lsa-da, u shunchalik murakkabki, b
 
 ### Natijalar
 
-- Ushbu prompting strategiyasi yordamida AMA GPT-J-6B(@wange2021gptj) dan foydalanib, GPT-3 dan yaxshiroq natijalarga erisha oladi.
+- Ushbu prompting strategiyasi yordamida AMA GPT-J-6B (@wange2021gptj) dan foydalanib, GPT-3 dan yaxshiroq natijalarga erisha oladi.
 
 - AMA berilgan kontekstda javob mavjud bo‘lgan savollarda yaxshiroq ishlaydi.
 

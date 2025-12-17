@@ -7,40 +7,15 @@ title: "🟢 Zero Shot Chain of Thought"
 # Zero Shot Chain of Thought
 
 Zero Shot Chain of Thought (Zero-shot-CoT) prompting (@kojima2022large) bu
-<Term term="CoT prompting">CoT prompting</Term> ga ergashuvchi (@wei2022chain), bu juda ajoyib
+CoT prompting ga ergashuvchi (@wei2022chain), bu juda ajoyib
 oddiy zero shot prompt. Ular quyidagi so‘zlarni qo‘shish orqali aniqlashadiki: "**Keling, bosqichma-bosqich o‘ylab ko‘raylik
 bilan bosqichma-bosqich.**" savol oxiriga qo‘shilganda, LLMlar fikrlash zanjirini yaratishga qodir
 savolga javob beradigan fikr. Ushbu fikrlar zanjiridan ular
 aniqroq javoblarni ajratib olish
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/intermediate/zero_shot.webp"
-    width={936}
-    height={386}
-    style={{ width: "500px", margin: "auto" }}
-  />
-</div>
 
-<div style={{ textAlign: "center" }}>Zero Shot CoT (Kojima et al.)</div>
 
-Texnik jihatdan, to‘liq Zero-shot-CoT jarayoni ikki alohida prompt/completionlardan iborat bo‘ladi.
-Quyidagi rasmda, chap tomondagi yuqori pufakcha fikrlar zanjirini hosil qiladi, shu bilan birga, o'ng tomondagi yuqori pufakcha
-o‘ng tomoni birinchi promptdan chiqqan natijani (shu jumladan birinchi promptning o‘zini ham) qabul qiladi,
-va javobni fikrlar zanjiridan ajratib oladi. Ushbu ikkinchi prompt _o‘zini o‘zi kuchaytiruvchi_ prompt hisoblanadi.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/intermediate/zero_shot_example.webp"
-    width={1854}
-    height={726}
-    style={{ width: "500px", margin: "auto" }}
-  />
-</div>
-
-<div style={{ textAlign: "center" }}>
-  To‘liq Zero Shot CoT jarayoni (Kojima va boshq.)
-</div>
 
 ## Misol
 

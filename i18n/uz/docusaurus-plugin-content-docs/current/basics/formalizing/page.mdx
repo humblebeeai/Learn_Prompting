@@ -6,22 +6,12 @@ title: "🟢 Promptlarni rasmiylashtirish"
 
 # Promptlarni rasmiylashtirish
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src={"/docs/assets/basics/formal_prompt.svg"}
-    width={564}
-    height={1054}
-    style={{
-      width: "100%",
-      height: "300px",
-      verticalAlign: "top",
-      margin: "auto",
-    }}
-  />
-</div>
+
 <br />
 
-<Takeaways>- Promptning asosiy qismlarini tushunish</Takeaways>
+
+- Promptning asosiy qismlarini tushunish
+
 
 Endi biz bir nechta turdagi promptlarni va ularni birlashtirish usullarini ko‘rib chiqdik. Ushbu dars sizga turli xil prompt turlarini tushuntirish uchun atamalarni beradi. Prompt muhandisligi atrofidagi nutqni rasmiylashtirishga yondashuvlar bo‘lgan bo‘lsa-da (@white2023prompt), soha doimiy o‘zgarib bormoqda, shuning uchun biz sizga boshlash uchun yetarli ma’lumotni taqdim etamiz.
 
@@ -39,25 +29,31 @@ Biz oldingi darslarda rollar, ko‘rsatmalar va misollarni ko‘rib chiqdik. Sav
 
 Bu qismlarning barchasi har bir promptda bo‘lavermaydi va ba’zilari bo‘lsa ham, ular uchun standart tartib yo‘q. Masalan, quyidagi ikki promptda ham rol, ko‘rsatma va kontekst mavjud bo‘lib, ular taxminan bir xil natija beradi:
 
-<AIInput>
+
+**Prompt:**
+
+```text
 Siz shifokorsiz. Ushbu tibbiy tarixni o‘qing va bemor uchun xavflarni taxmin qiling.
 
 2000-yil 1-yanvar: Basketbol o‘ynab o‘ng qo‘li singan. Gips bilan davolangan.
 2010-yil 15-fevral: Gipertenziya tashxisi qo‘yilgan. Lisinopril buyurilgan.
 2015-yil 10-sentabr: Pneumoniya rivojlangan. Antibiotiklar bilan davolangan va to‘liq sog‘aygan.
 2022-yil 1-mart: Avtomobil halokatida bosh miya chayqalishi olgan. Shifoxonaga yotqizilgan va 24 soat kuzatuvda bo‘lgan.
+```
 
-</AIInput>
 
-<AIInput>
+
+**Prompt:**
+
+```text
 2000-yil 1-yanvar: Basketbol o‘ynab o‘ng qo‘li singan. Gips bilan davolangan.
 2010-yil 15-fevral: Gipertenziya tashxisi qo‘yilgan. Lisinopril buyurilgan.
 2015-yil 10-sentabr: Pneumoniya rivojlangan. Antibiotiklar bilan davolangan va to‘liq sog‘aygan.
 2022-yil 1-mart: Avtomobil halokatida bosh miya chayqalishi olgan. Shifoxonaga yotqizilgan va 24 soat kuzatuvda bo‘lgan.
 
 Siz shifokorsiz. Ushbu tibbiy tarixni o‘qing va bemor uchun xavflarni taxmin qiling.
+```
 
-</AIInput>
 
 Biroq, biz ikkinchi promptni afzal ko‘ramiz, chunki unda ko‘rsatma promptning oxirgi qismida joylashgan. Bu afzalroq, chunki birinchi promptda LLM ko‘rsatmaga amal qilish o‘rniga shunchaki ko‘proq kontekst yozishni boshlashi mumkin; agar birinchi prompt berilsa, LLM yangi qator qo‘shishi mumkin: `2022-yil 15-mart: Bosh miya chayqalishini baholash uchun nevropatolog bilan nazorat uchrashuvi belgilandi.`
 
