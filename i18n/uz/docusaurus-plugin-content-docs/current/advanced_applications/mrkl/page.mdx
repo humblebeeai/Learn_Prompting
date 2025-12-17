@@ -6,7 +6,7 @@ title: "🟡 LLM lar asboblar yordamida foydalanish"
 
 # LLM lar vositalardan foydalanishi
 
-MRKL tizimlari(@karpas2022mrkl) (Modulli mantiq, bilim va til, "miracle" deb talaffuz qilinadi)
+MRKL tizimlari (@karpas2022mrkl) (Modulli mantiq, bilim va til, "miracle" deb talaffuz qilinadi)
 bu **neuro-symbolic arxitektura** bo‘lib, LLMs (neyron hisoblash) va tashqi
 kalkulyatorlar (ramziy hisoblash) kabi vositalar yordamida murakkab muammolarni hal qilish.
 
@@ -55,93 +55,32 @@ Ob-havo WEATHER_API[New York].
 - Yoki hatto bir nechta ma’lumot manbalariga tayanadigan ancha murakkab vazifalar, masalan,
   following:
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl_task.webp"
-    width={1600}
-    height={1331}
-    style={{ width: "500px", margin: "auto" }}
-  />
-</div>
 
-<div style={{ textAlign: "center" }}>Example MRKL System (AI21)</div>
 
-## Bir misol
 
-Men Dust.tt yordamida asl maqoladagi MRKL System namunasiini qayta yaratdim,
-bu yerda [havola](https://dust.tt/w/ddebdfcdde/a/98bdd65cb7) orqali bog‘langan.
-Tizim matematika masalasini o‘qiydi (masalan, `What is 20 times 5^6?`), sonlar va amallarni ajratib oladi,
-va ularni kalkulyator ilovasi uchun qayta formatlaydi (masalan, `20*5^6`). So‘ngra u qayta formatlangan tenglamani yuboradi
-Google kalkulyator ilovasiga va natijani qaytaradi. Asl maqolada router (LLM) ustida prompt tuning bajarilishi qayd etilgan, lekin men bu misolda bunday qilmayman. Keling, bu qanday ishlashini ko‘rib chiqamiz:
-
-Avval, men Dust `Datasets` yorlig‘ida oddiy ma’lumotlar to‘plamini yaratdim.
-
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl/dataset.webp"
-    width={2818}
-    height={820}
-    style={{ width: "750px", margin: "0" }}
-  />
-</div>
 
 Keyin, men `Specification` yorlig‘iga o‘tdim va ma’lumotlar to‘plamini `input` bloki yordamida yukladim.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl/load_dataset.webp"
-    width={2790}
-    height={508}
-    style={{ width: "750px", margin: "0" }}
-  />
-</div>
+
 
 Keyingi bosqichda men raqamlar va amallarni ajratib oladigan `llm` blokini yaratdim. E'tibor bering, qanday qilib
 promptda men Google'ning kalkulyatoridan foydalanishimizni aytdim. Men foydalanadigan model (GPT-3)
 ehtimol, pretraining jarayonida Google kalkulyatori haqida biroz ma'lumotga ega.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl/model.webp"
-    width={2790}
-    height={960}
-    style={{ width: "750px", margin: "0" }}
-  />
-</div>
+
 
 Keyin, men ba'zi oddiy javascript kodini olib tashlash uchun ishlaydigan `code` blokini yaratdim
 natijadan bo‘sh joylarni o‘chirish.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl/extract.webp"
-    width={2790}
-    height={532}
-    style={{ width: "750px", margin: "0" }}
-  />
-</div>
+
 
 Nihoyat, men qayta formatlangan tenglamani Google kalkulyatoriga yuboradigan `search` blokini yaratdim.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl/search.webp"
-    width={2790}
-    height={1310}
-    style={{ width: "750px", margin: "0" }}
-  />
-</div>
+
 
 Quyida biz yakuniy natijalarni ko‘rishimiz mumkin, ularning barchasi to‘g‘ri!
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/advanced/mrkl/final.webp"
-    width={2784}
-    height={494}
-    style={{ width: "750px", margin: "0" }}
-  />
-</div>
+
 
 Ushbu playgroundni bemalol klonlab, tajriba o'tkazishingiz mumkin [bu yerda](https://dust.tt/w/ddebdfcdde/a/98bdd65cb7).
 

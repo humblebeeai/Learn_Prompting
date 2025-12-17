@@ -1,4 +1,4 @@
-  ---
+---
 sidebar_position: 1000
 title: "🟢 Learn Prompting usulini o‘rganish"
 ---
@@ -6,10 +6,10 @@ title: "🟢 Learn Prompting usulini o‘rganish"
 
 # Learn Prompting usuli
 
-<Takeaways>
-  - Gen AI/prompt muhandisligi uchun usulimizni o‘rganing
-  - Buni bir amaliy tadqiqotga qo‘llang
-</Takeaways>
+
+- Gen AI/prompt muhandisligi uchun usulimizni o‘rganing
+- Buni bir amaliy tadqiqotga qo‘llang
+
 
 Learn Prompting Method of Problem Solving with Generative AI - bu Gen AI sohasida muammolarni hal qilish uchun mo‘ljallangan ramka. Bu sizga Gen AI to‘g‘ri yechim ekanligini aniqlash, prompt engineeringni qanday qo‘llash, qaysi vositalarni tanlash va boshqalar bo‘yicha yordam beradi.
 Biz besh bosqichning har birini ko‘rib chiqamiz, so‘ngra ushbu usuldan foydalangan holda bir misol keltiramiz.
@@ -48,32 +48,44 @@ Keling, Learn Prompting Method yordamida chatbotni noldan yaratish bo‘yicha bi
 
 3. **Yechim taklif qiling:** Tahlilimiz asosida, ushbu uch turdagi savollarga javob bera oladigan ChatGPT yordamida chatbot yaratishga qaror qilamiz. Biz dastlabki promptni tayyorlaymiz:
 
-<AIInput>
-  Siz shlyapalar tarixini, uslublarini va
+
+**Prompt:**
+
+```text
+Siz shlyapalar tarixini, uslublarini va
   turli xil shapkalarni to‘g‘ri kiyish usullari. Foydalanuvchi sizga savol beradi
   shlyapalar. Ularning so‘roviga foydali va ma’lumotli tarzda javob bering: USER_INPUT
-</AIInput>
+```
+
 
 4. **Yechnmani moslashtiring:** Biz dastlabki promptlarimizni kichik foydalanuvchilar guruhi bilan sinab ko‘ramiz va ularning fikr-mulohazalarini yig‘amiz. Ularning fikr-mulohazalariga asoslanib, promptlarimiz yanada qiziqarli va kamroq rasmiy bo‘lishi kerakligini tushunamiz.
 
 Biz mos ravishda promptlarimizni sozlaymiz:
 
-<AIInput>
-  Siz shlyapalar ishqibozi bo‘lib, ularning tarixi, uslublari haqida boy bilimga egasiz,
+
+**Prompt:**
+
+```text
+Siz shlyapalar ishqibozi bo‘lib, ularning tarixi, uslublari haqida boy bilimga egasiz,
   va turli xil shapkalarni kiyish odoblari. Foydalanuvchi shapkalar haqida qiziqmoqda
   va sizga savol beradi. Ularning so‘roviga do‘stona va ma’lumotli tarzda javob bering
   manner."
-</AIInput>
+```
+
 
 Biz yana ko‘proq foydalanuvchi testlarini o‘tkazamiz va bozorimizni segmentatsiya qilishimiz kerakligini tushunamiz: shlyapa tarixi bilan qiziqadigan odamlar rasmiyroq yondashuvni afzal ko‘rishadi, shu bilan birga uslub va shlyapa kiyish bilan qiziqadiganlar norasmiy botni afzal ko‘rishadi. Biz foydalanuvchining savoliga qarab ularning qaysi turga mansubligini aniqlaydigan dastlabki yo‘naltiruvchi prompt ishlab chiqamiz:
 
-<AIInput>
-  Siz shlyapalar bilan bog‘liq so‘rovlarning nozik jihatlarini tushunadigan sun’iy intellektsiz. Asosida
+
+**Prompt:**
+
+```text
+Siz shlyapalar bilan bog‘liq so‘rovlarning nozik jihatlarini tushunadigan sun’iy intellektsiz. Asosida
   foydalanuvchining savolini, ular ko'proq rasmiyga qiziqishayotganini aniqlang
   shlyapalar tarixi yoki shlyapalarni norasmiy uslubda kiyish va taqish. Javob bering
   Tarixga oid so‘rovlar uchun 'Rasmiy', uslub va uchun esa 'Norasmiy'
   kiyinish bilan bog‘liq so‘rovlar."
-</AIInput>
+```
+
 
 Biz marshrutlash promptini qolgan ikkitasi bilan bog‘lash uchun Langchain, Voiceflow yoki Dust kabi [asbobdan](https://learnprompting.org/docs/category/-tooling) foydalanamiz.
 

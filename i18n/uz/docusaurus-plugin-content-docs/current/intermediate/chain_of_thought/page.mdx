@@ -14,7 +14,7 @@ bu Katta Til Modellari (LLMlar)ni o‘z mulohazalarini tushuntirishga undaydi.
 Ushbu usul standart promptingdan farqli o‘laroq, faqat javob izlash bilan cheklanmaydi
 balki modeldan javobga qanday yetib kelganini ham tushuntirib berishini talab qiladi.
 
-Quyidagi rasm(@wei2022chain) <Term term="few shot standard prompt"> ni ko‘rsatadi
+Quyidagi rasm (@wei2022chain) <Term term="few shot standard prompt"> ni ko‘rsatadi
 few shot standard prompt</Term> (chapda) chain of thought prompt (o‘ngda) bilan solishtirilgan. Bu taqqoslash few-shot standard prompt va chain-of-thought prompt o‘rtasidagi farqni ko‘rsatadi.
 farqni ko‘rsatadi: standart yondashuv bevosita yechim izlaydi,
 CoT yondashuvi LLMga o‘zining mulohazasini ochib berishga yo‘l-yo‘riq ko‘rsatadi,
@@ -22,76 +22,9 @@ ko‘pincha yanada aniqroq va tushunarli natijalarga olib keladi.
 
 
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/basics/chain_of_thought_example.webp"
-    width={1788}
-    height={900}
-    style={{ width: "750px", margin: "auto" }}
-  />
-</div>
 
-<div style={{ textAlign: "center" }}>
-  Regular Prompting vs CoT (Wei et al.)
-</div>
 
-CoT ning asosiy g‘oyasi shundaki, LLM ga bir nechta few shot <Term term="exemplars">exemplars</Term> ko‘rsatish orqali mantiqiy fikrlash
-jarayon namunalarda tushuntirilgan bo‘lsa, LLM ham fikrlash jarayonini ko‘rsatadi
-promptga javob berishda. Ushbu izohli tushuntirish ko‘pincha aniqroq natijalarga olib keladi
-results.
 
-## Chain-of-Thought Prompting dan qanday foydalanish
-
-Mana bir nechta demolar. Birinchisi GPT-3 (davinci-003) ni ko‘rsatadi
-oddiy so‘zli masalani yecha olmaslik. Ikkinchi misolda esa GPT-3 (davinci-003) aynan shu muammoni CoT prompting yordamida muvaffaqiyatli yechmoqda.
-
-#### Noto‘g‘ri
-
-<iframe
-  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6Ik9wdGlvbiAxIGlzIGEgZmFzdGVyIHdheSB0byBnZXQgdG8gd29yay4iLCJwcm9tcHQiOiJXaGljaCBpcyBhIGZhc3RlciB3YXkgdG8gZ2V0IHRvIHdvcms%2FXG5PcHRpb24gMTogVGFrZSBhIDEwMDAgbWludXRlIGJ1cywgdGhlbiBhIGhhbGYgaG91ciB0cmFpbiwgYW5kIGZpbmFsbHkgYSAxMCBtaW51dGUgYmlrZSByaWRlLlxuT3B0aW9uIDI6IFRha2UgYW4gODAwIG1pbnV0ZSBidXMsIHRoZW4gYW4gaG91ciB0cmFpbiwgYW5kIGZpbmFsbHkgYSAzMCBtaW51dGUgYmlrZSByaWRlLiIsIm1vZGVsIjoidGV4dC1kYXZpbmNpLTAwMyJ9"
-  style={{
-    width: "100%",
-    height: "500px",
-    border: "0",
-    borderRadius: "4px",
-    overflow: "hidden",
-  }}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-
-#### To‘g‘ri
-
-<iframe
-  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6Ik9wdGlvbiAxIHdpbGwgdGFrZSAxMDAwKzMwKzEwID0gMTA0MCBtaW51dGVzLlxuT3B0aW9uIDIgd2lsbCB0YWtlIDgwMCs2MCszMCA9IDg5MCBtaW51dGVzLlxuU2luY2UgT3B0aW9uIDIgdGFrZXMgODkwIG1pbnV0ZXMgYW5kIE9wdGlvbiAxIHRha2VzIDEwNDAgbWludXRlcywgT3B0aW9uIDIgaXMgZmFzdGVyLiIsInByb21wdCI6IldoaWNoIGlzIGEgZmFzdGVyIHdheSB0byBnZXQgaG9tZT9cbk9wdGlvbiAxOiBUYWtlIGFuIDEwIG1pbnV0ZXMgYnVzLCB0aGVuIGFuIDQwIG1pbnV0ZSBidXMsIGFuZCBmaW5hbGx5IGEgMTAgbWludXRlIHRyYWluLlxuT3B0aW9uIDI6IFRha2UgYSA5MCBtaW51dGVzIHRyYWluLCB0aGVuIGEgNDUgbWludXRlIGJpa2UgcmlkZSwgYW5kIGZpbmFsbHkgYSAxMCBtaW51dGUgYnVzLlxuT3B0aW9uIDEgd2lsbCB0YWtlIDEwKzQwKzEwID0gNjAgbWludXRlcy5cbk9wdGlvbiAyIHdpbGwgdGFrZSA5MCs0NSsxMD0xNDUgbWludXRlcy5cblNpbmNlIE9wdGlvbiAxIHRha2VzIDYwIG1pbnV0ZXMgYW5kIE9wdGlvbiAyIHRha2VzIDE0NSBtaW51dGVzLCBPcHRpb24gMSBpcyBmYXN0ZXIuXG5cbldoaWNoIGlzIGEgZmFzdGVyIHdheSB0byBnZXQgdG8gd29yaz9cbk9wdGlvbiAxOiBUYWtlIGEgMTAwMCBtaW51dGUgYnVzLCB0aGVuIGEgaGFsZiBob3VyIHRyYWluLCBhbmQgZmluYWxseSBhIDEwIG1pbnV0ZSBiaWtlIHJpZGUuXG5PcHRpb24gMjogVGFrZSBhbiA4MDAgbWludXRlIGJ1cywgdGhlbiBhbiBob3VyIHRyYWluLCBhbmQgZmluYWxseSBhIDMwIG1pbnV0ZSBiaWtlIHJpZGUuIiwibW9kZWwiOiJ0ZXh0LWRhdmluY2ktMDAzIn0%3D"
-  style={{
-    width: "100%",
-    height: "500px",
-    border: "0",
-    borderRadius: "4px",
-    overflow: "hidden",
-  }}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-
-## Chain-of-Thought Natijalar
-
-CoT vazifalarida natijalarni yaxshilashda samarali ekanligi ko‘rsatilgan
-arifmetik, umumiy mantiq va ramziy mulohaza vazifalari (@wei2022chain).
-Xususan, prompted PaLM 540B(@chowdhery2022palm) 57% yechimga erishadi
-GSM8K(@cobbe2021training) bo‘yicha aniqlik darajasini baholang (o‘sha vaqtdagi SOTA).
-
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/intermediate/prompted_palm.webp"
-    width={798}
-    height={774}
-    style={{ width: "300px", margin: "auto" }}
-  />
-</div>
-
-<div style={{ textAlign: "center" }}>
-  GSM8K benchmarkida modellarning taqqoslanishi (Wei va boshqalar)
-</div>
 
 ## Chain-of-Thought cheklovlari
 

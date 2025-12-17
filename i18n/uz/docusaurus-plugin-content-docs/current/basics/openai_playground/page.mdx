@@ -7,21 +7,13 @@ title: "🟢 OpenAI Playground"
 
 # OpenAI Playground
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/basics/openai_playground.webp"
-    className="img-docs"
-    width={2700}
-    height={1342}
-    style={{ width: "80%", margin: "auto" }}
-  />
-</div>
+
 <br />
 
-<Takeaways>
-  - OpenAI Playground-ni sozlang
-  - Asosiy Playground sozlamalari haqida bilib oling
-</Takeaways>
+
+- OpenAI Playground
+- Asosiy Playground sozlamalari haqida bilib oling
+
 
 ## OpenAI Playground nima?
 
@@ -45,10 +37,9 @@ Playground’dan samarali foydalanish.
   allowFullScreen
 ></iframe>
 
-<Note>
-  Ushbu video saytning eski versiyasini ko‘rsatadi, lekin tizimga kirish jarayoni
-  juda o‘xshashligicha qoladi.
-</Note>
+
+*Ushbu video saytning eski versiyasini ko‘rsatadi, lekin tizimga kirish jarayoni juda o‘xshashligicha qoladi.*
+
 
 ## OpenAI Playground interfeysi
 
@@ -64,56 +55,23 @@ ushbu darsdagi tanlov va LLM sozlamalari, masalan, Temperature, Top P va Maximum
 
 ### OpenAI Playground rejimi
 
-<div className="flex flex-col sm:flex-row justify-between">
-  <div>
-    Playground sahifasida yuqoridagi chap tomonda joylashgan `Assistants` ochiladigan ro‘yxati orqali turli rejimlarni tanlash mumkin. Ushbu ochiladigan ro‘yxat siz foydalanayotgan model turini o‘zgartirish imkonini beradi. OpenAI uchta turli rejimga ega: `Assistants`, `Chat` va `Complete`. Biz oxirgi ikkitasini allaqachon o‘rganganmiz. `Assistants` modellari dasturchilar tomonidan API orqali foydalanish uchun mo‘ljallangan va kod ishga tushirish hamda ma’lumotlarni olish kabi qiziqarli vositalardan foydalanishi mumkin. Ushbu kursda biz faqat `Chat` va ba’zan `Complete` modellardan foydalanamiz. Ushbu rejimlarni o‘rganish sun’iy intellekt imkoniyatlarining keng doirasi bilan amaliy tanishish imkonini beradi — oddiy suhbatlardan tortib murakkab muammolarni hal qilishgacha. Bundan tashqari, bu OpenAI modellari turli ilovalar va foydalanuvchi ehtiyojlariga moslashuvchanligini ko‘rsatadi.
-  </div>
 
-  <div className="mt-4 sm:mt-0 sm:ml-auto">
-    <Image
-      src="/docs/assets/basics/openai_mode.webp"
-      className="img-docs"
-      width={750}
-      height={750}
-      style={{ margin: "auto" }}
-    />
-  </div>
-</div>
 
 ### OpenAI Playground tizim promptlari
 
 `Chat` ga o'tgandan so'ng, sahifaning chap tomonida `Get Started` popupidan tashqari birinchi ko'rishingiz mumkin bo'lgan narsa bu `SYSTEM` maydonidir. Hozirgacha biz ikki turdagi xabarlarni ko'rdik: `USER` xabarlari, ya'ni siz chatbotga yuboradigan xabarlar, va `ASSISTANT` xabarlari, ya'ni chatbotning javoblari. Uchinchi turdagi xabar, ya'ni system prompt, AI qanday javob berishini sozlash uchun ishlatilishi mumkin.
 Bu priming prompt joylashtirish uchun eng yaxshi joy. Tizim prompti odatda "Siz yordam beruvchi assistentsiz." bo‘ladi, lekin sinab ko‘rish uchun qiziqarli muqobil misol sifatida "[oldingi darsimiz](https://learnprompting.org/docs/basics/priming_prompt)dagi "Siz PirateGPTsiz. Har doim qaroqchi kabi gapiring." misolini ishlatish mumkin. Turli tizim promptlari bilan tajriba qilish foydalanuvchilarga AI shaxsini moslashtirish imkonini beradi, bu esa o‘ziga xos va ijodiy o‘zaro aloqalarni, aniq vaziyatlar yoki vazifalarga moslashtirilgan holda taqdim etadi.
 
-<div style={{ textAlign: "center" }}>
-  <Image
-    src="/docs/assets/basics/openai_system_prompt.webp"
-    className="img-docs"
-    width={2442}
-    height={1438}
-    style={{ width: "80%", margin: "auto" }}
-  />
-</div>
+
 <br />
 
 ### Model tanlash oynasi
 
-<div className="flex flex-col sm:flex-row justify-between">
-  
-<div>
-  Sahifaning o‘ng tomonidagi Model ochiladigan ro‘yxatini bosing. Ushbu ochiladigan ro‘yxat siz foydalanayotgan modelni o‘zgartirish imkonini beradi. Har bir rejimda bir nechta model mavjud, lekin biz chat modellarga e’tibor qaratamiz. Ushbu ro‘yxat juda murakkab ko‘rinadi (masalan, not-3.5-turbo nimani anglatadi?), lekin bu shunchaki turli modellarning texnik nomlari. gpt-3.5-turbo bilan boshlanadigan har qanday narsa ChatGPT ning bir versiyasi, gpt-4 bilan boshlanadigan har qanday narsa esa GPT-4 ning, ya’ni OpenAI ning yangi modelining bir versiyasidir.
-</div>
-  
-<div className="mt-4 sm:mt-0 sm:ml-auto">
-    
-<Image src="/docs/assets/basics/openai_model.webp" className= "img-docs" width={750} height={750} style={{margin : "auto"}} />
-  
-</div>
-</div>
 
-<Note>
-  Siz interfeysingizda GPT-4 versiyalarini ko‘rmasligingiz mumkin.
-</Note>
+
+
+*Siz interfeysingizda GPT-4 versiyalarini ko‘rmasligingiz mumkin.*
+
 
 Model nomlaridagi 16K, 32K yoki 128k kabi raqamlar kontekst uzunligini bildiradi. Agar ko‘rsatilmagan bo‘lsa, gpt-3.5 uchun standart kontekst uzunligi 4K, GPT-4 uchun esa 8k hisoblanadi. OpenAI muntazam ravishda ChatGPT (gpt-3.5-turbo) va GPT-4 ni yangilab turadi va eski versiyalar platformada cheklangan muddat davomida saqlanadi. Ushbu eski modellarning nomining oxirida qo‘shimcha raqamlar bo‘ladi, masalan, "0613". Masalan, "gpt-3.5-turbo-16k-0613" modeli 16K kontekst uzunligiga ega ChatGPT modeli bo‘lib, 2023-yil 13-iyunda chiqarilgan. Biroq, eng so‘nggi versiyalardan foydalanish tavsiya etiladi, ular nomida hech qanday sana ma’lumoti bo‘lmaydi. Model versiyalarining to‘liq ro‘yxatini bu yerdan topishingiz mumkin.
 
