@@ -1,12 +1,16 @@
-import React from 'react';
-import Layout from '@theme/Layout';
+import React from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import "./index.css";
+import "./App.css";
+import Navbar from "../subsections/landingpage/Navbar";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <Layout
-      title="AI4 Workshop"
-      description="AI4 Workshop - Learn Prompting">
+    <>
+
       <div className="bg-white text-black">
+        <Navbar />
         <div className="container mx-auto py-10">
           <div className="text-center">
             <h1 className="text-5xl md:text-5xl font-bold mb-8 text-black">AI4 Workshop</h1>
@@ -182,8 +186,9 @@ Do you have time to chat this week? Anytime after 6PM PST.
 
          </div>
         </div>
+        <Footer />
       </div>
-    </Layout>
+    </>
   );
 }
 

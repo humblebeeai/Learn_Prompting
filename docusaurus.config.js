@@ -122,7 +122,7 @@ async function createConfig() {
             { href: "https://fonts.googleapis.com", rel: "preconnect", async: true },
             { href: "https://fonts.gstatic.com", rel: "preconnect", crossorigin: "", async: true },
             {
-                href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap",
+                href: "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
                 async: true,
             },
         ],
@@ -138,12 +138,6 @@ async function createConfig() {
                     src: "img/simple_ai.webp",
                 },
                 items: [
-                    {
-                        type: "doc",
-                        docId: "intro/index",
-                        position: "left",
-                        label: "Docs",
-                    },
                     { type: "localeDropdown", position: "right" },
                     {
                         href: "https://github.com/humblebeeai/Learn_Prompting",
@@ -154,7 +148,7 @@ async function createConfig() {
             },
             announcementBar: {
                 id: "collaboration",
-                content: '🇺🇿 🇺🇸 <b>Learn Prompting × <a href="https://humblebee.ai" target="_blank">HumblebeeAI</a></b> Collaboration Edition',
+                content: '🇺🇿 🇺🇸 <b>Learn Prompting × HumblebeeAI</b> Collaboration Edition',
                 backgroundColor: "#53ffd4",
                 textColor: "#000",
                 isCloseable: true,
@@ -164,7 +158,7 @@ async function createConfig() {
                 logo: {
                     alt: 'HumblebeeAI Logo',
                     src: '/humblebee_logo.svg',
-                    href: 'https://humblebee.ai',
+                    href: 'https://academy.humblebee.ai',
                     width: 150,
                 },
                 copyright: `

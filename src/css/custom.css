@@ -1,346 +1,55 @@
 /**
- * Global CSS with modern design system
- * Using Space Grotesk for titles, Inter for body/subtitles
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
  */
 
-/* ===========================
-   DESIGN TOKENS
-   =========================== */
+/* You can override the default Infima variables here. */
 :root {
-  /* Typography */
-  --font-title: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  /* Colors - Refined palette */
-  --color-bg-primary: #fafafa;
-  --color-bg-secondary: #f5f5f5;
-  --color-bg-tertiary: #ffffff;
-  --color-text-primary: #0a0a0a;
-  --color-text-secondary: #525252;
-  --color-text-muted: #737373;
-  --color-accent: #18181b;
-  --color-accent-hover: #27272a;
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-strong: rgba(0, 0, 0, 0.12);
-
-  /* Brand colors */
-  --color-brand-primary: #10b981;
-  --color-brand-primary-hover: #059669;
-  --color-brand-secondary: #06b6d4;
-
-  /* Spacing scale */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 6rem;
-
-  /* Animation */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-
-  /* Infima overrides */
-  --ifm-color-primary: #10b981;
-  --ifm-color-primary-dark: #059669;
-  --ifm-color-primary-darker: #047857;
-  --ifm-color-primary-darkest: #065f46;
-  --ifm-color-primary-light: #34d399;
-  --ifm-color-primary-lighter: #6ee7b7;
-  --ifm-color-primary-lightest: #a7f3d0;
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: var(--font-body);
-  --ifm-heading-font-family: var(--font-title);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode */
+/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --color-bg-primary: #0a0a0a;
-  --color-bg-secondary: #171717;
-  --color-bg-tertiary: #1c1c1c;
-  --color-text-primary: #fafafa;
-  --color-text-secondary: #a3a3a3;
-  --color-text-muted: #737373;
-  --color-accent: #fafafa;
-  --color-accent-hover: #e5e5e5;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.12);
-
-  --ifm-color-primary: #34d399;
-  --ifm-color-primary-dark: #10b981;
-  --ifm-color-primary-darker: #059669;
-  --ifm-color-primary-darkest: #047857;
-  --ifm-color-primary-light: #6ee7b7;
-  --ifm-color-primary-lighter: #a7f3d0;
-  --ifm-color-primary-lightest: #d1fae5;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --yellow-highlight: #bb8e0c7a;
   --text-color: white;
-  --bluegreen-highlight: rgba(104, 156, 106, 0.67);
+  --docusaurus-highlighted-code-line-bg: rgba(104, 156, 106, 0.67);
+  --bluegreen-highlight:  rgba(104, 156, 106, 0.67);
 }
-
 [data-theme='light'] {
   --yellow-highlight: rgb(255, 242, 204);
   --docusaurus-highlighted-code-line-bg: rgba(159, 238, 162, 0.67);
-  --bluegreen-highlight: rgba(159, 238, 162, 0.67);
+  --bluegreen-highlight:  rgba(159, 238, 162, 0.67);
+} 
+
+:root {
 }
 
-/* ===========================
-   BASE STYLES
-   =========================== */
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-title);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-/* ===========================
-   ANIMATION KEYFRAMES
-   =========================== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* ===========================
-   UTILITY CLASSES
-   =========================== */
-.animate-fade-in {
-  animation: fadeIn var(--transition-slow) ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp var(--transition-slow) ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft var(--transition-slow) ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn var(--transition-slow) ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Stagger animations */
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-
-/* ===========================
-   INTERACTIVE HOVER EFFECTS
-   =========================== */
-.hover-lift {
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.hover-scale {
-  transition: transform var(--transition-spring);
-}
-
-.hover-scale:hover {
-  transform: scale(1.02);
-}
-
-.hover-glow {
-  transition: box-shadow var(--transition-base);
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
-}
-
-/* Button micro-interactions */
-.btn-interactive {
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-base);
-}
-
-.btn-interactive::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.4s, height 0.4s;
-}
-
-.btn-interactive:active::after {
-  width: 200px;
-  height: 200px;
-}
-
-/* Link hover effect */
-.link-underline {
-  position: relative;
-  text-decoration: none;
-}
-
-.link-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width var(--transition-base);
-}
-
-.link-underline:hover::after {
-  width: 100%;
-}
-
-/* ===========================
-   CONSULTING GRADIENT
-   =========================== */
 .consulting-gradient {
   background: -webkit-linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .consulting-gradient:hover {
   background: -webkit-linear-gradient(90deg, #ff0037 0%, #002aff 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -349,101 +58,71 @@ h6 {
   background: -webkit-linear-gradient(90deg, #ff668b 0%, #5f7eff 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-clip: text;
 }
 
 [data-theme="dark"] .consulting-gradient:hover {
   background: -webkit-linear-gradient(90deg, #ffaaaa 0%, #aaaaff 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-clip: text;
 }
 
-/* ===========================
-   HIGHLIGHT CLASSES
-   =========================== */
 .yellow-highlight {
   background-color: var(--yellow-highlight);
   color: var(--text-color);
 }
-
 .bluegreen-highlight {
   background-color: var(--bluegreen-highlight);
 }
-
-/* ===========================
-   TOOLTIP STYLES
-   =========================== */
+/* Glossary and Tooltips */
 div[role="tooltip"] {
   width: 450px;
   max-width: 90vw;
 }
-
 div[role="tooltip"] a {
   color: #ffffff;
   text-decoration: underline;
 }
-
 div[itemscope][itemtype*="DefinedTerm"] span[itemprop="description"] {
   color: var(--ifm-toc-link-color);
 }
-
 a[data-tooltip-html] {
   border-bottom: 1px dashed;
   cursor: help;
 }
-
 a[data-tooltip-html]:hover {
   text-decoration: none;
 }
-
-/* ===========================
-   CODE BLOCKS
-   =========================== */
+/* Code Block Word-Wrapping */
 pre[class*="language-"] {
   white-space: pre-wrap;
 }
-
 pre {
   white-space: pre-wrap;
 }
 
-/* ===========================
-   ADMONITIONS
-   =========================== */
+/* custom admonition */
 .alert--takeaways {
-  --ifm-alert-background-color: white;
-  --ifm-alert-background-color-highlight: rgba(70, 130, 180, 0.15);
-  --ifm-alert-foreground-color: rgb(66, 69, 73);
-  --ifm-alert-border-color: #71b2e6;
+  --ifm-alert-background-color: white; /* SteelBlue color with 50% opacity */
+  --ifm-alert-background-color-highlight: rgba(70, 130, 180, 0.15); /* SteelBlue color with 15% opacity */
+  --ifm-alert-foreground-color: rgb(66,69,73); /* Text color */
+  --ifm-alert-border-color: #71b2e6; /* SteelBlue color */
 }
 
 html[data-theme='dark'] .alert--takeaways {
-  --ifm-alert-background-color: rgba(169, 202, 235, 0.5);
-  --ifm-alert-background-color-highlight: rgba(70, 130, 180, 0.15);
-  --ifm-alert-foreground-color: rgb(255, 255, 255);
-  --ifm-alert-border-color: #4682B4;
+  --ifm-alert-background-color: rgba(169, 202, 235, 0.5); /* SteelBlue color with 50% opacity */
+  --ifm-alert-background-color-highlight: rgba(70, 130, 180, 0.15); /* SteelBlue color with 15% opacity */
+  --ifm-alert-foreground-color: rgb(255,255,255); /* Text color for dark theme */
+  --ifm-alert-border-color: #4682B4; /* SteelBlue color */
 }
 
-/* ===========================
-   IMAGE STYLES
-   =========================== */
 .img-docs {
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  text-align: center;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  border-radius: 5px;
+  border: 1px solid grey;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  text-align: center
 }
 
-.img-docs:hover {
-  box-shadow: var(--shadow-lg);
-  transform: scale(1.01);
-}
-
-/* ===========================
-   AI INPUT/OUTPUT STYLES
-   =========================== */
+/* AIInput styles */
 [data-theme='light'] .ai-input {
   background: #f0f0f0;
   color: #000;
@@ -454,6 +133,7 @@ html[data-theme='dark'] .alert--takeaways {
   color: #fff;
 }
 
+/* AIOutput styles */
 [data-theme='light'] .ai-output {
   background: #f0f0f0;
   color: #000;
@@ -480,18 +160,3 @@ html[data-theme='dark'] .alert--takeaways {
   background: #556B2F;
 }
 
-/* ===========================
-   FOCUS STATES
-   =========================== */
-*:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
-  outline-offset: 2px;
-}
-
-/* ===========================
-   SELECTION
-   =========================== */
-::selection {
-  background: rgba(16, 185, 129, 0.3);
-  color: inherit;
-}
