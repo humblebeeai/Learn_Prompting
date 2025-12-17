@@ -1,0 +1,68 @@
+# Docker ignore for learnprompting.uz
+
+# Node/npm
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+env/
+venv/
+.venv/
+venv*/
+pip-wheel-metadata/
+
+# Build / packaging
+build/
+dist/
+.cache/
+.parcel-cache/
+coverage/
+coverage.*
+*.egg-info/
+pip-wheel-metadata/
+
+# Docusaurus / static site
+build/
+
+# Git
+.git
+.gitignore
+
+# Environment and secrets
+.env
+.env.*
+secrets/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Testing / tooling
+.pytest_cache/
+.mypy_cache/
+.tox/
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Misc
+tmp/
+temp/
