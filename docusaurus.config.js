@@ -122,14 +122,14 @@ async function createConfig() {
             { href: "https://fonts.googleapis.com", rel: "preconnect", async: true },
             { href: "https://fonts.gstatic.com", rel: "preconnect", crossorigin: "", async: true },
             {
-                href: "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
+                href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap",
                 async: true,
             },
         ],
         themeConfig: {
             metadata: [
                 { name: "description", content: "Learn Prompting x HumblebeeAI: Free, Open Source Course on Communicating with AI." },
-                { name: "keywords", content: "prompting, prompt engineering, learn prompting, AI, chatGPT, humblebeeai, uzbek, russian" },
+                { name: "keywords", content: "prompting, prompt engineering, learn prompting, AI, chatGPT, humblebeeai, uzbek" },
             ],
             navbar: {
                 title: "Learn Prompting",
@@ -138,7 +138,12 @@ async function createConfig() {
                     src: "img/simple_ai.webp",
                 },
                 items: [
-                    { type: "localeDropdown", position: "right" },
+                    {
+                        type: 'html',
+                        position: 'left',
+                        value: '<div style="display: flex; align-items: center; margin-left: -27px;"><span style="margin: 0 14px; color: var(--ifm-color-primary); font-weight: 800; font-size: 1.5rem;">×</span><a href="/about-collaboration" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="https://academy.humblebee.ai/images/logo/logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 32px; margin-right: 12px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">HumblebeeAI</span></a></div>',
+                    },
+                    { type: "localeDropdown", position: "right", className: "icon-link-language" },
                     {
                         href: "https://github.com/humblebeeai/Learn_Prompting",
                         label: "GitHub",
@@ -148,22 +153,16 @@ async function createConfig() {
             },
             announcementBar: {
                 id: "collaboration",
-                content: '🇺🇿 🇺🇸 <b>Learn Prompting × HumblebeeAI</b> Collaboration Edition',
+                content: '<div style="font-weight: 600; font-size: 15px;">🇺🇿 <span style="margin: 0 8px;">Learn Prompting × HumblebeeAI Collaboration Edition</span> 🇺🇸</div>',
                 backgroundColor: "#53ffd4",
                 textColor: "#000",
                 isCloseable: true,
             },
             footer: {
                 style: "dark",
-                logo: {
-                    alt: 'HumblebeeAI Logo',
-                    src: '/humblebee_logo.svg',
-                    href: 'https://academy.humblebee.ai',
-                    width: 150,
-                },
                 copyright: `
           <div style="margin-top: 10px;">
-            Uzbek/Russian editions maintained by <strong>HumblebeeAI</strong>.<br/>
+            Uzbek editions maintained by <strong>HumblebeeAI</strong>.<br/>
             Content by <a href="https://learnprompting.org" target="_blank" rel="noopener noreferrer">Learn Prompting</a> contributors.
             Licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>.
           </div>

@@ -8,7 +8,7 @@ You are free to share and adapt the material for non-commercial purposes, provid
 
 ## Attribution
 - **Original Content**: [Learn Prompting](https://learnprompting.org)
-- **Uzbek & Russian Localization**: [HumblebeeAI Academy](https://academy.humblebee.ai)
+- **Uzbek Localization**: [HumblebeeAI Academy](https://academy.humblebee.ai)
 - **Maintainers**: HumblebeeAI Team
 
 ## Non-Commercial Use
