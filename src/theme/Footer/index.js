@@ -52,8 +52,9 @@ export default function Footer() {
 	];
 
 	const quickLinks = [
-		{ label: <Translate id="footer.quickLinks.academy">AI Akademiya</Translate>, href: 'https://academy.humblebee.ai' },
-		{ label: <Translate id="footer.quickLinks.collaboration">Hamkorlik</Translate>, to: '/about-collaboration' }
+		{ label: <Translate id="footer.quickLinks.docs">Docs</Translate>, to: '/docs/intro' },
+		{ label: <Translate id="footer.quickLinks.collaboration">Hamkorlik</Translate>, to: '/about-collaboration' },
+		{ label: <Translate id="footer.quickLinks.academy">AI Akademiya</Translate>, href: 'https://academy.humblebee.ai' }
 	];
 
 	const legalLinks = [

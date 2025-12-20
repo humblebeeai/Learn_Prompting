@@ -16,16 +16,16 @@ Reasoning kod hisoblanadi, CoT esa tabiiy til hisoblanadi.
 <div style={{ textAlign: "center" }}>PAL Example (Gao et al.)</div>
 
 Muhim jihatlardan biri shundaki, PAL aslida tabiiy til (NL) va kodni aralashtirib ishlatadi.
-Yuqoridagi rasmda ko‘k rangda PAL tomonidan yaratilgan tabiiy til asosidagi mulohazalar ko‘rsatilgan. Garchi u
-rasmda ko‘rsatilmagan bo‘lsa-da, PAL aslida NL asoslantirishining har bir qatori oldidan '\#' hosil qiladi, shuning uchun
+Yuqoridagi rasmda ko'k rangda PAL tomonidan yaratilgan tabiiy til asosidagi mulohazalar ko'rsatilgan. Garchi u
+rasmda ko'rsatilmagan bo'lsa-da, PAL aslida NL asoslantirishining har bir qatori oldidan '\#' hosil qiladi, shuning uchun
 ular dasturiy bajarilish muhiti tomonidan izoh sifatida talqin qilinadi.
 
 ## Misol
 
-Keling, PAL matematik savolni qanday yechishini misol orqali ko‘ramiz. Men 3-shot prompt dan foydalanaman,
+Keling, PAL matematik savolni qanday yechishini misol orqali ko'ramiz. Men 3-shot prompt dan foydalanaman,
 bu [mana bu](https://github.com/reasoning-machines/pal/blob/main/pal/prompt/math_prompts.py)(@gao2022pal) ning soddalashtirilgan versiyasi.
 
-Men buning uchun LLM funksionalligini zanjirlash uchun Python paketi bo‘lgan langchain’dan foydalanaman. Avvalo, bir nechta o‘rnatishlar kerak bo‘ladi:
+Men buning uchun LLM funksionalligini zanjirlash uchun Python paketi bo'lgan langchain'dan foydalanaman. Avvalo, bir nechta o'rnatishlar kerak bo'ladi:
 
 ```python
 !pip install langchain==0.0.26
@@ -96,8 +96,8 @@ Natija quyidagicha:
 
 <pre>
   <span className="bluegreen-highlight">
-Emma Sietlga 60 daqiqalik samolyot parvozida bordi. So‘ngra u 2 soatlik poezdda yo‘l oldi.
-Portlandga borish, so‘ngra 30 daqiqalik avtobus yo‘li orqali Vankuverga yetib borish. Qancha vaqt ketadi
+Emma Sietlga 60 daqiqalik samolyot parvozida bordi. So'ngra u 2 soatlik poezdda yo'l oldi.
+Portlandga borish, so'ngra 30 daqiqalik avtobus yo'li orqali Vankuverga yetib borish. Qancha vaqt ketadi
 Unga Vankuverga yetib borish uchun qancha vaqt ketadi?
     <br />
     <br />
@@ -120,9 +120,9 @@ exec(llm_out)
 print(result)
 ```
 
-Natija **210**, bu to‘g‘ri.
+Natija **210**, bu to'g'ri.
 
-Ushbu misol uchun Jupyter daftarini [bu yerda](https://github.com/trigaten/Learn_Prompting/tree/main/docs/code_examples/PAL.ipynb) ko‘ring.
+Ushbu misol uchun Jupyter daftarini [bu yerda](https://github.com/trigaten/Learn_Prompting/tree/main/docs/code_examples/PAL.ipynb) ko'ring.
 
 ## Boshqalar
 

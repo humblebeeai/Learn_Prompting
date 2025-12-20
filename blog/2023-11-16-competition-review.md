@@ -1,5 +1,5 @@
 ---
-title: You Can’t Patch a (neural) Brain
+title: You Can't Patch a (neural) Brain
 ---
 
 # 🕵️ Introduction
@@ -75,7 +75,7 @@ that this was necessary in order to defeat the level. Multiple teams ended up fi
   <a href="https://www.aicrowd.com/challenges/hackaprompt-2023"><img src={tokens} style={{width: "100%"}}/></a>
 </div>
 
-## Why You Can’t Patch a (neural) Brain
+## Why You Can't Patch a (neural) Brain
 
 The biggest thing we learned is that prompt-based defenses do not work. We tried a wide range. We even tried getting one
 language model to evaluate the output of another. This fell victim to [recursive prompt injection](https://learnprompting.org/docs/prompt_hacking/offensive_measures/recursive_attack). There are some defenses that will work (see [paper](http://paper.hackaprompt.com/HackAPrompt.pdf)), but they are not flexible (think rule-based Chatbot). We want

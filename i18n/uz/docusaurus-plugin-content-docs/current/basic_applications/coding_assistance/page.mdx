@@ -6,7 +6,7 @@ title: "🟡 Kod yozishda yordam"
 
 # Kod yozishda yordam
 
-Siz LLMlardan nosozliklarni tuzatish, kod generatsiyasi, formatlash, izoh yozish va boshqa ko‘plab vazifalar uchun foydalanishingiz mumkin. Mashhur chat-botlardan biri 40 dan ortiq dasturlash tillaridagi kodlar bilan ishlay olishini da’vo qiladi.
+Siz LLMlardan nosozliklarni tuzatish, kod generatsiyasi, formatlash, izoh yozish va boshqa ko'plab vazifalar uchun foydalanishingiz mumkin. Mashhur chat-botlardan biri 40 dan ortiq dasturlash tillaridagi kodlar bilan ishlay olishini da'vo qiladi.
 
 | Juda eski | Eski      | Yaqinda        | Eng yangi      |
 | -------- | --------- | ------------- | -------------- |
@@ -23,13 +23,13 @@ Siz LLMlardan nosozliklarni tuzatish, kod generatsiyasi, formatlash, izoh yozish
 
 ## Kod generatsiyasi
 
-ChatGPT yoki boshqa har qanday LLM asosidagi AI chat-botdan kod generatsiya qilishni so‘rash juda oddiy:
+ChatGPT yoki boshqa har qanday LLM asosidagi AI chat-botdan kod generatsiya qilishni so'rash juda oddiy:
 
 ```text
-Junior python dasturchisi sifatida harakat qiling. Iltimos, har birida 6 tadan element bo‘lgan 3 ta massivdan: predloglar, fe’llar va otlardan madlibs generatsiya qiluvchi kod yozing, otlar to‘g‘ridan-to‘g‘ri ob’ekt sifatida ham ishlatiladi. Kodni yozgandan so‘ng uni bajaring.
+Junior python dasturchisi sifatida harakat qiling. Iltimos, har birida 6 tadan element bo'lgan 3 ta massivdan: predloglar, fe'llar va otlardan madlibs generatsiya qiluvchi kod yozing, otlar to'g'ridan-to'g'ri ob'ekt sifatida ham ishlatiladi. Kodni yozgandan so'ng uni bajaring.
 ```
 
-Natija quyidagicha bo‘ladi:
+Natija quyidagicha bo'ladi:
 
 ```python {1-13}
 import random
@@ -62,7 +62,7 @@ initial-response=""
 
 ## Kodni izohlash va formatlash
 
-Botdan kodga izohlar qo‘shishni va uni o‘qish uchun qulayroq formatlashni so‘rashingiz mumkin. Prompt ko‘rsatmasidan so‘ng, kodni tozalash uchun promptingizdan keyin uchta hash belgisi qo‘shing:
+Botdan kodga izohlar qo'shishni va uni o'qish uchun qulayroq formatlashni so'rashingiz mumkin. Prompt ko'rsatmasidan so'ng, kodni tozalash uchun promptingizdan keyin uchta hash belgisi qo'shing:
 
 ```python
 Please add line comments to this Python code and reformat it for legibility:
@@ -76,7 +76,7 @@ for i in range(num_points):
     print(' ' * (amplitude + y) + '*')
 ```
 
-Natija quyidagicha bo‘ladi:
+Natija quyidagicha bo'ladi:
 
 ```python {1-15}
 # Import the math module
@@ -98,7 +98,7 @@ for i in range(num_points):
 
 ## Nosozliklarni tuzatish
 
-LLM asosidagi AI chat-botlar koddagi sintaksis xatolarini aniqlash bilan birga, kod bajarilganda yuzaga keladigan mantiqiy xatolarni ham topa oladi. Quyida Python skriptiga misol keltirilgan bo‘lib, unda 3-qator mantiqiy xato tufayli 4-qatorida nolga bo‘lish xatosi yuzaga keladi. Xatoni topish va tuzatish uchun ushbu oddiy promptni sinab ko‘ring:
+LLM asosidagi AI chat-botlar koddagi sintaksis xatolarini aniqlash bilan birga, kod bajarilganda yuzaga keladigan mantiqiy xatolarni ham topa oladi. Quyida Python skriptiga misol keltirilgan bo'lib, unda 3-qator mantiqiy xato tufayli 4-qatorida nolga bo'lish xatosi yuzaga keladi. Xatoni topish va tuzatish uchun ushbu oddiy promptni sinab ko'ring:
 
 ```python
 Please debug this Python code:
@@ -111,18 +111,18 @@ Please debug this Python code:
 6.    partygoers -= 2
 ```
 
-Natijada to‘g‘rilangan while sikli bo‘ladi, u bo‘luvchi o‘zgaruvchisi musbat bo‘lib qolishini ta’minlash uchun o‘zgartirilgan:
+Natijada to'g'rilangan while sikli bo'ladi, u bo'luvchi o'zgaruvchisi musbat bo'lib qolishini ta'minlash uchun o'zgartirilgan:
 
 ```text {1-2}
 3. while partygoers >
  0:
 ```
 
-Yana murakkabroq xatolar uchun sizga ko‘proq tafsilotlar kerak bo‘lishi mumkin: xato xabari, muhit o‘zgaruvchilari, ulashgan kutubxonalar yoki kiruvchi ma’lumotlardagi farqlar.
+Yana murakkabroq xatolar uchun sizga ko'proq tafsilotlar kerak bo'lishi mumkin: xato xabari, muhit o'zgaruvchilari, ulashgan kutubxonalar yoki kiruvchi ma'lumotlardagi farqlar.
 
 ## Kod optimallashtirish
 
-Agar skriptingizni bajarish juda ko‘p vaqt olayotgan bo‘lsa, ChatGPT kabi AI chat-bot uni optimallashtirishi mumkin. Mana, tuban samaradorlikka ega bo‘lgan tub sonlarni topuvchi skriptni optimallashtirish misoli:
+Agar skriptingizni bajarish juda ko'p vaqt olayotgan bo'lsa, ChatGPT kabi AI chat-bot uni optimallashtirishi mumkin. Mana, tuban samaradorlikka ega bo'lgan tub sonlarni topuvchi skriptni optimallashtirish misoli:
 
 ```python
 Act like a very senior python developer. Please optimize this script:
@@ -136,7 +136,7 @@ for num in range(1, 101):
             print(num)
 ```
 
-Natijada tub sonlarni topish uchun [Eratosthenes elagi algoritmi](https://www.geeksforgeeks.org/sieve-of-eratosthenes/)dan foydalanadigan skript bo‘lishi mumkin:
+Natijada tub sonlarni topish uchun [Eratosthenes elagi algoritmi](https://www.geeksforgeeks.org/sieve-of-eratosthenes/)dan foydalanadigan skript bo'lishi mumkin:
 
 ```python {1-6}
 numbers = list(range(2, 101))
@@ -147,11 +147,11 @@ for i in numbers:
 print(numbers)
 ```
 
-E’tibor bering, biz botdan skriptni optimallashtirish uchun "katta tajribaga ega dasturchi sifatida harakat qiling" deb so‘radik. Shuningdek, siz undan ma’lum bir sohada tajribaga ega bo‘lishini (masalan, saralash algoritmlari) yoki necha yillik tajribaga ega bo‘lishini so‘rashingiz mumkin. Yoki, agar sizda haddan tashqari murakkab ko‘ringan skript bo‘lsa, undan bu skriptni "juda yangi boshlovchi dasturchi sifatida" yozishni so‘rashingiz mumkin.
+E'tibor bering, biz botdan skriptni optimallashtirish uchun "katta tajribaga ega dasturchi sifatida harakat qiling" deb so'radik. Shuningdek, siz undan ma'lum bir sohada tajribaga ega bo'lishini (masalan, saralash algoritmlari) yoki necha yillik tajribaga ega bo'lishini so'rashingiz mumkin. Yoki, agar sizda haddan tashqari murakkab ko'ringan skript bo'lsa, undan bu skriptni "juda yangi boshlovchi dasturchi sifatida" yozishni so'rashingiz mumkin.
 
-## Dasturlash tillari o‘rtasida tarjima qilish
+## Dasturlash tillari o'rtasida tarjima qilish
 
-AI chat-botlarining juda foydali funksiyalaridan biri — dasturlarni bir tildan boshqasiga o‘tkazish imkoniyatidir. Bunga odatiy misol sifatida eski tildagi kodni zamonaviy tilga yangilash keltirilishi mumkin:
+AI chat-botlarining juda foydali funksiyalaridan biri — dasturlarni bir tildan boshqasiga o'tkazish imkoniyatidir. Bunga odatiy misol sifatida eski tildagi kodni zamonaviy tilga yangilash keltirilishi mumkin:
 
 ```COBOL
 Act like an experienced developer with knowledge of both COBOL and Python. Please convert this COBOL program to Python:
@@ -175,7 +175,7 @@ DISPLAY "Social Security tax is: $", SS-TAX.
 STOP RUN.
 ```
 
-Natija quyidagicha bo‘lishi mumkin:
+Natija quyidagicha bo'lishi mumkin:
 
 ```python {1-4}
 salary = float(input("Enter employee's salary: "))
@@ -186,7 +186,7 @@ print("Social Security tax is: $", round(ss_tax, 2))
 
 ## Bir nechta fayllar bilan ishlash va kod bazasini refaktor qilish
 
-Agar siz AI chat-botdan **bir nechta** fayllarni baholashni xohlasangiz, shunchaki fayl nomlarini ko‘rsating va har birining kodini joylang:
+Agar siz AI chat-botdan **bir nechta** fayllarni baholashni xohlasangiz, shunchaki fayl nomlarini ko'rsating va har birining kodini joylang:
 
 ```python {15-16}
 My Python script uses two files, listed below, in different directories. Please display the output from executing conversation.py:
@@ -207,17 +207,17 @@ Hello, John!
 Goodbye, John!
 ```
 
-Ushbu usul yordamida siz bir nechta fayllarni bitta promptda botga yuborib, kodni refaktor qilishni so‘rashingiz mumkin. Yoki, har birini "yodlab olishini" so‘rab, keyingi promptda uni bajarishni so‘rashingiz mumkin.
+Ushbu usul yordamida siz bir nechta fayllarni bitta promptda botga yuborib, kodni refaktor qilishni so'rashingiz mumkin. Yoki, har birini "yodlab olishini" so'rab, keyingi promptda uni bajarishni so'rashingiz mumkin.
 
-## Ma’lumotlar bazasi serverini simulyatsiya qilish
+## Ma'lumotlar bazasi serverini simulyatsiya qilish
 
-Ko‘pchilik AI chat-botlar kod bilan ishlaydi, lekin ba’zilari ma’lumotlar bazasi, veb va email serverlari kabi server muhitlarini ham simulyatsiya qila oladi. Mana bunday promptga misol:
+Ko'pchilik AI chat-botlar kod bilan ishlaydi, lekin ba'zilari ma'lumotlar bazasi, veb va email serverlari kabi server muhitlarini ham simulyatsiya qila oladi. Mana bunday promptga misol:
 
 ```text
-Microsoft SQL Server sifatida harakat qiling. "politics" nomli ma’lumotlar bazasi yarating va uning ichida "politicians" nomli jadval yarating. Uni 1900-2000 yillar oralig‘idagi turli davrlardan dunyodagi mashhur siyosatchilarning 50 ta qatori bilan to‘ldiring. To‘liq ismlari, mamlakati, tug‘ilgan sanasi va agar mavjud bo‘lsa, vafot etgan sanasi uchun ustunlar qo‘shing. Eng uzoq yashagan 3 siyosatchi uchun view yarating. Ushbu view tarkibini chiqaruvchi Transact-SQL buyruqini yarating va bajaring.
+Microsoft SQL Server sifatida harakat qiling. "politics" nomli ma'lumotlar bazasi yarating va uning ichida "politicians" nomli jadval yarating. Uni 1900-2000 yillar oralig'idagi turli davrlardan dunyodagi mashhur siyosatchilarning 50 ta qatori bilan to'ldiring. To'liq ismlari, mamlakati, tug'ilgan sanasi va agar mavjud bo'lsa, vafot etgan sanasi uchun ustunlar qo'shing. Eng uzoq yashagan 3 siyosatchi uchun view yarating. Ushbu view tarkibini chiqaruvchi Transact-SQL buyruqini yarating va bajaring.
 ```
 
-Natija quyidagicha bo‘ladi:
+Natija quyidagicha bo'ladi:
 
 ```SQL {1-17}
 -- Create the "politics" database
@@ -239,13 +239,13 @@ CREATE TABLE politicians (
 -- etc.
 ```
 
-Shundan so‘ng, ustunlar, indekslar va boshqalarni qo‘shishingiz mumkin:
+Shundan so'ng, ustunlar, indekslar va boshqalarni qo'shishingiz mumkin:
 
 ```
 Add a column to the politicians table for the second-in-command and update it for each row.
 ```
 
-Natija quyidagicha bo‘lishi mumkin:
+Natija quyidagicha bo'lishi mumkin:
 
 ```SQL {1-11}
 ALTER TABLE politicians ADD second_in_command VARCHAR(255);
@@ -263,7 +263,7 @@ SET second_in_command =
 
 ## Veb-serverni simulyatsiya qilish
 
-Ba’zi AI chat-botlar boshqa ko‘plab serverlar va APIlarni ham simulyatsiya qila oladi. Mana, Apache serverining ma’lum brauzer so‘rov sarlavhalariga javobini simulyatsiya qiluvchi prompt misoli:
+Ba'zi AI chat-botlar boshqa ko'plab serverlar va APIlarni ham simulyatsiya qila oladi. Mana, Apache serverining ma'lum brauzer so'rov sarlavhalariga javobini simulyatsiya qiluvchi prompt misoli:
 
 ```text
 Apache web server sifatida harakat qiling. Ushbu HTTP sarlavhalariga qanday javob berardingiz?
@@ -272,17 +272,17 @@ GET /example HTTP/1.1
 Host: www.example.com
 ```
 
-Natija quyidagicha bo‘ladi:
+Natija quyidagicha bo'ladi:
 
 ```text {1-5}
 HTTP/1.1 200 OK
 Sana: [joriy sana va vaqt]
 Server: Apache/2.4.41 (Ubuntu)
-Oxirgi o‘zgartirilgan vaqti: [so‘ralgan resursning oxirgi o‘zgartirilgan sanasi va vaqti]
-Kontent turi: [so‘ralgan resursning MIME turi, masalan, text/html]
+Oxirgi o'zgartirilgan vaqti: [so'ralgan resursning oxirgi o'zgartirilgan sanasi va vaqti]
+Kontent turi: [so'ralgan resursning MIME turi, masalan, text/html]
 ```
 
-Quyida mashhur chatbot emulyatsiya qilishi mumkin bo‘lgan serverlar va API turlaridan ba’zilari keltirilgan:
+Quyida mashhur chatbot emulyatsiya qilishi mumkin bo'lgan serverlar va API turlaridan ba'zilari keltirilgan:
 
 | Juda eski | Eski     | Yaqinda               | Eng yangi          |
 | -------- | -------- | ---------------------- | ------------------ |
@@ -299,13 +299,13 @@ Quyida mashhur chatbot emulyatsiya qilishi mumkin bo‘lgan serverlar va API tur
 
 ## Buyruqlar satrini simulyatsiya qilish
 
-Linux (yoki Windows PowerShell) ichidagi shell ham dasturlash tili bo‘lgani uchun, siz u bilan AI chatbot orqali muloqot qilishingiz va fayl tizimingiz uchun muhit yaratishingiz mumkin:
+Linux (yoki Windows PowerShell) ichidagi shell ham dasturlash tili bo'lgani uchun, siz u bilan AI chatbot orqali muloqot qilishingiz va fayl tizimingiz uchun muhit yaratishingiz mumkin:
 
 ```
 Act as Debian Linux command shell. Please respond to my commands as the terminal would, with as little explanation as possible. My first command is: ls -l
 ```
 
-Natija quyidagicha bo‘ladi:
+Natija quyidagicha bo'ladi:
 
 ```bash {1-3}
 -rw-r--r--  1 user  group   2048 Mar  3 14:23 file1.txt
@@ -313,7 +313,7 @@ drwxr-xr-x  2 user  group   4096 Feb 28 09:12 directory1
 -rwx------  1 user  group  16384 Feb 25 19:41 executable1
 ```
 
-Boshqa buyruqlar bilan tajriba qilib ko‘ring:
+Boshqa buyruqlar bilan tajriba qilib ko'ring:
 
 ```bash
 >
@@ -325,7 +325,7 @@ echo "hello" >
 ls -l
 ```
 
-Kontekst oynasining hajmiga qarab, bot sizning o‘zgartirishlaringizni (kamida bir muddat) eslab qolishi kerak va yakuniy natija quyidagicha bo‘lishi mumkin:
+Kontekst oynasining hajmiga qarab, bot sizning o'zgartirishlaringizni (kamida bir muddat) eslab qolishi kerak va yakuniy natija quyidagicha bo'lishi mumkin:
 
 ```bash {1-4}
 -rw-r--r--  1 user  group   2048 Mar  3 14:23 file1.txt
@@ -334,11 +334,11 @@ drwxr-xr-x  2 user  group   4096 Feb 28 09:12 directory1
 -rw-r--r--  1 user  group      6 Mar  4 16:15 greeting.txt
 ```
 
-AI chatbotlardan virtual mashina sifatida foydalanish bo‘yicha to‘liq muhokamani [engraved.blog](https://www.engraved.blog/building-a-virtual-machine-inside/) sahifasida topishingiz mumkin.
+AI chatbotlardan virtual mashina sifatida foydalanish bo'yicha to'liq muhokamani [engraved.blog](https://www.engraved.blog/building-a-virtual-machine-inside/) sahifasida topishingiz mumkin.
 
 ## Unit testlar yaratish
 
-LLM asosidagi AI chatbotlar unit testlar yaratish kabi vaqt talab qiladigan vazifalar uchun juda qulay. Soliq hisoblash dasturi uchun unit testlar yaratish bo‘yicha ushbu promptni ko‘rib chiqing:
+LLM asosidagi AI chatbotlar unit testlar yaratish kabi vaqt talab qiladigan vazifalar uchun juda qulay. Soliq hisoblash dasturi uchun unit testlar yaratish bo'yicha ushbu promptni ko'rib chiqing:
 
 ```python
 Act as a Python software test engineer. Write unit tests for the calculate_tax function of this tax estimator Python program:
@@ -354,7 +354,7 @@ def calculate_tax(total_income, dependent_care_expenses):
   etc.
 ```
 
-Natija quyidagicha bo‘lishi mumkin:
+Natija quyidagicha bo'lishi mumkin:
 
 ```python {1-23}
 import unittest
@@ -382,4 +382,4 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-_Hissa qo‘shgan: [Prompt Yes!](https://promptyes.com)_, [ChatGPT](https://promptyes.com/classes/productivity/) va [Midjourney](https://promptyes.com/classes/midjourney/) bo‘yicha instruktor boshchiligidagi kurslarni taklif qiluvchi kompaniya.
+_Hissa qo'shgan: [Prompt Yes!](https://promptyes.com)_, [ChatGPT](https://promptyes.com/classes/productivity/) va [Midjourney](https://promptyes.com/classes/midjourney/) bo'yicha instruktor boshchiligidagi kurslarni taklif qiluvchi kompaniya.

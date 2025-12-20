@@ -1,9 +1,9 @@
 {
 	"homepage.hero.title.line1": {
-		"message": "Learn to communicate"
+		"message": "Learn to work"
 	},
 	"homepage.hero.title.line2": {
-		"message": "effectively with AI"
+		"message": "with AI"
 	},
 	"homepage.hero.title.line3": {
 		"message": "professionally"
@@ -87,7 +87,28 @@
 		"message": "Start Course"
 	},
 	"homepage.collab.badge": {
-		"message": "Collaboration"
+		"message": "Collaboration & Openness"
+	},
+	"homepage.collab.maintitle": {
+		"message": "Built on Open Collaboration"
+	},
+	"homepage.collab.content.title": {
+		"message": "Content Creation"
+	},
+	"homepage.collab.content": {
+		"message": "Open-source community"
+	},
+	"homepage.collab.translation.title": {
+		"message": "Translation & Localization"
+	},
+	"homepage.collab.translation": {
+		"message": "Uzbek language adaptation"
+	},
+	"homepage.collab.license.title": {
+		"message": "Open Source"
+	},
+	"homepage.collab.license": {
+		"message": "100% free and open source"
 	},
 	"homepage.collab.text": {
 		"message": "Uzbek edition maintained by {humblebee}. Content created by {learnprompting} open source community."
@@ -100,6 +121,9 @@
 	},
 	"homepage.meta.description": {
 		"message": "Learn Prompting × HumblebeeAI Collaboration"
+	},
+	"footer.quickLinks.docs": {
+		"message": "Docs"
 	},
 	"footer.quickLinks.uzbek": {
 		"message": "Uzbek Tutorials"

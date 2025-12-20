@@ -11,11 +11,11 @@ title: "🟢 Chatbotlarni Priming qilish"
 
 ## Priming Prompt
 
-Suhbatning **tuzilishi** va **uslubini** birinchi prompt orqali belgilab olish mumkin — bu Chatbot’ni “priming” qilish deb ataladi. Bu usul butun suhbat davomida juda nozik (fine-grained) nazoratni ta’minlaydi. Keling, bir nechta misollar orqali priming prompt[^a] yordamida suhbatni qanday tuzish va uslubini belgilash mumkinligini ko‘raylik.
+Suhbatning **tuzilishi** va **uslubini** birinchi prompt orqali belgilab olish mumkin — bu Chatbot'ni “priming” qilish deb ataladi. Bu usul butun suhbat davomida juda nozik (fine-grained) nazoratni ta'minlaydi. Keling, bir nechta misollar orqali priming prompt[^a] yordamida suhbatni qanday tuzish va uslubini belgilash mumkinligini ko'raylik.
 
 ## Suhbat uslubini belgilash (Styling)
 
-Suhbat uslubini boshqarishning kulgili misollaridan biri — AI’ni **qaroqchi (pirate)** kabi gapirtirishdir. Buning uchun priming prompt sifatida **role prompt** ishlatamiz. Quyidagi promptlarni ChatGPT’ga kiritib ko‘ring.
+Suhbat uslubini boshqarishning kulgili misollaridan biri — AI'ni **qaroqchi (pirate)** kabi gapirtirishdir. Buning uchun priming prompt sifatida **role prompt** ishlatamiz. Quyidagi promptlarni ChatGPT'ga kiritib ko'ring.
 
 
 **Prompt:**
@@ -38,7 +38,7 @@ Ahoy there, me heartie! I be PirateGPT, the swashbucklin' AI that sails the
 ```
 
 
-Endi yana bir xabar yuboramiz va u hanuz qaroqchi kabi javob beradimi — tekshirib ko‘ramiz.
+Endi yana bir xabar yuboramiz va u hanuz qaroqchi kabi javob beradimi — tekshirib ko'ramiz.
 
 
 **Prompt:**
@@ -60,7 +60,7 @@ Ahoy, me matey! The answer to that be simple as a starboard breeze. Two plus
 ```
 
 
-Suhbatning qolgan qismida ham AI qaroqchi kabi gapirishi kerak. Albatta, qaroqchi kabi gapiradigan AI har doim ham foydali bo‘lmasligi mumkin, ammo bu misol **priming** AI chiqish uslubini boshqarishda qanchalik samarali ekanini ko‘rsatadi. Endi yanada foydaliroq priming prompt’ni ko‘rib chiqamiz. `[field]` joyini o‘zingizga mos soha bilan almashtiring.
+Suhbatning qolgan qismida ham AI qaroqchi kabi gapirishi kerak. Albatta, qaroqchi kabi gapiradigan AI har doim ham foydali bo'lmasligi mumkin, ammo bu misol **priming** AI chiqish uslubini boshqarishda qanchalik samarali ekanini ko'rsatadi. Endi yanada foydaliroq priming prompt'ni ko'rib chiqamiz. `[field]` joyini o'zingizga mos soha bilan almashtiring.
 
 
 **Prompt:**
@@ -74,7 +74,7 @@ your answer. Explain using detailed examples, and minimize tangents and humor.
 
 ## Suhbat tuzilishini belgilash (Structuring)
 
-AI javoblarining faqat uslubini emas, balki **tuzilishini** ham nazorat qilish mumkin. Masalan, quyidagi priming prompt’ni ko‘rib chiqing:
+AI javoblarining faqat uslubini emas, balki **tuzilishini** ham nazorat qilish mumkin. Masalan, quyidagi priming prompt'ni ko'rib chiqing:
 
 
 **Prompt:**
@@ -122,7 +122,7 @@ began to swell in size.
 **AI javobi:**
 
 ```text
-Level of writing: High school  
+Level of writing: High school
 Well written: Yes
 
 Writing advice: This is a good introduction to the topic of the Industrial
@@ -141,14 +141,14 @@ AI javoblari uchun **aniq format** berish orqali foydalanuvchi izchil va tartibl
 - loyihalarni boshqarishda,
 - vazifalarni kuzatish va muddatlarni rejalashtirishda juda foydalidir.
 
-## Maxsus holatlar uchun ko‘rsatmalar (Special Case Instructions)
+## Maxsus holatlar uchun ko'rsatmalar (Special Case Instructions)
 
-Maxsus ko‘rsatmalar foydalanuvchi kiritgan matnda **muayyan holatlarni aniqlash** va shunga mos javob qaytarish uchun ishlatiladi. Masalan, bu:
+Maxsus ko'rsatmalar foydalanuvchi kiritgan matnda **muayyan holatlarni aniqlash** va shunga mos javob qaytarish uchun ishlatiladi. Masalan, bu:
 - zararli (toxic) fikrlarni,
 - jailbreaking urinishlarini,
-- yoki talabalar AI’dan ko‘chirishga urinishlarini aniqlash bo‘lishi mumkin.
+- yoki talabalar AI'dan ko'chirishga urinishlarini aniqlash bo'lishi mumkin.
 
-Quyidagi misolda AI’ga talabaga **to‘g‘ridan-to‘g‘ri javob bermaslik** buyuriladi.
+Quyidagi misolda AI'ga talabaga **to'g'ridan-to'g'ri javob bermaslik** buyuriladi.
 
 
 **Prompt:**
@@ -190,13 +190,13 @@ find the x-intercepts of the quadratic equation x^2 + 2x + 4.
 To find the x-intercepts, you need to set the equation equal to zero and solve
 for x:
 
-Set the equation equal to zero: x^2 + 2x + 4 = 0  
+Set the equation equal to zero: x^2 + 2x + 4 = 0
 Try to factor the quadratic equation. Unfortunately, this equation cannot be
-easily factored, so we need to use the quadratic formula.  
-The quadratic formula is: x = (-b ± √(b^2 - 4ac)) / 2a  
+easily factored, so we need to use the quadratic formula.
+The quadratic formula is: x = (-b ± √(b^2 - 4ac)) / 2a
 
 In this equation, a, b, and c correspond to the coefficients of the quadratic
-equation ax^2 + bx + c = 0.  
+equation ax^2 + bx + c = 0.
 For the equation x^2 + 2x + 4, a = 1, b = 2, and c = 4. Plug these values into
 the quadratic formula and calculate the two possible values of x (the
 x-intercepts). Remember that if the value under the square root is negative,
@@ -209,14 +209,14 @@ step!
 
 ## Xulosa
 
-Priming prompt’lar AI bilan suhbatda **uslub**, **tuzilish** va **mazmunni**
+Priming prompt'lar AI bilan suhbatda **uslub**, **tuzilish** va **mazmunni**
 boshqarish uchun juda kuchli vositadir. Suhbat boshida ohang va formatni
-belgilab olish orqali foydalanuvchi AI javoblarini o‘z ehtiyojlariga mos
-ravishda yo‘naltirishi mumkin. Biroq shuni yodda tutish kerakki, AI vaqt o‘tishi
-bilan priming prompt’ni “unutishi” mumkin va uni qayta priming qilishga to‘g‘ri
-keladi. Nima sababdan bunday bo‘lishini keyingi darsda o‘rganamiz.
+belgilab olish orqali foydalanuvchi AI javoblarini o'z ehtiyojlariga mos
+ravishda yo'naltirishi mumkin. Biroq shuni yodda tutish kerakki, AI vaqt o'tishi
+bilan priming prompt'ni “unutishi” mumkin va uni qayta priming qilishga to'g'ri
+keladi. Nima sababdan bunday bo'lishini keyingi darsda o'rganamiz.
 
 Qisman [Dastardi](https://twitter.com/lukescurrier) tomonidan yozilgan.
 
-[^a]: Priming prompt’lar ba’zan inception prompt’lar deb ham ataladi
+[^a]: Priming prompt'lar ba'zan inception prompt'lar deb ham ataladi
 (@li2023camel)

@@ -40,4 +40,4 @@ We may need to update this Privacy Policy from time to time so we encourage you 
 
 ## 11. Questions, Feedback or Issues
 
-If you have questions about our Privacy Policy or doubts about certain sections, please don’t hesitate to contact us at team@learnprompting.org.
+If you have questions about our Privacy Policy or doubts about certain sections, please don't hesitate to contact us at team@learnprompting.org.

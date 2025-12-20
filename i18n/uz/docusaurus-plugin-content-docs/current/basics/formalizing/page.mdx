@@ -13,32 +13,32 @@ title: "🟢 Promptlarni rasmiylashtirish"
 - Promptning asosiy qismlarini tushunish
 
 
-Endi biz bir nechta turdagi promptlarni va ularni birlashtirish usullarini ko‘rib chiqdik. Ushbu dars sizga turli xil prompt turlarini tushuntirish uchun atamalarni beradi. Prompt muhandisligi atrofidagi nutqni rasmiylashtirishga yondashuvlar bo‘lgan bo‘lsa-da (@white2023prompt), soha doimiy o‘zgarib bormoqda, shuning uchun biz sizga boshlash uchun yetarli ma’lumotni taqdim etamiz.
+Endi biz bir nechta turdagi promptlarni va ularni birlashtirish usullarini ko'rib chiqdik. Ushbu dars sizga turli xil prompt turlarini tushuntirish uchun atamalarni beradi. Prompt muhandisligi atrofidagi nutqni rasmiylashtirishga yondashuvlar bo'lgan bo'lsa-da (@white2023prompt), soha doimiy o'zgarib bormoqda, shuning uchun biz sizga boshlash uchun yetarli ma'lumotni taqdim etamiz.
 
 ## Promptning qismlari
 
 Promptda tez-tez uchraydigan bir nechta turli qismlar mavjud. Ular taxminan quyidagilardan iborat:
 
 - A role
-- Ko‘rsatma/vazifa
+- Ko'rsatma/vazifa
 - A question
 - Context
 - Misollar (few-shot)
 
-Biz oldingi darslarda rollar, ko‘rsatmalar va misollarni ko‘rib chiqdik. Savol esa shunchaki savol (Masalan, `Fransiyaning poytaxti nima?`). Kontekst esa modelga savolga javob berishda/yoki ko‘rsatmani bajarishda foydalanishini istagan har qanday tegishli ma’lumotdir.
+Biz oldingi darslarda rollar, ko'rsatmalar va misollarni ko'rib chiqdik. Savol esa shunchaki savol (Masalan, `Fransiyaning poytaxti nima?`). Kontekst esa modelga savolga javob berishda/yoki ko'rsatmani bajarishda foydalanishini istagan har qanday tegishli ma'lumotdir.
 
-Bu qismlarning barchasi har bir promptda bo‘lavermaydi va ba’zilari bo‘lsa ham, ular uchun standart tartib yo‘q. Masalan, quyidagi ikki promptda ham rol, ko‘rsatma va kontekst mavjud bo‘lib, ular taxminan bir xil natija beradi:
+Bu qismlarning barchasi har bir promptda bo'lavermaydi va ba'zilari bo'lsa ham, ular uchun standart tartib yo'q. Masalan, quyidagi ikki promptda ham rol, ko'rsatma va kontekst mavjud bo'lib, ular taxminan bir xil natija beradi:
 
 
 **Prompt:**
 
 ```text
-Siz shifokorsiz. Ushbu tibbiy tarixni o‘qing va bemor uchun xavflarni taxmin qiling.
+Siz shifokorsiz. Ushbu tibbiy tarixni o'qing va bemor uchun xavflarni taxmin qiling.
 
-2000-yil 1-yanvar: Basketbol o‘ynab o‘ng qo‘li singan. Gips bilan davolangan.
-2010-yil 15-fevral: Gipertenziya tashxisi qo‘yilgan. Lisinopril buyurilgan.
-2015-yil 10-sentabr: Pneumoniya rivojlangan. Antibiotiklar bilan davolangan va to‘liq sog‘aygan.
-2022-yil 1-mart: Avtomobil halokatida bosh miya chayqalishi olgan. Shifoxonaga yotqizilgan va 24 soat kuzatuvda bo‘lgan.
+2000-yil 1-yanvar: Basketbol o'ynab o'ng qo'li singan. Gips bilan davolangan.
+2010-yil 15-fevral: Gipertenziya tashxisi qo'yilgan. Lisinopril buyurilgan.
+2015-yil 10-sentabr: Pneumoniya rivojlangan. Antibiotiklar bilan davolangan va to'liq sog'aygan.
+2022-yil 1-mart: Avtomobil halokatida bosh miya chayqalishi olgan. Shifoxonaga yotqizilgan va 24 soat kuzatuvda bo'lgan.
 ```
 
 
@@ -46,17 +46,17 @@ Siz shifokorsiz. Ushbu tibbiy tarixni o‘qing va bemor uchun xavflarni taxmin q
 **Prompt:**
 
 ```text
-2000-yil 1-yanvar: Basketbol o‘ynab o‘ng qo‘li singan. Gips bilan davolangan.
-2010-yil 15-fevral: Gipertenziya tashxisi qo‘yilgan. Lisinopril buyurilgan.
-2015-yil 10-sentabr: Pneumoniya rivojlangan. Antibiotiklar bilan davolangan va to‘liq sog‘aygan.
-2022-yil 1-mart: Avtomobil halokatida bosh miya chayqalishi olgan. Shifoxonaga yotqizilgan va 24 soat kuzatuvda bo‘lgan.
+2000-yil 1-yanvar: Basketbol o'ynab o'ng qo'li singan. Gips bilan davolangan.
+2010-yil 15-fevral: Gipertenziya tashxisi qo'yilgan. Lisinopril buyurilgan.
+2015-yil 10-sentabr: Pneumoniya rivojlangan. Antibiotiklar bilan davolangan va to'liq sog'aygan.
+2022-yil 1-mart: Avtomobil halokatida bosh miya chayqalishi olgan. Shifoxonaga yotqizilgan va 24 soat kuzatuvda bo'lgan.
 
-Siz shifokorsiz. Ushbu tibbiy tarixni o‘qing va bemor uchun xavflarni taxmin qiling.
+Siz shifokorsiz. Ushbu tibbiy tarixni o'qing va bemor uchun xavflarni taxmin qiling.
 ```
 
 
-Biroq, biz ikkinchi promptni afzal ko‘ramiz, chunki unda ko‘rsatma promptning oxirgi qismida joylashgan. Bu afzalroq, chunki birinchi promptda LLM ko‘rsatmaga amal qilish o‘rniga shunchaki ko‘proq kontekst yozishni boshlashi mumkin; agar birinchi prompt berilsa, LLM yangi qator qo‘shishi mumkin: `2022-yil 15-mart: Bosh miya chayqalishini baholash uchun nevropatolog bilan nazorat uchrashuvi belgilandi.`
+Biroq, biz ikkinchi promptni afzal ko'ramiz, chunki unda ko'rsatma promptning oxirgi qismida joylashgan. Bu afzalroq, chunki birinchi promptda LLM ko'rsatmaga amal qilish o'rniga shunchaki ko'proq kontekst yozishni boshlashi mumkin; agar birinchi prompt berilsa, LLM yangi qator qo'shishi mumkin: `2022-yil 15-mart: Bosh miya chayqalishini baholash uchun nevropatolog bilan nazorat uchrashuvi belgilandi.`
 
 ## Xulosa
 
-Promptning tuzilmasi va tarkibiy qismlarini tushunish til modellardan samarali foydalanishda muhim ahamiyatga ega. Promptning asosiy qismlariga rol, ko‘rsatma yoki vazifa, savol, kontekst va misollar kiradi. Barcha promptlarda bu elementlarning barchasi bo‘lavermaydi va ularning tartibi ham har xil bo‘lishi mumkin. Biroq, odatda ko‘rsatmani oxirida joylashtirish maqsadga muvofiq, chunki bu modelning kontekstni davom ettirish o‘rniga vazifani bajarishga e’tibor qaratishini ta’minlaydi. Prompt muhandisligi sohasi rivojlanishda davom etar ekan, ushbu tamoyillar samarali promptlar tuzishda mustahkam asos bo‘lib xizmat qiladi.
+Promptning tuzilmasi va tarkibiy qismlarini tushunish til modellardan samarali foydalanishda muhim ahamiyatga ega. Promptning asosiy qismlariga rol, ko'rsatma yoki vazifa, savol, kontekst va misollar kiradi. Barcha promptlarda bu elementlarning barchasi bo'lavermaydi va ularning tartibi ham har xil bo'lishi mumkin. Biroq, odatda ko'rsatmani oxirida joylashtirish maqsadga muvofiq, chunki bu modelning kontekstni davom ettirish o'rniga vazifani bajarishga e'tibor qaratishini ta'minlaydi. Prompt muhandisligi sohasi rivojlanishda davom etar ekan, ushbu tamoyillar samarali promptlar tuzishda mustahkam asos bo'lib xizmat qiladi.

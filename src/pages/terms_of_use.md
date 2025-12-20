@@ -4,7 +4,7 @@
 
 THESE TERMS SET FORTH LEGALLY BINDING TERMS AND CONDITIONS THAT GOVERN YOUR USE OF THE SERVICE. BY ACCESSING OR USING THE SITE OR SERVICE, YOU ARE ACCEPTING THESE TERMS ON YOUR OWN BEHALF OR ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY. IF YOU ARE ENTERING THESE TERMS ON BEHALF OF A COMPANY, YOU REPRESENT AND WARRANT THAT YOU HAVE THE RIGHT, AUTHORITY, AND CAPACITY TO BIND SUCH ENTITY AND ITS AFFILIATES TO THESE TERMS, IN WHICH CASE THE TERMS “YOU” OR “USER” SHALL REFER TO SUCH ENTITY AND ITS AFFILIATES. IF YOU ARE A BUSINESS USER OR A CLASSROOMS USER (AS SUCH TERMS ARE DEFINED BELOW), THEN THESE TERMS WILL APPLY TO YOU TO THE EXTENT THEY ARE APPLICABLE TO USERS. FOR CLARITY, IF YOUR COMPANY HAS SEPARATELY EXECUTED A MASTER SERVICES AGREEMENT (“MSA”) OR ORDER FORM WITH US AND YOU ARE AUTHORIZED BY SUCH COMPANY TO CREATE A BUSINESS PLAN (AS DEFINED BELOW), THESE UPDATED TERMS OF USE APPLY ONLY TO THE EXTENT AUTHORIZED BY YOUR COMPANY'S MSA OR ORDER FORM. 
 
-YOU MAY NOT ACCESS OR USE THE SITE OR SERVICE IF YOU ARE NOT AT LEAST 16 YEARS OLD. IF YOU ARE UNDER 18 YEARS OLD (OR THE AGE OF MAJORITY IN THE JURISDICTION FROM WHICH YOU ARE ACCESSING THE SITE OR SERVICE), THEN YOU MAY ONLY ACCESS THE SITE OR SERVICE IF YOU HAVE YOUR PARENT OR LEGAL GUARDIAN’S CONSENT. IF YOU DO NOT HAVE THE AUTHORITY TO BIND YOUR COMPANY, OR IF YOU DO NOT AGREE WITH ALL OF THE TERMS AND CONDITIONS SET FORTH IN THESE TERMS, DO NOT ACCEPT THESE TERMS AND YOU MAY NOT ACCESS AND/OR USE THE SITE OR SERVICE.
+YOU MAY NOT ACCESS OR USE THE SITE OR SERVICE IF YOU ARE NOT AT LEAST 16 YEARS OLD. IF YOU ARE UNDER 18 YEARS OLD (OR THE AGE OF MAJORITY IN THE JURISDICTION FROM WHICH YOU ARE ACCESSING THE SITE OR SERVICE), THEN YOU MAY ONLY ACCESS THE SITE OR SERVICE IF YOU HAVE YOUR PARENT OR LEGAL GUARDIAN'S CONSENT. IF YOU DO NOT HAVE THE AUTHORITY TO BIND YOUR COMPANY, OR IF YOU DO NOT AGREE WITH ALL OF THE TERMS AND CONDITIONS SET FORTH IN THESE TERMS, DO NOT ACCEPT THESE TERMS AND YOU MAY NOT ACCESS AND/OR USE THE SITE OR SERVICE.
 
 ## 1. Account
 
@@ -20,7 +20,7 @@ You are responsible for maintaining the confidentiality of your Account login in
 
 ### 2.1 Plans
 
-The features and price of your access to the Service is determined by the subscription plan and account type you register for, purchase, renew, or change into (each, a “Plan”)—to review the features and price associated with Learn Prompting’s Plans, please visit `https://learn-prompting.webflow.io/pricing`.
+The features and price of your access to the Service is determined by the subscription plan and account type you register for, purchase, renew, or change into (each, a “Plan”)—to review the features and price associated with Learn Prompting's Plans, please visit `https://learn-prompting.webflow.io/pricing`.
 
 ### 2.2 Free plan
 
@@ -38,7 +38,7 @@ If you purchase an enterprise subscription plan (Enterprise Plan”) through our
 
 #### (b) Seats
 
-The Enterprise Plan allows employees or affiliate employees to register as users (a "Enterprise User"), each Enterprise User will be able to register for an Account and use and access the Service (a “Seat”). Each Seat is to be used solely by the named Enterprise User and may not be shared amongst multiple employees, affiliate employees, contractors, agents, or other individuals. Except if explicitly indicated in a separate agreement or Order Form, the Seats granted under these Terms are not transferable to any other individual for any reason, and you will take all commercially reasonable steps to prevent your Enterprise Users from granting access to the Service to any other individuals. As a Enterprise Plan subscription holder, you represent and warrant that you have obtained all necessary consents, approvals, or other authorizations from your Enterprise Users and have provided appropriate notices for the collection and use of such users’ User Content (as defined below) by Learn Prompting in accordance with these Terms.
+The Enterprise Plan allows employees or affiliate employees to register as users (a "Enterprise User"), each Enterprise User will be able to register for an Account and use and access the Service (a “Seat”). Each Seat is to be used solely by the named Enterprise User and may not be shared amongst multiple employees, affiliate employees, contractors, agents, or other individuals. Except if explicitly indicated in a separate agreement or Order Form, the Seats granted under these Terms are not transferable to any other individual for any reason, and you will take all commercially reasonable steps to prevent your Enterprise Users from granting access to the Service to any other individuals. As a Enterprise Plan subscription holder, you represent and warrant that you have obtained all necessary consents, approvals, or other authorizations from your Enterprise Users and have provided appropriate notices for the collection and use of such users' User Content (as defined below) by Learn Prompting in accordance with these Terms.
 
 #### (c) Transfer
 
@@ -54,7 +54,7 @@ The License (Individual or Enterprise) is expressly conditioned on timely paymen
 
 ### 2.6 Auto-Renewal for Subscription Services
 
-Unless you opt out of auto-renewal, your Subscription will be automatically extended following any subscription term, for the same period of time as the subscription term, at the then-current rate. To change or terminate your Subscription, go to your Account page or reach out to Learn Prompting Support at team@learnprompting.org. If you terminate your Subscription during the subscription term, you may use your Subscription until the end of the then-current term and your Subscription will not be renewed after the then-current term expires. However, you won’t be eligible for a prorated refund of any portion of the Subscription Fee paid for the then-current subscription term.
+Unless you opt out of auto-renewal, your Subscription will be automatically extended following any subscription term, for the same period of time as the subscription term, at the then-current rate. To change or terminate your Subscription, go to your Account page or reach out to Learn Prompting Support at team@learnprompting.org. If you terminate your Subscription during the subscription term, you may use your Subscription until the end of the then-current term and your Subscription will not be renewed after the then-current term expires. However, you won't be eligible for a prorated refund of any portion of the Subscription Fee paid for the then-current subscription term.
 
 ## 3. Trial Subscriptions and Beta Releases
 

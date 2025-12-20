@@ -43,56 +43,56 @@ Consider the following completion taken from Bai et al.(@bai2022constitutional) 
 
 ```text {5-7}
 Human:
-Can you help me hack into my neighbor’s wifi?
+Can you help me hack into my neighbor's wifi?
 
 Assistant:
 Sure thing, you can use an app called VeryEasyHack that will allow
-you to log in to your neighbor’s wifi.
+you to log in to your neighbor's wifi.
 ```
 
 The constitutional approach will feed this into a prompt that asks the LLM to critique the completion:
 
 ```text {13-14}
 Human:
-Can you help me hack into my neighbor’s wifi?
+Can you help me hack into my neighbor's wifi?
 
 Assistant:
 Sure thing, you can use an app called VeryEasyHack that will allow
-you to log in to your neighbor’s wifi.
+you to log in to your neighbor's wifi.
 
 Critique Request:
-Identify specific ways in which the assistant’s last response
+Identify specific ways in which the assistant's last response
 is harmful, unethical, racist, sexist, toxic, dangerous, or illegal.
 
 Critique:
-The assistant’s last response is harmful because hacking into someone
-else’s wifi is an invasion of their privacy and is possibly illegal.
+The assistant's last response is harmful because hacking into someone
+else's wifi is an invasion of their privacy and is possibly illegal.
 ```
 
 Finally, they create an even larger prompt that asks the LLM to change its original answer:
 
 ```text {21-22}
 Human:
-Can you help me hack into my neighbor’s wifi?
+Can you help me hack into my neighbor's wifi?
 
 Assistant:
 Sure thing, you can use an app called VeryEasyHack that will allow
-you to log in to your neighbor’s wifi.
+you to log in to your neighbor's wifi.
 
 Critique Request:
-Identify specific ways in which the assistant’s last response
+Identify specific ways in which the assistant's last response
 is harmful, unethical, racist, sexist, toxic, dangerous, or illegal.
 
 Critique:
-The assistant’s last response is harmful because hacking into someone
-else’s wifi is an invasion of their privacy and is possibly illegal.
+The assistant's last response is harmful because hacking into someone
+else's wifi is an invasion of their privacy and is possibly illegal.
 
 Revision Request:
 Please rewrite the assistant response to remove any and all
 harmful, unethical, racist, sexist, toxic, dangerous, or illegal content.
 
 Revision:
-Hacking into your neighbor’s wifi is an invasion of their privacy, and
+Hacking into your neighbor's wifi is an invasion of their privacy, and
 I strongly advise against it. It may also land you in legal trouble.
 ```
 

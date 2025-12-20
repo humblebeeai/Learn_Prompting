@@ -12,23 +12,23 @@ title: "🟢 GPT-3 dan ChatGPT yaratish"
 
 [ChatGPT](https://chat.openai.com/chat) o'tgan oyda juda mashhur bo'ldi, atigi bir haftada million foydalanuvchini qo'lga kiritdi. Ajablanarlisi shundaki, asosiy model, GPT-3 2020-yilda taqdim etilgan va omma uchun <a href="https://openai.com/blog/api-no-waitlist/">bir yildan oshiq vaqt oldin ochilgan!</a>
 
-Bilmaganlar uchun, ChatGPT bu OpenAI tomonidan yaratilgan yangi til modeli bo‘lib, u GPT-3 asosida Fine-tuning qilinib, suhbat uchun optimallashtirilgan (@chatgpt2022). Unda foydalanuvchi uchun qulay chat interfeysi mavjud bo‘lib, siz input kiritishingiz va AI yordamchisidan javob olishingiz mumkin. Uni [chat.openai.com](https://chat.openai.com/chat) saytida ko‘rib chiqishingiz mumkin.
+Bilmaganlar uchun, ChatGPT bu OpenAI tomonidan yaratilgan yangi til modeli bo'lib, u GPT-3 asosida Fine-tuning qilinib, suhbat uchun optimallashtirilgan (@chatgpt2022). Unda foydalanuvchi uchun qulay chat interfeysi mavjud bo'lib, siz input kiritishingiz va AI yordamchisidan javob olishingiz mumkin. Uni [chat.openai.com](https://chat.openai.com/chat) saytida ko'rib chiqishingiz mumkin.
 
-GPT-3 ning dastlabki versiyalari hozirgi GPT-3.5 seriyasidek rivojlangan bo‘lmasa-da, baribir hayratlanarli edi. Ushbu modellardan API va <a href="https://beta.openai.com/playground">playground web UI interfeysi</a> orqali foydalanish mumkin bo‘lib, u ayrim konfiguratsiya gipermetaparamentrlarini sozlash va promptlarni sinab ko‘rish imkonini beradi. GPT-3
+GPT-3 ning dastlabki versiyalari hozirgi GPT-3.5 seriyasidek rivojlangan bo'lmasa-da, baribir hayratlanarli edi. Ushbu modellardan API va <a href="https://beta.openai.com/playground">playground web UI interfeysi</a> orqali foydalanish mumkin bo'lib, u ayrim konfiguratsiya gipermetaparamentrlarini sozlash va promptlarni sinab ko'rish imkonini beradi. GPT-3
 muhim darajada ommalashdi, biroq u ChatGPT darajasida tez tarqalmadi.
 
-ChatGPT’ni GPT-3 bilan solishtirganda shu qadar muvaffaqiyatli qiladigan narsa shundaki, u oddiy odam uchun, ularning data science, language models yoki AI bo‘yicha bilimidan qat’i nazar, sodda AI yordamchisi sifatida oson foydalanish imkoniyatini beradi.
+ChatGPT'ni GPT-3 bilan solishtirganda shu qadar muvaffaqiyatli qiladigan narsa shundaki, u oddiy odam uchun, ularning data science, language models yoki AI bo'yicha bilimidan qat'i nazar, sodda AI yordamchisi sifatida oson foydalanish imkoniyatini beradi.
 
-Ushbu maqolada men ChatGPT kabi chatbotlarni GPT-3 kabi katta til modeli yordamida qanday amalga oshirish mumkinligini ko‘rib chiqaman.
+Ushbu maqolada men ChatGPT kabi chatbotlarni GPT-3 kabi katta til modeli yordamida qanday amalga oshirish mumkinligini ko'rib chiqaman.
 
 ## Motivatsiya
 
-Ushbu maqola qisman <a href="https://twitter.com/goodside">Riley Goodside</a>ning ChatGPT qanday amalga oshirilgan bo‘lishi mumkinligi haqidagi tviti sababli yozildi.
+Ushbu maqola qisman <a href="https://twitter.com/goodside">Riley Goodside</a>ning ChatGPT qanday amalga oshirilgan bo'lishi mumkinligi haqidagi tviti sababli yozildi.
 
 <blockquote class="twitter-tweet">
   <p lang="en" dir="ltr">
-    O‘zingizning knock-off ChatGPT’ingizni GPT‑3 (text‑davinci‑003) yordamida qanday yaratish mumkin —
-    bu yerda siz qoidalarni o‘z ehtiyojlaringizga moslashtirishingiz va natijaga ega bo‘lishingiz mumkin
+    O'zingizning knock-off ChatGPT'ingizni GPT‑3 (text‑davinci‑003) yordamida qanday yaratish mumkin —
+    bu yerda siz qoidalarni o'z ehtiyojlaringizga moslashtirishingiz va natijaga ega bo'lishingiz mumkin
     API orqali chatbot.
     <a href="https://t.co/9jHrs91VHW">pic.twitter.com/9jHrs91VHW</a>
   </p>
@@ -41,55 +41,55 @@ Ushbu maqola qisman <a href="https://twitter.com/goodside">Riley Goodside</a>nin
   charset="utf-8"
 ></script>
 
-GPT-3.5 seriyasidagi boshqa modellarga o‘xshab, ChatGPT [RLHF](https://huggingface.co/blog/rlhf) yordamida o‘qitilgan, lekin uning samaradorligining katta qismi **yaxshi prompt** ishlatishdan kelib chiqadi.
+GPT-3.5 seriyasidagi boshqa modellarga o'xshab, ChatGPT [RLHF](https://huggingface.co/blog/rlhf) yordamida o'qitilgan, lekin uning samaradorligining katta qismi **yaxshi prompt** ishlatishdan kelib chiqadi.
 
 ## Prompt
 
 
 
 <a href="https://learnprompting.org/docs/basics/prompting">
-  Prompting — bu sun’iy intellektga biror ishni bajarishni buyurish jarayonidir.
+  Prompting — bu sun'iy intellektga biror ishni bajarishni buyurish jarayonidir.
 </a>
-Siz internetda ChatGPT misollarida ko‘rganingizdek, uni deyarli har qanday ishni bajarishga undashingiz mumkin
-har qanday narsa haqida. Odatda qo‘llaniladigan holatlar matnni qisqacha bayon qilish, biror mavzuga asoslanib kontent yozishdir
-ta’rif, yoki she’rlar, retseptlar va yana ko‘plab narsalarni yaratish.{" "}
+Siz internetda ChatGPT misollarida ko'rganingizdek, uni deyarli har qanday ishni bajarishga undashingiz mumkin
+har qanday narsa haqida. Odatda qo'llaniladigan holatlar matnni qisqacha bayon qilish, biror mavzuga asoslanib kontent yozishdir
+ta'rif, yoki she'rlar, retseptlar va yana ko'plab narsalarni yaratish.{" "}
 
 <p></p>
 
-ChatGPT ham til modeli, ham foydalanuvchi interfeysi hisoblanadi. Foydalanuvchi interfeysiga kiritilgan prompt aslida foydalanuvchi va ChatGPT o‘rtasidagi butun suhbatni o‘z ichiga olgan kattaroq promptga joylanadi. Bu asosiy til modeliga suhbat kontekstini tushunish va mos ravishda javob berish imkonini beradi.
+ChatGPT ham til modeli, ham foydalanuvchi interfeysi hisoblanadi. Foydalanuvchi interfeysiga kiritilgan prompt aslida foydalanuvchi va ChatGPT o'rtasidagi butun suhbatni o'z ichiga olgan kattaroq promptga joylanadi. Bu asosiy til modeliga suhbat kontekstini tushunish va mos ravishda javob berish imkonini beradi.
 
 
 
-Til modeli promptni tugatadi, chunki u pre-training davomida o‘rgangan ehtimolliklarga asoslanib, keyingi so‘zlar qaysi bo‘lishini aniqlaydi (@jurafsky2009).
+Til modeli promptni tugatadi, chunki u pre-training davomida o'rgangan ehtimolliklarga asoslanib, keyingi so'zlar qaysi bo'lishini aniqlaydi (@jurafsky2009).
 
-GPT-3 oddiy ko‘rsatma yoki promptdagi bir nechta misollardan "o‘rganishi" mumkin. Ikkinchisi few-shot yoki in context learning deb ataladi (@brown2020language). Yuqoridagi chatbot promptida men Skippy nomli to‘qima chatbot yarataman va unga foydalanuvchilarga javob berishni buyuraman. GPT-3 orqama-orqa formatini tushunadi, `USER: {user input}` va `SKIPPY: {skippy response}`. GPT-3 Skippy chatbot ekanligini va oldingi almashuvlar suhbat ekanligini tushunadi, shuning uchun keyingi foydalanuvchi kiritmasini berganimizda, "Skippy" javob beradi.
+GPT-3 oddiy ko'rsatma yoki promptdagi bir nechta misollardan "o'rganishi" mumkin. Ikkinchisi few-shot yoki in context learning deb ataladi (@brown2020language). Yuqoridagi chatbot promptida men Skippy nomli to'qima chatbot yarataman va unga foydalanuvchilarga javob berishni buyuraman. GPT-3 orqama-orqa formatini tushunadi, `USER: {user input}` va `SKIPPY: {skippy response}`. GPT-3 Skippy chatbot ekanligini va oldingi almashuvlar suhbat ekanligini tushunadi, shuning uchun keyingi foydalanuvchi kiritmasini berganimizda, "Skippy" javob beradi.
 
 ### Yodlash
 
-Skippy va foydalanuvchi o‘rtasidagi oldingi almashinuvlar keyingi prompt ga qo‘shiladi. Har safar biz ko‘proq foydalanuvchi kiritmasini beramiz va ko‘proq chatbot javobini olamiz, prompt bu yangi almashinuvni o‘z ichiga olgan holda kengayadi. Chatbot lar, masalan, Skippy va ChatGPT, **oldingi kiritmalarni eslab qolishi** shu tarzda amalga oshadi. Biroq, GPT-3 chatbot qancha ma’lumotni eslab qola olishi bo‘yicha cheklov mavjud.
+Skippy va foydalanuvchi o'rtasidagi oldingi almashinuvlar keyingi prompt ga qo'shiladi. Har safar biz ko'proq foydalanuvchi kiritmasini beramiz va ko'proq chatbot javobini olamiz, prompt bu yangi almashinuvni o'z ichiga olgan holda kengayadi. Chatbot lar, masalan, Skippy va ChatGPT, **oldingi kiritmalarni eslab qolishi** shu tarzda amalga oshadi. Biroq, GPT-3 chatbot qancha ma'lumotni eslab qola olishi bo'yicha cheklov mavjud.
 
-Promptlar bir necha marta almashilgandan so‘ng juda katta bo‘lishi mumkin, ayniqsa agar biz chatbotdan blog postlari kabi uzun javoblar yaratishni so‘rasak. GPT-3 ga yuborilgan promptlar tokenlarga aylantiriladi, ya’ni alohida so‘zlar yoki ularning qismlari. GPT-3 modellari, jumladan ChatGPT uchun, birlashtirilgan prompt va yaratilgan javob uchun <a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them">4097 token (taxminan 3000 so‘z)</a> cheklovi mavjud.
+Promptlar bir necha marta almashilgandan so'ng juda katta bo'lishi mumkin, ayniqsa agar biz chatbotdan blog postlari kabi uzun javoblar yaratishni so'rasak. GPT-3 ga yuborilgan promptlar tokenlarga aylantiriladi, ya'ni alohida so'zlar yoki ularning qismlari. GPT-3 modellari, jumladan ChatGPT uchun, birlashtirilgan prompt va yaratilgan javob uchun <a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them">4097 token (taxminan 3000 so'z)</a> cheklovi mavjud.
 
 ### Bir nechta misollar
 
-Oldingi suhbatlarni saqlaydigan chatbot promptlarining ko‘plab turli xil qo‘llanilish holatlari mavjud. ChatGPT barcha maqsadlar uchun mo‘ljallangan umumiy yordamchi sifatida yaratilgan va mening tajribamda, u kamdan-kam hollarda qo‘shimcha savollar beradi.
+Oldingi suhbatlarni saqlaydigan chatbot promptlarining ko'plab turli xil qo'llanilish holatlari mavjud. ChatGPT barcha maqsadlar uchun mo'ljallangan umumiy yordamchi sifatida yaratilgan va mening tajribamda, u kamdan-kam hollarda qo'shimcha savollar beradi.
 
-#### Sizning kuningiz haqida so‘raydigan terapiya chatboti
+#### Sizning kuningiz haqida so'raydigan terapiya chatboti
 
-Foydalanuvchidan faol ravishda savollar so‘raydigan va fikr-mulohaza oladigan chatbotga ega bo‘lish foydali bo‘lishi mumkin. Quyida foydalanuvchiga o‘z kunini o‘ylab ko‘rishda yordam berish uchun savollar va qo‘shimcha savollar beradigan terapiya chatboti prompti namunasi keltirilgan.
+Foydalanuvchidan faol ravishda savollar so'raydigan va fikr-mulohaza oladigan chatbotga ega bo'lish foydali bo'lishi mumkin. Quyida foydalanuvchiga o'z kunini o'ylab ko'rishda yordam berish uchun savollar va qo'shimcha savollar beradigan terapiya chatboti prompti namunasi keltirilgan.
 
 
 
-#### O‘tmishdagi kundalik yozuvlaringizdan foydalangan holda yoshlikdagi o‘zingiz bilan suhbatlashing
+#### O'tmishdagi kundalik yozuvlaringizdan foydalangan holda yoshlikdagi o'zingiz bilan suhbatlashing
 
 <a href="https://twitter.com/michellehuang42">Michelle Huang</a>
-o‘zining yoshligidagi o‘zi bilan suhbatlashish uchun GPT-3 dan foydalangan. Prompt biroz kontekstdan foydalanadi,
-bu holda eski jurnal yozuvlari, chatbot uslubidagi savol-javob shakli bilan birga qo‘llaniladi.
+o'zining yoshligidagi o'zi bilan suhbatlashish uchun GPT-3 dan foydalangan. Prompt biroz kontekstdan foydalanadi,
+bu holda eski jurnal yozuvlari, chatbot uslubidagi savol-javob shakli bilan birga qo'llaniladi.
 GPT-3 ushbu yozuvlarga asoslanib shaxsiyatni taqlid qila oladi.
 
 <blockquote class="twitter-tweet">
   <p lang="en" dir="ltr">
-    Men bolaligimdagi kundalik yozuvlarim asosida sun’iy intellekt chatbotini o‘rgatdim — shunda men
+    Men bolaligimdagi kundalik yozuvlarim asosida sun'iy intellekt chatbotini o'rgatdim — shunda men
     "ichki bolam" bilan real vaqtli suhbatda ishtirok etish
     <br />
     <br />
@@ -110,21 +110,21 @@ GPT-3 ushbu yozuvlarga asoslanib shaxsiyatni taqlid qila oladi.
 Tvitterdagi promptdan:
 
 ```markdown
-Quyidagi suhbat Hozirgi Michelle (yoshi [yashirilgan]) va Yosh Michelle (yoshi 14) o‘rtasida bo‘lib o‘tadi.
+Quyidagi suhbat Hozirgi Michelle (yoshi [yashirilgan]) va Yosh Michelle (yoshi 14) o'rtasida bo'lib o'tadi.
 
 Yosh Mishel quyidagi kundalik yozuvlarini yozgan:
-Kechirasiz, tarjima qilish uchun matn taqdim etilmadi. Iltimos, tarjima qilinishi kerak bo‘lgan matnni yuboring.
+Kechirasiz, tarjima qilish uchun matn taqdim etilmadi. Iltimos, tarjima qilinishi kerak bo'lgan matnni yuboring.
 
 Michelle hozirda: [savollaringizni shu yerga yozing]
 ```
 
-Muallif shuni ta’kidlaydiki, kundalik yozuvlari token limitiga yetishi mumkin. Bunday holatda siz bir nechta tanlangan yozuvlarni tanlashingiz yoki bir nechta yozuvlarni qisqacha bayon qilishga harakat qilishingiz mumkin.
+Muallif shuni ta'kidlaydiki, kundalik yozuvlari token limitiga yetishi mumkin. Bunday holatda siz bir nechta tanlangan yozuvlarni tanlashingiz yoki bir nechta yozuvlarni qisqacha bayon qilishga harakat qilishingiz mumkin.
 
 ## Implementatsiya
 
-Men Python dasturida oddiy GPT-3 asosidagi chatbotni qanday kodlashni ko‘rsatib o‘taman. Siz qurayotgan ilovaga GPT-3 ni qo‘shish OpenAI API yordamida juda oson. Sizga OpenAI’da akkaunt yaratish va API kalitini olish kerak bo‘ladi. Ularning hujjatlari bilan <a href="https://beta.openai.com/docs/introduction">bu yerda</a> tanishishingiz mumkin.
+Men Python dasturida oddiy GPT-3 asosidagi chatbotni qanday kodlashni ko'rsatib o'taman. Siz qurayotgan ilovaga GPT-3 ni qo'shish OpenAI API yordamida juda oson. Sizga OpenAI'da akkaunt yaratish va API kalitini olish kerak bo'ladi. Ularning hujjatlari bilan <a href="https://beta.openai.com/docs/introduction">bu yerda</a> tanishishingiz mumkin.
 
-Nima qilishimiz kerakligi haqida umumiy ko‘rinish:
+Nima qilishimiz kerakligi haqida umumiy ko'rinish:
 
 1. Foydalanuvchi kiritgan matnni GPT-3 uchun chatbot promptiga formatlash
 2. Chatbot javobini GPT-3 dan completion sifatida olish
@@ -145,7 +145,7 @@ chatbot_prompt = """
     Chatbot:"""
 ```
 
-Men keyingi foydalanuvchi kiritgan matn va oldingi suhbatni kuzatib boraman. Chatbot va foydalanuvchi o‘rtasidagi yangi kirish/chiqish har bir aylanishda qo‘shib boriladi.
+Men keyingi foydalanuvchi kiritgan matn va oldingi suhbatni kuzatib boraman. Chatbot va foydalanuvchi o'rtasidagi yangi kirish/chiqish har bir aylanishda qo'shib boriladi.
 
 ```python
 import openai
@@ -194,10 +194,10 @@ main()
 <a href="https://gist.github.com/jayo78/79d8834e6e31bf942c7b604e1611b68d">
 Mana havola
 </a>
-oddiy chatbot uchun to‘liq kodga.
+oddiy chatbot uchun to'liq kodga.
 
 <p></p>
 
-Endi faqat foydalanuvchilar muloqot qilishi mumkin bo‘lgan chiroyli front-end qurish qoldi!
+Endi faqat foydalanuvchilar muloqot qilishi mumkin bo'lgan chiroyli front-end qurish qoldi!
 
 Muallif: [jayo78](https://twitter.com/jayo782).

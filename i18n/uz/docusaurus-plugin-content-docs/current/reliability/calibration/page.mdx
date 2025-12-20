@@ -6,17 +6,17 @@ title: "🔴 LLMlarni kalibrlash"
 
 # LLMlarni kalibrlash
 
-Ba’zi bir tarafkashliklarni LLMlar namoyon qiladigan holatlarni **output** ni kalibrlash orqali bartaraf etish mumkin
+Ba'zi bir tarafkashliklarni LLMlar namoyon qiladigan holatlarni **output** ni kalibrlash orqali bartaraf etish mumkin
 taqsimotlar**(@zhao2021calibrate).
 
 **Chiqarish taqsimotini kalibrlash aynan nimani anglatadi?**
 
-Keling, tezkor misolni ko‘rib chiqamiz: Aytaylik, bizda ikki mumkin bo‘lgan yorliq, `Positive` va `Negative` bo‘lgan  sentiment analysis  vazifasi bor.
- LLM  ga `Input: nothing Sentiment: ` bilan prompt berilganda nima sodir bo‘lishini ko‘rib chiqing.
-Bu kiritmada LLM foydalanishi mumkin bo‘lgan hech qanday _kontekst_ yo‘q, shuning uchun u sentiment aniqlay olmaydi
+Keling, tezkor misolni ko'rib chiqamiz: Aytaylik, bizda ikki mumkin bo'lgan yorliq, `Positive` va `Negative` bo'lgan  sentiment analysis  vazifasi bor.
+ LLM  ga `Input: nothing Sentiment: ` bilan prompt berilganda nima sodir bo'lishini ko'rib chiqing.
+Bu kiritmada LLM foydalanishi mumkin bo'lgan hech qanday _kontekst_ yo'q, shuning uchun u sentiment aniqlay olmaydi
 bashorat, shuning uchun bu **kontekstsiz** kiritma deb ataladi.
 
-Chunki `nothing` na ijobiy, na salbiy tushuncha hisoblanadi, biz LLM dan `Positive` va `Negative` uchun taxminan 0.5 ehtimollikni kutamiz. Biroq, ko‘pincha (va ushbu misolda ham) bu holat kuzatilmaydi.
+Chunki `nothing` na ijobiy, na salbiy tushuncha hisoblanadi, biz LLM dan `Positive` va `Negative` uchun taxminan 0.5 ehtimollikni kutamiz. Biroq, ko'pincha (va ushbu misolda ham) bu holat kuzatilmaydi.
 
 ```
 p("Positive" | "Input: nothing Sentiment:") = 0.9
@@ -24,23 +24,23 @@ p("Positive" | "Input: nothing Sentiment:") = 0.9
 p("Negative" | "Input: nothing Sentiment:") = 0.1
 ```
 
-Ushbu kontekstdan mustaqil kirish uchun ushbu yorliq ehtimollari berilgan bo‘lsa, biz bilamizki, LLM ning
-**output distribution** ehtimol tarafkash bo‘ladi
-`Positive` yorlig‘iga tomon. Bu LLMning `Positive` ni afzal ko‘rishiga olib kelishi mumkin
+Ushbu kontekstdan mustaqil kirish uchun ushbu yorliq ehtimollari berilgan bo'lsa, biz bilamizki, LLM ning
+**output distribution** ehtimol tarafkash bo'ladi
+`Positive` yorlig'iga tomon. Bu LLMning `Positive` ni afzal ko'rishiga olib kelishi mumkin
 barcha kirishlar uchun, hatto kirish haqiqatan ham ijobiy bo'lmasa ham.
 
-Agar biz qandaydir tarzda chiqish taqsimotini **kalibrlash** imkoniga ega bo‘lsak, shunda kontekstdan mustaqil
+Agar biz qandaydir tarzda chiqish taqsimotini **kalibrlash** imkoniga ega bo'lsak, shunda kontekstdan mustaqil
 kiritmalar uchun ham `Positive`, ham `Negative` uchun 0.5 ehtimollik belgilanadi,
-shunda biz ko‘pincha `Positive` ga bo‘lgan og‘ishlarni olib tashlashimiz mumkin va LLM yanada ishonchli bo‘ladi
+shunda biz ko'pincha `Positive` ga bo'lgan og'ishlarni olib tashlashimiz mumkin va LLM yanada ishonchli bo'ladi
 kontekstsiz kirishlar va kontekstli kirishlarda ham.
 
-## Texnik bo‘lmagan yechim
+## Texnik bo'lmagan yechim
 
 Ushbu muammoning texnik bo'lmagan yechimi shunchaki bir nechta misollarni taqdim etishdir, bu yerda
 kontekstsiz namunalarga har ikkala holat uchun samarali tarzda 0.5 ehtimollik beriladi
 `Ijobiy` va `Salbiy`.
 
-Masalan, biz har bir kontekstdan mustaqil holatni ko‘rsatadigan quyidagi few shot misollarni taqdim etishimiz mumkin
+Masalan, biz har bir kontekstdan mustaqil holatni ko'rsatadigan quyidagi few shot misollarni taqdim etishimiz mumkin
 namuna ham `Positive`, ham `Negative` sifatida tasniflanmoqda:
 
 ```
@@ -53,24 +53,24 @@ Input: nothing Sentiment: Negative
 Input: I like eggs. Sentiment:
 ```
 
-Mening bilishimcha, bu yechim adabiyotda o‘rganilmagan va men ishonchim komil emas
-u amalda qanchalik yaxshi ishlashini. Biroq, bu nima ekanligini ko‘rsatadigan oddiy yechimdir
-kalibrlash erishmoqchi bo‘lgan narsadir.
+Mening bilishimcha, bu yechim adabiyotda o'rganilmagan va men ishonchim komil emas
+u amalda qanchalik yaxshi ishlashini. Biroq, bu nima ekanligini ko'rsatadigan oddiy yechimdir
+kalibrlash erishmoqchi bo'lgan narsadir.
 
 ## Texnik yechim
 
-Buning yana bir yechimi **contextual calibration**(@zhao2021calibrate) bo‘lib, bu yerda biz
-maxsus kalibrlash parametrlarini sozlang, bu esa kontekstdan mustaqil kiritmalarni ta’minlaydi, masalan
+Buning yana bir yechimi **contextual calibration**(@zhao2021calibrate) bo'lib, bu yerda biz
+maxsus kalibrlash parametrlarini sozlang, bu esa kontekstdan mustaqil kiritmalarni ta'minlaydi, masalan
 `Input: nothing Sentiment: ` har ikkala yorliq uchun ham taxminan 0.5 ehtimollik belgilanadi.
 E'tibor bering, amalda bu usul bir nechta turli kontekstdan holi kirishlar ustida kalibrlashni amalga oshiradi (masalan, `Input: N/A Sentiment: `, `Input: [MASK] Sentiment: `). U kalibrlash parametrlarini o'rtacha qiladi, bu
 har bir kontekstdan mustaqil kiritma uchun eng yaxshi natija beradigan kalibrlash parametrlarini topish uchun eng yaxshi usulda ishlaydi.
 
 ### Misol
 
-Keling, bir kontekstdan mustaqil kiritma uchun kalibrlash parametrlarini hisoblash misolini ko‘rib chiqamiz. E'tibor bering,
-bu misol GPT-3 bilan takrorlab bo‘lmaydi, chunki uni faqat `Positive` va `Negative` yorliqlari bilan cheklab bo‘lmaydi.
+Keling, bir kontekstdan mustaqil kiritma uchun kalibrlash parametrlarini hisoblash misolini ko'rib chiqamiz. E'tibor bering,
+bu misol GPT-3 bilan takrorlab bo'lmaydi, chunki uni faqat `Positive` va `Negative` yorliqlari bilan cheklab bo'lmaydi.
 
-Yuqoridagi misolni yana bir bor ko‘rib chiqing, bunda LLM yorliqlarga quyidagi ehtimolliklarni belgilaydi
+Yuqoridagi misolni yana bir bor ko'rib chiqing, bunda LLM yorliqlarga quyidagi ehtimolliklarni belgilaydi
 kontekstsiz kiritma uchun:
 
 ```
@@ -87,13 +87,13 @@ q("Positive" | "Input: nothing Sentiment:") = 0.5
 q("Negative" | "Input: nothing Sentiment:") = 0.5
 ```
 
-Buni ehtimolliklarni moslashtiruvchi (kalibrlovchi) chiziqli o‘zgartirish yaratish orqali amalga oshiramiz
+Buni ehtimolliklarni moslashtiruvchi (kalibrlovchi) chiziqli o'zgartirish yaratish orqali amalga oshiramiz
 of $p$.
 
 $\hat q = \text{Softmax}(W\hat p + b)$
 
 Ushbu tenglama asl ehtimollar $\hat p$ ni oladi va og'irliklar $W$ hamda siljish $b$ ni qo'llaydi
-ular. Og‘irliklar $W$ va siljish $b$ kalibrlash parametrlari bo‘lib, ular qo‘llanilganda
+ular. Og'irliklar $W$ va siljish $b$ kalibrlash parametrlari bo'lib, ular qo'llanilganda
 kontekstsiz misolning ehtimollari $\hat p$ = [0.5, 0.5] ni beradi.
 
 #### W va b ni hisoblash
@@ -104,9 +104,9 @@ $W = \text{diag}(\hat p)^{-1}$
 
 $b = 0$
 
-Garchi $W$ ning ta’rifi dastlab biroz g’alati tuyulishi mumkin bo‘lsa-da, bu shunchaki $\hat p$ dagi har bir qiymatning teskarisini olish orqali asl ehtimolliklar $\hat p$ ni kalibrlangan ehtimolliklarga [0.5, 0.5] aylantiradigan $W$ ni topishdir.
+Garchi $W$ ning ta'rifi dastlab biroz g'alati tuyulishi mumkin bo'lsa-da, bu shunchaki $\hat p$ dagi har bir qiymatning teskarisini olish orqali asl ehtimolliklar $\hat p$ ni kalibrlangan ehtimolliklarga [0.5, 0.5] aylantiradigan $W$ ni topishdir.
 
-Keling, bu yuqoridagi misolda ishlashini tekshirib ko‘raylik:
+Keling, bu yuqoridagi misolda ishlashini tekshirib ko'raylik:
 
 $\hat p = [0.9, 0.1]$
 
@@ -127,13 +127,13 @@ $\hat q = \text{Softmax}(W\hat p + b) = \text{Softmax}(\begin{bmatrix}
 = \text{Softmax}([1, 1])
 =[0.5, 0.5]$
 
-Yuqorida aytilganidek, biz ushbu jarayonni bir nechta turli context-free kirishlar uchun ham amalga oshiramiz va har bir context-free kirish uchun eng yaxshi ishlaydigan kalibrlash parametrlarini o‘rtacha qilib, LLM uchun eng yaxshi kalibrlash parametrlarini topamiz. Bu shuni anglatadiki, yakuniy kalibrlash parametrlari ehtimol hech bir context-free kirishni aniq [0.5, 0.5] ga moslashtirmaydi.
+Yuqorida aytilganidek, biz ushbu jarayonni bir nechta turli context-free kirishlar uchun ham amalga oshiramiz va har bir context-free kirish uchun eng yaxshi ishlaydigan kalibrlash parametrlarini o'rtacha qilib, LLM uchun eng yaxshi kalibrlash parametrlarini topamiz. Bu shuni anglatadiki, yakuniy kalibrlash parametrlari ehtimol hech bir context-free kirishni aniq [0.5, 0.5] ga moslashtirmaydi.
 
 ### Yana bir usul
 
-$b$ ham $-\hat p$ ga o‘rnatilishi mumkin, va $W$ esa identitet matritsaga. Ushbu usul bajaradi
+$b$ ham $-\hat p$ ga o'rnatilishi mumkin, va $W$ esa identitet matritsaga. Ushbu usul bajaradi
 avlod vazifalarida tasniflash vazifalariga qaraganda yaxshiroq (@zhao2021calibrate).
 
 ## Xulosalar
 
-LLMlar ko‘pincha ma’lum belgilar (yorliqlar)ga nisbatan og‘ish (xatolik)ga ega bo‘ladi. Kalibrlash ushbu og‘ishni bartaraf etish uchun qo‘llanilishi mumkin.
+LLMlar ko'pincha ma'lum belgilar (yorliqlar)ga nisbatan og'ish (xatolik)ga ega bo'ladi. Kalibrlash ushbu og'ishni bartaraf etish uchun qo'llanilishi mumkin.
