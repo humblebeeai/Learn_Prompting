@@ -1,8 +1,8 @@
 import React from 'react';
 // import RobotImage from '@site/docs/assets/robot.webp';
 // import AstronautImage from '@site/docs/assets/astronaut.webp';
-const RobotImage = '/img/Astronaut.png';
-const AstronautImage = '/img/Astronaut.png';
+const RobotImage = "";
+const AstronautImage = "";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
