@@ -10,7 +10,7 @@ async function createConfig() {
 			"A Free, Open Source Course on Communicating with Artificial Intelligence",
 		url: "https://learnprompting.uz", // Updated to primary domain
 		baseUrl: "/",
-		onBrokenLinks: "warn", // Changed to warn to avoid build failures during migration
+		onBrokenLinks: 'warn', // Changed to warn to avoid build failures during migration
 		onBrokenMarkdownLinks: "warn",
 		favicon: "img/favicon.ico",
 		organizationName: "humblebeeai", // Updated to new owner
