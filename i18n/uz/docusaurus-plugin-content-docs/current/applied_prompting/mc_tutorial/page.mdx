@@ -67,7 +67,7 @@ Model ishlamadi. Bu model bu turdagi savollarga javob bera olmaydi degani emasmi
 
 ## Sehrli ibora
 
-Yuqorida ishlatilgan standart prompt GPT javobining “mantiqiy” asoslarini deyarli ochib bermaydi. Biz `let's explain step by step` iborasini qo‘shib ko‘rishimiz mumkin:
+Yuqorida ishlatilgan standart prompt GPT javobining “mantiqiy” asoslarini deyarli ochib bermaydi. Biz `Qadam va qada tushuntirib ber` iborasini qo‘shib ko‘rishimiz mumkin:
 
 ```markdown
 ...
@@ -108,8 +108,8 @@ Savoldagi bandlarni tartibini o‘zgartirishimiz mumkin
 
 ```
 ...
-a) John of Worcester's account included a drawing of the sunspots, which could be the earliest illustration of sunspot activity.
-b) Because it is impossible to view sunspots with the naked eye under typical daylight conditions, the sighting recorded by John of Worcester would have taken place under unusual weather conditions such as fog or thin clouds.
+a) Worcesterlik Jonning qaydlarida quyosh dog‘larining chizmasi ham mavjud bo‘lib, bu quyosh dog‘lari faoliyatining eng qadimgi tasvirlaridan biri bo‘lishi mumkin.
+b) Odatdagi kunduzgi sharoitlarda quyosh dog‘larini yalang‘och ko‘z bilan ko‘rish imkonsiz bo‘lgani sababli, Worcesterlik Jon qayd etgan kuzatuv tuman yoki yupqa bulutlar kabi noodatiy ob-havo sharoitlarida sodir bo‘lgan bo‘lishi kerak.
 ...
 ```
 
@@ -130,13 +130,13 @@ b) Because it is impossible to view sunspots with the naked eye under typical da
 Asl prompt quyidagicha edi:
 
 ```
-Which one of the following, if true, most strengthens the argument?
+Quyidagilardan qaysi biri, agar to‘g‘ri bo‘lsa, dalilni eng kuchli tarzda mustahkamlaydi?
 ```
 
 Promptni quyidagicha o‘zgartirishimiz mumkin:
 
 ```
-Identify each choice as strengthens, weakens or doesn't impact the argument.
+Har bir variantni dalilni kuchaytiradimi, zaiflashtiradimi yoki ta’sir ko‘rsatmaydimi deb aniqlang.
 ```
 
 javob variantini yanada chuqurroq tahlil qilish uchun.
@@ -158,14 +158,17 @@ javob variantini yanada chuqurroq tahlil qilish uchun.
 Mana Bayes teoremasidan foydalanib oson yechiladigan muammo misoli:
 
 ```
-Consider two medical tests, A and B, for a virus. Test A is 90% effective at recognizing the virus when it is present, but has a 5% false positive rate (indicating that the virus is present, when it is not). Test B is 95% effective at recognizing the virus, but has a 10% false positive rate. The two tests use independent methods of identifying the virus. The virus is carried by 2% of all people.
+Virusni aniqlash uchun A va B deb nomlangan ikkita tibbiy testni ko‘rib chiqing.
+A testi virus mavjud bo‘lganda uni aniqlashda 90% samarali, ammo 5% yolg‘on musbat natija ko‘rsatish ehtimoliga ega (ya’ni virus yo‘q bo‘lsa ham bor deb ko‘rsatadi).
+B testi virusni aniqlashda 95% samarali, biroq 10% yolg‘on musbat natija ehtimoliga ega.
+Ikki test virusni aniqlashda mustaqil usullardan foydalanadi.
+Virus barcha odamlarning 2% ida uchraydi.
 
-(a) Say that a person is tested for the virus using only Test A. What is the probability that the person
-is really carrying the virus given that Test A came back positive? (2 points)
-(b) Say that a person is tested for the virus using only Test B. What is the probability that the person
-is really carrying the virus given that Test B came back positive? (2 points)
-(c) Say that a person is tested for the virus using both tests. What is the probability that the person is
-really carrying the virus given that both tests came back positive? (2 points)
+(a) Aytaylik, bir kishi faqat A testi yordamida tekshirildi. A testi musbat natija bergan bo‘lsa, ushbu kishining haqiqatan ham virusni tashiyotgan bo‘lish ehtimoli qanday? (2 ball)
+
+(b) Aytaylik, bir kishi faqat B testi yordamida tekshirildi. B testi musbat natija bergan bo‘lsa, ushbu kishining haqiqatan ham virusni tashiyotgan bo‘lish ehtimoli qanday? (2 ball)
+
+(c) Aytaylik, bir kishi ikkala test yordamida ham tekshirildi. Ikkala test ham musbat natija bergan bo‘lsa, ushbu kishining haqiqatan ham virusni tashiyotgan bo‘lish ehtimoli qanday? (2 ball)
 ```
 
 Buni GPT bilan sinab ko‘ramiz:
@@ -187,8 +190,7 @@ Natija **noto‘g‘ri**!
 Agar biroz kontekst qo‘shsak, masalan:
 
 ```
-...
-Let's explain step by step. The formula for bayes is
+Keling, bosqichma-bosqich tushuntiraylik. Bayes formulasi:
 ```
 
 Model to‘g‘ri formula, ya’ni Bayesdan foydalanadi.

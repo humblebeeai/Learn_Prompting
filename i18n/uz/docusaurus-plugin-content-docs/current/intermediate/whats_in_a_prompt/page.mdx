@@ -10,35 +10,35 @@ Til o‘rganish modellari (LLM) uchun promptlar tuzishda bir nechta omillarni hi
 
 ## Formatning ahamiyati
 
-Promptdagi exemplarlar formati juda muhim. Bu LLMga javobini qanday tuzishni ko‘rsatadi. Masalan, agar exemplarlar javob sifatida barcha harflar katta yozilgan so‘zlardan foydalansa, LLM ham shunday qiladi, hatto berilgan javoblar noto‘g‘ri bo‘lsa ham.
+Promptdagi exemplarlar formati juda muhim. Bu LLMga javobini qanday tuzishni ko‘rsatadi. Masalan, agar misollar javob sifatida barcha harflar katta yozilgan so‘zlardan foydalansa, LLM ham shunday qiladi, hatto berilgan javoblar noto‘g‘ri bo‘lsa ham.
 
 Quyidagi misolni ko‘rib chiqing:
 
 ```text
 2+2 nechiga teng?
-FIFTY
+ELLIK
 20+5 nechiga teng?
-FORTY-THREE
+QIRQ UCH
 12+9 nechiga teng?
-TWENTY-ONE
+YIGIRMA BIR
 ```
 
 Noto‘g‘ri javoblarga qaramay, LLM o‘z javobini to‘g‘ri formatda, barcha harflarni katta qilib yozadi (@min2022rethinking).
 
-## Ground Truth: O‘ylaganchalik muhim emas
+## Haqiqiy (asosiy) ma’lumot: O‘ylaganchalik muhim emas
 
-Qiziqarli tomoni shundaki, exemplarlar ichidagi haqiqiy javoblar yoki 'ground truth' o‘ylaganchalik muhim emas. Tadqiqotlar shuni ko‘rsatadiki, exemplarlar ichida tasodifiy labellar berish (yuqoridagi misolda ko‘ringanidek) natijaga deyarli ta’sir qilmaydi (@min2022rethinking). Bu shuni anglatadiki, exemplarlar noto‘g‘ri ma’lumotlarni o‘z ichiga olsa ham, LLM to‘g‘ri javob yaratishi mumkin.
+Qiziqarli tomoni shundaki, misollar ichidagi haqiqiy javoblar yoki "Haqiqiy (asosiy) ma’lumot" o‘ylaganchalik muhim emas. Tadqiqotlar shuni ko‘rsatadiki, exemplarlar ichida tasodifiy labellar berish (yuqoridagi misolda ko‘ringanidek) natijaga deyarli ta’sir qilmaydi (@min2022rethinking). Bu shuni anglatadiki, exemplarlar noto‘g‘ri ma’lumotlarni o‘z ichiga olsa ham, LLM to‘g‘ri javob yaratishi mumkin.
 
-## Labelspace roli
+## Yorliqlar maydoni roli
 
-Ground truth muhim bo‘lmasligi mumkin, lekin labelspace muhim. Labelspace — bu berilgan vazifa uchun mumkin bo‘lgan label’lar ro‘yxati. Masalan, klassifikatsiya vazifasida labelspace "positive" va "negative" ni o‘z ichiga olishi mumkin.
+Ground truth muhim bo‘lmasligi mumkin, lekinYorliqlar maydonimuhim. Yorliqlar maydoni — bu berilgan vazifa uchun mumkin bo‘lgan label’lar ro‘yxati. Masalan, klassifikatsiya vazifasidaYorliqlar maydoni"positive" va "negative" ni o‘z ichiga olishi mumkin.
 
-Exemplarlar ichida labelspace’dan tasodifiy label’larni berish LLMga labelspace’ni yaxshiroq tushunishga yordam beradi va natijalarni yaxshilaydi. Bundan tashqari, exemplarlar ichida labelspace taqsimotini to‘g‘ri aks ettirish muhim. Labelspace’dan bir xil ehtimollikda tanlash o‘rniga, label’larning haqiqiy taqsimotiga muvofiq tanlash yaxshiroqdir (@min2022rethinking). Masalan, agar sizda restoran sharhlari to‘plami bo‘lsa va ularning 60\% i ijobiy bo‘lsa, promptingizda ijobiy/salbiy promptlar nisbati 3:2 bo‘lishi kerak.
+Exemplarlar ichida Yorliqlar maydonidan tasodifiy label’larni berish LLMga Yorliqlar maydonini yaxshiroq tushunishga yordam beradi va natijalarni yaxshilaydi. Bundan tashqari, exemplarlar ichidaYorliqlar maydonitaqsimotini to‘g‘ri aks ettirish muhim. Yorliqlar maydoni’dan bir xil ehtimollikda tanlash o‘rniga, label’larning haqiqiy taqsimotiga muvofiq tanlash yaxshiroqdir (@min2022rethinking). Masalan, agar sizda restoran sharhlari to‘plami bo‘lsa va ularning 60\% i ijobiy bo‘lsa, promptingizda ijobiy/salbiy promptlar nisbati 3:2 bo‘lishi kerak.
 
 ## Qo‘shimcha maslahatlar
 
 Prompt yaratishda 4-8 ta exemplar ishlatish odatda yaxshi natija beradi (@min2022rethinking). Biroq, imkon qadar ko‘proq exemplar kiritish ham foydali bo‘lishi mumkin.
 
-Xulosa qilib aytganda, format, ground truth va labelspace ahamiyatini tushunish promptlaringiz samaradorligini sezilarli darajada oshirishi mumkin.
+Xulosa qilib aytganda, format, ground truth va Yorliqlar maydoni ahamiyatini tushunish promptlaringiz samaradorligini sezilarli darajada oshirishi mumkin.
 
 [^a]: Batafsil ma’lumot uchun [vocabulary reference](https://learnprompting.org/docs/vocabulary#labels) ga qarang.
