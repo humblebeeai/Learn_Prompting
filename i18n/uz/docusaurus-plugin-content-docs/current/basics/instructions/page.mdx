@@ -12,7 +12,7 @@ title: "🟢 Ko'rsatmalar berish"
 - Ko'rsatma promptingining murakkab qo'llanilishini tushunish
 
 
-Endi biz birinchi prompting texnikamizni, _ko'rsatma promptingini_(@efrat2020turking)(@mishra2022reframing) ko'rib chiqamiz. Biz allaqachon oldingi maqolalarda oddiy ko'rsatmalardan foydalanilganini ko'rdik (masalan, AIga matematik masalani yechishni topshirish). Biroq,
+Endi biz birinchi prompting texnikamizni, _ko'rsatma promptingini ko'rib chiqamiz. Biz allaqachon oldingi maqolalarda oddiy ko'rsatmalardan foydalanilganini ko'rdik (masalan, AIga matematik masalani yechishni topshirish). Biroq,
 biz Gen AI'ga ancha murakkab vazifalarni ham topshirishimiz mumkin.
 
 ### Ismni ajratib olish misoli
@@ -38,24 +38,24 @@ Bu prompt muhandisligi ko'nikmalaringizni oshirish uchun qiziqarli mashq!
 
 ### Shaxsiy ma'lumotlarni olib tashlash misoli
 
-PII ni olib tashlash yana bir muhim vazifa hisoblanadi. Maxfiy hujjatlarni chiqarishdan oldin, kompaniyalar yoki hukumatlar hujjatlardan ma'lumotlarni qo'lda yashirishlari mumkin. Gen AI yordamida PII ni avtomatik tarzda olib tashlash mumkin, bu esa inson mehnatini sezilarli darajada kamaytiradi[^a][^b].
+PII ni olib tashlash yana bir muhim vazifa hisoblanadi. Maxfiy hujjatlarni chiqarishdan oldin, kompaniyalar yoki hukumatlar hujjatlardan ma'lumotlarni qo'lda yashirishlari mumkin. Gen AI yordamida PII ni avtomatik tarzda olib tashlash mumkin, bu esa inson mehnatini sezilarli darajada kamaytiradi.
 
 ```text
 Quyidagi savdo xatini o'qing. Har qanday shaxsiy ma'lumotlarni (PII) olib tashlang,
 va ularni mos o'rinbosar bilan almashtiring. Masalan, "John Doe" ismini
-with "[NAME]".
+with "Ism".
 
-Hi John,
+Qadrli John Doe,
 
 Men sizga yozayotganim sababi, yaqinda yangi mashina sotib olganingizni payqadim. Men savdo bo'yicha xodimman
 mahalliy dilerlikda (Cheap Dealz), va sizga yangi mashina uchun ajoyib taklifimiz borligini bildirmoqchi edim
 Agar qiziqsangiz, iltimos, menga xabar bering.
 
-Thanks,
+Raxmat,
 
 Jimmy Smith
 
-Phone: 410-805-2345
+Tel: 410-805-2345
 Email: jimmysmith@cheapdealz.com
 
 ```
@@ -63,23 +63,23 @@ Email: jimmysmith@cheapdealz.com
 Mana AI javobi:
 
 ```text
-Hi [NAME],
+Qadrli [Ism],
 
 Men sizga yozayotganim sababi, yaqinda yangi mashina sotib olganingizni payqadim. Men savdo bo'yicha xodimman
 mahalliy dilerlikda ([DEALERSHIP]), va sizga yangi mashina uchun ajoyib taklifimiz borligini bildirmoqchi edim
 Agar qiziqsangiz, iltimos, menga xabar bering.
 
-Thanks,
+Raxmat,
 
-[SALESPERSON]
+[Sotuvchi]
 
-Telefon: [PHONE NUMBER]
+Telefon: [TEL NUMBER]
 Email: [EMAIL ADDRESS]
 
 ```
 
 Modelning ko'rsatmalardan qanday xulosa chiqarishini ko'rish juda hayajonli. Masalan, u
-`Cheap Dealz` ni `[DEALERSHIP]` ga va `Jimmy Smith` ni `[SALESPERSON]` ga almashtirish kerakligini biladi, garchi
+`Cheap Dealz` ni `[DEALERSHIP]` ga va `Jimmy Smith` ni `[Sotuvchi]` ga almashtirish kerakligini biladi, garchi
 buni unga aniq aytmagan bo'lsak ham.
 
 ### Insho baholash va fikr-mulohaza misoli
@@ -97,19 +97,19 @@ AI javobi:
 
 ```text
 Xususiyat: Grammatika
-Score: 9
+Natija: 9
 Asos: Insho asosan grammatik jihatdan to'g'ri, lekin kichik bir xato bor - 'correlation don't imply causation' o'rniga 'correlation doesn't imply causation' bo'lishi kerak.
 
 Xususiyat: Aniqlik
-Score: 8
+Natija: 8
 Asos: Insho umuman olganda aniq, lekin tadqiqotlarning ziddiyatli va noaniq ekanligi haqida ko'proq tafsilot yoki izoh berilishi mumkin edi.
 
 Xususiyat: Izchillik
-Score: 8
+Natija: 8
 Asos: Fikrlar izchil va o'zaro bog'liq, lekin ular orasidagi o'tish yanada silliq bo'lishi mumkin edi.
 
 Xususiyat: Dalil sifati
-Score: 7
+Natija: 7
 Asos: Keltirilgan dalil mantiqiy va asosli, lekin muallifning mavzuga bo'lgan pozitsiyasi aniqroq ifodalansa, dalil kuchaygan bo'lardi.
 
 ```

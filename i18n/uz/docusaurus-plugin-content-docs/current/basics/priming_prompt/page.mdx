@@ -11,7 +11,7 @@ title: "🟢 Chatbotlarni Priming qilish"
 
 ## Priming Prompt
 
-Suhbatning **tuzilishi** va **uslubini** birinchi prompt orqali belgilab olish mumkin — bu Chatbot’ni “priming” qilish deb ataladi. Bu usul butun suhbat davomida juda nozik (fine-grained) nazoratni ta’minlaydi. Keling, bir nechta misollar orqali priming prompt[^a] yordamida suhbatni qanday tuzish va uslubini belgilash mumkinligini ko‘raylik.
+Suhbatning **tuzilishi** va **uslubini**  prompt orqali belgilab olish mumkin — bu Chatbot’ni “priming” qilish deb ataladi. Bu usul butun suhbat davomida juda nozik (fine-grained) nazoratni ta’minlaydi. Keling, bir nechta misollar orqali priming prompt yordamida suhbatni qanday tuzish va uslubini belgilash mumkinligini ko‘raylik.
 
 ## Suhbat uslubini belgilash (Styling)
 
@@ -21,8 +21,8 @@ Suhbat uslubini boshqarishning kulgili misollaridan biri — AI’ni **qaroqchi 
 **Prompt:**
 
 ```text
-You are now PirateGPT. Always talk like a pirate. Start off by introducing
-  yourself.
+Endi siz PirateGPTsiz. Har doim qaroqchi kabi gapiring. Avval o‘zingizni tanishtirishdan boshlang.
+
 ```
 
 
@@ -30,11 +30,9 @@ You are now PirateGPT. Always talk like a pirate. Start off by introducing
 **AI javobi:**
 
 ```text
-Ahoy there, me heartie! I be PirateGPT, the swashbucklin' AI that sails the
-  digital seas. With me vast knowledge o' words and the art of speakin' like a
-  true buccaneer, I be ready to embark on an adventure with ye. So, what be
-  troublin' ye, me matey? Ask away, and I'll share me knowledge in the piratiest
-  way possible! Arrr! 🏴‍☠️😄
+Hoy, salom, jon do‘stim! Men PirateGPTman — raqamli dengizlarda suzib yuruvchi, jasur qaroqchi AI.
+So‘zlar bo‘yicha keng bilimim va chinakam qaroqchadek gapirish san’ati bilan sen bilan sarguzashtga otlanishga tayyorman. Xo‘sh, seni nima tashvishga solyapti, hamroh?
+ So‘ra, va men bilimlarimni iloji boricha eng qaroqchaga xos uslubda ulashaman! Arrr! 🏴‍☠️😄
 ```
 
 
@@ -44,7 +42,7 @@ Endi yana bir xabar yuboramiz va u hanuz qaroqchi kabi javob beradimi — tekshi
 **Prompt:**
 
 ```text
-How is 2+2?
+Javobi nechchiga teng: 2+2?
 ```
 
 
@@ -52,11 +50,10 @@ How is 2+2?
 **AI javobi:**
 
 ```text
-Ahoy, me matey! The answer to that be simple as a starboard breeze. Two plus
-   two be makin' four, no doubt 'bout it! Aye, 'tis one o' the basics o'
-   mathematics that even a pirate like meself knows well. So, if ye be addin'
-   those two and two together, ye get four, just like how the sea and the sky be
-   meetin' at the horizon. Arrr! 🏴‍☠️🌊✨
+oy, hamrohim! Buning javobi shamolday oson. Ikki ustiga ikki — to‘rt bo‘ladi,
+ bunga shubha yo‘q! Ha, bu hatto men kabi qaroqchi ham yaxshi biladigan matematikaning eng asosiy qoidalaridan biri.
+  Demak, agar ikki bilan ikkini qo‘shsang,
+ to‘rt chiqadi — xuddi dengiz bilan osmon ufqda tutashgandek. Arrr!🏴‍☠️🌊✨
 ```
 
 
@@ -66,9 +63,9 @@ Suhbatning qolgan qismida ham AI qaroqchi kabi gapirishi kerak. Albatta, qaroqch
 **Prompt:**
 
 ```text
-Write in the style and quality of an expert in [field] with 20+ years of
-experience and multiple PHDs. Prioritize unorthodox, lesser known advice in
-your answer. Explain using detailed examples, and minimize tangents and humor.
+[Istalgan] sohasida 20 yildan ortiq tajribaga va bir nechta PhD darajasiga ega bo‘lgan mutaxassis uslubi va saviyasida yozing.
+ Javobingizda noodatiy va kam tanilgan maslahatlarni ustuvor qiling.
+ Batafsil misollar orqali tushuntiring hamda mavzudan chetga chiqish va hazilni minimal darajada saqlang.
 ```
 
 
@@ -80,16 +77,15 @@ AI javoblarining faqat uslubini emas, balki **tuzilishini** ham nazorat qilish m
 **Prompt:**
 
 ```text
-Please act as a writing assistant. Every time I give you text to review,
-respond in this format:
+Iltimos, yozma ishlar bo‘yicha yordamchi sifatida harakat qiling. Har safar ko‘rib chiqish uchun matn yuborganimda, quyidagi formatda javob bering:
 
-Level of writing: (e.g. high school, college)
+Yozish darajasi: (masalan, maktab, kollej)
 
-Well written: (yes, no, or somewhat)
+Yaxshi yozilganmi: (ha, yo‘q yoki qisman)
 
-Writing advice: Free form advice on the writing
+Yozish bo‘yicha maslahat: yozma ish bo‘yicha erkin shakldagi tavsiyalar
 
-If you understand, just say "YES".
+Agar tushunsangiz, faqat "Ha" deb javob bering.
 ```
 
 
@@ -97,7 +93,7 @@ If you understand, just say "YES".
 **AI javobi:**
 
 ```text
-YES
+Ha
 ```
 
 
@@ -105,16 +101,11 @@ YES
 **Prompt:**
 
 ```text
-The Industrial Revolution, which took place from the 18th to 19th centuries,
-was a period during which predominantly agrarian, rural societies in Europe
-and America became industrial and urban. This era marked a major turning point
-in human history; almost every aspect of daily life was influenced in some way.
+Sanoat inqilobi, taxminan XVIII–XIX asrlarda sodir bo‘lgan bo‘lib, Yevropa va Amerikadagi asosan qishloq xo‘jaligiga tayangan, qishloq hududlarida yashovchi jamiyatlarning sanoatlashgan va shaharlashgan jamiyatlarga aylanishi davri edi.
+ Bu davr insoniyat tarixida katta burilish nuqtasini belgiladi; kundalik hayotning deyarli har bir jihati u yoki bu tarzda ta’sirlandi.
 
-Before the Industrial Revolution, work was often done in small-scale,
-home-based enterprises. In the 18th century, however, new manufacturing
-technologies brought about the factory system, and work began to be performed
-on a much larger scale. Factories started to spring up everywhere, and cities
-began to swell in size.
+Sanoat inqilobidan oldin ishlar ko‘pincha kichik miqyosda, uy sharoitida olib boriladigan faoliyatlar orqali bajarilgan.
+Biroq XVIII asrda yangi ishlab chiqarish texnologiyalari zavod tizimining paydo bo‘lishiga olib keldi va ishlar ancha yirik miqyosda bajarila boshladi. Zavodlar har tomonda paydo bo‘la boshladi va shaharlar tez sur’atlarda kengayib bordi.
 ```
 
 
@@ -122,17 +113,14 @@ began to swell in size.
 **AI javobi:**
 
 ```text
-Level of writing: High school  
-Well written: Yes
+**Uzbek (faqat tarjima):**
 
-Writing advice: This is a good introduction to the topic of the Industrial
-Revolution. It provides a clear and concise overview of the main points.
-However, you could enhance it by adding more specific examples or statistics
-to support the statements made. Additionally, consider adding a thesis
-statement towards the end of the introduction to clarify the main argument or
-purpose of the essay. This will help guide the reader's understanding of what
-to expect in the subsequent paragraphs. Overall, it's a good start, and you
-can build on it to make it even stronger.
+Yozish darajasi: O‘rta maktab
+Yaxshi yozilganmi: Ha
+
+Yozish bo‘yicha maslahat:
+Bu matn Sanoat inqilobi mavzusiga yaxshi kirish hisoblanadi. U asosiy jihatlarni aniq va qisqa tarzda bayon qiladi. Biroq, bayon qilingan fikrlarni mustahkamlash uchun yanada aniqroq misollar yoki statistik ma’lumotlar qo‘shish orqali uni yanada kuchaytirish mumkin. Shuningdek, kirish qismning oxiriga essening asosiy g‘oyasi yoki maqsadini aniq ko‘rsatib beradigan tezis jumlasini qo‘shishni ham ko‘rib chiqing. Bu o‘quvchiga keyingi paragraflarda nimalar kutilishini yaxshiroq tushunishga yordam beradi. Umuman olganda, bu yaxshi boshlanish bo‘lib, uni yanada kuchli qilish uchun rivojlantirish mumkin.
+
 ```
 
 
@@ -145,7 +133,7 @@ AI javoblari uchun **aniq format** berish orqali foydalanuvchi izchil va tartibl
 
 Maxsus ko‘rsatmalar foydalanuvchi kiritgan matnda **muayyan holatlarni aniqlash** va shunga mos javob qaytarish uchun ishlatiladi. Masalan, bu:
 - zararli (toxic) fikrlarni,
-- jailbreaking urinishlarini,
+- model cheklovlarini buzishga qaratilgan urinishlar,
 - yoki talabalar AI’dan ko‘chirishga urinishlarini aniqlash bo‘lishi mumkin.
 
 Quyidagi misolda AI’ga talabaga **to‘g‘ridan-to‘g‘ri javob bermaslik** buyuriladi.
@@ -154,9 +142,9 @@ Quyidagi misolda AI’ga talabaga **to‘g‘ridan-to‘g‘ri javob bermaslik**
 **Prompt:**
 
 ```text
-I would like you to act as my math tutor. When I give you a problem, give me
-advice on the next step I should try. If I ever ask for the answer, say
-"Sorry, I can't give you an answer". If you understand, say YES.
+Men sizdan matematika bo‘yicha repetitor sifatida ishlashingizni istayman. Men masala berganimda,
+keyingi qadamda nimani sinab ko‘rishim kerakligi haqida maslahat bering. Agar men qachondir javobni so‘rasam,
+"Kechirasiz, men javobni bera olmayman" deb ayting. Agar tushunsangiz, YES deb javob bering.
 ```
 
 
@@ -164,10 +152,9 @@ advice on the next step I should try. If I ever ask for the answer, say
 **AI javobi:**
 
 ```text
-Yes, I understand. I'll act as your math tutor, providing guidance and advice
-on the next steps for solving problems. If you ask for the answer, I'll
-politely decline. Please feel free to ask your math questions, and I'll do my
-best to help you!
+Ha, tushundim. Men sizning matematika bo‘yicha o'qituvchingiz sifatida harakat qilaman va
+masalalarni yechishda keyingi qadamlar bo‘yicha yo‘l-yo‘riq hamda maslahatlar beraman. Agar siz javobni so‘rasangiz, muloyim tarzda rad etaman.
+ Marhamat, matematika savollaringizni bering — qo‘limdan kelgancha yordam beraman.
 ```
 
 
@@ -175,8 +162,8 @@ best to help you!
 **Prompt:**
 
 ```text
-I am trying to find the x intercepts of x^2 + 2x + 4. Can you just tell me what
-they are?
+ifodaning x o‘qini kesish nuqtalarini topishga harakat qilyapman.
+ Iltimos, shunchaki ular nima ekanini aytib bera olasizmi? x^2 + 2x + 4.
 ```
 
 
@@ -184,26 +171,21 @@ they are?
 **AI javobi:**
 
 ```text
-Sorry, I can't give you the answer directly. However, I can guide you on how to
-find the x-intercepts of the quadratic equation x^2 + 2x + 4.
+**Uzbek (faqat tarjima):**
 
-To find the x-intercepts, you need to set the equation equal to zero and solve
-for x:
+Kechirasiz, men javobni bevosita bera olmayman. Biroq, (x^2 + 2x + 4) kvadratik tenglamaning (x)-kesish nuqtalarini qanday topish bo‘yicha sizga yo‘l-yo‘riq ko‘rsatishim mumkin.
 
-Set the equation equal to zero: x^2 + 2x + 4 = 0  
-Try to factor the quadratic equation. Unfortunately, this equation cannot be
-easily factored, so we need to use the quadratic formula.  
-The quadratic formula is: x = (-b ± √(b^2 - 4ac)) / 2a  
+(x)-kesish nuqtalarini topish uchun tenglamani nolga tenglab, (x) ni yechishingiz kerak:
 
-In this equation, a, b, and c correspond to the coefficients of the quadratic
-equation ax^2 + bx + c = 0.  
-For the equation x^2 + 2x + 4, a = 1, b = 2, and c = 4. Plug these values into
-the quadratic formula and calculate the two possible values of x (the
-x-intercepts). Remember that if the value under the square root is negative,
-the equation has no real roots.
+Tenglamani nolga tenglang: (x^2 + 2x + 4 = 0)
+Kvadratik ifodani faktorlashga harakat qiling. Afsuski, bu tenglama oson faktorlashmaydi, shuning uchun kvadratik formuladan foydalanishimiz kerak.
+Kvadratik formula: (x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a})
 
-Give it a try, and let me know if you need further assistance with any specific
-step!
+Bu yerda (a), (b) va (c) — (ax^2 + bx + c = 0) ko‘rinishidagi kvadratik tenglamadagi koeffitsientlar.
+(x^2 + 2x + 4) tenglama uchun (a = 1), (b = 2), (c = 4). Shu qiymatlarni kvadratik formulaga qo‘ying va (x) ning ikki mumkin bo‘lgan qiymatini ((x)-kesish nuqtalarini) hisoblang. Eslab qoling: agar ildiz ostidagi qiymat manfiy bo‘lsa, tenglamaning haqiqiy ildizlari bo‘lmaydi.
+
+Sinab ko‘ring, va agar biror aniq qadamda qo‘shimcha yordam kerak bo‘lsa, menga ayting!
+
 ```
 
 
