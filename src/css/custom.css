@@ -547,3 +547,101 @@ html[data-theme='dark'] .alert--takeaways {
 	background: rgba(16, 185, 129, 0.3);
 	color: inherit;
 }
+
+/* ===========================
+   AUDIENCE SECTION
+   =========================== */
+.audience-section {
+	padding: var(--space-xl) var(--space-md);
+	background: var(--color-bg-primary);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.audience-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--space-md);
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.audience-card {
+	background: var(--color-bg-secondary);
+	padding: var(--space-lg);
+	border-radius: 12px;
+	border: 1px solid var(--color-border);
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+	transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.audience-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-md);
+	border-color: var(--color-brand-primary);
+}
+
+.audience-icon {
+	font-size: 1.5rem;
+}
+
+.audience-label {
+	font-family: var(--font-title);
+	font-weight: 600;
+	color: var(--color-text-primary);
+}
+
+/* Updated Hero Elements for new design */
+.hero-trust-text {
+	font-size: 0.9rem;
+	color: var(--color-text-muted);
+	margin-top: var(--space-lg);
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.8;
+}
+
+.title-accent {
+	background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: block;
+	/* Force new line for emphasis as requested */
+	font-size: 1.1em;
+}
+
+/* Collab List */
+.collab-details {
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: left;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background: var(--color-bg-tertiary);
+	border-radius: 12px;
+	border: 1px solid var(--color-border);
+}
+
+.collab-list li {
+	margin-bottom: 0.75rem;
+	font-size: 1.05rem;
+	color: var(--color-text-secondary);
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.audience-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.title-accent {
+		display: inline;
+		/* Inline on mobile to save space if needed, or keep block */
+	}
+}

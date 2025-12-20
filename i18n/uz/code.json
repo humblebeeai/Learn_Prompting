@@ -1,48 +1,72 @@
 {
 	"homepage.hero.title.line1": {
-		"message": "AI bilan muloqot qilishni"
+		"message": "AI bilan samarali muloqot qiling."
 	},
 	"homepage.hero.title.line2": {
-		"message": "samarali"
+		"message": "Professional darajaga chiqing."
 	},
 	"homepage.hero.title.line3": {
-		"message": "va professional tarzda o‘rganing"
+		"message": ""
 	},
 	"homepage.hero.subtitle": {
-		"message": "ChatGPT, Claude va boshqa AI vositalaridan professional darajada foydalanishni o‘rganing. Bepul, ochiq manbali kurs."
+		"message": "ChatGPT, Claude va boshqa sun’iy intellekt vositalaridan **ish, ta’lim va biznesda** to‘g‘ri va samarali foydalanishni o‘rganing. 100% bepul, ochiq manbali, real ko‘nikmalarga yo‘naltirilgan kurs."
+	},
+	"homepage.hero.trust": {
+		"message": "O‘zbek tilida tarjima va lokalizatsiya — hamjamiyat bilan birga."
 	},
 	"homepage.hero.button.start": {
-		"message": "Boshlash"
+		"message": "Kursni boshlash"
+	},
+	"homepage.hero.button.modules": {
+		"message": "Modullar ro‘yxati"
 	},
 	"homepage.stats.learners": {
-		"message": "O‘quvchilar"
+		"message": "o‘rganuvchi"
 	},
 	"homepage.stats.modules": {
-		"message": "Modullar"
+		"message": "modul"
 	},
 	"homepage.stats.free": {
-		"message": "Bepul"
+		"message": "100% bepul"
+	},
+	"homepage.audience.students": {
+		"message": "Talabalar"
+	},
+	"homepage.audience.teachers": {
+		"message": "O‘qituvchilar"
+	},
+	"homepage.audience.entrepreneurs": {
+		"message": "Tadbirkorlar va mutaxassislar"
+	},
+	"homepage.audience.civilservants": {
+		"message": "Davlat va ofis xodimlari"
 	},
 	"homepage.features.stepbystep.title": {
-		"message": "Bosqichma-bosqich o‘rganish"
+		"message": "Aniq prompt yozish"
 	},
 	"homepage.features.stepbystep.description": {
-		"message": "Oddiy tushunchalardan murakkab texnikalargacha tizimli ravishda o‘rganing"
+		"message": "Natija beradigan savollar, topshiriqlar va instruktsiyalar tuzish"
 	},
 	"homepage.features.practice.title": {
-		"message": "Amaliy mashqlar"
+		"message": "Ish uchun tayyor shablonlar"
 	},
 	"homepage.features.practice.description": {
-		"message": "Har bir darsda real vazifalar va interaktiv mashqlar orqali bilimni mustahkamlang"
+		"message": "Email, reja, hisobot, prezentatsiya va tahlil promptlari"
 	},
 	"homepage.features.community.title": {
-		"message": "Hamjamiyat"
+		"message": "Amaliy mashqlar"
 	},
 	"homepage.features.community.description": {
-		"message": "AI ixlosmandlari hamjamiyatiga qo‘shiling"
+		"message": "Har bir modulda real hayotdan olingan vazifalar"
+	},
+	"homepage.features.responsible.title": {
+		"message": "Mas’uliyatli AI’dan foydalanish"
+	},
+	"homepage.features.responsible.description": {
+		"message": "Xatolarni aniqlash, tekshirish, ishonchlilik va xavfsizlik"
 	},
 	"homepage.features.label": {
-		"message": "Nimalarni o‘rganasiz"
+		"message": "Siz oladigan ko‘nikmalar"
 	},
 	"homepage.features.mainTitle": {
 		"message": "AI bilan muloqot san’ati"
@@ -51,46 +75,55 @@
 		"message": "O‘rganish yo‘li"
 	},
 	"homepage.path.mainTitle": {
-		"message": "4 bosqichda professional darajaga chiqing"
+		"message": "Qadamma-qadam real ko‘nikmaga"
 	},
 	"homepage.path.step1.title": {
-		"message": "AI asoslari"
+		"message": "AI va prompt asoslari"
 	},
 	"homepage.path.step1.description": {
-		"message": "Sun’iy intellekt qanday ishlashini tushuning"
+		"message": "Sun’iy intellekt qanday ishlaydi, LLM’lar nimaga qodir va tamoyillar"
 	},
 	"homepage.path.step2.title": {
-		"message": "Prompt injiniring"
+		"message": "Amaliy qo‘llanmalar"
 	},
 	"homepage.path.step2.description": {
-		"message": "Samarali promptlar yozishni o‘rganing"
+		"message": "AI’dan kundalik ishda foydalanish: email, hujjat, reja"
 	},
 	"homepage.path.step3.title": {
-		"message": "Ilg‘or texnikalar"
+		"message": "Intermediate va Advanced"
 	},
 	"homepage.path.step3.description": {
-		"message": "Professional usullarni mukammal o‘zlashtiring"
+		"message": "Instruction prompting, few-shot, multi-step va murakkab vazifalar"
 	},
 	"homepage.path.step4.title": {
-		"message": "Amaliy qo‘llash"
+		"message": "Kengaytirilgan mavzular"
 	},
 	"homepage.path.step4.description": {
-		"message": "Bilimingizni real loyihalarda qo‘llang"
+		"message": "Ishonchlilik, tekshiruv, image prompting va tooling"
 	},
 	"homepage.cta.title": {
 		"message": "Bugun boshlang"
 	},
 	"homepage.cta.description": {
-		"message": "3 milliondan ortiq o‘rganuvchilarga qo‘shiling va AI ko‘nikmalarini egallang"
+		"message": "Bu kursni millionlab o‘rganuvchilar real ishlarida qo‘llamoqda. Siz ham bugun boshlang va birinchi amaliy natijani qisqa vaqt ichida ko‘ring."
 	},
 	"homepage.cta.button": {
 		"message": "Kursni boshlash"
 	},
 	"homepage.collab.badge": {
-		"message": "Hamkorlik"
+		"message": "Hamkorlik va ochiqlik"
+	},
+	"homepage.collab.content": {
+		"message": "Kontent: Learn Prompting open-source hamjamiyati"
+	},
+	"homepage.collab.translation": {
+		"message": "Tarjima va lokalizatsiya: HumblebeeAI"
+	},
+	"homepage.collab.license": {
+		"message": "Manba va litsenziya: GitHub’da ochiq"
 	},
 	"homepage.collab.text": {
-		"message": "O‘zbek versiyasi {humblebee} tomonidan yuritiladi. Kontent {learnprompting} ochiq manbali hamjamiyati tomonidan yaratilgan."
+		"message": "O‘zbekcha nashr {humblebee} tomonidan yuritiladi. Barcha kontent ochiq manbali va bepul."
 	},
 	"homepage.collab.link": {
 		"message": "Hamkorlik haqida batafsil"
@@ -99,13 +132,13 @@
 		"message": "AI bilan muloqot"
 	},
 	"homepage.meta.description": {
-		"message": "Learn Prompting × HumblebeeAI hamkorligi"
+		"message": "Learn Prompting × HumblebeeAI"
 	},
 	"footer.quickLinks.uzbek": {
-		"message": "O‘zbekcha darslar"
+		"message": "Kurslar"
 	},
 	"footer.quickLinks.english": {
-		"message": "Inglizcha darslar"
+		"message": "(EN) Courses"
 	},
 	"footer.quickLinks.academy": {
 		"message": "AI Akademiyasi"
@@ -135,7 +168,7 @@
 		"message": "© {year} Learn Prompting × {humblebee}"
 	},
 	"footer.attribution": {
-		"message": "O‘zbekcha nashr {humblebee} tomonidan yuritiladi. Kontent {learnprompting} mualliflari tomonidan yaratilgan."
+		"message": "O‘zbekcha nashr {humblebee} tomonidan yuritiladi."
 	},
 	"theme.admonition.takeaways": {
 		"message": "Asosiy xulosalar"
