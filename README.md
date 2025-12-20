@@ -1,51 +1,124 @@
-# Learn Prompting × HumblebeeAI
+# Learn Prompting (Uzbek Edition)
 
-This repository contains the localized edition of [Learn Prompting](https://learnprompting.org), managed in collaboration with **[HumblebeeAI](https://humblebee.ai)** to bring high-quality AI education to Central Asia.
+👋 **Welcome to the Learn Prompting Uzbek Edition!**
+This is a collaborative open-source project between [Learn Prompting](https://learnprompting.org) and [HumblebeeAI](https://humblebee.ai) to bring high-quality AI education to Uzbekistan.
 
-## 🌍 Languages
-- **O'zbek** (Default): `/` (`docs/`)
-- **English**: `/en/` (`i18n/en`)
+---
 
-## 🚀 Quick Start
+## 📋 Overview
 
-### Option 1: Docker (Recommended)
-You can run the entire website locally using Docker. This ensures you have the exact same environment as production.
+This project uses [Docusaurus 2](https://docusaurus.io/), a modern static website generator, to host the curriculum. It includes custom localization, a dedicated "About Collaboration" page, and alignment with national AI initiatives.
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+
+- Node.js version 18.0 or above
+- Docker (optional, for containerized deployment)
+
+### Local Development
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/humblebeeai/Learn_Prompting.git
+    cd Learn_Prompting
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3. **Start the development server:**
+
+    ```bash
+    npm start
+    ```
+
+    The site will open at `http://localhost:3000`.
+
+## ⚙️ Configuration
+
+Copy the example environment file to `.env` to configure the application:
 
 ```bash
-docker-compose up --build
+cp .env.example .env
 ```
-The site will be available at `http://localhost:3000`.
 
-### Option 2: Local Node.js
-Requirements: Node.js (v18+).
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `LP_PORT` | Port inside the container | `80` |
+| `LP_EXTERNAL_PORT` | Port exposed to host | `3000` |
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+## 🐳 Deployment (Docker)
 
-2. **Start the development server:**
-   ```bash
-   npm run start
-   ```
+To run the application in a Docker container (recommended for production):
 
-3. **Build specific locale (e.g., English):**
-   ```bash
-   npm run build -- --locale en
-   ```
+1. **Build and run:**
 
-## 🤝 Collaboration Guidelines
+    ```bash
+    docker compose up --build -d
+    ```
 
-### Translation Workflow
-1. **Sync**: Run `./scripts/manage_i18n.sh sync` to identify changed files.
-2. **Translate**: Edit files in `docs/` (Uzbek) or `i18n/en` (English).
-3. **Verify**: Run `npm run start` and switch languages to check your changes.
+2. **Verify:**
+    Access the site at `http://localhost:3000`.
+    Health Check: `http://localhost:3000/health.json`
 
-### Contributing
-- Please ensure all Markdown frontmatter is valid.
-- `docs/` contains the **Uzbek** source content.
-- `i18n/en/` contains the **English** content.
+## 🩺 Health Check
 
-## ❤️ Attribution
-- **Original Content**: [Learn Prompting](https://github.com/trigaten/Learn_Prompting) (Apache 2.0 / CC BY-NC-SA 4.0).
-- **Localization**: HumblebeeAI Academy.
+The application exposes a health check endpoint at `/health.json`.
+
+- **URL:** `http://localhost:3000/health.json`
+- **Response:** `{"status": "ok", "service": "learn-prompting", ...}`
+
+This is actively monitored by the Docker container's `HEALTHCHECK` instruction.
+
+## 🛠 Troubleshooting
+
+**Docker Connection Failed:**
+> `Cannot connect to the Docker daemon...`
+Ensure Docker Desktop is running.
+
+**Port Conflicts:**
+If port 3000 is in use, modify `LP_EXTERNAL_PORT` in your `.env` file.
+
+---
+
+## ✅ Pre-Deployment Checklist
+
+Ensure all items are checked before deploying to production:
+
+### Project Structure & Organization
+
+- [x] Source code inside `src/`.
+- [x] Root contains `Dockerfile`, `docker-compose.yml`, `.gitignore`, `.dockerignore`.
+- [x] No hardcoded secrets.
+
+### Git Management
+
+- [x] `.gitignore` properly configured.
+- [x] No unnecessary files (build outputs, etc.) committed.
+
+### Dockerization
+
+- [x] `Dockerfile` uses multi-stage builds.
+- [x] `docker-compose.yml` configured.
+- [x] Image size optimized (using `nginx:alpine`).
+- [x] `HEALTHCHECK` implemented in Dockerfile.
+
+### Configuration
+
+- [x] No hardcoded configs.
+- [x] `.env.example` included with `LP_` prefix.
+
+### Health Checks
+
+- [x] `/health.json` endpoint implemented.
+- [x] Docker container monitors health status.
+
+### Documentation
+
+- [x] `README.md` is comprehensive (this file).
+- [x] API/Service documentation included.
