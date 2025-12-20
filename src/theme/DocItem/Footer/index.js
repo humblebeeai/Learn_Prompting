@@ -96,6 +96,26 @@ export default function DocItemFooter() {
     <footer
       className={clsx(ThemeClassNames.docs.docFooter, "docusaurus-mt-lg")}
     >
+
+      <h2 style={{marginTop: 60, marginBottom: 32, fontSize: 32}}>
+       Want to learn more?</h2>
+      <div className={styles.courses}>
+        {/* for oai */}
+        {courses.filter(c => c).slice(0, 2).map(c => <Course key={c.name} src={c.src} srcset={c.srcset} {...c}/>)}
+      </div>
+
+      <br />
+      <SignUp/>
+      {canDisplayTagsRow && <TagsRow tags={tags} />}
+      {canDisplayEditMetaRow && (
+        <EditMetaRow
+          editUrl={editUrl}
+          lastUpdatedAt={lastUpdatedAt}
+          lastUpdatedBy={lastUpdatedBy}
+          formattedLastUpdatedAt={formattedLastUpdatedAt}
+        />
+      )}
+
     </footer>
   );
 }
