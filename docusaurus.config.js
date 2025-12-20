@@ -47,9 +47,9 @@ async function createConfig() {
 				"@docusaurus/plugin-client-redirects",
 				{
 					redirects: [
-						{ to: "/docs/basics/formalizing/page", from: "/docs/basics/standard_prompt" },
-						{ to: "/docs/tooling/IDEs/intro/page", from: "/docs/IDEs/intro" },
-						{ to: "/our_services", from: "/consulting" },
+						// { to: "/docs/basics/formalizing/page", from: "/docs/basics/standard_prompt" },
+						// { to: "/docs/tooling/IDEs/intro/page", from: "/docs/IDEs/intro" },
+						// { to: "/our_services", from: "/consulting" },
 					],
 				},
 			],
