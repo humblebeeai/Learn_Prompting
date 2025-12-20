@@ -77,7 +77,7 @@ const securityWords = ['hack', 'security', 'inject', 'safety']
 
 export default function DocItemFooter() {
   const { metadata, ...rest } = useDoc();
-  // console.log( metadata.description, rest.toc.map(t => t.value))
+  console.log( metadata.description, rest.toc.map(t => t.value))
   const isSecurity = [...rest.toc.map(t => t?.value || ''), metadata.description].some(t => securityWords.some(w => t.toLowerCase().includes(w)))
   const {
     editUrl,
