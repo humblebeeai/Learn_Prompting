@@ -18,11 +18,11 @@ bashorat, shuning uchun bu **kontekstsiz** kiritma deb ataladi.
 
 Chunki `nothing` na ijobiy, na salbiy tushuncha hisoblanadi, biz LLM dan `Positive` va `Negative` uchun taxminan 0.5 ehtimollikni kutamiz. Biroq, ko‘pincha (va ushbu misolda ham) bu holat kuzatilmaydi.
 
-```
+<AIInput>
 p("Positive" | "Input: nothing Sentiment:") = 0.9
 
 p("Negative" | "Input: nothing Sentiment:") = 0.1
-```
+</AIInput>
 
 Ushbu kontekstdan mustaqil kirish uchun ushbu yorliq ehtimollari berilgan bo‘lsa, biz bilamizki, LLM ning
 **output distribution** ehtimol tarafkash bo‘ladi
@@ -43,15 +43,15 @@ kontekstsiz namunalarga har ikkala holat uchun samarali tarzda 0.5 ehtimollik be
 Masalan, biz har bir kontekstdan mustaqil holatni ko‘rsatadigan quyidagi few shot misollarni taqdim etishimiz mumkin
 namuna ham `Positive`, ham `Negative` sifatida tasniflanmoqda:
 
-```
-Input: I hate this movie. Sentiment: Negative
-Input: I love this movie. Sentiment: Positive
-Input: N/A Sentiment: Positive
-Input: N/A Sentiment: Negative
-Input: nothing Sentiment: Positive
-Input: nothing Sentiment: Negative
-Input: I like eggs. Sentiment:
-```
+<AIInput>
+Kirish: Men bu filmni yomon ko‘raman. Kayfiyat: Salbiy
+Kirish: Men bu filmni yaxshi ko‘raman. Kayfiyat: Ijobiy
+Kirish: Mavjud emas. Kayfiyat: Ijobiy
+Kirish: Mavjud emas. Kayfiyat: Salbiy
+Kirish: hech narsa. Kayfiyat: Ijobiy
+Kirish: hech narsa. Kayfiyat: Salbiy
+Kirish: Men tuxumni yoqtiraman. Kayfiyat:
+</AIInput>
 
 Mening bilishimcha, bu yechim adabiyotda o‘rganilmagan va men ishonchim komil emas
 u amalda qanchalik yaxshi ishlashini. Biroq, bu nima ekanligini ko‘rsatadigan oddiy yechimdir
@@ -73,19 +73,19 @@ bu misol GPT-3 bilan takrorlab bo‘lmaydi, chunki uni faqat `Positive` va `Nega
 Yuqoridagi misolni yana bir bor ko‘rib chiqing, bunda LLM yorliqlarga quyidagi ehtimolliklarni belgilaydi
 kontekstsiz kiritma uchun:
 
-```
+<AIInput>
 p("Positive" | "Input: nothing Sentiment:") = 0.9
 
 p("Negative" | "Input: nothing Sentiment:") = 0.1
-```
+</AIInput>
 
 Biz shunday ehtimollik taqsimoti q ni topmoqchimizki,
 
-```
+<AIInput>
 q("Positive" | "Input: nothing Sentiment:") = 0.5
 
 q("Negative" | "Input: nothing Sentiment:") = 0.5
-```
+</AIInput>
 
 Buni ehtimolliklarni moslashtiruvchi (kalibrlovchi) chiziqli o‘zgartirish yaratish orqali amalga oshiramiz
 of $p$.

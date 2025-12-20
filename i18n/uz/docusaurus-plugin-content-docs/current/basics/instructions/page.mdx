@@ -20,7 +20,7 @@ biz Gen AI'ga ancha murakkab vazifalarni ham topshirishimiz mumkin.
 Ism ma'lumotlarini yig'ishda keng tarqalgan muammo shundaki, turli odamlar o'z ismlarini har xil formatda yozadilar. Ba'zilarida `Mrs.` yoki `Jr.` bo'lishi mumkin. Bundan tashqari, ism va familiya tartibi ham noto'g'ri bo'lishi mumkin. Ilgari bunday ma'lumotlarni tozalash zerikarli, qo'lda bajariladigan ish edi. Endi esa, buni oddiy prompt yordamida to'liq avtomatlashtirishimiz mumkin.
 
 <iframe
-  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6IlNtaXRoLCBKb2huIiwicHJvbXB0IjoiQSB1c2VyIGhhcyBpbnB1dCB0aGVpciBmaXJzdCBhbmQgbGFzdCBuYW1lIGludG8gYSBmb3JtLiBXZSBkb24ndCBrbm93IGluIHdoaWNoIG9yZGVyIHRoZWlyIGZpcnN0IG5hbWUgYW5kIGxhc3QgbmFtZSBhcmUsIGJ1dCB3ZSBuZWVkIGl0IHRvIGJlIGluIHRoaXMgZm9ybWF0ICc8TGFzdCBuYW1lPiwgPEZpcnN0IG5hbWU%2BJy4gXG5cblBsZWFzZSBjb252ZXJ0IHRoZSBmb2xsb3dpbmcgbmFtZSBpbiB0aGUgZXhwZWN0ZWQgZm9ybWF0OiBKb2huIFNtaXRoIiwibW9kZWwiOiJncHQtMy41LXR1cmJvIn0%3D"
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6Ill1c3Vwb3YsIEJla3pvZCAiLCJwcm9tcHQiOiJGb3lkYWxhbnV2Y2hpIGZvcm1hIG1heWRvbmlnYSBv4oCYemluaW5nIGlzbWkgdmEgZmFtaWxpeWFzaW5pIGtpcml0ZGkuIElzbSB2YSBmYW1pbGl5YSBxYXlzaSB0YXJ0aWJkYSBraXJpdGlsZ2FuaW5pIGFuaXEgYmlsbWF5bWl6LCBhbW1vIGJpemdhIHUgcXV5aWRhZ2kgZm9ybWF0ZGEgYm%2FigJhsaXNoaSBrZXJhazogPEZhbWlsaXlhPiwgPElzbT4uXG5cbklsdGltb3MsIHF1eWlkYWdpIGlzbW5pIGt1dGlsZ2FuIGZvcm1hdGdhIG%2FigJh0a2F6aW5nOiBCZWt6b2QgWXVzdXBvdiIsIm1vZGVsIjoiZ3B0LTMuNS10dXJibyJ9"
   style={{
     width: "100%",
     height: "400px",
@@ -38,9 +38,9 @@ Bu prompt muhandisligi ko'nikmalaringizni oshirish uchun qiziqarli mashq!
 
 ### Shaxsiy ma'lumotlarni olib tashlash misoli
 
-PII ni olib tashlash yana bir muhim vazifa hisoblanadi. Maxfiy hujjatlarni chiqarishdan oldin, kompaniyalar yoki hukumatlar hujjatlardan ma'lumotlarni qo'lda yashirishlari mumkin. Gen AI yordamida PII ni avtomatik tarzda olib tashlash mumkin, bu esa inson mehnatini sezilarli darajada kamaytiradi[^a][^b].
+PII ni olib tashlash yana bir muhim vazifa hisoblanadi. Maxfiy hujjatlarni chiqarishdan oldin, kompaniyalar yoki hukumatlar hujjatlardan ma'lumotlarni qo'lda yashirishlari mumkin. Gen AI yordamida PII ni avtomatik tarzda olib tashlash mumkin, bu esa inson mehnatini sezilarli darajada kamaytiradi[^1].
 
-```text
+<AIInput>
 Quyidagi savdo xatini o'qing. Har qanday shaxsiy ma'lumotlarni (PII) olib tashlang,
 va ularni mos o'rinbosar bilan almashtiring. Masalan, "John Doe" ismini
 with "[NAME]".
@@ -58,11 +58,11 @@ Jimmy Smith
 Phone: 410-805-2345
 Email: jimmysmith@cheapdealz.com
 
-```
+</AIInput>
 
 Mana AI javobi:
 
-```text
+<AIOutput>
 Hi [NAME],
 
 Men sizga yozayotganim sababi, yaqinda yangi mashina sotib olganingizni payqadim. Men savdo bo'yicha xodimman
@@ -76,7 +76,7 @@ Thanks,
 Telefon: [PHONE NUMBER]
 Email: [EMAIL ADDRESS]
 
-```
+</AIOutput>
 
 Modelning ko'rsatmalardan qanday xulosa chiqarishini ko'rish juda hayajonli. Masalan, u
 `Cheap Dealz` ni `[DEALERSHIP]` ga va `Jimmy Smith` ni `[SALESPERSON]` ga almashtirish kerakligini biladi, garchi
@@ -86,16 +86,16 @@ buni unga aniq aytmagan bo'lsak ham.
 
 Gen AI insho baholash va fikr-mulohaza berishda murakkab mezonlar asosida foydalanilishi mumkin. Bunga grammatika, aniqlik, izchillik va dalil sifati kabi elementlar kiradi.
 
-```text
+<AIInput>
 Quyidagi insho parchasini o'qing va quyidagi mezonlar asosida fikr-mulohaza bering: grammatika, aniqlik, izchillik, dalil sifati va dalillardan foydalanish. Har bir xususiyat uchun 1-10 oralig'ida baho bering va baho uchun asos keltiring.
 
 "Ko'pchilik ishonchiga qaramay, video o'yinlar zo'ravonlikka olib keladi degan g'oyani tasdiqlovchi aniq dalillar yo'q. Bu mavzudagi tadqiqotlar ko'pincha ziddiyatli va noaniq. Ba'zi tadqiqotlar korrelyatsiyani aniqlagan, lekin korrelyatsiya sababni anglatmaydi. Shuning uchun, jamiyatdagi zo'ravonlik uchun video o'yinlarni ayblashga hali erta."
 
-```
+</AIInput>
 
 AI javobi:
 
-```text
+<AIOutput>
 Xususiyat: Grammatika
 Score: 9
 Asos: Insho asosan grammatik jihatdan to'g'ri, lekin kichik bir xato bor - 'correlation don't imply causation' o'rniga 'correlation doesn't imply causation' bo'lishi kerak.
@@ -112,12 +112,12 @@ Xususiyat: Dalil sifati
 Score: 7
 Asos: Keltirilgan dalil mantiqiy va asosli, lekin muallifning mavzuga bo'lgan pozitsiyasi aniqroq ifodalansa, dalil kuchaygan bo'lardi.
 
-```
+</AIOutput>
 
 ## Xulosa
 
 Ko'rsatma prompting Gen AI ga biror vazifa yoki yo'nalish berishdan iborat. Garchi bu tushuncha oddiy bo'lsa-da, Gen AI lar juda murakkab ko'rsatmalarga ham amal qila oladi. Ko'rsatma prompting ushbu kurs davomida tez-tez qo'llaniladi.
 
-[^a]: AI yordamida matndan PII ni olib tashlash istiqbolli yondashuv, lekin u juda ehtiyotkorlik bilan qo'llanilishi kerak, chunki xatoliklar bo'lishi mumkin.
-[^b]: Bu misolda, siz PII ni uchinchi tomon (masalan, ChatGPT dan foydalansangiz OpenAI) ga yuborayotganingizni ham inobatga olish kerak, va bu xizmatlar sizning promptlaringizni o'z ehtiyojlari uchun yozib olishi va ishlatishi mumkin.
-[^c]: Ushbu misolda biz boshqa Gen AI, GPT-3 dan foydalandik.
+[^1]: AI yordamida matndan PII ni olib tashlash istiqbolli yondashuv, lekin u juda ehtiyotkorlik bilan qo'llanilishi kerak, chunki xatoliklar bo'lishi mumkin.
+[^2]: Bu misolda, siz PII ni uchinchi tomon (masalan, ChatGPT dan foydalansangiz OpenAI) ga yuborayotganingizni ham inobatga olish kerak, va bu xizmatlar sizning promptlaringizni o'z ehtiyojlari uchun yozib olishi va ishlatishi mumkin.
+[^3]: Ushbu misolda biz boshqa Gen AI, GPT-3 dan foydalandik.

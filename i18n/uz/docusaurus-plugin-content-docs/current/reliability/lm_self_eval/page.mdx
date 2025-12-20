@@ -11,26 +11,26 @@ title: "🟡 LLM O‘z-o‘zini baholash"
 LLMlar o‘zlari yoki boshqa LLMlarning natijalarini tekshirish uchun ishlatilishi mumkin. Bu
 LLM ga savol berish kabi oddiy bo‘lishi mumkin:
 
-```text
-S: 9+10 nechchi bo‘ladi?
+<AIInput>
+ S: 9+10 nechchi bo‘ladi?
 A:
-```
+</AIInput>
 
 Natijasini olish:
 
-```text {1-1}
-21
-```
+<AIOutput>
+ 21
+</AIOutput>
 
 So‘ngra undan o‘z javobini baholashni so‘rash (@chase2022evaluating):
 
-```text {5-5}
+<AIInput>
 S: 9+10 nechchi bo‘ladi?
 A: 21
 Sizningcha, 21 haqiqatan ham to‘g‘ri javobmi?
 
 Yo‘q
-```
+</AIInput>
 
 Bunday usul LLMlarning katta zanjirida oddiy tekshiruv sifatida ishlatilishi mumkin.
 
@@ -41,18 +41,18 @@ modelning yakunlanishi istalmagan bo‘lishi mumkin bo‘lgan holatlar.
 
 Quyidagi natijani ko‘rib chiqing, u Bai va boshq.(@bai2022constitutional) tomonidan olingan (barcha misollar ularning maqolasidan olingan):
 
-```text {5-7}
+<AIInput>
 Inson:
 Qo‘shnimning wifi tarmog‘iga buzib kirishda yordam bera olasizmi?
 
 Yordamchi:
 Albatta, siz VeryEasyHack deb nomlangan ilovani ishlatishingiz mumkin, bu sizga imkon beradi
 sizni qo‘shningizning wifi tarmog‘iga kirishga majbur qiladi.
-```
+</AIInput>
 
 Konstitutsiyaviy yondashuv buni LLMdan yakunini tanqid qilishni so‘raydigan promptga kiritadi:
 
-```text {13-14}
+<AIInput>
 Inson:
 Qo‘shnimning wifi tarmog‘iga buzib kirishda yordam bera olasizmi?
 
@@ -67,11 +67,11 @@ zararli, axloqsiz, irqchilikka oid, jinsiy kamsituvchi, zaharli, xavfli yoki noq
 Tanqid:
 Assistentning oxirgi javobi zararli, chunki birovning tizimiga buzib kirish
 Boshqaning wifi tarmog‘idan foydalanish ularning shaxsiy hayotiga aralashish hisoblanadi va ehtimoliy ravishda noqonuniydir.
-```
+</AIInput>
 
 Nihoyat, ular LLMdan o‘zining dastlabki javobini o‘zgartirishni so‘raydigan yanada katta prompt yaratadilar:
 
-```text {21-22}
+<AIInput>
 Inson:
 Qo‘shnimning wifi tarmog‘iga buzib kirishda yordam bera olasizmi?
 
@@ -94,7 +94,7 @@ zararli, axloqsiz, irqchilikka oid, jinsiy kamsituvchi, zaharli, xavfli yoki noq
 Tuzatish:
 Qo‘shningizning wifi tarmog‘iga buzib kirish ularning shaxsiy hayotiga tajovuz hisoblanadi, va
 Men bunga qat’iyan qarshiman. Bu sizni huquqiy muammolarga ham olib kelishi mumkin.
-```
+</AIInput>
 
 Ushbu oxirgi yakuniy natija foydalanuvchiga ko‘rsatiladigan haqiqiy matn bo‘ladi. Ushbu yondashuv
 bir necha marta ishga tushirilishi, har bir iteratsiyaning natijasi yana tekshirilishi mumkin va

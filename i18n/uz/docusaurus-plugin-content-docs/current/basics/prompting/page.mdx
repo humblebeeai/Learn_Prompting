@@ -12,7 +12,7 @@ title: "🟢 ChatGPT bilan Prompting"
 
 
 Oldingi modulda biz sun'iy intellekt va insonlar sun'iy intellektlarga qanday qilib vazifalarni bajarishni ko'rsatishi mumkinligi haqida gaplashdik.
-Sun'iy intellektga vazifa berish uchun promptdan foydalanish prompting (@shin2020autoprompt) deb ataladi. Biz [ChatGPT](http://chat.openai.com)[^a] bilan promptingni o'rganamiz, bu juda mashhur Large Language Model bo'lib, matnni tushunishi va yozishi mumkin. Uni OpenAI ishlab chiqqan va hozirda eng oson ishlatiladigan Gen AI hisoblanadi. Bundan foydalanish ham butunlay bepul.
+Sun'iy intellektga vazifa berish uchun promptdan foydalanish prompting (@shin2020autoprompt) deb ataladi. Biz [ChatGPT](http://chat.openai.com)[^1] bilan promptingni o'rganamiz, bu juda mashhur Large Language Model bo'lib, matnni tushunishi va yozishi mumkin. Uni OpenAI ishlab chiqqan va hozirda eng oson ishlatiladigan Gen AI hisoblanadi. Bundan foydalanish ham butunlay bepul.
 
 ## ChatGPT ni sozlash
 
@@ -42,31 +42,31 @@ Endi ChatGPT ni sozlab oldik, keling, ba'zi promptlarni sinab ko'ramiz.
 
 Juda oddiy narsadan boshlaymiz: ChatGPT bizga maysaning rangini ayta oladimi?
 
+<AIInput>
+Maysa qanday rangda?
+</AIInput>
 
-#### Maysa qanday rangda?
-
-
-```text
+<AIOutput>
 Maysa yashil rangda.
-```
+</AIOutput>
 
 Haqiqatan ham ayta oladi, endi esa yanada foydaliroq misolni ko'ramiz.
 
 #### 2) Maqolani qisqacha bayon qilish
 
-Aytaylik, siz Florida shtatida qor yog'ishi haqida maqola o'qiyapsiz. Siz maqolaning asosiy g'oyalarini tezda bilmoqchisiz, shuning uchun o'qiyotgan narsangizni sun'iy intellektga ko'rsatasiz va qisqacha bayon so'raysiz[^b]:
+Aytaylik, siz Florida shtatida qor yog'ishi haqida maqola o'qiyapsiz. Siz maqolaning asosiy g'oyalarini tezda bilmoqchisiz, shuning uchun o'qiyotgan narsangizni sun'iy intellektga ko'rsatasiz va qisqacha bayon so'raysiz[^2]:
 
-```text
+<AIInput>
   AQSHning Florida shtatida, ayniqsa shtatning markaziy va janubiy hududlarida qor yog'ishi juda kam uchraydi. Shtatning shimoliy chekka hududlaridan tashqari, Florida shtatidagi aksariyat yirik shaharlarda hech qachon sezilarli darajada qor yog'ishi qayd etilmagan, lekin ba'zan juda oz miqdorda qor yoki havoda qor parchalari asrda bir necha marta kuzatilgan. Milliy ob-havo xizmati ma'lumotlariga ko'ra, Florida Keys va Key Westda so'nggi 300 yildan ortiq vaqt davomida, ya'ni Yevropaliklar bu hududni mustamlaka qilganidan beri, qor parchalari kuzatilmagan. Mayami, Fort-Loderdeyl va Palm-Bichda esa so'nggi 200 yildan ortiq vaqt ichida faqat bir marta havoda qor parchalari kuzatilgani ma'lum; bu 1977 yil yanvar oyida sodir bo'lgan. Har holda, Mayami, Fort-Loderdeyl va Palm-Bichda bu 1977 yilgi hodisadan oldin ham, keyin ham qor parchalari kuzatilmagan.
 
   Ushbu paragrafni bitta gapda qisqacha bayon qiling:
-```
+</AIInput>
 
 Mana ChatGPT ning javobi. O'qish ancha qisqaroq!
 
-```text
+<AIOutput>
   Floridada qor yog'ishi juda kam uchraydi, bundan tashqari shimoliy chekka hududlar, va so'nggi 200 yil ichida Mayami, Fort-Loderdeyl va Palm-Bich kabi yirik shaharlarda faqat bir marta havoda qor parchalari kuzatilgan.
-```
+</AIOutput>
 
 <Caution>
   Siz ehtimol biroz boshqacha natija ko'rasiz. Bu ushbu kursdagi ko'pchilik promptlar uchun shunday bo'ladi. Nima uchunligini keyingi modulda o'rganamiz.
@@ -76,19 +76,19 @@ Mana ChatGPT ning javobi. O'qish ancha qisqaroq!
 
 ChatGPT matematik masalalarni ham yecha oladi! Keling, unga oddiy masala bilan prompt beramiz.
 
-```text
+<AIInput>
   Agar menda 20 ta olma bo'lsa, ularning uchtasini yeb qo'ysam va yana uchtasini sotsam, nechta olma qoladi?
-```
+</AIInput>
 
-```text
+<AIOutput>
   Agar sizda 20 ta olma bo'lsa va ularning uchtasini yeb qo'ysangiz, 20 - 3 = 17 ta olma qoladi.
 
   Uchta olmani yeb bo'lgach (17 ta qoldi), yana uchtasini sotsangiz, 17 - 3 = 14 ta olma qoladi.
-```
+</AIOutput>
 
 ## Xulosa
 
 Endi siz prompt nima ekanligini va ChatGPT bilan qanday qilib oddiy prompting qilishni bilishingiz kerak. E'tibor bering, _prompt_ so'zi fe'l yoki ot bo'lishi mumkin. Siz modelga _prompt_ bera olasiz yoki modelni _prompt_ qila olasiz. Bu ikki ibora bir xil ma'noni anglatadi. Modelga prompt berish harakati prompting deb ataladi. Keyingi darsda prompting haqida ko'proq bilib olamiz.
 
-[^a]: GPT-4 — OpenAI tomonidan ishlab chiqilgan yana bir model bo'lib, u yanada ilg'or, lekin pullik.
-[^b]: Ushbu paragraf [Vikipediya](https://en.wikipedia.org/wiki/Snow_in_Florida) manbasidan olingan
+[^1]: GPT-4 — OpenAI tomonidan ishlab chiqilgan yana bir model bo'lib, u yanada ilg'or, lekin pullik.
+[^2]: Ushbu paragraf [Vikipediya](https://en.wikipedia.org/wiki/Snow_in_Florida) manbasidan olingan

@@ -12,10 +12,10 @@ Ushbu kurs davomida biz LLM matematik qobiliyatini oshirish uchun qo‘llanilish
 
 MathPrompterda **to‘rt** bosqich mavjud. Biz ularni quyidagi misol muammosi yordamida tushuntirib beramiz. Misol to‘g‘ridan-to‘g‘ri maqoladan olingan.
 
-```text
+<AIInput>
 S: Restoranda har bir kattalar uchun ovqat 5 dollar turadi va bolalar bepul ovqatlanadi. Agar 15 kishilik guruh
 odamlar keldi va 8 tasi bolalar edi, guruh uchun ovqatlanish qancha turadi?
-```
+</AIInput>
 
 ## 1-qadam: Algebraik shablonni yarating
 
@@ -81,34 +81,34 @@ Moslashtirish: {A: 5, B: 15, C: 8}
 
 Algebraic:
 
-```text
-Javob = 5 * 15 - 5 * 8
-```
+<AIInput>
+ Javob = 5 * 15 - 5 * 8
+</AIInput>
 
 Python funksiyasi:
 
-```python
+<AIInput>
 def restaurant_cost(A=5, B=15, C=8):
   return A * (B - C)
-```
+</AIInput>
 
 Biz ikkala usulni ham Python yordamida baholashimiz mumkin.
 
 Algebraic:
 
-```python
+<AIInput>
 >
 > eval("5 * 15 - 5 * 8")
 35
-```
+</AIInput>
 
 Python funksiyasi:
 
-```python
+<AIInput>
 >
 > restaurant_cost()
 35
-```
+</AIInput>
 
 ## 4-qadam: O‘z-o‘zini izchillik
 

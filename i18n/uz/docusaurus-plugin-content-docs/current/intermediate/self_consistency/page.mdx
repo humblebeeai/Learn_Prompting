@@ -16,7 +16,7 @@ Keling, elektron pochta xabarlarini tahlil qilishning oddiy misolini ko'rib chiq
 
 Quyida siz olishingiz mumkin bo'lgan xat namunasi keltirilgan:
 
-```text
+<AIInput>
 Salom,
 
 Men tizimingizda katta xavfsizlik zaifligini aniqladim. Garchi bu
@@ -26,11 +26,11 @@ konsept isbotini ilova qildim. Iltimos, bu muammoni imkon qadar tezroq bartaraf 
 Hurmat bilan,
 
 Donny
-```
+</AIInput>
 
 Keling, buni promptga joylaymiz:
 
-```text
+<AIInput>
 Salom,
 
 Men tizimingizda katta xavfsizlik zaifligini aniqladim. Garchi bu
@@ -42,26 +42,26 @@ Hurmat bilan,
 Donny
 
 Yuqoridagi xatni dasturiy ta'minot kompaniyasiga tegishli ravishda MUHIM yoki MUHIM EMAS deb tasniflang. Keling, bosqichma-bosqich o'ylaymiz.
-```
+</AIInput>
 
 Endi, yuqoridagi promptdan foydalanib, bir nechta alohida yakunlar/tafakkur zanjirlarini hosil qilamiz. Mana bir nechta misollar:
 
-```text {1-3}
+<AIInput>
 Yuboruvchi tizimda katta xavfsizlik zaifligini aniqlagan.
 Bu muhim, chunki bu ma'lumotlar sizib chiqishiga olib kelishi mumkin.
 Men bu xatni MUHIM deb tasniflayman
-```
+</AIInput>
 
-```text {1-3}
+<AIInput>
 Yuboruvchi tizimda katta xavfsizlik zaifligini aniqlagan, lekin ular hech qanday konsept isbotini taqdim etmagan va undan foydalanish oson emas.
 Men bu xatni MUHIM EMAS deb tasniflayman
-```
+</AIInput>
 
-```text {1-3}
+<AIInput>
 Yuboruvchi ehtimol xaker va tizimga kirish imkoniga ega bo'lishi mumkin.
 Bu muhim, chunki bu ma'lumotlar sizib chiqishiga olib kelishi mumkin.
 Men bu xatni MUHIM deb tasniflayman
-```
+</AIInput>
 
 Ko'plab tafakkur zanjirlarini hosil qilib, eng ko'p uchraydigan javobni (`MUHIM`) tanlash orqali GPT-3 dan yanada izchil va to'g'ri javob olishimiz mumkin.
 

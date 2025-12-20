@@ -14,7 +14,7 @@ Keling, GPT yordamida LSAT[^1] savolini yechamiz!
 Quyida LSAT savoliga misol keltirilgan. Siz ham uni qanday javoblashni o‘ylab ko‘ring
 va o‘z mulohazalaringizni ham.
 
-```md {1-1}
+<AIInput>
 Vusterlik Jon, ingliz rohibi, 1128-yil 8-dekabrda g‘ayrioddiy darajada katta bo‘lgan ikkita quyosh dog‘ini kuzatganini qayd etgan. Besh kundan so‘ng, janubiy Koreyada yorqin aurora borealis (shimoliy yog‘du) kuzatilgan. Quyosh dog‘lari faolligi odatda aurora borealis paydo bo‘lishidan oldin bo‘ladi, bu oraliq o‘rtacha besh kunni tashkil qiladi. Demak, Koreyada kuzatilgan hodisa Vusterlik Jonning kuzatuvini tasdiqlashga yordam beradi. Quyidagilardan qaysi biri to‘g‘ri bo‘lsa, ushbu dalilni eng ko‘p kuchaytiradi?
 
 a) Ba’zan aurora borealis avvalgi haftada hech qanday muhim quyosh dog‘i faolligi bo‘lmagan taqdirda ham yuzaga kelishi mumkin.
@@ -22,7 +22,7 @@ b) Xitoy manbalari Vusterlik Jondan 1000 yildan ko‘proq avvalgi quyosh dog‘l
 c) Faqat kuchli quyosh dog‘lari faolligi Koreya kabi past kenglikda aurora borealisni ko‘rishga olib kelishi mumkin edi.
 d) Quyosh dog‘larini oddiy ko‘z bilan kunduzgi odatiy sharoitda ko‘rish imkonsiz bo‘lgani uchun, Vusterlik Jon qayd etgan kuzatuv g‘ayrioddiy ob-havo sharoitida, masalan, tuman yoki yupqa bulutlar ostida sodir bo‘lgan bo‘lishi mumkin.
 e) Vusterlik Jonning hisobotida quyosh dog‘larining chizmasi ham bo‘lgan, bu esa quyosh dog‘lari faolligining eng qadimgi tasviri bo‘lishi mumkin.
-```
+</AIInput>
 
 <details>
   <summary>To'g'ri javob ...</summary>
@@ -69,13 +69,12 @@ Model ishlamadi. Bu model bu turdagi savollarga javob bera olmaydi degani emasmi
 
 Yuqorida ishlatilgan standart prompt GPT javobining “mantiqiy” asoslarini deyarli ochib bermaydi. Biz `let's explain step by step` iborasini qo‘shib ko‘rishimiz mumkin:
 
-```markdown
+<AIInput>
 ...
 e) Vusterlik Jonning hisobotida quyosh dog‘larining chizmasi ham bo‘lgan, bu esa quyosh dog‘lari faolligining eng qadimgi tasviri bo‘lishi mumkin.
 
 Keling, bosqichma-bosqich tushuntiramiz
-```
-
+</AIInput>
 Bu ibora modelning javobini batafsilroq qiladi. Siz quyidagicha natija olishingiz mumkin:
 
 <iframe
@@ -106,12 +105,10 @@ Ko‘p tanlovli savollar uchun asosiy promptimizga ba’zi variantlar:
 
 Savoldagi bandlarni tartibini o‘zgartirishimiz mumkin
 
-```
-...
-a) John of Worcester's account included a drawing of the sunspots, which could be the earliest illustration of sunspot activity.
-b) Because it is impossible to view sunspots with the naked eye under typical daylight conditions, the sighting recorded by John of Worcester would have taken place under unusual weather conditions such as fog or thin clouds.
-...
-```
+<AIInput>
+… a) Vusterlik Jonning qaydlarida quyosh dog‘larining chizmasi ham keltirilgan bo‘lib, bu quyosh dog‘lari faoliyatining eng qadimgi tasvirlaridan biri bo‘lishi mumkin.
+b) Odatdagi kunduzgi sharoitda quyosh dog‘larini yalang‘och ko‘z bilan ko‘rish imkonsiz bo‘lgani sababli, Vusterlik Jon tomonidan qayd etilgan kuzatuv noodatiy ob-havo sharoitlarida — masalan, tuman yoki yupqa bulutlar paytida — sodir bo‘lgan bo‘lishi kerak.
+</AIInput>
 
 <iframe
   src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6IkEpIFdlYWtlbnMgLSBUaGlzIG9wdGlvbiB3ZWFrZW5zIHRoZSBhcmd1bWVudCBiZWNhdXNlIGl0IGltcGxpZXMgdGhhdCB0aGUgYXVyb3JhIGJvcmVhbGlzIGRpZCBub3QgbmVjZXNzYXJpbHkgbmVlZCB0byBiZSBjYXVzZWQgYnkgc3Vuc3BvdCBhY3Rpdml0eSwgd2hpY2ggaXMgdGhlIGFyZ3VtZW50IHRoZSBhdXRob3IgaXMgdHJ5aW5nIHRvIG1ha2UuIEIpIERvZXNuJ3QgSW1wYWN0IC0gVGhpcyBvcHRpb24gZG9lcyBub3QgaW1wYWN0IHRoZSBhcmd1bWVudCBiZWNhdXNlIGl0IGlzIHVucmVsYXRlZCB0byB0aGUgY29ubmVjdGlvbiBiZXR3ZWVuIHRoZSBzdW5zcG90cyBhbmQgdGhlIGFwcGVhcmFuY2Ugb2YgdGhlIGF1cm9yYSBib3JlYWxpcy4gQykgU3RyZW5ndGhlbnMgLSBUaGlzIG9wdGlvbiBzdHJlbmd0aGVucyB0aGUgYXJndW1lbnQgYmVjYXVzZSBpdCBzdWdnZXN0cyB0aGF0IHRoZSBvbmx5IHdheSBhbiBhdXJvcmEgYm9yZWFsaXMgY291bGQgYmUgc2VlbiBpbiBLb3JlYSBpcyBpZiB0aGVyZSBoYWQgYmVlbiBoZWF2eSBzdW5zcG90IGFjdGl2aXR5LCB3aGljaCBpcyB3aGF0IEpvaG4gb2YgV29yY2VzdGVyIG9ic2VydmVkLiBEKSBXZWFrZW5zIC0gVGhpcyBvcHRpb24gd2Vha2VucyB0aGUgYXJndW1lbnQgYmVjYXVzZSBpdCBpbXBsaWVzIHRoYXQgdGhlIGNvbmRpdGlvbnMgdW5kZXIgd2hpY2ggSm9obiBvZiBXb3JjZXN0ZXIgb2JzZXJ2ZWQgdGhlIHN1bnNwb3RzIG1heSBub3QgaGF2ZSBiZWVuIHJlbGlhYmxlLCB3aGljaCBjb3VsZCBjYXN0IGRvdWJ0IG9uIHRoZSBhY2N1cmFjeSBvZiBoaXMgc2lnaHRpbmcuIEUpIERvZXNuJ3QgSW1wYWN0IC0gVGhpcyBvcHRpb24gZG9lcyBub3QgaW1wYWN0IHRoZSBhcmd1bWVudCBiZWNhdXNlIGl0IGlzIHVucmVsYXRlZCB0byB0aGUgY29ubmVjdGlvbiBiZXR3ZWVuIHRoZSBzdW5zcG90cyBhbmQgdGhlIGFwcGVhcmFuY2Ugb2YgdGhlIGF1cm9yYSBib3JlYWxpcy4iLCJwcm9tcHQiOiJKb2huIG9mIFdvcmNlc3RlciwgYW4gRW5nbGlzaCBtb25rLCByZWNvcmRlZCB0aGUgc2lnaHRpbmcsIG9uIERlY2VtYmVyIDgsIDExMjgsIG9mIHR3byB1bnVzdWFsbHkgbGFyZ2Ugc3Vuc3BvdHMuIEZpdmUgZGF5cyBsYXRlciBhIGJyaWxsaWFudCBhdXJvcmEgYm9yZWFsaXMgKG5vcnRoZXJuIGxpZ2h0cykgd2FzIG9ic2VydmVkIGluIHNvdXRoZXJuIEtvcmVhLiBTdW5zcG90IGFjdGl2aXR5IGlzIHR5cGljYWxseSBmb2xsb3dlZCBieSB0aGUgYXBwZWFyYW5jZSBvZiBhbiBhdXJvcmEgYm9yZWFsaXMsIGFmdGVyIGEgc3BhbiBvZiB0aW1lIHRoYXQgYXZlcmFnZXMgZml2ZSBkYXlzLiBUaHVzLCB0aGUgS29yZWFuIHNpZ2h0aW5nIGhlbHBzIHRvIGNvbmZpcm0gSm9obiBvZiBXb3JjZXN0ZXIncyBzaWdodGluZy4gV2hpY2ggb25lIG9mIHRoZSBmb2xsb3dpbmcsIGlmIHRydWUsIG1vc3Qgc3RyZW5ndGhlbnMgdGhlIGFyZ3VtZW50P1xuYSkgSm9obiBvZiBXb3JjZXN0ZXIncyBhY2NvdW50IGluY2x1ZGVkIGEgZHJhd2luZyBvZiB0aGUgc3Vuc3BvdHMsIHdoaWNoIGNvdWxkIGJlIHRoZSBlYXJsaWVzdCBpbGx1c3RyYXRpb24gb2Ygc3Vuc3BvdCBhY3Rpdml0eS4gXG5iKSBCZWNhdXNlIGl0IGlzIGltcG9zc2libGUgdG8gdmlldyBzdW5zcG90cyB3aXRoIHRoZSBuYWtlZCBleWUgdW5kZXIgdHlwaWNhbCBkYXlsaWdodCBjb25kaXRpb25zLCB0aGUgc2lnaHRpbmcgcmVjb3JkZWQgYnkgSm9obiBvZiBXb3JjZXN0ZXIgd291bGQgaGF2ZSB0YWtlbiBwbGFjZSB1bmRlciB1bnVzdWFsIHdlYXRoZXIgY29uZGl0aW9ucyBzdWNoIGFzIGZvZyBvciB0aGluIGNsb3Vkcy4gXG5jKSBBbiBhdXJvcmEgYm9yZWFsaXMgY2FuIHNvbWV0aW1lcyBvY2N1ciBldmVuIHdoZW4gdGhlcmUgaGFzIGJlZW4gbm8gc2lnbmlmaWNhbnQgc3Vuc3BvdCBhY3Rpdml0eSBpbiB0aGUgcHJldmlvdXMgd2Vlay4gXG5kKSBDaGluZXNlIHNvdXJjZXMgcmVjb3JkZWQgdGhlIHNpZ2h0aW5nIG9mIHN1bnNwb3RzIG1vcmUgdGhhbiAxMDAwIHllYXJzIGJlZm9yZSBKb2huIG9mIFdvcmNlc3RlciBkaWQuIFxuZSkgT25seSBoZWF2eSBzdW5zcG90IGFjdGl2aXR5IGNvdWxkIGhhdmUgcmVzdWx0ZWQgaW4gYW4gYXVyb3JhIGJvcmVhbGlzIHZpZXdhYmxlIGF0IGEgbGF0aXR1ZGUgYXMgbG93IGFzIHRoYXQgb2YgS29yZWEuIFxuTGV0J3MgZXhwbGFpbiBzdGVwIGJ5IHN0ZXAiLCJtb2RlbCI6InRleHQtZGF2aW5jaS0wMDMifQ%3D%3D"
@@ -129,15 +126,15 @@ b) Because it is impossible to view sunspots with the naked eye under typical da
 
 Asl prompt quyidagicha edi:
 
-```
-Which one of the following, if true, most strengthens the argument?
-```
+<AIInput>
+Quyidagilardan qaysi biri, agar to‘g‘ri bo‘lsa, dalilni eng ko‘p kuchaytiradi?
+</AIInput>
 
 Promptni quyidagicha o‘zgartirishimiz mumkin:
 
-```
-Identify each choice as strengthens, weakens or doesn't impact the argument.
-```
+<AIInput>
+Har bir variantni dalilni kuchaytiradimi, zaiflashtiradimi yoki unga ta’sir qilmaydimi — aniqlang.
+</AIInput>
 
 javob variantini yanada chuqurroq tahlil qilish uchun.
 
@@ -157,16 +154,17 @@ javob variantini yanada chuqurroq tahlil qilish uchun.
 
 Mana Bayes teoremasidan foydalanib oson yechiladigan muammo misoli:
 
-```
-Consider two medical tests, A and B, for a virus. Test A is 90% effective at recognizing the virus when it is present, but has a 5% false positive rate (indicating that the virus is present, when it is not). Test B is 95% effective at recognizing the virus, but has a 10% false positive rate. The two tests use independent methods of identifying the virus. The virus is carried by 2% of all people.
+<AIInput>
+Ikki xil tibbiy test — A va B — virusni aniqlash uchun qo‘llaniladi, deb hisoblaylik.
+A testi virus mavjud bo‘lsa, uni 90% aniqlik bilan aniqlaydi, ammo 5% noto‘g‘ri ijobiy natija beradi (ya’ni virus yo‘q bo‘lsa ham bor deb ko‘rsatadi).
+B testi virusni 95% aniqlik bilan aniqlaydi, biroq 10% noto‘g‘ri ijobiy natija beradi.
+Ikkala test virusni aniqlashda mustaqil usullardan foydalanadi.
+Virus umumiy aholining 2% ida uchraydi.
 
-(a) Say that a person is tested for the virus using only Test A. What is the probability that the person
-is really carrying the virus given that Test A came back positive? (2 points)
-(b) Say that a person is tested for the virus using only Test B. What is the probability that the person
-is really carrying the virus given that Test B came back positive? (2 points)
-(c) Say that a person is tested for the virus using both tests. What is the probability that the person is
-really carrying the virus given that both tests came back positive? (2 points)
-```
+(a) Faraz qilaylik, bir kishi faqat A testi bilan tekshirildi. Agar A testi ijobiy natija ko‘rsatgan bo‘lsa, ushbu kishining haqiqatan ham virusni tashuvchi bo‘lish ehtimoli qanday? (2 ball)
+(b) Faraz qilaylik, bir kishi faqat B testi bilan tekshirildi. Agar B testi ijobiy natija ko‘rsatgan bo‘lsa, ushbu kishining haqiqatan ham virusni tashuvchi bo‘lish ehtimoli qanday? (2 ball)
+(c) Faraz qilaylik, bir kishi ikkala test bilan ham tekshirildi. Agar ikkala test ham ijobiy natija ko‘rsatgan bo‘lsa, ushbu kishining haqiqatan ham virusni tashuvchi bo‘lish ehtimoli qanday? (2 ball)
+</AIInput>
 
 Buni GPT bilan sinab ko‘ramiz:
 
@@ -186,10 +184,10 @@ Natija **noto‘g‘ri**!
 
 Agar biroz kontekst qo‘shsak, masalan:
 
-```
+<AIInput>
 ...
-Let's explain step by step. The formula for bayes is
-```
+Keling, bosqichma-bosqich tushuntiraylik. Bayes formulasi:
+</AIInput>
 
 Model to‘g‘ri formula, ya’ni Bayesdan foydalanadi.
 

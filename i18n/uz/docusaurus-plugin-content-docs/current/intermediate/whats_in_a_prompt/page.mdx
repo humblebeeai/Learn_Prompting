@@ -6,7 +6,7 @@ title: "🟢 Promptda nima bor?"
 
 # Promptda nima bor?
 
-Til o‘rganish modellari (LLM) uchun promptlar tuzishda bir nechta omillarni hisobga olish kerak. Format va labelspace[^a] prompt samaradorligida muhim rol o‘ynaydi.
+Til o‘rganish modellari (LLM) uchun promptlar tuzishda bir nechta omillarni hisobga olish kerak. Format va labelspace[^1] prompt samaradorligida muhim rol o‘ynaydi.
 
 ## Formatning ahamiyati
 
@@ -14,14 +14,17 @@ Promptdagi exemplarlar formati juda muhim. Bu LLMga javobini qanday tuzishni ko�
 
 Quyidagi misolni ko‘rib chiqing:
 
-```text
+<AIInput>
 2+2 nechiga teng?
-FIFTY
+ELLIK
+
 20+5 nechiga teng?
-FORTY-THREE
+QIRQ UCH
+
 12+9 nechiga teng?
-TWENTY-ONE
-```
+YIGIRMA BIR
+
+</AIInput>
 
 Noto‘g‘ri javoblarga qaramay, LLM o‘z javobini to‘g‘ri formatda, barcha harflarni katta qilib yozadi (@min2022rethinking).
 
@@ -41,4 +44,4 @@ Prompt yaratishda 4-8 ta exemplar ishlatish odatda yaxshi natija beradi (@min202
 
 Xulosa qilib aytganda, format, ground truth va labelspace ahamiyatini tushunish promptlaringiz samaradorligini sezilarli darajada oshirishi mumkin.
 
-[^a]: Batafsil ma’lumot uchun [vocabulary reference](https://learnprompting.org/docs/vocabulary#labels) ga qarang.
+[^1]: Batafsil ma’lumot uchun [vocabulary reference](https://learnprompting.org/docs/vocabulary#labels) ga qarang.

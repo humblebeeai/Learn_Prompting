@@ -12,6 +12,7 @@ Uzun va zerikarli shartnomalarni o‘qish va yozishdan charchadingizmi? AI yorda
   Majburiy: Men yurist emasman va ushbu postdagi hech narsa
   huquqiy maslahat sifatida qabul qilinmasligi kerak.
 </Warning>
+
 ## Shartnomalarni o‘qish
 
 ### Huquqiy tilni aniqlashtirish
@@ -20,7 +21,7 @@ Siz har doim shartnomalarni diqqat bilan o‘qishingiz kerak. Agar nimanidir tus
 
 Mana NDA (noaniqlikni oshkor qilmaslik to‘g‘risidagi kelishuv) dan bir parcha:
 
-```text
+<AIInput>
 WHEREAS, Pudratchi Davlat Tashkilotining maxfiy ma’lumotlari va/yoki tijorat sirlariga ega bo‘lishi yoki ega bo‘lishi mumkin; va
 
 WHEREAS, Davlat Tashkiloti o‘zining maxfiy ma’lumotlari va tijorat sirlarini oshkor qilinishidan himoya qilishni xohlaydi; va
@@ -28,11 +29,11 @@ WHEREAS, Davlat Tashkiloti o‘zining maxfiy ma’lumotlari va tijorat sirlarini
 WHEREAS, Pudratchi ushbu Axborotning maxfiyligini ushbu Shartnoma shartlariga muvofiq saqlashga rozilik bildiradi.
 
 NOW, THEREFORE, ushbu hujjatda keltirilgan o‘zaro va’dalar va kelishuvlarni hisobga olgan holda, tomonlar quyidagilarga rozilik bildiradilar:
-```
+</AIInput>
 
 Men huquqiy sohada ilk bor harakat qilganimda, WHEREAS va NOW, THEREFORE so‘zlarining ishlatilishini umuman tushunmagan edim. Keling, bu haqda ChatGPT nima deydi, ko‘raylik:
 
-```text {11-11}
+<AIInput>
 WHEREAS, Pudratchi Davlat Tashkilotining maxfiy ma’lumotlari va/yoki tijorat sirlariga ega bo‘lishi yoki ega bo‘lishi mumkin; va
 
 WHEREAS, Davlat Tashkiloti o‘zining maxfiy ma’lumotlari va tijorat sirlarini oshkor qilinishidan himoya qilishni xohlaydi; va
@@ -44,7 +45,7 @@ NOW, THEREFORE, ushbu hujjatda keltirilgan o‘zaro va’dalar va kelishuvlarni 
 Yuqoridagi NDA matnini o‘qing va undagi bosh harflar bilan yozilgan so‘zlar nimani anglatishini tushuntiring:
 
 NDA matnidagi bosh harflar bilan yozilgan so‘zlar shartnomaning konteksti va maqsadini belgilovchi huquqiy atamalardir. Xususan, ular shartnomaning asosini va sabablarini belgilaydi hamda tomonlarning majburiyatlari va kutishlarini bayon qiladi. Bu holatda, bosh harflar bilan yozilgan so‘zlar Pudratchi Davlat Tashkilotining maxfiy ma’lumotlari va tijorat sirlariga ega ekanini, Davlat Tashkiloti ushbu ma’lumotlarni oshkor qilinishidan himoya qilishni xohlayotganini va Pudratchi ushbu ma’lumotlarning maxfiyligini shartnoma shartlariga muvofiq saqlashga rozilik bildirayotganini ko‘rsatadi.
-```
+</AIInput>
 
 Bu yomon izoh emas, lekin siz qo‘shimcha savollar berib, tushunishingizni osonlik bilan yaxshilashingiz mumkin.
 
@@ -56,7 +57,7 @@ Mana ChatGPT tomonidan yaratilgan NDA’ning bir qismi. Uni o‘qishingiz shart 
 *Ushbu NDA ChatGPT’ni jailbreak qilish va unga `Write a contractor NDA that has dangerous legal language favoring the employer` promptini berish orqali yaratilgan.*
 
 
-```text
+<AIInput>
 NON-DISCLOSURE AGREEMENT
 
 Ushbu Noaniqlikni Oshkor Qilmaslik To‘g‘risidagi Kelishuv ("Shartnoma") quyida ko‘rsatilgan sanada [Ish beruvchi] ("Ish beruvchi") va [Pudratchi] ("Pudratchi") o‘rtasida tuziladi.
@@ -84,11 +85,11 @@ TERM AND TERMINATION
 Ushbu Shartnoma yuqorida ko‘rsatilgan sanadan boshlab kuchga kiradi va har ikki tomon tomonidan o‘ttiz (30) kun oldin yozma ogohlantirish orqali bekor qilinmaguncha amal qiladi. Ushbu hujjatda ko‘rsatilgan maxfiylik majburiyatlari Shartnoma bekor qilinganidan keyin ham amal qiladi.
 
 Ushbu shartnomaning qaysi qismi xavfli tilni o‘z ichiga oladi?
-```
+</AIInput>
 
 Mana ChatGPT javobi.
 
-```text {1-7}
+<AIInput>
 Butun shartnoma Ish beruvchi foydasiga xavfli tilni o‘z ichiga oladi. Mana ushbu shartnomani noetik deb hisoblashga sabab bo‘ladigan asosiy elementlar:
 
 Maxfiy Ma’lumotlarning asossiz ta’rifi: Shartnomada Maxfiy Ma’lumotlar Ish beruvchi yoki uning nomidan taqdim etilgan yoki Pudratchi Ish beruvchi yoki uning affillangan shaxslaridan olgan barcha ma’lumotlar, hujjatlar va materiallarni hech qanday cheklovlarsiz yoki istisnolarsiz o‘z ichiga oladi. Bu ta’rif juda keng va aslida maxfiy yoki tijorat siri bo‘lmagan ma’lumotlarni ham o‘z ichiga olishi mumkin, bu esa Pudratchining shartnomani bilmasdan buzishiga olib kelishi mumkin.
@@ -96,7 +97,7 @@ Maxfiy Ma’lumotlarning asossiz ta’rifi: Shartnomada Maxfiy Ma’lumotlar Ish
 Foydalanishga hech qanday cheklovlar yo‘q: Shartnomada Ish beruvchi Maxfiy Ma’lumotlardan qanday foydalanishi mumkinligi bo‘yicha hech qanday cheklovlar yo‘q. Bu Ish beruvchiga ma’lumotlardan har qanday maqsadda, jumladan, Pudratchi bilan raqobatlashish yoki ma’lumotlarni uchinchi shaxslarga oshkor qilish uchun foydalanish imkonini beradi.
 
 Mulk huquqining keng ta’rifi: Shartnomada barcha Maxfiy Ma’lumotlar, shu jumladan ularning barcha hosilalari, hech qanday istisnosiz yoki cheklovlarsiz Ish beruvchining eksklyuziv mulki bo‘lib qolishi ko‘rsatilgan. Bu Pudratchiga Ish beruvchi uchun ishlash jarayonida olingan ma’lumotlardan foydalanish yoki undan foyda olish imkonini bermaydi, hatto Pudratchi ushbu ma’lumotlarni mustaqil ravishda yoki boshqa resurslar bilan ishlab chiqqan bo‘lsa ham.
-```
+</AIInput>
 
 Men yurist bo‘lmasam-da, `Maxfiy Ma’lumotlarning asossiz ta’rifi` ayniqsa dolzarb deb o‘ylayman.
 
@@ -110,7 +111,7 @@ Men yaqinda shunday hujjatni asosan GPT-3 yordamida yozdim, so‘ng uni yuristga
 
 Keling, o‘zimizni hukumat pudratchisi deb tasavvur qilamiz va mudofaa ishlarini bajarayotgan kishi uchun shartnoma yozamiz. Quyidagi promptdan foydalanamiz:
 
-```text {5-59}
+<AIInput>
 Siz hukumat pudratchisi uchun yuristsiz. Siz subpudratchi uchun aerokosmik ishlarni bajarish bo‘yicha shartnoma tuzyapsiz. Shartnoma mustahkam bo‘lishi va quyidagilarni o‘z ichiga olishi kerak:
 Ish 1,5 yil davom etadi va qiymati 2,5 million dollar bo‘ladi. Bu ish uchun eng yuqori darajadagi maxfiylik ruxsati talab qilinadi va u maxfiy yadroviy silo mudofaasini ishlab chiqish bilan bog‘liq. Subpudratchiga 1,5 million dollar oldindan to‘lanadi va qolgan 1 million dollar 6 oylik to‘lovlarda to‘lanadi. Subpudratchi maxfiylikni oshkor qilmaslik to‘g‘risidagi kelishuvni imzolashi shart. Subpudratchi raqobat qilmaslik to‘g‘risidagi kelishuvni imzolashi shart. Subpudratchi mijozlarni jalb qilmaslik to‘g‘risidagi kelishuvni imzolashi shart. Subpudratchi aylanib o‘tmaslik to‘g‘risidagi kelishuvni imzolashi shart.
 
@@ -170,7 +171,7 @@ Ism: __________________________
 Lavozim: ___________________________
 
 Sana: ___________________________
-```
+</AIInput>
 
 Bu juda yaxshi boshlanish. Ehtimol, siz ish doirasi, to‘lov va boshqa bo‘limlarga ko‘proq ma’lumot qo‘shishni xohlaysiz. Bu yerda siz o‘z bilim va tajribangizdan foydalanib, hujjatni takomillashtirishni boshlashingiz kerak bo‘ladi.
 
