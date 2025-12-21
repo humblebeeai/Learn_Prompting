@@ -1,25 +1,25 @@
 ---
 sidebar_position: 2
-title: "🔴 Tushuntiriladigan yumshoq promptlar"
+title: "🔴 Interpretable Soft Prompts"
 ---
 
 
-# Tushuntiriladigan yumshoq promptlar
+# Interpretable Soft Prompts
 
 Soft promptlar — bu vektorlardan iborat ketma-ketlikdir
-ular lug‘atdagi hech qanday haqiqiy tokenlarga mos kelmaydi. Bu esa promptni
+ular lug'atdagi hech qanday haqiqiy tokenlarga mos kelmaydi. Bu esa promptni
 talqin qilishni qiyinlashtiradi. Biroq, biz hali ham
-vektorlarni lug‘atdagi eng yaqin tokenlarga moslashtirish orqali buni amalga oshirishga harakat qilishimiz mumkin. Biroq, proyeksiya qilingan
-soft promptlar ko‘pincha beqaror bo‘ladi; ular
-vazifalarni yaxshi bajara oladi, lekin lug‘atdagi tasodifiy tokenlarga proyeksiya qilinishi mumkin (@khashabi2021prompt).
+vektorlarni lug'atdagi eng yaqin tokenlarga moslashtirish orqali buni amalga oshirishga harakat qilishimiz mumkin. Biroq, proyeksiya qilingan
+soft promptlar ko'pincha beqaror bo'ladi; ular
+vazifalarni yaxshi bajara oladi, lekin lug'atdagi tasodifiy tokenlarga proyeksiya qilinishi mumkin (@khashabi2021prompt).
 
-Masalan, agar biz GSM8K (@cobbe2021training) kabi matematika savollari ustida mashq qilayotgan bo‘lsak,
-boshlang‘ich promptimiz `Siz matematikasiz. Bu savolni yeching.:` bo‘lishi mumkin.
+Masalan, agar biz GSM8K (@cobbe2021training) kabi matematika savollari ustida mashq qilayotgan bo'lsak,
+boshlang'ich promptimiz `You are a mathematician. Solve this question:` bo'lishi mumkin.
 Agar biz unda prompt tuning bajarsak va uni yana tokenlar maydoniga proyeksiya qilsak,
-`Avtobus tirband. Buni shuyerda bajar:` kabi mantiqsiz bir narsa qolishi mumkin. Ko‘pincha
-shunday bo‘ladiki, ushbu mantiqsiz promptga mos keladigan soft prompt vazifada yaxshiroq natija berishi mumkin!
+`A bus is a bus. Do thing here:` kabi mantiqsiz bir narsa qolishi mumkin. Ko'pincha
+shunday bo'ladiki, ushbu mantiqsiz promptga mos keladigan soft prompt vazifada yaxshiroq natija berishi mumkin!
 
-## Yo‘ldan og‘ish gipotezasi(The Waywardness Hypothesis)
+## The Waywardness Hypothesis
 
 Khashabi va boshqalar (@khashabi2021prompt) ushbu ajoyib gipotezani ilgari surishadi. U shuni aytadiki,
 berilgan vazifa uchun, har qanday diskret maqsadli prompt uchun,
@@ -31,16 +31,16 @@ Bu shuni anglatadiki, 1000 xil vazifa uchun, bir xil diskret promptga mos keladi
 ## Interpretability Risks
 
 Ular Waywardness Hypothesis yordamida soft promptlarni talqin qilishda yuzaga keladigan
-bir qator xavflarni ko‘rsatib o‘tishadi. Xususan, soft prompt
-noto‘g‘ri maqsadni bildiruvchi diskret promptga proyeksiya qilinishi mumkin.
+bir qator xavflarni ko'rsatib o'tishadi. Xususan, soft prompt
+noto'g'ri maqsadni bildiruvchi diskret promptga proyeksiya qilinishi mumkin.
 
 Masalan, rezyumelarni tartiblash uchun soft promptni olaylik. Tokenlar maydoniga proyeksiya qilinganda,
-`Siz ishga qabul qilish bo‘yicha menejersiz. Yaxshi rezyumelarni reytinglab chiqing:` bo‘lishi mumkin. Bu yomon emasdek ko‘rinadi, lekin grammatik jihatdan
-biroz yetishmayotgandek. Biroq, `yaxshi` tokeni `oq` tokeniga o‘xshash proyeksiyaga ega bo‘lishi mumkin va
-promptda yashirin tarafkashlik mavjud bo‘lishi ehtimoli bor. Boshqa proyeksiya usulidan foydalansak,
-`Siz ishga qabul qilish bo‘yicha menejersiz. Oq rezyumelarni reytinglab chiqing:` bo‘lib qolishi mumkin. Bu esa, albatta,
+`You hiring manager. Rank good resumes:` bo'lishi mumkin. Bu yomon emasdek ko'rinadi, lekin grammatik jihatdan
+biroz yetishmayotgandek. Biroq, `good` tokeni `white` tokeniga o'xshash proyeksiyaga ega bo'lishi mumkin va
+promptda yashirin tarafkashlik mavjud bo'lishi ehtimoli bor. Boshqa proyeksiya usulidan foydalansak,
+`You hiring manager. Rank white resumes:` bo'lib qolishi mumkin. Bu esa, albatta,
 boshqacha va muhim oqibatlarga olib kelishi mumkin.
 
-Oddiy diskret promptni talqin qilgandek, biz promptda mavjud bo‘lishi mumkin bo‘lgan
-tarafkashliklardan juda ehtiyot bo‘lishimiz kerak. Ayniqsa
-soft promptlar bilan ishlaganda ehtiyotkor bo‘lishimiz zarur, chunki ularni talqin qilish yanada qiyin.
+Oddiy diskret promptni talqin qilgandek, biz promptda mavjud bo'lishi mumkin bo'lgan
+tarafkashliklardan juda ehtiyot bo'lishimiz kerak. Ayniqsa
+soft promptlar bilan ishlaganda ehtiyotkor bo'lishimiz zarur, chunki ularni talqin qilish yanada qiyin.

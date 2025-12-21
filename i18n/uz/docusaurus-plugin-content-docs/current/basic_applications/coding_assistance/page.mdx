@@ -25,13 +25,13 @@ Siz LLMlardan nosozliklarni tuzatish, kod generatsiyasi, formatlash, izoh yozish
 
 ChatGPT yoki boshqa har qanday LLM asosidagi AI chat-botdan kod generatsiya qilishni so‘rash juda oddiy:
 
-```text
+<AIInput>
 Junior python dasturchisi sifatida harakat qiling. Iltimos, har birida 6 tadan element bo‘lgan 3 ta massivdan: predloglar, fe’llar va otlardan madlibs generatsiya qiluvchi kod yozing, otlar to‘g‘ridan-to‘g‘ri ob’ekt sifatida ham ishlatiladi. Kodni yozgandan so‘ng uni bajaring.
-```
+</AIInput>
 
 Natija quyidagicha bo‘ladi:
 
-```python {1-13}
+```python
 import random
 
 prepositions = ['at', 'in', 'on', 'with', 'under', 'over']
@@ -47,8 +47,9 @@ madlib = f"I {verb} {preposition} the {noun}."
 print(madlib)
 ```
 
-Buyerda sinab ko'ring:
+Bu yerda sinab ko‘ring:
 
+<AIOutput>
 trydyno-embed=""
 openai-model="text-davinci-003"
 initial-prompt="Act as a junior python programmer. Please write the code to generate madlibs from 3 arrays of 6 items each: prepositions, verbs and nouns, with the nouns also being used as direct objects."
@@ -59,6 +60,8 @@ initial-response=""
   top-p="0"
 >
   <noscript>Failed to load Dyno Embed: JavaScript must be enabled</noscript>
+
+</AIOutput>
 
 ## Kodni izohlash va formatlash
 

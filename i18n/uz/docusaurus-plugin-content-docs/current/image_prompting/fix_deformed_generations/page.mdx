@@ -6,41 +6,38 @@ title: "🟢 Deformatsiyalangan Avlodlarni Tuzatish"
 
 # Deformatsiyalangan Avlodlarni Tuzatish
 
-Deformatsiyalangan avlodlar, ayniqsa inson tanasining qismlarida (masalan, qo‘l, oyoq) ko‘plab modellarda uchraydigan muammolardan biridir. Buni ma’lum darajada yaxshi negativ promptlar yordamida hal qilish mumkin (@blake2022with). Quyidagi misol [ushbu Reddit postidan](https://www.reddit.com/r/StableDiffusion/comments/z7salo/with_the_right_prompt_stable_diffusion_20_can_do/) moslashtirilgan.
+Deformatsiyalangan avlodlar, ayniqsa inson tanasining qismlarida (masalan, qo'l, oyoq) ko'plab modellarda uchraydigan muammolardan biridir. Buni ma'lum darajada yaxshi negativ promptlar yordamida hal qilish mumkin (@blake2022with). Quyidagi misol [ushbu Reddit postidan](https://www.reddit.com/r/StableDiffusion/comments/z7salo/with_the_right_prompt_stable_diffusion_20_can_do/) moslashtirilgan.
 
 ## Misol
 
-Stable Diffusion v1.5 va quyidagi promptdan foydalanib, biz Brad Pittning chiroyli suratini yaratamiz, albatta, qo‘llaridan tashqari!
+Stable Diffusion v1.5 va quyidagi promptdan foydalanib, biz Brad Pittning chiroyli suratini yaratamiz, albatta, qo'llaridan tashqari!
 
 
 **Prompt:**
 
-```text
-Brad Pitt ning qo‘llarini silkitib turgan studiya sharoitidagi o‘rta formatdagi portreti, batafsil, kinouslubda,
- studiya yoritilishi bilan, 90 mm obyektiv, Martin Shoeller tomonidan:6
-```
+<AIInput>
+Studiyada olingan o‘rta formatdagi portret: Brad Pitt qo‘llarini silkitib turibdi, batafsil tasvir, kino uslubi, studiya yoritilishi, 90 mm linza, Martin Shoeller tomonidan: 6
+</AIInput>
 
 
 
 
-Kuchli negativ promptdan foydalansak, ancha ishonarli qo‘llarni yaratishimiz mumkin.
+Kuchli negativ promptdan foydalansak, ancha ishonarli qo'llarni yaratishimiz mumkin.
 
 
 **Prompt:**
 
-```text
-Brad Pitt ning qo‘llarini silkitib turgan studiya sharoitidagi o‘rta formatdagi portreti,
-batafsil, kinouslubda, studiya yoritilishi bilan, 90 mm obyektiv, Martin Shoeller tomonidan:6 | buzilgan, deformatsiyalangan qo‘llar, xira, donador, singan, qiyshiq ko‘zli, o‘liksimon, Photoshop qilingan, ortiqcha yoritilgan, kam yoritilgan, past aniqlik, yomon anatomiya, yomon qo‘llar, ortiqcha barmoqlar,
- kam barmoqlar, yomon barmoq, yomon quloqlar, yomon ko‘zlar, yomon yuz, kesilgan: -5
-```
+<AIInput>
+Studiyada olingan o‘rta formatdagi portret: Brad Pitt qo‘llarini silkitib turibdi, batafsil tasvir, kino uslubi, studiya yoritilishi, 90 mm linza, Martin Shoeller tomonidan: 6 | nuqsonli, deformatsiyalangan qo‘llar, xiralashgan, donador, buzilgan, qiyshiq ko‘zli, o‘liksifat, fotoshop qilingan, ortiqcha yoritilgan, kam yoritilgan, past aniqlik, yomon anatomiya, yomon qo‘llar, ortiqcha barmoqlar, kam barmoqlar, noto‘g‘ri barmoqlar, yomon quloqlar, yomon ko‘zlar, yomon yuz, kesib tashlangan: -5
+</AIInput>
 
 
 
-Shunga o‘xshash negativ promptdan foydalanish boshqa tana qismlarida ham yordam berishi mumkin. Afsuski, bu usul doimiy natija bermaydi, shuning uchun yaxshi natijaga erishish uchun bir necha marta avlodlarni sinab ko‘rishingiz kerak bo‘ladi
+Shunga o'xshash negativ promptdan foydalanish boshqa tana qismlarida ham yordam berishi mumkin. Afsuski, bu usul doimiy natija bermaydi, shuning uchun yaxshi natijaga erishish uchun bir necha marta avlodlarni sinab ko'rishingiz kerak bo'ladi
 yaxshi natijaga erishishdan oldin.
-Kelajakda, bunday prompting keraksiz bo‘ladi, chunki modellar yaxshilanadi.
+Kelajakda, bunday prompting keraksiz bo'ladi, chunki modellar yaxshilanadi.
 Biroq, hozirda bu juda foydali usul hisoblanadi.
 
 # Eslatmalar
 
-[Protogen](https://civitai.com/models/3666/protogen-x34-official-release) kabi yaxshilangan modellar ko‘pincha qo‘l, oyoq va boshqalarda yaxshiroq natija beradi.
+[Protogen](https://civitai.com/models/3666/protogen-x34-official-release) kabi yaxshilangan modellar ko'pincha qo'l, oyoq va boshqalarda yaxshiroq natija beradi.

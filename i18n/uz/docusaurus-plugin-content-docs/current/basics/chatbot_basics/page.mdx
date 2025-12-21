@@ -22,48 +22,46 @@ ChatGPT kabi chatbotlar interaktiv suhbatlarni taqlid qilish uchun yaratilgan. S
 
 ## Oddiy chatbot bo'lmagan tizimlar
 
-GPT-3 completion (to‘ldirish) turiga mansub model bo‘lib, chat interfeysiga ega emas. Quyida u ChatGPTdan qanday farq qilishini ko'rsatadigan misol keltirilgan:
+GPT-3 bu `complete` turdagi model bo'lib, `chat` emas[^1]. Quyida u ChatGPTdan qanday farq qilishini ko'rsatadigan misol keltirilgan:
 
 
 **Prompt:**
 
-```text
-2 + nechaga teng?
-```
+<AIInput>
+2+2 nechaga teng?
+</AIInput>
 
 
 
 **AI javobi (GPT-3 output):**
 
-```text
-2
-
+<AIOutput>
   2+2 = 4
-```
+</AIOutput>
 
 
 
 **AI javobi (ChatGPT output):**
 
-```text
+<AIOutput>
 Ko'rinishidan, siz savolingizni to'liq yozmadingiz. Agar siz "2 + 2 nechiga teng?" deb so'ramoqchi bo'lgan bo'lsangiz, javobi 4 bo'ladi. Agar boshqa savolingiz bo'lsa yoki qo'shimcha yordam kerak bo'lsa, bemalol so'rang!
-```
+</AIOutput>
 
 
-Ko'rib turibmizki, GPT-3 bizning kiritgan matnimizni eng ehtimoliy keyingi belgilar bilan to'ldirdi. Boshqa tomondan, ChatGPT biz suhbatda to'satdan gapirishni to'xtatgandek javob berdi. Chatbotlarning suhbatdoshligi ularni ishlatishni yanada tabiiy his qiladi, shuning uchun ko'pchilik ularni boshqa sun'iy intellektlardan afzal ko'radi. Biroq, chatbotlar yaxshiroq bo'lishining eng muhim sababi shundaki, OpenAI va Anthropic kabi kompaniyalar juda aqlli chatbotlar yaratgan va ular sizning promptlaringizga yaxshiroq javob bera oladi.
+Ko'rib turibmizki, GPT-3 bizning kiritgan matnimizni eng ehtimoliy keyingi belgilar bilan to'ldirdi. Boshqa tomondan, ChatGPT biz suhbatda to'satdan gapirishni to'xtatgandek javob berdi. Chatbotlarning suhbatdoshligi ularni ishlatishni yanada tabiiy his qiladi, shuning uchun ko'pchilik ularni boshqa sun'iy intellektlardan afzal ko'radi. Biroq, chatbotlar yaxshiroq bo'lishining eng muhim sababi shundaki, OpenAI va Anthropic kabi kompaniyalar juda aqlli chatbotlar yaratgan va ular sizning promptlaringizga yaxshiroq javob bera oladi[^2].
 
 ## Tokenlar
 
-ChatGPT kabi Gen AI matnni biz kabi so'zma-so'z o'qimaydi. Biz "I don't like eggs" jumlasini so'zma-so'z o'qisak, ular uni o'zlarining so'zlariga bo'lib, quyidagicha o'qishi mumkin: `I`, `don`, `'t` `like` `egg` `s`. Ushbu "so'zlar" tokenlar deb ataladi va deyarli barcha zamonaviy Gen AIda ishlatiladi. Har bir token keyin raqamlar ro'yxatiga aylantiriladi, shunda sun'iy intellekt uni qayta ishlay oladi. Nega Gen AIlar tokenlardan foydalanishini bilishingiz shart emas, lekin ular narx belgilash va kontekst uzunligini hisobga olganda muhim ahamiyatga ega.
+ChatGPT kabi Gen AI matnni biz kabi so'zma-so'z o'qimaydi. Biz "I don't like eggs" jumlasini so'zma-so'z o'qisak, ular uni o'zlarining so'zlariga bo'lib, quyidagicha o'qishi mumkin: `I`, `don`, `'t` `like` `egg` `s`. Ushbu "so'zlar" tokenlar deb ataladi va deyarli barcha zamonaviy Gen AIda ishlatiladi. Har bir token keyin raqamlar ro'yxatiga aylantiriladi, shunda sun'iy intellekt uni qayta ishlay oladi. Nega Gen AIlar tokenlardan foydalanishini bilishingiz shart emas, lekin ular narx belgilash va _kontekst uzunligi_ni hisobga olganda muhim ahamiyatga ega.
 
 ## Kontekst uzunligi
 
-Kontekst uzunligi til modeli javob yaratishda ko'rib chiqishi mumkin bo'lgan matn miqdorini anglatadi. Ham chatbotlar, ham oddiy chatbot bo'lmagan tizimlar uchun ular qayta ishlay oladigan kontekst uzunligining maksimal chegarasi mavjud[^c]. Agar suhbat yoki matn ushbu chegaradan oshib ketsa, model javob yaratishda butun suhbatni eslab qola olmaydi. Shu sababli, ba'zan muhim ma'lumotlarni qayta aytish yoki chatbotni qayta yo'naltirish zarur bo'ladi.
+Kontekst uzunligi[^5] til modeli javob yaratishda ko'rib chiqishi mumkin bo'lgan matn miqdorini anglatadi. Ham chatbotlar, ham oddiy chatbot bo'lmagan tizimlar uchun ular qayta ishlay oladigan kontekst uzunligining maksimal chegarasi mavjud[^3]. Agar suhbat yoki matn ushbu chegaradan oshib ketsa, model javob yaratishda butun suhbatni eslab qola olmaydi. Shu sababli, ba'zan muhim ma'lumotlarni qayta aytish yoki chatbotni qayta yo'naltirish zarur bo'ladi.
 
-750 ta so'z taxminan 1 000 token ga teng. ChatGPT 4K tokenni eslab qola oladi, ChatGPTning yanada rivojlangan versiyalari esa 16K tokenni eslab qola oladi. GPT-4 32K tokenni qayta ishlay oladi, Anthropic kompaniyasining [Claude](https://www.anthropic.com/index/100k-context-windows) sun'iy intellekti esa 100K tokenni qayta ishlay oladi. Qaysi modelni tanlash ba'zan narx va uzunroq kontekstga ehtiyoj o'rtasidagi muvozanatga bog'liq bo'ladi. Ushbu kurs uchun ChatGPT yetarli bo'ladi.
+750 ta so'z taxminan 1 000 token[^4]ga teng. ChatGPT 4K tokenni eslab qola oladi, ChatGPTning yanada rivojlangan versiyalari esa 16K tokenni eslab qola oladi. GPT-4 32K tokenni qayta ishlay oladi, Anthropic kompaniyasining [Claude](https://www.anthropic.com/index/100k-context-windows) sun'iy intellekti esa 100K tokenni qayta ishlay oladi. Qaysi modelni tanlash ba'zan narx va uzunroq kontekstga ehtiyoj o'rtasidagi muvozanatga bog'liq bo'ladi. Ushbu kurs uchun ChatGPT yetarli bo'ladi.
 
-[^a]: Keyingi darsda boshqa oddiy chatbot bo'lmagan tizimlar turlari bilan tanishamiz.
-[^b]: Ba'zan, agar siz matningizni `complete` qiladigan qisqaroq natijalarni xohlasangiz, oddiy chatbot bo'lmagan tizimlar afzalroq bo'lishi mumkin. Keyingi darsda GPT-3dan qanday foydalanishni o'rganamiz.
-[^c]: So'nggi tadqiqotlar kelajakda buni o'zgartirishi mumkin.
-[^d]: https://openai.com/pricing manbasiga ko'ra
-[^l]: Kontekst uzunligi ba'zan kontekst o'lchami yoki kontekst oynasi uzunligi deb ataladi.
+[^1]: Keyingi darsda boshqa oddiy chatbot bo'lmagan tizimlar turlari bilan tanishamiz.
+[^2]: Ba'zan, agar siz matningizni `complete` qiladigan qisqaroq natijalarni xohlasangiz, oddiy chatbot bo'lmagan tizimlar afzalroq bo'lishi mumkin. Keyingi darsda GPT-3dan qanday foydalanishni o'rganamiz.
+[^3]: So'nggi tadqiqotlar kelajakda buni o'zgartirishi mumkin.
+[^4]: https://openai.com/pricing manbasiga ko'ra
+[^5]: Kontekst uzunligi ba'zan kontekst o'lchami yoki kontekst oynasi uzunligi deb ataladi.

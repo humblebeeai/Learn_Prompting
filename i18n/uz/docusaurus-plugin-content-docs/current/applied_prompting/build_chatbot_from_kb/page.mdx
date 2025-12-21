@@ -1,43 +1,43 @@
 ---
 sidebar_position: 40
-title: "🟢 Chatbot + Bilim Bazasi"
+title: "🟢 Chatbot + Knowledge Base"
 ---
 
 
-# Chatbot + Bilim Bazasi
+# Chatbot + Knowledge Base
 
-So‘nggi paytlarda yirik til modellari (LLM) sohasida [GPT-3](https://arxiv.org/abs/2005.14165) va [ChatGPT](https://chat.openai.com/chat) kabi yutuqlar texnologiya sohasida katta shov-shuvga sabab bo‘ldi. Ushbu modellarning kontent yaratishda imkoniyatlari juda kuchli, biroq ular ayrim kamchiliklarga ham ega, masalan, tarafkashlik (@nadeem-etal-2021-stereoset) va xayoliy javoblar (@Ji_2022). LLM’lar ayniqsa chatbot ishlab chiqishda foydali bo‘lishi mumkin bo‘lgan sohalardan biridir.
+So'nggi paytlarda yirik til modellari (LLM) sohasida [GPT-3](https://arxiv.org/abs/2005.14165) va [ChatGPT](https://chat.openai.com/chat) kabi yutuqlar texnologiya sohasida katta shov-shuvga sabab bo'ldi. Ushbu modellarning kontent yaratishda imkoniyatlari juda kuchli, biroq ular ayrim kamchiliklarga ham ega, masalan, tarafkashlik (@nadeem-etal-2021-stereoset) va xayoliy javoblar (@Ji_2022). LLM'lar ayniqsa chatbot ishlab chiqishda foydali bo'lishi mumkin bo'lgan sohalardan biridir.
 
 ## Intentga asoslangan chatbotlar
 
-An’anaviy chatbotlar odatda intentga asoslangan bo‘ladi, ya’ni ular foydalanuvchining aniq niyatlariga javob berish uchun yaratilgan. Har bir intent bir nechta namunaviy savollar va unga mos javobdan iborat bo‘ladi. Masalan, “Ob-havo” intenti “Bugun ob-havo qanday?” yoki “Bugun yomg‘ir yog‘adimi?” kabi namunaviy savollar va “Bugun quyoshli bo‘ladi.” kabi javobni o‘z ichiga olishi mumkin. Foydalanuvchi savol berganda, chatbot uni eng o‘xshash namunaviy savollarga ega intentga moslashtiradi va unga mos javobni qaytaradi.
+An'anaviy chatbotlar odatda intentga asoslangan bo'ladi, ya'ni ular foydalanuvchining aniq niyatlariga javob berish uchun yaratilgan. Har bir intent bir nechta namunaviy savollar va unga mos javobdan iborat bo'ladi. Masalan, “Ob-havo” intenti “Bugun ob-havo qanday?” yoki “Bugun yomg'ir yog'adimi?” kabi namunaviy savollar va “Bugun quyoshli bo'ladi.” kabi javobni o'z ichiga olishi mumkin. Foydalanuvchi savol berganda, chatbot uni eng o'xshash namunaviy savollarga ega intentga moslashtiradi va unga mos javobni qaytaradi.
 
 
 
-Biroq, intentga asoslangan chatbotlarning o‘ziga xos muammolari bor. Masalan, ular aniq javoblar berish uchun juda ko‘p sonli intentlarni talab qiladi. Masalan, “Kira olmayapman”, “Parolimni unutdim” yoki “Kirishda xato” kabi foydalanuvchi so‘zlari uch xil javob va shuning uchun uch xil intentni talab qilishi mumkin, garchi ular bir-biriga juda o‘xshash bo‘lsa ham.
+Biroq, intentga asoslangan chatbotlarning o'ziga xos muammolari bor. Masalan, ular aniq javoblar berish uchun juda ko'p sonli intentlarni talab qiladi. Masalan, “Kira olmayapman”, “Parolimni unutdim” yoki “Kirishda xato” kabi foydalanuvchi so'zlari uch xil javob va shuning uchun uch xil intentni talab qilishi mumkin, garchi ular bir-biriga juda o'xshash bo'lsa ham.
 
 ## GPT-3 qanday yordam bera oladi
 
-Mana shu yerda GPT-3 ayniqsa foydali bo‘lishi mumkin. Juda ko‘p aniq intentlar o‘rniga, har bir intent kengroq bo‘lishi va sizning [Bilim Bazasi](https://en.wikipedia.org/wiki/Knowledge_base) dan biror hujjatga tayanishi mumkin. Bilim Bazasi (KB) — bu tahlil yoki xulosa chiqarish uchun tayyor holda saqlangan tuzilgan va tuzilmagan ma’lumotlardir. Sizning KB’ingiz mahsulotlaringizdan qanday foydalanish haqida tushuntiruvchi hujjatlar to‘plamidan iborat bo‘lishi mumkin.
+Mana shu yerda GPT-3 ayniqsa foydali bo'lishi mumkin. Juda ko'p aniq intentlar o'rniga, har bir intent kengroq bo'lishi va sizning [Knowledge Base](https://en.wikipedia.org/wiki/Knowledge_base) dan biror hujjatga tayanishi mumkin. Knowledge Base (KB) — bu tahlil yoki xulosa chiqarish uchun tayyor holda saqlangan tuzilgan va tuzilmagan ma'lumotlardir. Sizning KB'ingiz mahsulotlaringizdan qanday foydalanish haqida tushuntiruvchi hujjatlar to'plamidan iborat bo'lishi mumkin.
 
-Bu usulda har bir intent savollar ro‘yxati va aniq javob o‘rniga biror hujjatga bog‘lanadi, masalan, “kirish muammolari” uchun bitta intent, “obuna bo‘lish tartibi” uchun yana bir intent va hokazo. Foydalanuvchi kirish haqida savol berganda, “kirish muammolari” hujjatini GPT-3 ga kontekst sifatida uzatib, foydalanuvchi savoliga aniq javob yaratishimiz mumkin.
+Bu usulda har bir intent savollar ro'yxati va aniq javob o'rniga biror hujjatga bog'lanadi, masalan, “kirish muammolari” uchun bitta intent, “obuna bo'lish tartibi” uchun yana bir intent va hokazo. Foydalanuvchi kirish haqida savol berganda, “kirish muammolari” hujjatini GPT-3 ga kontekst sifatida uzatib, foydalanuvchi savoliga aniq javob yaratishimiz mumkin.
 
 
 
-Bu yondashuv boshqarilishi kerak bo‘lgan intentlar sonini kamaytiradi va har bir savolga yaxshiroq moslashtirilgan javoblar olish imkonini beradi. Bundan tashqari, agar intentga bog‘langan hujjatda turli jarayonlar (masalan, “veb-saytda kirish” va “mobil ilovada kirish” jarayoni) tasvirlangan bo‘lsa, GPT-3 foydalanuvchidan aniqlik kiritishni so‘rab, so‘ngra yakuniy javobni bera oladi.
+Bu yondashuv boshqarilishi kerak bo'lgan intentlar sonini kamaytiradi va har bir savolga yaxshiroq moslashtirilgan javoblar olish imkonini beradi. Bundan tashqari, agar intentga bog'langan hujjatda turli jarayonlar (masalan, “veb-saytda kirish” va “mobil ilovada kirish” jarayoni) tasvirlangan bo'lsa, GPT-3 foydalanuvchidan aniqlik kiritishni so'rab, so'ngra yakuniy javobni bera oladi.
 
-## Nega butun KB’ni GPT-3 ga uzata olmaymiz?
+## Nega butun KB'ni GPT-3 ga uzata olmaymiz?
 
-Hozirda GPT-3 kabi LLM’larda maksimal prompt hajmi taxminan 4 ming token ( [`text-davinci-003`](https://beta.openai.com/docs/models/gpt-3) modeli uchun), bu ko‘p, lekin butun knowledge base’ni bitta promptga joylash uchun yetarli emas. LLM’larda hisoblash sabablari tufayli maksimal prompt hajmi mavjud, chunki ular bilan matn yaratish prompt hajmi oshgani sari tezda ko‘payadigan hisob-kitoblarni talab qiladi.
+Hozirda GPT-3 kabi LLM'larda maksimal prompt hajmi taxminan 4 ming token ( [`text-davinci-003`](https://beta.openai.com/docs/models/gpt-3) modeli uchun), bu ko'p, lekin butun knowledge base'ni bitta promptga joylash uchun yetarli emas. LLM'larda hisoblash sabablari tufayli maksimal prompt hajmi mavjud, chunki ular bilan matn yaratish prompt hajmi oshgani sari tezda ko'payadigan hisob-kitoblarni talab qiladi.
 
-Kelajakdagi LLM’larda bu cheklov bo‘lmasligi va matn yaratish imkoniyatlari saqlanib qolishi mumkin. Ammo hozircha, biz bu cheklov atrofida yechim ishlab chiqishimiz kerak.
+Kelajakdagi LLM'larda bu cheklov bo'lmasligi va matn yaratish imkoniyatlari saqlanib qolishi mumkin. Ammo hozircha, biz bu cheklov atrofida yechim ishlab chiqishimiz kerak.
 
 ## GPT-3 bilan chatbot qanday ishlashi mumkin
 
-Demak, chatbot pipeline ikki bosqichdan iborat bo‘lishi mumkin:
+Demak, chatbot pipeline ikki bosqichdan iborat bo'lishi mumkin:
 
-1. Avvalo, foydalanuvchi savoli uchun mos intentni tanlashimiz kerak, ya’ni knowledge base’imizdan to‘g‘ri hujjatni topishimiz kerak.
-2. Keyin, to‘g‘ri hujjatga ega bo‘lganimizdan so‘ng, GPT-3 dan foydalanuvchiga mos javob yaratishda foydalanishimiz mumkin. Bunda, yaxshi prompt tuzishimiz kerak bo‘ladi.
+1. Avvalo, foydalanuvchi savoli uchun mos intentni tanlashimiz kerak, ya'ni knowledge base'imizdan to'g'ri hujjatni topishimiz kerak.
+2. Keyin, to'g'ri hujjatga ega bo'lganimizdan so'ng, GPT-3 dan foydalanuvchiga mos javob yaratishda foydalanishimiz mumkin. Bunda, yaxshi prompt tuzishimiz kerak bo'ladi.
 
 Birinchi bosqich asosan [semantik qidiruv](https://en.wikipedia.org/wiki/Semantic_search) yordamida hal qilinadi. [`sentence-transformers`](https://www.sbert.net/examples/applications/semantic-search/README.html) kutubxonasidan tayyor modellarni ishlatib, har bir hujjatga osonlik bilan ball berishimiz mumkin. Eng yuqori ball olgan hujjat chatbot javobini yaratishda ishlatiladi.
 
@@ -45,162 +45,148 @@ Birinchi bosqich asosan [semantik qidiruv](https://en.wikipedia.org/wiki/Semanti
 
 ## GPT-3 yordamida javoblar yaratish
 
-To‘g‘ri hujjatga ega bo‘lganimizdan so‘ng, GPT-3 yordamida javob yaratish uchun yaxshi prompt tuzishimiz kerak bo‘ladi. Quyidagi tajribalarda har doim `text-davinci-003` modelini `0.7` temperaturada ishlatamiz.
+To'g'ri hujjatga ega bo'lganimizdan so'ng, GPT-3 yordamida javob yaratish uchun yaxshi prompt tuzishimiz kerak bo'ladi. Quyidagi tajribalarda har doim `text-davinci-003` modelini `0.7` temperaturada ishlatamiz.
 
-Prompt tuzishda quyidagilarni sinab ko‘ramiz:
+Prompt tuzishda quyidagilarni sinab ko'ramiz:
 
-- [**Role-prompting**](https://learnprompting.org/docs/basics/roles): AI’ga aniq rol beruvchi evristik usul.
-- **Tegishli KB ma’lumoti**, ya’ni semantik qidiruv bosqichida topilgan hujjat.
-- **Foydalanuvchi va chatbot o‘rtasida oxirgi almashilgan xabarlar**. Bu foydalanuvchi tomonidan yuborilgan, lekin to‘liq kontekst ko‘rsatilmagan xabarlar uchun foydalidir. Buning misolini keyinroq ko‘ramiz. GPT-3 bilan suhbatlarni boshqarish bo‘yicha [ushbu misolga](https://learnprompting.org/docs/applied_prompting/build_chatgpt) qarang.
+- [**Role-prompting**](https://learnprompting.org/docs/basics/roles): AI'ga aniq rol beruvchi evristik usul.
+- **Tegishli KB ma'lumoti**, ya'ni semantik qidiruv bosqichida topilgan hujjat.
+- **Foydalanuvchi va chatbot o'rtasida oxirgi almashilgan xabarlar**. Bu foydalanuvchi tomonidan yuborilgan, lekin to'liq kontekst ko'rsatilmagan xabarlar uchun foydalidir. Buning misolini keyinroq ko'ramiz. GPT-3 bilan suhbatlarni boshqarish bo'yicha [ushbu misolga](https://learnprompting.org/docs/applied_prompting/build_chatgpt) qarang.
 - Va nihoyat, **foydalanuvchi savoli**.
 
 
 
 Promptimizni <span className="yellow-highlight">role-prompting</span> texnikasi yordamida boshlaymiz.
 
-<pre>
-  <span className="yellow-highlight">
-    Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga
-    imkon qadar yaxshi yordam berishdir.
-  </span>
-</pre>
+<AIInput>
+Skippy nomli ilg'or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga
+imkon qadar yaxshi yordam berishdir.
+</AIInput>
 
-Endi, faraz qilaylik, semantik qidiruv bosqichida knowledge base’imizdan quyidagi hujjat ajratib olindi. Barcha hujjatlar VideoGram mahsuloti qanday ishlashini tushuntiradi, bu Instagram’ga o‘xshash, lekin faqat videolar uchun mo‘ljallangan xayoliy mahsulotdir.
+Endi, faraz qilaylik, semantik qidiruv bosqichida knowledge base'imizdan quyidagi hujjat ajratib olindi. Barcha hujjatlar VideoGram mahsuloti qanday ishlashini tushuntiradi, bu Instagram'ga o'xshash, lekin faqat videolar uchun mo'ljallangan xayoliy mahsulotdir.
 
 
 
-Uning <span className="yellow-highlight">mazmunini</span> promptga quyidagicha qo‘shishimiz mumkin.
+Uning <span className="yellow-highlight">mazmunini</span> promptga quyidagicha qo'shishimiz mumkin.
 
-<pre>
-Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
-  <br />
-  <span className="yellow-highlight">
+<AIInput>
+Skippy nomli ilg'or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
+
     START CONTEXT
-    VideoGram’ga veb-sayt orqali kirish
-        1. Brauzeringizni oching va VideoGram veb-saytiga o‘ting.
-        2. Sahifaning yuqori o‘ng burchagida joylashgan “Kirish” tugmasini bosing.
+    VideoGram'ga veb-sayt orqali kirish
+        1. Brauzeringizni oching va VideoGram veb-saytiga o'ting.
+        2. Sahifaning yuqori o'ng burchagida joylashgan “Kirish” tugmasini bosing.
         3. Kirish sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-        4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Kirish” tugmasini bosing.
-        5. Endi siz VideoGram akkauntingizga kirgan bo‘lishingiz kerak.
-        <br/>
-    VideoGram’ga mobil ilova orqali kirish
+        4. Ma'lumotlaringizni kiritganingizdan so'ng, “Kirish” tugmasini bosing.
+        5. Endi siz VideoGram akkauntingizga kirgan bo'lishingiz kerak.
+
+    VideoGram'ga mobil ilova orqali kirish
         1. Mobil qurilmangizda VideoGram ilovasini oching.
-        2. Asosiy sahifada pastki o‘ng burchakda joylashgan “Kirish” tugmasini bosing.
+        2. Asosiy sahifada pastki o'ng burchakda joylashgan “Kirish” tugmasini bosing.
         3. Kirish sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-        4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Kirish” tugmasini bosing.
+        4. Ma'lumotlaringizni kiritganingizdan so'ng, “Kirish” tugmasini bosing.
         5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
     KONTEKSTNI YOPISH
-  </span>
-</pre>
+</AIInput>
 
-Oxirida, <span className="yellow-highlight">suhbat va foydalanuvchi savolini</span> prompt oxiriga qo‘shishimiz kerak, quyidagi misoldagidek.
+Oxirida, suhbat va foydalanuvchi savolini prompt oxiriga qo'shishimiz kerak, quyidagi misoldagidek.
 
-<pre>
-Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
-  <br/>
+
+<AIInput>
+Skippy nomli ilg'or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
+
 KONTEKSTNI BOSHLASH
-VideoGram’ga Veb-saytdan kirish
-  1. Veb-brauzeringizni oching va VideoGram veb-saytiga o‘ting.
-  2. Sahifaning yuqori o‘ng burchagida joylashgan “Login” tugmasini bosing.
-  3. Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-  4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login” tugmasini bosing.
-  5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
-  <br/>
-VideoGram’ga Mobil Ilovadan kirish
-  1. Mobil qurilmangizda VideoGram ilovasini oching.
-  2. Asosiy sahifada, pastki o‘ng burchakda joylashgan “Login” tugmasini bosing.
-  3. Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-  4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login” tugmasini bosing.
-  5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
+VideoGram'ga Veb-saytdan kirish
+  1.Veb-brauzeringizni oching va VideoGram veb-saytiga o'ting.
+  2.Sahifaning yuqori o'ng burchagida joylashgan “Login” tugmasini bosing.
+  3.Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
+  4.Ma'lumotlaringizni kiritganingizdan so'ng, “Login” tugmasini bosing.
+  5.Siz endi VideoGram akkauntingizga tizimga kirdingiz.
+
+VideoGram'ga Mobil Ilovadan kirish
+  1.Mobil qurilmangizda VideoGram ilovasini oching.
+  2.Asosiy sahifada, pastki o'ng burchakda joylashgan “Login” tugmasini bosing.
+  3.Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
+  4.Ma'lumotlaringizni kiritganingizdan so'ng, “Login” tugmasini bosing.
+  5.Siz endi VideoGram akkauntingizga tizimga kirdingiz.
 
 KONTEKSTNI YOPISH
-  <br/>
-  <span className="yellow-highlight">
-    SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
-    FOYDALANUVCHI: Login tugmasini topa olmayapman.
-        SKIPPY:
-  </span>
-</pre>
+SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
+FOYDALANUVCHI: Login tugmasini topa olmayapman.
+SKIPPY:
+</AIInput>
 
 Ushbu promptni GPT-3 ga yuborib, quyidagi javobni oldim.
 
-<pre>
-  <span className="bluegreen-highlight">
-    Hechqisi yo‘q! Veb-saytda login tugmasi sahifaning yuqori o‘ng burchagida joylashgan. Mobil ilovada esa login tugmasi pastki o‘ng burchakda joylashgan. Qo‘shimcha yordam kerak bo‘lsa, menga xabar bering!
-  </span>
-</pre>
+<AIOutput>
+Hechqisi yo'q! Veb-saytda login tugmasi sahifaning yuqori o'ng burchagida joylashgan. Mobil ilovada esa login tugmasi pastki o'ng burchakda joylashgan. Qo'shimcha yordam kerak bo'lsa, menga xabar bering!
+</AIOutput>
 
-Yaratilgan javobdagi ma’lumotlar bilimlar bazasi hujjatidan olinganiga e’tibor bering.
+Yaratilgan javobdagi ma'lumotlar bilimlar bazasi hujjatidan olinganiga e'tibor bering.
 
 ## GPT-3 yordamida savollarni aniqlashtirish
 
-Keling, yanada noaniq foydalanuvchi so‘rovi bilan urinib ko‘ramiz, masalan <span className="yellow-highlight">“kira olmayapman”</span>. Mana to‘liq prompt.
+Keling, yanada noaniq foydalanuvchi so'rovi bilan urinib ko'ramiz, masalan “kira olmayapman. Mana to'liq prompt.
 
-<pre>
-Skippy nomli ilg‘or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
-  <br/>
-  KONTEKSTNI BOSHLASH
-  VideoGram’ga Veb-saytdan kirish
-  1. Veb-brauzeringizni oching va VideoGram veb-saytiga o‘ting.
-  2. Sahifaning yuqori o‘ng burchagida joylashgan “Login” tugmasini bosing.
-  3. Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-  4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login” tugmasini bosing.
-  5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
-  <br/>
-  VideoGram’ga Mobil Ilovadan kirish
-  1. Mobil qurilmangizda VideoGram ilovasini oching.
-  2. Asosiy sahifada, pastki o‘ng burchakda joylashgan “Login” tugmasini bosing.
-  3. Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
-  4. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login” tugmasini bosing.
-  5. Siz endi VideoGram akkauntingizga tizimga kirdingiz.
+<AIInput>
+  Skippy nomli ilg'or chatbot sifatida, sizning asosiy maqsadingiz foydalanuvchilarga imkon qadar yaxshi yordam berishdir.
+
+KONTEKSTNI BOSHLASH
+  VideoGram'ga Veb-saytdan kirish
+  1.Veb-brauzeringizni oching va VideoGram veb-saytiga o'ting.
+  2.Sahifaning yuqori o'ng burchagida joylashgan “Login” tugmasini bosing.
+  3.Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
+  4.Ma'lumotlaringizni kiritganingizdan so'ng, “Login” tugmasini bosing.
+  5.Siz endi VideoGram akkauntingizga tizimga kirdingiz.
+
+VideoGram'ga Mobil Ilovadan kirish
+  1.Mobil qurilmangizda VideoGram ilovasini oching.
+  2.Asosiy sahifada, pastki o'ng burchakda joylashgan “Login” tugmasini bosing.
+  3.Login sahifasida VideoGram foydalanuvchi nomi va parolingizni kiriting.
+  4.Ma'lumotlaringizni kiritganingizdan so'ng, “Login” tugmasini bosing.
+  5.Siz endi VideoGram akkauntingizga tizimga kirdingiz.
   KONTEKSTNI YOPISH
-  <br/>
   SKIPPY: Salom, men Skippy! Sizga qanday yordam bera olaman?
-  FOYDALANUVCHI: <span className="yellow-highlight">Kira olmayapman</span>
-  SKIPPY:
-</pre>
+  FOYDALANUVCHI: Kira olmayapman
+</AIInput>
 
 GPT-3 foydalanuvchining muammosini yaxshiroq tushunishga harakat qilib javob beradi.
 
-<pre>
-  <span className="bluegreen-highlight">
-    Afsuski, bunday bo‘ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
+<AIOutput>
+    Afsuski, bunday bo'ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
     VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
-  </span>
-</pre>
+</AIOutput>
 
-Keyingi bosqichda, butun suhbat qanday davom etishini ko‘ramiz. To‘liq prompt ko‘rinmasligi uchun yashirilgan.
+Keyingi bosqichda, butun suhbat qanday davom etishini ko'ramiz. To'liq prompt ko'rinmasligi uchun yashirilgan.
 
-<pre>
+<AIOutput>
   FOYDALANUVCHI: Kira olmayapman
-  <br />
-    SKIPPY: Afsuski, bunday bo‘ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
-    VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
-  <br />
-  FOYDALANUVCHI: Mobil ilova
-  <br />
-  <span className="bluegreen-highlight">
-    SKIPPY: OK, muammo yo‘q. Mobil ilova orqali tizimga kirish uchun, VideoGram ilovasini oching
-    mobil qurilmangizda. Asosiy sahifada, pastki o‘ng burchakda joylashgan “Login” tugmasini bosing
-    tizimga kirish sahifasida VideoGram foydalanuvchi nomingizni
-    va parolingizni kiriting. Ma’lumotlaringizni kiritganingizdan so‘ng, “Login”
-    tugmasini bosing. Endi siz VideoGram akkauntingizga kirgan bo‘lishingiz kerak. Iltimos,
-    qo‘shimcha yordam kerak bo‘lsa, menga xabar bering.
-  </span>
-</pre>
 
-GPT-3 to‘g‘ri kontekstual ma’lumotga ega bo‘lsa, noaniqliklarni boshqara oladi.
+    SKIPPY: Afsuski, bunday bo'ldi. Ayta olasizmi, siz tizimga kirishga harakat qilayotgan joyingiz
+    VideoGram veb-sayti yoki mobil ilovasi orqali emasmi?
+
+FOYDALANUVCHI: Mobil ilova
+
+    SKIPPY: OK, muammo yo'q. Mobil ilova orqali tizimga kirish uchun, VideoGram ilovasini oching
+    mobil qurilmangizda. Asosiy sahifada, pastki o'ng burchakda joylashgan “Login” tugmasini bosing
+    tizimga kirish sahifasida VideoGram foydalanuvchi nomingizni
+    va parolingizni kiriting. Ma'lumotlaringizni kiritganingizdan so'ng, “Login”
+    tugmasini bosing. Endi siz VideoGram akkauntingizga kirgan bo'lishingiz kerak. Iltimos,
+    qo'shimcha yordam kerak bo'lsa, menga xabar bering.
+</AIOutput>
+
+GPT-3 to'g'ri kontekstual ma'lumotga ega bo'lsa, noaniqliklarni boshqara oladi.
 
 ## GPT-3 bilan javoblar yaratishda yuzaga keladigan muammolar
 
-Oldingi misollar yaxshi ishladi. Biroq, bu chatbot muvaffaqiyatsiz bo‘lishi mumkin bo‘lgan bir nechta holatlar mavjud.
+Oldingi misollar yaxshi ishladi. Biroq, bu chatbot muvaffaqiyatsiz bo'lishi mumkin bo'lgan bir nechta holatlar mavjud.
 
-Agar biz “Mobil ilova bepulmi?” deb so‘rasak va kontekst sifatida login hujjatini GPT-3 ga uzatsak, ko‘pincha “Ha, VideoGram mobil ilovasi bepul yuklab olinadi va ishlatiladi” kabi javob olasiz, hatto bunday ma’lumot kontekstda mavjud bo‘lmasa ham. Noto‘g‘ri ma’lumot yaratish mijozlarga xizmat ko‘rsatish chatbotlari uchun juda yomon!
+Agar biz “Mobil ilova bepulmi?” deb so'rasak va kontekst sifatida login hujjatini GPT-3 ga uzatsak, ko'pincha “Ha, VideoGram mobil ilovasi bepul yuklab olinadi va ishlatiladi” kabi javob olasiz, hatto bunday ma'lumot kontekstda mavjud bo'lmasa ham. Noto'g'ri ma'lumot yaratish mijozlarga xizmat ko'rsatish chatbotlari uchun juda yomon!
 
-Agar foydalanuvchi savoliga javob kontekstda mavjud bo‘lsa, GPT-3 kamdan-kam hollarda noto‘g‘ri ma’lumot yaratadi. Foydalanuvchi savollari ko‘pincha qisqa va noaniq bo‘lgani uchun, semantik qidiruv bosqichiga har doim to‘g‘ri hujjat topilishiga ishonib bo‘lmaydi, shuning uchun har doim noto‘g‘ri ma’lumot yaratilishiga zaifmiz.
+Agar foydalanuvchi savoliga javob kontekstda mavjud bo'lsa, GPT-3 kamdan-kam hollarda noto'g'ri ma'lumot yaratadi. Foydalanuvchi savollari ko'pincha qisqa va noaniq bo'lgani uchun, semantik qidiruv bosqichiga har doim to'g'ri hujjat topilishiga ishonib bo'lmaydi, shuning uchun har doim noto'g'ri ma'lumot yaratilishiga zaifmiz.
 
 ## Xulosa
 
-GPT-3 suhbatli chatbotlar yaratishda juda foydali va promptga kiritilgan kontekstual ma’lumotlar asosida bir qator aniq savollarga javob bera oladi. Biroq, modelni faqat kontekstdagi ma’lumotlarga asoslanib javob berishga majbur qilish qiyin, chunki model ko‘pincha halusinasiyaga moyil (ya’ni, yangi, ehtimol noto‘g‘ri ma’lumot yaratadi). Noto‘g‘ri ma’lumot yaratish muammosi, foydalanish holatiga qarab, turli darajada jiddiy bo‘lishi mumkin.
+GPT-3 suhbatli chatbotlar yaratishda juda foydali va promptga kiritilgan kontekstual ma'lumotlar asosida bir qator aniq savollarga javob bera oladi. Biroq, modelni faqat kontekstdagi ma'lumotlarga asoslanib javob berishga majbur qilish qiyin, chunki model ko'pincha halusinasiyaga moyil (ya'ni, yangi, ehtimol noto'g'ri ma'lumot yaratadi). Noto'g'ri ma'lumot yaratish muammosi, foydalanish holatiga qarab, turli darajada jiddiy bo'lishi mumkin.
 
 Muallif: [Fabio Chiusano](https://www.linkedin.com/in/fabio-chiusano-b6a3b311b/).

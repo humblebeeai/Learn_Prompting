@@ -8,35 +8,35 @@ title: "🟢 Zapier uchun E-maillar"
 
 ## Kirish
 
-Biz allaqachon GPT-3 e-maillar bilan ishlashda qanchalik foydali bo‘lishi mumkinligini ko‘rdik. Uni [Zapier](https://zapier.com) yoki [Bubble.io](https://bubble.io) kabi **nocode** vositalari bilan birlashtirsangiz, undan ham ko‘proq foyda olishingiz mumkin.
+Biz allaqachon GPT-3 e-maillar bilan ishlashda qanchalik foydali bo'lishi mumkinligini ko'rdik. Uni [Zapier](https://zapier.com) yoki [Bubble.io](https://bubble.io) kabi **nocode** vositalari bilan birlashtirsangiz, undan ham ko'proq foyda olishingiz mumkin.
 
-Ushbu maqolada Zapier+GPT-3 qisqa vaqt ichida qanday natija bera olishini ko‘rsatuvchi misol keltiriladi. Maqola aniq bir misolga qaratilgan, lekin imkoniyatlar bundan ancha keng. Yo‘l-yo‘lakay boshqa misollar ham keltiramiz. Shuni yodda tutingki, buni Bubble.io’da ham qilishingiz mumkin. Yana ko‘plab boshqa nocode vositalari mavjud, lekin hozirda faqat bir nechtasi GPT-3’dan foydalanishga imkon beradi.
+Ushbu maqolada Zapier+GPT-3 qisqa vaqt ichida qanday natija bera olishini ko'rsatuvchi misol keltiriladi. Maqola aniq bir misolga qaratilgan, lekin imkoniyatlar bundan ancha keng. Yo'l-yo'lakay boshqa misollar ham keltiramiz. Shuni yodda tutingki, buni Bubble.io'da ham qilishingiz mumkin. Yana ko'plab boshqa nocode vositalari mavjud, lekin hozirda faqat bir nechtasi GPT-3'dan foydalanishga imkon beradi.
 
-Ushbu maqolada sizga Zapier’da oddiy tizimni qanday sozlashni ko‘rsatamiz, bunda **e-maillar qisqacha mazmuni chiqarilib, saqlanadi**. Kim bilandir uchrashuv bormi? O‘sha odam bilan almashgan e-maillaringiz qisqacha mazmunini tezda ko‘rib chiqing. Buni sozlash taxminan 20 daqiqa vaqt oladi.
+Ushbu maqolada sizga Zapier'da oddiy tizimni qanday sozlashni ko'rsatamiz, bunda **e-maillar qisqacha mazmuni chiqarilib, saqlanadi**. Kim bilandir uchrashuv bormi? O'sha odam bilan almashgan e-maillaringiz qisqacha mazmunini tezda ko'rib chiqing. Buni sozlash taxminan 20 daqiqa vaqt oladi.
 
 <Caution>
-Ushbu maqolani o‘qishdan oldin Zapier haqida oldindan bilish foydali bo‘ladi. Agar bilmasangiz,
-bu [maqolani](https://zapier.com/learn/) ko‘rib chiqing.
+Ushbu maqolani o'qishdan oldin Zapier haqida oldindan bilish foydali bo'ladi. Agar bilmasangiz,
+bu [maqolani](https://zapier.com/learn/) ko'rib chiqing.
 </Caution>
 
-## Umumiy g‘oya
+## Umumiy g'oya
 
-Quyida Zapier’da nima qilinishini ko‘rsatuvchi diagramma keltirilgan. Har safar pochta qutingizga e-mail kelganda, bu Zapier’ni ishga tushiradi. To‘rt bosqich mavjud (hozircha):
+Quyida Zapier'da nima qilinishini ko'rsatuvchi diagramma keltirilgan. Har safar pochta qutingizga e-mail kelganda, bu Zapier'ni ishga tushiradi. To'rt bosqich mavjud (hozircha):
 
 1. E-mail keladi va Zapier ishga tushadi
-1. E-mail mazmunini formatlash (masalan, HTML markdown’ni olib tashlash uchun).
+1. E-mail mazmunini formatlash (masalan, HTML markdown'ni olib tashlash uchun).
 1. Uni qisqacha mazmun chiqarish uchun GPT-3 ga yuborish
-1. Natijani ma’lumotlar bazasiga saqlash
+1. Natijani ma'lumotlar bazasiga saqlash
 
 
 
-## Zapier’da sozlash
+## Zapier'da sozlash
 
-[Zapier akkaunti](https://zapier.com/sign-up) ga ega ekanligingizga ishonch hosil qiling (bepul akkaunt ochishingiz mumkin). Sozlash juda oddiy bo‘lishi kerak. Akkaunt ochganingizdan so‘ng, quyidagi oynani kengaytiring va kerakli har bir Zapier harakati uchun to‘liq tavsiflarni ko‘ring.
+[Zapier akkaunti](https://zapier.com/sign-up) ga ega ekanligingizga ishonch hosil qiling (bepul akkaunt ochishingiz mumkin). Sozlash juda oddiy bo'lishi kerak. Akkaunt ochganingizdan so'ng, quyidagi oynani kengaytiring va kerakli har bir Zapier harakati uchun to'liq tavsiflarni ko'ring.
 
 ### Zapier sozlash bosqichlari
 
-Zapier harakatlari diagrammasi oxir-oqibat shunday ko‘rinishga ega bo‘ladi.
+Zapier harakatlari diagrammasi oxir-oqibat shunday ko'rinishga ega bo'ladi.
 
 <!-- ![Zap Diagram](/docs/assets/basic_applications/Zapiermail/Zap.webp) -->
 
@@ -55,30 +55,30 @@ E-mail mazmuniga Prompting.
 
 <!-- ![Step 3](/docs/assets/basic_applications/Zapiermail/Step3.webp) -->
 
-### 4-bosqich: Ma’lumotlar bazasi
-Uni ma’lumotlar bazasiga qo‘shish.
+### 4-bosqich: Ma'lumotlar bazasi
+Uni ma'lumotlar bazasiga qo'shish.
 
 <!-- ![Step 4](/docs/assets/basic_applications/Zapiermail/Step4.webp) -->
 
 
-Mana Zapier’da juda oddiy qisqacha mazmun chiqarishni amalga oshiruvchi sozlama, bu
-diagrammada ko‘rsatilgan. Uning cheklovlari bor, lekin u ishni bajaradi va foydali
+Mana Zapier'da juda oddiy qisqacha mazmun chiqarishni amalga oshiruvchi sozlama, bu
+diagrammada ko'rsatilgan. Uning cheklovlari bor, lekin u ishni bajaradi va foydali
 database.
 
 ## Yaxshiroq natijalar uchun promptni optimallashtirish
 
-Natijalarni yaxshilashning bir nechta oson usullari mavjud. Kontekst va rol prompting qo‘shish natijani yaxshilashi mumkin. Biroq, e-maillaringiz mavzusi va mazmuni juda keng bo‘lishi mumkin. Bu esa, umumiy ko‘rsatmalar juda aniq ko‘rsatmalarga qaraganda yaxshiroq natija berishini anglatadi, chunki aniq ko‘rsatmalar modelni chalg‘itishi mumkin.
+Natijalarni yaxshilashning bir nechta oson usullari mavjud. Kontekst va rol prompting qo'shish natijani yaxshilashi mumkin. Biroq, e-maillaringiz mavzusi va mazmuni juda keng bo'lishi mumkin. Bu esa, umumiy ko'rsatmalar juda aniq ko'rsatmalarga qaraganda yaxshiroq natija berishini anglatadi, chunki aniq ko'rsatmalar modelni chalg'itishi mumkin.
 
-Amaliy jihatdan, ko‘rsatma berish, so‘ngra promptda e-mail qayerdan boshlanishini "Email: " deb yozib, promptni "Xulosa": " bilan tugatish foydali. Bu GPT-3’ning "Albatta! Men siz uchun qisqacha mazmun chiqaraman..." kabi javob berishining oldini oladi.
+Amaliy jihatdan, ko'rsatma berish, so'ngra promptda e-mail qayerdan boshlanishini "Email: " deb yozib, promptni ""Summary": " bilan tugatish foydali. Bu GPT-3'ning "Albatta! Men siz uchun qisqacha mazmun chiqaraman..." kabi javob berishining oldini oladi.
 
-Bu yerda ham rol prompting foydali bo‘lishi mumkin. GPT-3’dan shaxsiy yordamchi sifatida harakat qilishni so‘rash qisqacha mazmun sifatini oshiradi.
-Agar ish e-maillarini qisqacha mazmun qilishni istasangiz, shunchaki o‘zingizning rolingizni qo‘shish GPT-3 ga kontekst beradi. U o‘quvchidan ma’lum bir bilim darajasini kutayotgandek harakat qiladi, bu esa e-mailning ahamiyatsiz qismlarini filtrlashga yordam beradi.
-Quyida ofis administratoriga kelishi mumkin bo‘lgan e-maillar misollari keltirilgan.
+Bu yerda ham rol prompting foydali bo'lishi mumkin. GPT-3'dan shaxsiy yordamchi sifatida harakat qilishni so'rash qisqacha mazmun sifatini oshiradi.
+Agar ish e-maillarini qisqacha mazmun qilishni istasangiz, shunchaki o'zingizning rolingizni qo'shish GPT-3 ga kontekst beradi. U o'quvchidan ma'lum bir bilim darajasini kutayotgandek harakat qiladi, bu esa e-mailning ahamiyatsiz qismlarini filtrlashga yordam beradi.
+Quyida ofis administratoriga kelishi mumkin bo'lgan e-maillar misollari keltirilgan.
 
-Oddiy e-mailni punktlar ko‘rinishida qisqacha mazmun qilishni so‘rashingiz mumkin, lekin bu qisqacha mazmunni qanday ishlatmoqchi ekanligingizga qarab har doim ham foydali bo‘lmasligi mumkin. E-mail almashuvlarini tezda ko‘zdan kechirish uchun qisqa va aniq bo‘lishini xohlashingiz mumkin. Promptda shunchaki shuni so‘rash yaxshi natija beradi. Quyida ushbu prompt misoli keltirilgan. Uni o‘zgartirib, natija qanday o‘zgarishini ko‘rib chiqing.
+Oddiy e-mailni punktlar ko'rinishida qisqacha mazmun qilishni so'rashingiz mumkin, lekin bu qisqacha mazmunni qanday ishlatmoqchi ekanligingizga qarab har doim ham foydali bo'lmasligi mumkin. E-mail almashuvlarini tezda ko'zdan kechirish uchun qisqa va aniq bo'lishini xohlashingiz mumkin. Promptda shunchaki shuni so'rash yaxshi natija beradi. Quyida ushbu prompt misoli keltirilgan. Uni o'zgartirib, natija qanday o'zgarishini ko'rib chiqing.
 
 <iframe
-  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MC43LCJtYXhUb2tlbnMiOjI1Niwib3V0cHV0IjoiUmVxdWVzdCBmb3IgYWRkaXRpb25hbCBvZmZpY2Ugc3VwcGxpZXMgZHVlIHRvIGhpZ2ggd29ya2xvYWQuIExpc3Qgb2YgcmVxdWVzdGVkIGl0ZW1zOiBwcmludGVyIHBhcGVyLCBpbmsgY2FydHJpZGdlcyBmb3IgSFAgcHJpbnRlciBpbiBjb25mZXJlbmNlIHJvb20sIHN0aWNreSBub3RlcywgYmluZGVyIGNsaXBzLCBhbmQgaGlnaGxpZ2h0ZXJzLiBSZXF1ZXN0aW5nIGRlbGl2ZXJ5IGluZm9ybWF0aW9uIGFuZCBpZiB0aGVyZSBhcmUgYW55IHF1ZXN0aW9ucyBvciBjb25jZXJucy4iLCJwcm9tcHQiOiJBY3QgYXMgbXkgcGVyc29uYWwgYXNzaXN0YW50LiBJIGFtIGFuIG9mZmljZSBhZG1pbmlzdHJhdG9yLiBTdW1tYXJpemUgdGhlIGZvbGxvd2luZyBlbWFpbCBhcyBjb25jaXNlbHkgYXMgeW91IGNhbiwgaWdub3JlIHRoZSBmb290ZXIgYW5kIGhlYWRlciBhbmQgYW55IHByZXZpb3VzIGVtYWlscy4gXG5cbkVtYWlsOiBSZXF1ZXN0IGZvciBBZGRpdGlvbmFsIE9mZmljZSBTdXBwbGllcyBEZWFyIE9mZmljZSBBZG1pbmlzdHJhdG9yLCBJIGhvcGUgdGhpcyBlbWFpbCBmaW5kcyB5b3Ugd2VsbC4gSSBhbSB3cml0aW5nIHRvIHJlcXVlc3QgYWRkaXRpb25hbCBvZmZpY2Ugc3VwcGxpZXMgZm9yIG91ciB0ZWFtLiBBcyB5b3Uga25vdywgd2UgaGF2ZSBiZWVuIGV4cGVyaWVuY2luZyBhIGhpZ2ggdm9sdW1lIG9mIHdvcmsgbGF0ZWx5IGFuZCBoYXZlIGJlZW4gdXNpbmcgb3VyIHN1cHBsaWVzIGF0IGEgZmFzdGVyIHJhdGUgdGhhbiB1c3VhbC4gV2Ugd291bGQgZ3JlYXRseSBhcHByZWNpYXRlIGl0IGlmIHlvdSBjb3VsZCBwcm92aWRlIHVzIHdpdGggdGhlIGZvbGxvd2luZyBpdGVtczogUHJpbnRlciBwYXBlciBJbmsgY2FydHJpZGdlcyBmb3IgdGhlIEhQIHByaW50ZXIgaW4gdGhlIGNvbmZlcmVuY2Ugcm9vbSBTdGlja3kgbm90ZXMgQmluZGVyIGNsaXBzIEhpZ2hsaWdodGVycyBQbGVhc2UgbGV0IG1lIGtub3cgaWYgdGhlcmUgYXJlIGFueSBxdWVzdGlvbnMgb3IgY29uY2VybnMsIGFuZCB3aGVuIHdlIGNhbiBleHBlY3QgdGhlIHN1cHBsaWVzIHRvIGJlIGRlbGl2ZXJlZC4gVGhhbmsgeW91IGZvciB5b3VyIGhlbHAuIFxuXG5CZXN0IHJlZ2FyZHMsIFlvdXIgTmFtZSBTdW1tYXJ5OlxuIiwibW9kZWwiOiJ0ZXh0LWRhdmluY2ktMDAzIn0%3D"
+  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjoxLCJ0ZW1wZXJhdHVyZSI6MC43LCJtYXhUb2tlbnMiOjI1Niwib3V0cHV0IjoiSXNoIGhham1pIHl1cW9yaSBib%2BKAmGxnYW5pIHNhYmFibGkgcW%2FigJhzaGltY2hhIG9maXMgamlob3psYXJpbmkgc2%2FigJhyYXNoLiBTb%2BKAmHJhbGF5b3RnYW4gYnV5dW1sYXIgcm%2FigJh5eGF0aTogcHJpbnRlciBxb2figJhvemksIG1hamxpcyB4b25hc2lkYWdpIEhQIHByaW50ZXJpIHVjaHVuIHNpeW9oIGthcnRyaWpsYXJpLCB5b3Bpc2hxb3EgZXNsYXRtYWxhciwgcW9n4oCYb3ogcWlzcWljaGxhcmkgdmEgbWFya2VybGFyLiBZZXRrYXppYiBiZXJpc2ggbXVkZGF0aSBoYW1kYSBzYXZvbCB5b2tpIG11YW1tb2xhciBib3IteW%2FigJhxbGlnaSBoYXFpZGEgbWHigJlsdW1vdCBzb%2BKAmHJhbG1vcWRhLiIsInByb21wdCI6IlNoYXhzaXkgeW9yZGFtY2hpbSBzaWZhdGlkYSBpc2ggdHV0aW5nLiBNZW4gb2ZpcyBhZG1pbmlzdHJhdG9ybWFuLiBRdXlpZGFnaSBlbGVrdHJvbiB4YXRuaSBpbWtvbiBxYWRhciBpeGNoYW0gdGFyemRhIHVtdW1sYXNodGlyaW5nLCBwYXN0a2kgaW16byAoZm9vdGVyKSwgc2FybGF2aGEgKGhlYWRlcikgdmEgb2xkaW5naSB4YXRsYXJuaSBl4oCZdGlib3JzaXogcW9sZGlyaW5nLlxuXG5FbWFpbDogUW%2FigJhzaGltY2hhIG9maXMgamlob3psYXJpZ2Egc2%2FigJhyb3ZcblxuSHVybWF0bGkgb2ZpcyBhZG1pbmlzdHJhdG9yaSxcblxuVXNoYnUgeGF0IHNpem5pIHNvZ%2BKAmC1zYWxvbWF0IGhvbGRhIHRvcGlzaGlnYSB1bWlkIHFpbGFtYW4uIEphbW9hbWl6IHVjaHVuIHFv4oCYc2hpbWNoYSBvZmlzIGppaG96bGFyaW5pIHNv4oCYcmFzaCBtYXFzYWRpZGEgeW96bW9xZGFtYW4uIFNv4oCYbmdnaSBwYXl0bGFyZGEgaXNoIGhham1pIG9zaGdhbmkgc2FiYWJsaSBtYXZqdWQgamlob3psYXJkYW4gb2RhdGRhZ2lkYW4gdGV6cm9xIGZveWRhbGFubW9xZGFtaXouIFF1eWlkYWdpIGJ1eXVtbGFybmkgdGFxZGltIGV0aXNoaW5naXpkYW4ganVkYSBtaW5uYXRkb3IgYm%2FigJhsYXJkaWs6XG7igJMgUHJpbnRlciBxb2figJhvemlcbuKAkyBNYWpsaXMgeG9uYXNpZGFnaSBIUCBwcmludGVyaSB1Y2h1biBzaXlvaCBrYXJ0cmlqbGFyaVxu4oCTIFlvcGlzaHFvcSBlc2xhdG1hbGFyIChzdGlja3kgbm90ZXMpXG7igJMgUW9n4oCYb3ogcWlzcWljaGxhcmkgKGJpbmRlciBjbGlwcylcbuKAkyBNYXJrZXJsYXIgKGhpZ2hsaWdodGVycylcblxuQWdhciBzYXZvbCB5b2tpIHRhc2h2aXNobGFyIGJv4oCYbHNhIGhhbWRhIGppaG96bGFyIHFhY2hvbiB5ZXRrYXppYiBiZXJpbGlzaGluaSBtYeKAmWx1bSBxaWxzYW5naXosIGlsdGltb3MsIHhhYmFyIGJlcmluZy4gWW9yZGFtaW5naXogdWNodW4gcmFobWF0LlxuXG5IdXJtYXQgYmlsYW4sXG5Jc21pbmdpelxuXG5YdWxvc2E6IiwibW9kZWwiOiJ0ZXh0LWRhdmluY2ktMDAzIn0%3D"
   style={{
     width: "100%",
     height: "500px",
@@ -89,10 +89,10 @@ Oddiy e-mailni punktlar ko‘rinishida qisqacha mazmun qilishni so‘rashingiz m
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-Bu yerda javob qoniqarli va foydali bo‘ladi. Biroq, biroz ko‘proq fine-tuning bilan yanada yaxshi natija olishingiz mumkin. Qisqacha mazmunlarni o‘quvchi sifatida siz uchun bu e-mail ekani muhim emas, qisqacha mazmunda tafsilotlar kamroq bo‘lishini xohlashingiz mumkin. Nima uchunligi haqidagi ma’lumotlar ahamiyatsiz, xuddi oxirgi jumla savollar va tashvishlar haqida bo‘lsa ham. Qisqacha mazmunning maqsadi sizga mazmunni tezda ko‘zdan kechirish ekanini va xushmuomalaliklarni olib tashlashni so‘rashingiz natijani yaxshilaydi.
+Bu yerda javob qoniqarli va foydali bo'ladi. Biroq, biroz ko'proq fine-tuning bilan yanada yaxshi natija olishingiz mumkin. Qisqacha mazmunlarni o'quvchi sifatida siz uchun bu e-mail ekani muhim emas, qisqacha mazmunda tafsilotlar kamroq bo'lishini xohlashingiz mumkin. Nima uchunligi haqidagi ma'lumotlar ahamiyatsiz, xuddi oxirgi jumla savollar va tashvishlar haqida bo'lsa ham. Qisqacha mazmunning maqsadi sizga mazmunni tezda ko'zdan kechirish ekanini va xushmuomalaliklarni olib tashlashni so'rashingiz natijani yaxshilaydi.
 
 <iframe
-  src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6IlJlcXVlc3QgZm9yIGFkZGl0aW9uYWwgb2ZmaWNlIHN1cHBsaWVzIC0gcHJpbnRlciBwYXBlciwgaW5rIGNhcnRyaWRnZXMgZm9yIEhQIHByaW50ZXIsIHN0aWNreSBub3RlcywgYmluZGVyIGNsaXBzIGFuZCBoaWdobGlnaHRlcnMuIiwicHJvbXB0IjoiQWN0IGFzIG15IHBlcnNvbmFsIGFzc2lzdGFudC4gSSBhbSBhbiBvZmZpY2UgYWRtaW5pc3RyYXRvci4gU3VtbWFyaXplIHRoZSBmb2xsb3dpbmcgZW1haWwgYXMgY29uY2lzZWx5IGFzIHlvdSBjYW4sIGlnbm9yZSB0aGUgZm9vdGVyIGFuZCBoZWFkZXIgYW5kIGFueSBwcmV2aW91cyBlbWFpbHMuIEkgd2FudCB0byB1c2UgdGhlIHN1bW1hcnkgdG8gc2tpbSBlbWFpbHMuIFJlbW92ZSBhbnkgcGxlYXNhbnRyaWVzLiBcXG5cXG5FbWFpbDogUmVxdWVzdCBmb3IgQWRkaXRpb25hbCBPZmZpY2UgU3VwcGxpZXMgRGVhciBPZmZpY2UgQWRtaW5pc3RyYXRvciwgSSBob3BlIHRoaXMgZW1haWwgZmluZHMgeW91IHdlbGwuIEkgYW0gd3JpdGluZyB0byByZXF1ZXN0IGFkZGl0aW9uYWwgb2ZmaWNlIHN1cHBsaWVzIGZvciBvdXIgdGVhbS4gQXMgeW91IGtub3csIHdlIGhhdmUgYmVlbiBleHBlcmllbmNpbmcgYSBoaWdoIHZvbHVtZSBvZiB3b3JrIGxhdGVseSBhbmQgaGF2ZSBiZWVuIHVzaW5nIG91ciBzdXBwbGllcyBhdCBhIGZhc3RlciByYXRlIHRoYW4gdXN1YWwuIFdlIHdvdWxkIGdyZWF0bHkgYXBwcmVjaWF0ZSBpdCBpZiB5b3UgY291bGQgcHJvdmlkZSB1cyB3aXRoIHRoZSBmb2xsb3dpbmcgaXRlbXM6IFByaW50ZXIgcGFwZXIgSW5rIGNhcnRyaWRnZXMgZm9yIHRoZSBIUCBwcmludGVyIGluIHRoZSBjb25mZXJlbmNlIHJvb20gU3RpY2t5IG5vdGVzIEJpbmRlciBjbGlwcyBIaWdobGlnaHRlcnMgUGxlYXNlIGxldCBtZSBrbm93IGlmIHRoZXJlIGFyZSBhbnkgcXVlc3Rpb25zIG9yIGNvbmNlcm5zLCBhbmQgd2hlbiB3ZSBjYW4gZXhwZWN0IHRoZSBzdXBwbGllcyB0byBiZSBkZWxpdmVyZWQuIFRoYW5rIHlvdSBmb3IgeW91ciBoZWxwLiBcblxuQmVzdCByZWdhcmRzLCBZb3VyIE5hbWUgU3VtbWFyeTpcbiIsIm1vZGVsIjoidGV4dC1kYXZpbmNpLTAwMyJ9"
+ src="https://embed.learnprompting.org/embed?config=eyJ0b3BQIjowLCJ0ZW1wZXJhdHVyZSI6MCwibWF4VG9rZW5zIjoyNTYsIm91dHB1dCI6IlFv4oCYc2hpbWNoYSBvZmlzIGppaG96bGFyaWdhIHNv4oCYcm92IOKAlCBwcmludGVyIHFvZ%2BKAmG96aSwgSFAgcHJpbnRlcmkgdWNodW4gc2l5b2gga2FydHJpamxhcmksIHlvcGlzaHFvcSBlc2xhdG1hbGFyLCBxb2figJhveiBxaXNxaWNobGFyaSB2YSBtYXJrZXJsYXIuIiwicHJvbXB0IjoiU2hheHNpeSB5b3JkYW1jaGltIHNpZmF0aWRhIGlzaCB0dXRpbmcuIE1lbiBvZmlzIGFkbWluaXN0cmF0b3JtYW4uIFF1eWlkYWdpIGVsZWt0cm9uIHhhdG5pIGlta29uIHFhZGFyIGl4Y2hhbSB0YXJ6ZGEgdW11bWxhc2h0aXJpbmcsIGZvb3RlciwgaGVhZGVyIHZhIG9sZGluZ2kgeGF0bGFybmkgZeKAmXRpYm9yc2l6IHFvbGRpcmluZy4gWHVsb3NhZGFuIHhhdGxhcm5pIHRleiBrb%2BKAmHpkYW4ga2VjaGlyaXNoIHVjaHVuIGZveWRhbGFubW9xY2hpbWFuLiBIYXIgcWFuZGF5IG11bG95aW0gaWJvcmFsYXJuaSBvbGliIHRhc2hsYW5nLlxuXG5FbWFpbDogUW%2FigJhzaGltY2hhIG9maXMgamlob3psYXJpZ2Egc2%2FigJhyb3Zcbkh1cm1hdGxpIG9maXMgYWRtaW5pc3RyYXRvcmksXG5KYW1vYW1peiB1Y2h1biBxb%2BKAmHNoaW1jaGEgb2ZpcyBqaWhvemxhcmluaSBzb%2BKAmHJhc2ggbWFxc2FkaWRhIHlvem1vcWRhbWFuLiBTb%2BKAmG5nZ2kgcGF5dGxhcmRhIGlzaCBoYWptaSB5dXFvcmkgYm%2FigJhsZ2FuaSBzYWJhYmxpIGppaG96bGFyZGFuIG9kYXRkYWdpZGFuIHRlenJvcSBmb3lkYWxhbmlsbW9xZGEuIFF1eWlkYWdpIGJ1eXVtbGFybmkgdGFxZGltIGV0aXNoaW5naXpuaSBzb%2BKAmHJheW1pejogcHJpbnRlciBxb2figJhvemksIG1hamxpcyB4b25hc2lkYWdpIEhQIHByaW50ZXJpIHVjaHVuIHNpeW9oIGthcnRyaWpsYXJpLCB5b3Bpc2hxb3EgZXNsYXRtYWxhciwgcW9n4oCYb3ogcWlzcWljaGxhcmkgdmEgbWFya2VybGFyLiBBZ2FyIHNhdm9sbGFyIGJv4oCYbHNhIHlva2kgeWV0a2F6aWIgYmVyaXNoIG11ZGRhdGluaSBtYeKAmWx1bSBxaWxzYW5naXosIGlsdGltb3MsIHhhYmFyIGJlcmluZy5cblxuSHVybWF0IGJpbGFuLFxuSXNtaW5naXpcblxuWHVsb3NhOiIsIm1vZGVsIjoidGV4dC1kYXZpbmNpLTAwMyJ9"
   style={{
     width: "100%",
     height: "500px",
@@ -106,14 +106,14 @@ Bu yerda javob qoniqarli va foydali bo‘ladi. Biroq, biroz ko‘proq fine-tunin
 <br />
 Endi sizda qisqacha mazmunning eng muhim qismlari qoladi!
 
-## Boshqa qo‘llanilish holatlari
+## Boshqa qo'llanilish holatlari
 
-Endi qisqacha mazmun misolini ko‘rdingiz, Zapier+GPT-3 uchun yana bir nechta boshqa qo‘llanilish holatlarini tilga olamiz. Yaxshi misollardan biri — GPT-3’dan e-maillaringizni toifalashni so‘rash. Bu shunchaki promptda keyingi e-mailni istalgan toifalarga ajratishni so‘rashdan iborat.
+Endi qisqacha mazmun misolini ko'rdingiz, Zapier+GPT-3 uchun yana bir nechta boshqa qo'llanilish holatlarini tilga olamiz. Yaxshi misollardan biri — GPT-3'dan e-maillaringizni toifalashni so'rash. Bu shunchaki promptda keyingi e-mailni istalgan toifalarga ajratishni so'rashdan iborat.
 
-Yana bir chuqurroq misol — bir nechta promptlardan foydalanish. Siz prompt yordamida e-mail talablariga rozi bo‘luvchi javob va rad etuvchi yoki inkor qiluvchi javob yaratishingiz mumkin. Ikkalasini ham draftlaringizda saqlab, istalgan vaqtda yuborishga tayyor holda saqlashingiz mumkin.
+Yana bir chuqurroq misol — bir nechta promptlardan foydalanish. Siz prompt yordamida e-mail talablariga rozi bo'luvchi javob va rad etuvchi yoki inkor qiluvchi javob yaratishingiz mumkin. Ikkalasini ham draftlaringizda saqlab, istalgan vaqtda yuborishga tayyor holda saqlashingiz mumkin.
 
-Agar sizga doimiy ravishda juda o‘xshash e-maillar kelib tursa, Zapier’da filter yordamida promptni FAQAT o‘sha e-mailga qo‘llashingiz mumkin. Bu formatter bilan birga ishlatilganda kuchli vosita bo‘lishi mumkin. Siz undan ma’lumotlarni ajratib olib, CSV fayllarga eksport qilishingiz yoki to‘g‘ridan-to‘g‘ri ma’lumotlar bazasiga saqlashingiz mumkin.
+Agar sizga doimiy ravishda juda o'xshash e-maillar kelib tursa, Zapier'da filter yordamida promptni FAQAT o'sha e-mailga qo'llashingiz mumkin. Bu formatter bilan birga ishlatilganda kuchli vosita bo'lishi mumkin. Siz undan ma'lumotlarni ajratib olib, CSV fayllarga eksport qilishingiz yoki to'g'ridan-to'g'ri ma'lumotlar bazasiga saqlashingiz mumkin.
 
 ## Xavotirlar
 
-Iltimos, e-maillarni GPT-3 orqali o‘tkazish va ularni saqlashda maxfiylik masalalarini yodda tuting. GPT-3 ba’zan xatolarga yo‘l qo‘yishi mumkin. E-mail mazmunini yuborishdan oldin tekshirib chiqishni qat’iy tavsiya qilamiz.
+Iltimos, e-maillarni GPT-3 orqali o'tkazish va ularni saqlashda maxfiylik masalalarini yodda tuting. GPT-3 ba'zan xatolarga yo'l qo'yishi mumkin. E-mail mazmunini yuborishdan oldin tekshirib chiqishni qat'iy tavsiya qilamiz.
