@@ -1,6 +1,6 @@
 # Legal & Attribution
 
-This website is a collaboration between **Learn Prompting** and **HumblebeeAI**.
+This website is a Uzbek version of **Learn Prompting** by **HumblebeeAI**.
 
 ## License
 All content is licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.

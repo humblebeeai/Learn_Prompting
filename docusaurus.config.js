@@ -164,7 +164,7 @@ async function createConfig() {
 						type: "html",
 						position: "left",
 						value:
-							'<div style="display: flex; align-items: center; margin-left: -27px"><span style="margin: 0 14px; color: var(--ifm-color-primary); font-weight: 800; font-size: 1.5rem;">×</span><a href="/" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="https://academy.humblebee.ai/images/logo/logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 32px; margin-right: 12px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">HumblebeeAI</span></a></div>',
+							'<div class="navbar-logos-container"><div class="navbar-logos-mobile"><a href="/" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="img/simple_ai.webp" alt="Learn Prompting" style="height: 28px;" /><span style="color: var(--ifm-color-primary); font-weight: 800; font-size: 1.1rem; margin: 0 6px;">×</span><img src="https://academy.humblebee.ai/images/logo/logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 28px;" /><span style="font-weight: 700; font-size: 15px; letter-spacing: -0.02em; margin-left: 8px;">Learn Prompting</span></a></div><div class="navbar-logos-desktop"><a href="/" style="display: flex; align-items: center; text-decoration: none; color: inherit;"><img src="img/simple_ai.webp" alt="Learn Prompting" style="height: 32px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em; margin-left: 8px;">Learn Prompting</span><span style="color: var(--ifm-color-primary); font-weight: 800; font-size: 1.25rem; margin: 0 14px;">×</span><img src="https://academy.humblebee.ai/images/logo/logo.svg" alt="HumblebeeAI" class="logo-glow" style="height: 32px; margin-right: 8px;" /><span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">HumblebeeAI</span></a></div></div>',
 					},
 					{
 						to: "/about-project",
@@ -203,14 +203,6 @@ async function createConfig() {
 						className: "navbar-docs-button",
 					},
 				],
-			},
-			announcementBar: {
-				id: "collaboration",
-				content:
-					'<div style="font-weight: 600; font-size: 15px;">🇺🇿 <span style="margin: 0 8px;">Learn Prompting × HumblebeeAI Collaboration Edition</span> 🇺🇸</div>',
-				backgroundColor: "#53ffd4",
-				textColor: "#000",
-				isCloseable: true,
 			},
 			footer: {
 				style: "dark",

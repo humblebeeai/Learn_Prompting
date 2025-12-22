@@ -76,21 +76,13 @@ export default function AboutCollaboration() {
         </div>
       </section>
 
-      {/* Partners Logos/Grid */}
       <section
         style={{ padding: "4rem 0", background: "var(--color-bg-secondary)" }}
       >
         <div className="container">
-          <div
-            className="row"
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "4rem",
-            }}
-          >
+          <div className="row" style={{ alignItems: "center", justifyContent: "center" }}>
             {/* Learn Prompting */}
-            <div className="col col--5" style={{ textAlign: "center" }}>
+            <div className="col col--5" style={{ textAlign: "center", marginBottom: "2rem" }}>
               <h3 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
                 Learn Prompting
               </h3>
@@ -102,14 +94,12 @@ export default function AboutCollaboration() {
             </div>
 
             {/* X divider */}
-            <div
-              style={{ textAlign: "center", fontSize: "2rem", opacity: 0.3 }}
-            >
-              ×
+            <div className="col col--2" style={{ textAlign: "center", marginBottom: "2rem" }}>
+              <span style={{ fontSize: "2.5rem", fontWeight: "300", opacity: 0.3, lineHeight: 1 }}>×</span>
             </div>
 
             {/* HumblebeeAI */}
-            <div className="col col--5" style={{ textAlign: "center" }}>
+            <div className="col col--5" style={{ textAlign: "center", marginBottom: "2rem" }}>
               <h3 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
                 HumblebeeAI
               </h3>
@@ -155,18 +145,19 @@ export default function AboutCollaboration() {
             overflow: "hidden",
             backdropFilter: "blur(10px)"
           }}>
-            <div className="row" style={{ margin: 0, alignItems: "stretch" }}>
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-1" style={{ margin: 0, alignItems: "stretch" }}>
               {/* Left side - Image with Link */}
-              <div className="col col--6" style={{ padding: 0 }}>
+              <div className="w-full lg:w-1/2" style={{ padding: 0 }}>
                 <a
                   href="https://president.uz/oz/lists/view/8719"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block relative h-full min-h-[300px] lg:min-h-[500px] overflow-hidden no-underline cursor-pointer"
                   style={{
-                    display: "block",
+                    display: "block", // Maintaining block for older browser compatibility if needed by the framework, though 'block' class covers it
                     position: "relative",
                     height: "100%",
-                    minHeight: "500px",
+                    // minHeight removed from here to let CSS classes handle responsiveness
                     overflow: "hidden",
                     textDecoration: "none",
                     cursor: "pointer"
@@ -195,13 +186,7 @@ export default function AboutCollaboration() {
                   <img
                     src="/img/5mln-ai-prompters.jpg"
                     alt="5 Million AI Prompters Initiative"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                      transition: "transform 0.6s ease",
-                    }}
+										className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 ease-in-out"
                   />
                   {/* Overlay gradient */}
                   <div style={{
@@ -250,7 +235,7 @@ export default function AboutCollaboration() {
               </div>
 
               {/* Right side - Content */}
-              <div className="col col--6" style={{ padding: "3rem" }}>
+              <div className="w-full lg:w-1/2 p-8 lg:p-12">
                 {/* Badge */}
                 <div style={{
                   display: "inline-flex",
@@ -481,9 +466,7 @@ export default function AboutCollaboration() {
                 Agar sizda takliflar bo'lsa yoki tarjimaga hissa qo'shmoqchi
                 bo'lsangiz:
               </p>
-              <div
-                style={{ display: "flex", gap: "1rem", marginTop: "1.5rem" }}
-              >
+              <div className="flex flex-col md:flex-row gap-2 mt-4">
                 <Link
                   className="button button--primary button--lg"
                   to="https://github.com/humblebeeai/Learn_Prompting"

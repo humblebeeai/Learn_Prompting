@@ -176,6 +176,55 @@ h6 {
 	transform: scale(1.05) translateZ(0);
 }
 
+/* Navbar logos responsive layout */
+.navbar-logos-container {
+	display: flex !important;
+	align-items: center !important;
+}
+
+.navbar-logos-mobile,
+.navbar-logos-desktop {
+	display: flex !important;
+	align-items: center !important;
+}
+
+/* Force navbar item with logos to display on all screens */
+.navbar__items .navbar__item:has(.navbar-logos-container) {
+	display: flex !important;
+}
+
+/* Mobile/Tablet: Show compact layout (Logo × Logo Learn Prompting) */
+@media (max-width: 996px) {
+	.navbar-logos-desktop {
+		display: none !important;
+	}
+
+	.navbar-logos-mobile {
+		display: flex !important;
+	}
+}
+
+/* Desktop: Show full layout (Logo Learn Prompting × Logo HumblebeeAI) */
+@media (min-width: 640px) {
+	.audience-section {
+		padding: 2rem 1rem;
+	}
+
+	.navbar-logos-mobile {
+		display: none !important;
+	}
+
+	.navbar-logos-desktop {
+		display: flex !important;
+	}
+}
+
+/* Hide default navbar brand on all screens since we're using custom HTML */
+.navbar__brand {
+	display: none !important;
+}
+
+
 /* Announcement Bar Polish */
 div[class^="announcementBar_"] {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -674,7 +723,7 @@ html[data-theme='dark'] .alert--takeaways {
    AUDIENCE SECTION
    =========================== */
 .audience-section {
-	padding: var(--space-xl) var(--space-md);
+	padding: 2rem 0.5rem;
 	background: var(--color-bg-primary);
 	border-bottom: 1px solid var(--color-border);
 }
