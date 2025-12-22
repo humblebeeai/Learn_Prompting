@@ -369,7 +369,6 @@ export default function AboutCollaboration() {
         </div>
       </section>
 
-
       {/* License & Attribution */}
       <section
         style={{
