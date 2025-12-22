@@ -1,8 +1,8 @@
 {
-  "label": "📚 Adabiyotlar",
-  "link": {
-    "type": "doc",
-    "id": "page"
-  },
-  "position": 1000
+	"label": "📚 Bibliografiya",
+	"link": {
+		"type": "doc",
+		"id": "page"
+	},
+	"position": 1000
 }

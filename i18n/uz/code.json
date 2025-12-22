@@ -48,13 +48,13 @@
 		"message": "Natija beradigan savollar, topshiriqlar va instruktsiyalar tuzish"
 	},
 	"homepage.features.practice.title": {
-		"message": "Ish uchun tayyor shablonlar"
+		"message": "Ish uchun tayyor shablonlar olish"
 	},
 	"homepage.features.practice.description": {
 		"message": "Email, reja, hisobot, prezentatsiya va tahlil promptlari"
 	},
 	"homepage.features.community.title": {
-		"message": "Amaliy misollar"
+		"message": "Amaliy misollar bilan tanishish"
 	},
 	"homepage.features.community.description": {
 		"message": "Har bir modulda real hayotdan olingan misollar"
@@ -75,7 +75,7 @@
 		"message": "O'rganish yo'li"
 	},
 	"homepage.path.mainTitle": {
-		"message": "Qadamma-qadam real ko'nikmaga"
+		"message": "Qadamma-qadam real ko'nikma sari"
 	},
 	"homepage.path.step1.title": {
 		"message": "AI va prompt asoslari"
@@ -99,7 +99,7 @@
 		"message": "Kengaytirilgan mavzular"
 	},
 	"homepage.path.step4.description": {
-		"message": "Ishonchlilik, tekshiruv, image prompting va tooling"
+		"message": "Ishonchlilikni tekshirish, image prompting va tooling"
 	},
 	"homepage.cta.title": {
 		"message": "Hoziroq boshlang"

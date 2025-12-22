@@ -13,7 +13,7 @@
 	"editor.smoothScrolling": true,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
-	"editor.tabSize": 4,
+	"editor.tabSize": 2,
 	"[markdown]": {
 		"editor.insertSpaces": true,
 		"files.trimTrailingWhitespace": false

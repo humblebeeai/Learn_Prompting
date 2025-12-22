@@ -91,8 +91,6 @@
 
 	/* Navbar Overrides for Dark Mode */
 	--ifm-navbar-background-color: #1a1f2e;
-	--ifm-navbar-item-padding-horizontal: 1.2rem;
-	/* Increased spacing */
 }
 
 [data-theme='light'] {
@@ -149,14 +147,33 @@ h6 {
 	align-items: center;
 }
 
-/* Logo Glow Effect */
+/* Learn Prompting Logo - optimized to prevent glitching */
+.navbar__brand img {
+	transition: filter 0.3s ease;
+	will-change: filter;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+}
+
+.navbar__brand:hover img {
+	filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+}
+
+/* HumblebeeAI Logo Glow - optimized */
 .logo-glow {
 	transition: filter 0.3s ease, transform 0.3s ease;
+	will-change: filter, transform;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
 }
 
 .logo-glow:hover {
 	filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
-	transform: scale(1.05);
+	transform: scale(1.05) translateZ(0);
 }
 
 /* Announcement Bar Polish */
@@ -169,14 +186,119 @@ html[data-theme='dark'] div[class^="announcementBar_"] {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Learn Prompting Logo Glow (if we can target it by img tag inside navbar brand) */
-.navbar__brand img {
-	transition: filter 0.3s ease;
+/* Hide search box that's taking up space */
+.searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module,
+div[class*="searchBox"] {
+	display: none !important;
 }
 
-.navbar__brand:hover img {
-	filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+/* Navbar item ordering - reposition items in proper order */
+.navbar__items--right {
+	display: flex !important;
 }
+
+/* 1. About Project - order 1 (first) */
+.navbar__items--right>a[href="/about-project"] {
+	order: 1 !important;
+}
+
+/* 2. Academy Link - order 2 */
+.navbar__items--right>.navbar-academy-link {
+	order: 2 !important;
+}
+
+/* 3. Language Switcher (Tillar) - order 3 */
+.navbar__items--right>.dropdown {
+	order: 3 !important;
+}
+
+/* 4. Theme Switcher - order 4 */
+.navbar__items--right>[class*="colorModeToggle"] {
+	order: 4 !important;
+}
+
+/* 5. Docs Button - order 5 (last) */
+.navbar__items--right>.navbar-docs-button {
+	order: 5 !important;
+}
+
+/* Academy Link Styling - Yellow theme */
+.navbar-academy-link {
+	color: #fbbf24 !important;
+	font-weight: 600;
+	transition: all var(--transition-base);
+	position: relative;
+}
+
+.navbar-academy-link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: #fbbf24;
+	transition: width var(--transition-base);
+}
+
+.navbar-academy-link:hover {
+	color: #f59e0b !important;
+	transform: translateY(-1px);
+}
+
+.navbar-academy-link:hover::after {
+	width: 100%;
+}
+
+/* Dark mode adjustments for Academy link */
+[data-theme='dark'] .navbar-academy-link {
+	color: #fcd34d !important;
+}
+
+[data-theme='dark'] .navbar-academy-link:hover {
+	color: #fde68a !important;
+}
+
+[data-theme='dark'] .navbar-academy-link::after {
+	background: #fcd34d;
+}
+
+
+/* Docs Button Styling */
+.navbar-docs-button {
+	background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-primary-hover) 100%);
+	color: white !important;
+	padding: 0.5rem 1.25rem !important;
+	border-radius: 8px;
+	font-weight: 600;
+	transition: all var(--transition-base);
+	box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+	margin-left: 0.5rem;
+}
+
+.navbar-docs-button:hover {
+	background: linear-gradient(135deg, var(--color-brand-primary-hover) 0%, #047857 100%);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+	color: white !important;
+}
+
+.navbar-docs-button:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+
+/* Dark mode adjustments for docs button */
+[data-theme='dark'] .navbar-docs-button {
+	background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+	box-shadow: 0 2px 8px rgba(52, 211, 153, 0.3);
+}
+
+[data-theme='dark'] .navbar-docs-button:hover {
+	background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
+	box-shadow: 0 4px 12px rgba(52, 211, 153, 0.4);
+}
+
 
 /* ===========================
    ANIMATION KEYFRAMES

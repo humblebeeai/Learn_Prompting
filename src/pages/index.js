@@ -283,7 +283,7 @@ function FeaturesSection() {
       ),
       title: (
         <Translate id="homepage.features.practice.title">
-          Ish uchun tayyor shablonlar
+          Ish uchun tayyor shablonlar olish
         </Translate>
       ),
       description: (
@@ -299,7 +299,7 @@ function FeaturesSection() {
       ),
       title: (
         <Translate id="homepage.features.community.title">
-          Amaliy misollar
+          Amaliy misollar bilan tanishish
         </Translate>
       ),
       description: (
@@ -430,7 +430,7 @@ function LearningPathSection() {
       ),
       description: (
         <Translate id="homepage.path.step4.description">
-          Ishonchlilik, tekshiruv, image prompting va tooling
+          Ishonchlilikni tekshirish, image prompting va tooling
         </Translate>
       ),
       color: "#f59e0b",
@@ -450,7 +450,7 @@ function LearningPathSection() {
           </span>
           <h2 className="section-title">
             <Translate id="homepage.path.mainTitle">
-              Qadamma-qadam real ko'nikmaga
+              Qadamma-qadam real ko'nikma sari
             </Translate>
           </h2>
         </div>
