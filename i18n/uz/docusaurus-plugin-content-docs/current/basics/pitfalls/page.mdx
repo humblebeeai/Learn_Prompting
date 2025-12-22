@@ -7,42 +7,68 @@ title: "🟢 LLM-larning kamchiliklari"
 # LLM-larning kamchiliklari
 
 
+<div style={{ textAlign: "center"}}>
+  <Image
+    src={"/assets/pitfalls.png"}
+    style={{
+      maxWidth: "600px",
+      width: "100%",
+      height: "auto",
+      margin: "auto",
+    }}
+  />
+</div>
 <br />
 
 
-- LLM
+ChatGPT va GPT-4 kabi katta til modellari (LLMlar) texnologiya bilan muloqot qilish uslubimizni o'zgartirdi. Savollarga javob berishdan tortib insho yoki kod yozishda yordam berishgacha, bu modellar inson tilini talqin qilish, yaratish va taqlid qilishda ajoyib natija ko'rsatadi. Biroq, ular nima qila olishida deyarli sehrli ko'rinsa ham, LLMlar tushunish muhim bo'lgan bir qator cheklovlarga ega. Ushbu cheklovlarni bilish sizga ularni yaxshiroq ishlatish va umumiy muammolardan qochishga yordam beradi.
 
+Ushbu bo'limda biz LLMlar duch keladigan asosiy qiyinchiliklar va ularni qanday hal qilish yo'llarini ko'rib chiqamiz:
 
-Katta Til Modellari (LLM) texnologiyaning ko'plab sohalarida, mijozlarga xizmat ko'rsatishdan tortib kontent yaratishgacha, inqilobiy o'zgarishlar kiritgan kuchli vositalardir. Biroq, har qanday texnologiya kabi, ular ham kamchiliklardan xoli emas. Ushbu kamchiliklarni tushunish LLM-lardan samarali foydalanish va mumkin bo'lgan muammolarni kamaytirish uchun juda muhimdir. Ushbu maqolada LLM-larning ba'zi keng tarqalgan kamchiliklari, jumladan, manbalarni ko'rsatish, xatolik, xayoliy ma'lumotlar, matematika va prompt hacking muammolari ko'rib chiqiladi.
+## LLMlar nima?
 
-## Manbalarni ko'rsatish
+Cheklovlarga o'tishdan oldin, LLMlar nima ekanligini qisqacha eslatib o'tamiz. LLMlar insonga o'xshash matnni tushunish va yaratish uchun o'rgatilgan AI modellaridir. Ular savollarga javob berishi, suhbatlashishi, kontent yozishi va boshqa ko'p narsalarni qila oladi. Ular katta hajmdagi matn ma'lumotlaridan (kitoblar, veb-saytlar va maqolalar kabi) o'rgangan naqshlarga asoslanib, gapda keyin nima kelishini bashorat qilish orqali ishlaydi.
 
-LLM-lar manbalarni ko'rsatgandek matn yaratishi mumkin bo'lsa-da, ular **manbalarni aniq ko'rsata olmaydi**. Buning sababi, ular Internetga kirish imkoniga ega emas va o'zlarining o'quv ma'lumotlari qayerdan kelganini eslab qolish qobiliyatiga ega emas. Natijada, ular ko'rinishda ishonchli, lekin butunlay to'qima manbalarni yaratishi mumkin. Bu, ayniqsa, aniq manba ko'rsatishni talab qiladigan vazifalarda LLM-lardan foydalanishda muhim cheklov hisoblanadi.
+## LLMlarning cheklovlari qanday?
 
+LLMlar ta'sirchan bo'lsa-da, ular mukammal emas. Keling, ularning asosiy cheklovlarini ko'rib chiqaylik:
 
-*Noto'g'ri manba ko'rsatish muammosini qisman kamaytirish mumkin search augmented LLM-lardan foydalanish orqali. Bu LLM-lar Internet va boshqa manbalardan yanada aniqroq ma'lumot olish imkoniyatiga ega.*
+### 1. Gallyutsinatsiyalar (Ma'lumot o'ylab topish)
 
+LLMlar haqida g'alati narsa shundaki, ular javobni bilmaganda, ko'pincha buni tan olishmaydi. Buning o'rniga, ular ishonchli tarzda ishonchli ko'rinadigan narsani o'ylab topadi. Bu "gallyutsinatsiya" deb ataladi. Masalan, agar siz o'rgatilgan ma'lumotlarda bo'lmagan tarixiy voqea haqida fakt so'rasangiz, LLM hech qachon sodir bo'lmagan tafsilotlar yoki voqealarni ixtiro qilishi mumkin.
 
-## Xatolik
+### 2. Cheklangan fikrlash qobiliyati
 
-LLM-lar o'z javoblarida xatolik ko'rsatishi mumkin, ko'pincha stereotipik yoki kamsituvchi mazmundagi matnlarni yaratadi. Buning sababi, ular tarkibida xatolik bo'lishi mumkin bo'lgan katta ma'lumotlar to'plamida o'qitilgan. Buni oldini olish uchun xavfsizlik choralariga qaramay, LLM-lar ba'zan jinsiy, irqiy yoki gomofobik mazmundagi matnlarni yaratishi mumkin. Bu, ayniqsa, LLM-lardan iste'molchilarga mo'ljallangan ilovalarda yoki tadqiqotlarda foydalanishda muhim muammo bo'lib, zararli stereotiplar va xatoli natijalarning tarqalishiga olib kelishi mumkin.
+LLMlar juda aqlli ko'rinsa ham, ular ko'pincha oddiy matematika bilan kurashadi. Buning sababi, ular haqiqatan ham matematika muammolarini hal qilish uchun mo'ljallanmagan. LLMlar gaplarni tushunish va yaratishda yaxshi bo'lsa-da, murakkab muammolarni hal qilishda unchalik yaxshi emas. Masalan, agar siz LLMdan ko'p bosqichli matematika masalasini yoki jumboqni hal qilishni so'rasangiz, u yo'l davomida chalkashib ketishi va xatolarga yo'l qo'yishi mumkin.
 
-## Xayoliy ma'lumotlar
+### 3. Cheklangan uzoq muddatli xotira
 
-LLM-lar ba'zan savolga javobni bilmaganda "xayoliy" yoki noto'g'ri ma'lumot yaratishi mumkin. Ular javobni bilmasligini aytish o'rniga, ko'pincha ishonchli eshitiladigan, lekin noto'g'ri javob yaratadi. Bu noto'g'ri ma'lumot tarqalishiga olib kelishi mumkin va LLM-lardan aniq ma'lumot talab qilinadigan vazifalarda foydalanishda hisobga olinishi kerak.
+Har safar LLMdan foydalansangiz, u bo'sh varaqdan boshlanadi - u joriy seansda eslatmasangiz, oldingi suhbatlaringizni eslamaydi. Agar siz davom etayotgan muhokama o'tkazishga yoki vaqt o'tishi bilan loyiha ustida ishlashga harakat qilsangiz, bu zerikkartiruvchi bo'lishi mumkin.
 
-## Matematika
+### 4. Cheklangan bilim
 
-Keng imkoniyatlariga qaramay, Katta Til Modellari (LLM) ko'pincha matematik vazifalarda qiynaladi va noto'g'ri javoblar berishi mumkin (hatto ikki sonni ko'paytirish kabi oddiy masalalarda ham). Buning sababi, ular katta hajmdagi matnlarda o'qitilgan va matematika boshqacha yondashuvni talab qilishi mumkin.
+LLMlar o'tmishdagi ma'lumotlar ustida o'rgatiladi. Bu shuni anglatadiki, agar LLMlar internetga kirish huquqiga ega bo'lmasa yoki real vaqtda ma'lumot qidirish imkoniyati bo'lmasa, ular o'qitish ma'lumotlari to'plangandan keyin sodir bo'lgan hech narsani bilmaydi. Agar siz so'nggi voqealar haqida so'rasangiz, ular aniq javob bera olmaydi.
 
+### 5. Noto'g'ri qarash (Bias)
 
-*Matematika bilan bog'liq muammoni qisman hal qilish mumkin LLM imkoniyatlarini maxsus vositalar bilan birlashtiruvchi tool augmented LLM yordamida, like math.*
+LLMlar o'rgatilgan matndan o'rganadilar va bu matn noto'g'ri qarash, zararli yoki noto'g'ri kontent o'z ichiga olishi mumkin bo'lgan joy - internetdan keladi. Natijada, LLMlar ba'zan javoblarida bir xil noto'g'ri qarashlarni aks ettirishi mumkin. Masalan, ular seksistik, irqchilik yoki boshqa muammoli kontent ishlab chiqarishi mumkin.
 
+### 6. Prompt Hacking
 
-## Prompt hacking
+LLMlar promptlarni qanday manipulyatsiya qilishni biladigan aqlli foydalanuvchilar tomonidan aldanishi yoki "xakerlik qilinishi" mumkin. Bu prompt hacking deb ataladi. Masalan, kimdir promptni shunday tuzishi mumkinki, u LLMni tizim bunday javoblarni bloklashi kerak bo'lsa ham, nomaqbul yoki zararli kontent yaratishga majbur qiladi.
 
-LLM-lar foydalanuvchilar tomonidan ma'lum bir mazmun yaratishga majburlanishi yoki "hack" qilinishi mumkin. Bu prompt hacking deb ataladi va LLM-ni noo'rin yoki zararli mazmun yaratishga aldash uchun ishlatilishi mumkin. Ayniqsa, ommaga ochiq ilovalarda LLM-lardan foydalanishda ushbu muammoga e'tiborli bo'lish muhim. Prompt hacking haqida batafsil [bu yerda](https://learnprompting.org/docs/category/-prompt-hacking) o'qishingiz mumkin.
+**Qanday hal qilish kerak:** LLMlarni ommaviy yoki boshqalar bilan o'zaro aloqada bo'lish uchun ishlatganda, nomaqbul foydalanishning oldini olish uchun filtrlar va xavfsizlik choralari mavjudligiga ishonch hosil qiling.
+
+## Ushbu cheklovlarni bartaraf etish
+
+LLMlar aniq cheklovlarga ega bo'lsa-da, ularning ta'sirini kamaytirishning yo'llari mavjud:
+
+**Natijalarni ikki marta tekshiring:** LLM tomonidan taqdim etilgan ma'lumotlarni, ayniqsa faktlar yoki muhim qarorlar uchun har doim tekshiring.
+
+**Vositalarni birlashtiring:** Murakkab fikrlash, matematika yoki real vaqt ma'lumotlarini talab qiladigan vazifalar uchun LLMlarni maxsus vositalar yoki plaginlar bilan birlashtiring.
+
+**Xavfsizlik filtrlaridan foydalaning:** Ommaga mo'ljallangan ilovalarda nomaqbul kontentni bloklash va prompt hacking orqali suiiste'mol qilishning oldini olish uchun filtrlarni joriy qiling.
 
 ## Xulosa
 
-Xulosa qilib aytganda, LLM-lar kuchli va ko'p qirrali vositalar bo'lsa-da, ular bilan ishlashda foydalanuvchilar e'tibor berishi kerak bo'lgan bir qator kamchiliklarga ega. Manbalarni aniq ko'rsatishdagi muammolar, ichki xatoliklar, xayoliy ma'lumotlar yaratish, matematikada qiyinchiliklar va prompt hackingga moyillik — bularning barchasi ushbu modellardan foydalanishda hal qilinishi lozim bo'lgan muammolardir. Ushbu cheklovlarni tushunish orqali biz LLM-lardan yanada samarali va mas'uliyatli foydalanishimiz, shuningdek, kelajakda ushbu modellarni takomillashtirish ustida ishlashimiz mumkin.
+LLMlar nihoyatda kuchli vositalar, lekin ular mukammallikdan yiroq. Ularning cheklovlarini - masalan, ularning narsalarni o'ylab topish tendentsiyasi va noto'g'ri qarash va matematika bilan kurashlarini - tushunish sizga ularni yanada samarali ishlatishga yordam beradi. AI rivojlanishda davom etar ekan, bu muammolar yaxshilanishi mumkin, ammo hozircha ulardan xabardor bo'lish va LLMlarni mas'uliyat bilan ishlatish muhimdir.

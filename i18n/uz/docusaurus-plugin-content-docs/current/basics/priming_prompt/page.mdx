@@ -13,6 +13,28 @@ title: "🟢 Chatbotlarni Priming qilish"
 
 Suhbatning **tuzilishi** va **uslubini** birinchi prompt orqali belgilab olish mumkin — bu Chatbot’ni “priming” qilish deb ataladi. Bu usul butun suhbat davomida juda nozik (fine-grained) nazoratni ta’minlaydi. Keling, bir nechta misollar orqali priming prompt[^1] yordamida suhbatni qanday tuzish va uslubini belgilash mumkinligini ko‘raylik.
 
+## Chatbotlarni Tayyorlash nima?
+
+Chatbotlarni tayyorlash chatbot javoblari uchun ohang, uslub yoki tuzilmani belgilaydigan prompt yaratishni o'z ichiga oladi. Bu texnika foydalanuvchilarga AI ohangini sozlash, uning javoblarini ma'lum kontentga yo'naltirish yoki kontekst berish uchun rol o'ynashni joriy qilish imkonini beradi. Bu AI sizning maqsadlaringizga yaqinroq natijalar ishlab chiqarishiga yordam beradigan usuldir.
+
+## Nima uchun Prompt Tayyorlash foydali?
+
+ChatGPT yoki Gemini kabi chatbotlar juda ko'p qirrali, ammo to'g'ri yo'naltirishsiz ularning javoblari ba'zan haddan tashqari umumiy bo'lishi yoki so'rovingizning nozik jihatlarini o'tkazib yuborishi mumkin. Tayyorlash chatbotning aniqroq, shaxsiylashtirilgan va tegishli javob berishini ta'minlaydi, bu esa o'zaro aloqaning umumiy sifatini yaxshilaydi.
+
+### Misol
+
+Masalan, quyidagi oddiy prompt umumiy fantastik hikoya yaratishi mumkin.
+
+<AIInput>
+Ajdaho haqida hikoya yozing.
+</AIInput>
+
+Ammo AI ni batafsilroq prompt bilan tayyorlash sizga AI ijodkorligini aniqroq yo'nalishda yo'naltiruvchi aniq kontekstni o'rnatish imkonini beradi.
+
+<AIOutput>
+Olov o'rniga muz nafas oladigan, yaltirab turgan tarozalarga ega ajdaho haqida, doimiy alachakaranlıkka burkangan yerda hikoya yoz.
+</AIOutput>
+
 ## Suhbat uslubini belgilash (Styling)
 
 Suhbat uslubini boshqarishning kulgili misollaridan biri — AIni **qaroqchi (pirate)** kabi gapirtirishdir. Buning uchun priming prompt sifatida **role prompt** ishlatamiz. Quyidagi promptlarni ChatGPT’ga kiritib ko‘ring.
